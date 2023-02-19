@@ -1,0 +1,284 @@
+// /*  typography */
+
+// html {
+//   font-size: $font-size;
+// }
+
+// body {
+//   font-family: $font-primary;
+//   font-weight: 400;
+//   line-height: 1.75;
+//   color: $text-color;
+// }
+
+// p {
+//   margin-bottom: 1rem;
+// }
+
+// h1,
+// h2,
+// h3,
+// h4,
+// h5,
+// h6 {
+//   font-family: $font-primary;
+//   font-weight: 700;
+//   color: $text-color;
+// }
+
+// small,
+// .small {
+//   font-size: 0.8rem;
+// }
+
+// // List in descending order to prevent extra sort function
+// $type-levels: 6, 5, 4, 3, 2, 1;
+
+// // Create map with h[x] as key
+// $level-size: $font-size;
+// @each $level in $type-levels {
+//   $level-size: $level-size * $font-scale;
+//   // Output heading styles
+//   h#{$level},
+//   .h#{$level} {
+//     font-size: $level-size;
+//     line-height: calc(2px + 2ex + 2px);
+//     margin-bottom: 0.65em;
+//     @include tablet {
+//       font-size: calc( #{$level-size} * .85);
+//     }
+//     @include mobile {
+//       font-size: calc( #{$level-size} * .65);
+//     }
+//   }
+// }
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Noticia+Text:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noticia+Text:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+body {
+    font-family: $font-primary;
+    font-size: 18px;
+    line-height: 30px;
+    color: $text-color;
+    font-weight: 500;
+    overflow-x: hidden;
+}
+
+p,
+.paragraph {
+    font-weight: 400;
+    color: $light-300 !important;
+    font-family: $font-primary;
+    font-size: 16px;
+}
+
+@include mobile{
+    p,
+    .paragraph {
+     font-size: 16px;
+    } 
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
+    font-family: $font-secondary;
+    font-weight: 700;
+}
+
+h1,
+.h1 {
+    font-size: 64px;
+    line-height: 1.3;
+}
+
+@include mobile {
+
+    h1,
+    .h1 {
+        font-size: 28px;
+        line-height: 40px;
+    }
+}
+
+@include tablet {
+
+    h1,
+    .h1 {
+        font-size: 34px;
+        line-height: 40px;
+    }
+}
+
+@include desktop {
+
+    h1,
+    .h1 {
+        font-size: 50px;
+        line-height: 60px;
+    }
+
+}
+
+@include desktop-lg {
+
+    h1,
+    .h1 {
+        font-size: 58px;
+        line-height: 70px;
+    }
+
+}
+
+h2,
+.h2 {
+    font-size: 48px;
+    line-height: 1.2;
+}
+
+@include mobile {
+
+    h2,
+    .h2 {
+        font-size: 26px;
+        line-height: 36px;
+    }
+}
+
+@include tablet {
+
+    h2,
+    .h2 {
+        font-size: 28px;
+        line-height: 45px;
+    }
+}
+
+@include desktop {
+
+    h2,
+    .h2 {
+        font-size: 30px;
+        line-height: 48px;
+    }
+}
+
+@include desktop-lg {
+
+    h2,
+    .h2 {
+        font-size: 40px;
+        line-height: 56px;
+    }
+}
+
+h3,
+.h3 {
+    font-size: 36px;
+    line-height: 46px;
+}
+
+@include mobile {
+
+    h3,
+    .h3 {
+        font-size: 24px;
+        line-height: 26px;
+    }
+}
+
+@include tablet {
+
+    h3,
+    .h3 {
+        font-size: 26px;
+        line-height: 28px;
+    }
+}
+
+@include desktop {
+
+    h3,
+    .h3 {
+        font-size: 28px;
+        line-height: 30px;
+    }
+}
+
+@include desktop-lg {
+
+    h3,
+    .h3 {
+        font-size: 32px;
+        line-height: 32px;
+    }
+}
+
+h4,
+.h4 {
+    font-size: 24px;
+    line-height: 24px;
+}
+
+@include mobile {
+
+    h4,
+    .h4 {
+        font-size: 18px;
+        line-height: 20px;
+    }
+}
+
+@include tablet {
+
+    h4,
+    .h4 {
+        font-size: 20px;
+        line-height: 18px;
+    }
+}
+
+@include desktop {
+
+    h4,
+    .h4 {
+        font-size: 22px;
+        line-height: 22px;
+    }
+}
+
+h5,
+.h5 {
+    font-size: 22px;
+    line-height: 28px;
+}
+@include mobile{
+    h5, .h5 {
+        font-size: 16px;
+        line-height: 24px;
+    }
+}
+@include tablet{
+    h5, .h5 {
+        font-size: 17px;
+        line-height: 24px;
+    }
+}
+@include desktop{
+    h5, .h5 {
+        font-size: 17px;
+        line-height: 24px;
+    }
+}
+h6,
+.h6 {
+    font-size: 20px;
+    line-height: 20px;
+}

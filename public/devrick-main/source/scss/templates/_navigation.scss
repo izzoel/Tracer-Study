@@ -1,0 +1,218 @@
+.fixed-menu {
+  background-color: $white;
+  .navbar-nav {
+    .nav-item {
+      .nav-link {
+        margin: 10px 0 !important;
+      }
+    }
+  }
+  .dropdown-menu{
+    margin-top: 0 !important;
+  }
+}
+
+.navigation {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: 0.4s;
+  color: black;
+  z-index: 999;
+
+  .navbar-brand {
+    color: $text-color;
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: 500;
+
+    i {
+      width: 50px;
+      height: 50px;
+      border-radius: 50px;
+      color: $color-primary;
+      border: 1px solid $color-primary;
+      background-color: transparent;
+      text-align: center;
+      line-height: 50px;
+      margin-right: 10px;
+      font-size: 20px;
+    }
+    &:hover {
+      color: $text-color !important;
+    }
+  }
+
+  .navbar-toggler {
+    padding: 10px 15px;
+    font-size: 24px;
+    line-height: 1;
+    background-color: $white;
+    border: 0;
+    border-radius: 0;
+    transition: none;
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  .navbar-nav {
+    .nav-item {
+      @media (min-width: 992px) {
+        &:not(:last-child){
+          margin-right: 12px;
+        }
+      }
+      .nav-link {
+        margin-top: 35px;
+        margin-bottom: 30px;
+        color: $text-color;
+        padding: 0 20px;
+        font-size: 14px;
+        line-height: 14px;
+        font-weight: 400;
+        transition: 0.4s;
+
+        &:hover {
+          color: $color-primary;
+        }
+      }
+
+      .active {
+        color: $color-primary;
+      }
+    }
+  }
+
+  // dropdown
+  .dropdown {
+    @media (min-width: 992px) {
+      &:hover ul.dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0px);
+      }
+      &-menu {
+        display: block;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px);
+        margin-top: -8px;
+      }
+    }
+
+    &-menu {
+      border: 0;
+      background: $white;
+      box-shadow: 0 1.5rem 4rem rgba(63, 63, 65, 0.15);
+      padding: 5px 16px;
+      transition: 0.3s;
+      min-width: 11rem;
+
+      li {
+        &:not(:last-child) {
+          margin-bottom: 7px;
+        }
+        a {
+          padding: 2px 1.067rem;
+          border-radius: 5px;
+        }
+      }
+
+      .dropdown-item {
+        text-transform: capitalize;
+        font-weight: 400;
+        transition: 0.3s;
+
+        &.active,
+        &:active,
+        &:hover {
+          color: $color-primary;
+          background-color: transparent;
+        }
+      }
+    }
+
+    .dropdown-toggle::after {
+      margin-left: 0.3rem;
+      content: "\f107";
+      font-family: "Font Awesome 5 Free";
+      font-weight: 700;
+      border: 0;
+      vertical-align: 0;
+    }
+  }
+}
+
+@include mobile {
+  .fixed-menu {
+    padding: 5px 0px !important;
+
+    background-color: $light-100;
+  }
+
+  .navigation {
+    padding: 5px 0px;
+    background-color: $light-100;
+
+    .navbar-nav .nav-item .nav-link {
+      padding-left: 0px;
+      line-height: 0px;
+      font-size: 14px;
+      font-weight: 400;
+      padding-bottom: -20px;
+      margin: 10px 0 !important;
+      text-align: center;
+    }
+  }
+}
+
+@include tablet {
+  .fixed-menu {
+    padding: 5px 0px !important;
+
+    background-color: $light-100;
+  }
+
+  .navigation {
+    padding: 5px 0px;
+    background-color: $light-100;
+
+    .navbar-nav .nav-item .nav-link {
+      line-height: 0px;
+      font-size: 14px;
+      font-weight: 400;
+      padding-bottom: -20px;
+      margin: 10px 0 !important;
+      text-align: center;
+    }
+  }
+}
+
+@include desktop {
+  .fixed-menu {
+    padding: 5px 15px !important;
+    background-color: $light-100;
+  }
+  .navigation {
+    background-color: $light-100;
+    padding: 5px 20px;
+    .navbar-nav .nav-item .nav-link {
+
+      line-height: 0px;
+      font-size: 14px;
+      font-weight: 400;
+      padding-bottom: -20px;
+      margin: 20px 0 !important;
+      text-align: center;
+    }
+
+    .navbar-toggler {
+      i {
+        font-size: 28px;
+      }
+    }
+  }
+}

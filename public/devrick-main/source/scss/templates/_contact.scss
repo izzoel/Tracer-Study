@@ -1,0 +1,129 @@
+.contact {
+  position: relative;
+  margin: 120px 0;
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: $light-100;
+    width: calc(50% + 50px);
+    height: 100%;
+    z-index: -1;
+
+  }
+  .contact-from {
+    width: 44%;
+    margin-bottom: 40px;
+    position: relative;
+    margin: 0 10px;
+
+    @include tablet{
+      width: 100%;
+      margin: 0;
+    }
+    &:last-child {
+      width: 100%;
+      margin-bottom: 60px;
+    }
+    input {
+      position: absolute;
+      box-sizing: border-box;
+      width: 100%;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+      outline: none;
+      cursor: text;
+      background-color: transparent;
+      font-size: 16px;
+      font-weight: 600;
+      color: $text-color;
+      bottom: 5px;
+      &::-webkit-input-placeholder {
+        transition: color 300ms ease;
+      }
+      &:not(:focus)::-webkit-input-placeholder {
+        color: transparent;
+      }
+      &:focus-visible {
+        outline: none;
+      }
+      &::placeholder {
+        color: $text-color;
+      }
+    }
+    label {
+      position: absolute;
+      top: -15px;
+      left: 0px;
+      transform-origin: 0 -150%;
+      transition: transform 300ms ease;
+      pointer-events: none;
+      font-size: 14px;
+    }
+    input:focus ~ label,
+    input:valid ~ label {
+      transform: scale(0.7);
+      font-size: 18px;
+    }
+  }
+  .contact-us {
+    li {
+
+      &:not(:last-child) {
+        margin-right: 30px;
+      }
+      a {
+        color: $text-color;
+        transition: 0.4s;
+        i {
+          font-size: 20px !important;
+        }
+      }
+    }
+  }
+  .btn {
+    padding: 12px 30px;
+  }
+}
+
+@include desktop {
+  .contact {
+    &::after {
+      width: 100%;
+    }
+  }
+}
+@include tablet {
+  .contact {
+    h6 {
+      text-align: left !important;
+    }
+
+    form {
+      button {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@include mobile {
+  .contact {
+    h6 {
+      text-align: left !important;
+    }
+
+    &::after {
+      width: 100%;
+    }
+
+    form {
+      button {
+        width: 100%;
+      }
+    }
+  }
+}
+

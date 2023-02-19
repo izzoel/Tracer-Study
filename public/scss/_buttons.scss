@@ -1,0 +1,67 @@
+/* Button style */
+.btn {
+  font-size: 0.9rem;
+  font-family: $font-primary;
+  text-transform: capitalize;
+  padding: 0.7em 1em;
+  border-radius: 50px;
+  border: 1px solid;
+  position: relative;
+  z-index: 1;
+  transition: 0.2s ease;
+  background-color: $color-primary;
+  color: $white;
+  padding: 14px 40px;
+  font-size: 18px;
+
+  @include tablet{
+    padding: 8px 40px;
+    font-size: 16px;
+  }
+
+  &:hover,
+  &:active,
+  &.active,
+  &:focus,
+  &.focus {
+    outline: 0;
+    box-shadow: none !important;
+   
+  }
+}
+
+
+// button primary
+.btn-primary {
+  background: $color-primary;
+  color: $white;
+  border-color: $color-primary;
+
+  &:hover,
+  &:active,
+  &.active,
+  &:focus,
+  &.focus {
+    background-color: transparent !important;
+    border-color: $color-primary !important;
+    color: $text-color;
+  }
+}
+
+// button outline primary
+.btn-outline-primary {
+  background: transparent;
+  color: $color-primary;
+  border: 1px solid $color-primary;
+  font-size: 15px;
+
+  &:hover,
+  &:active,
+  &.active,
+  &:focus,
+  &.focus {
+    background: $color-primary !important;
+    border-color: $color-primary !important;
+    color: $white !important;
+  }
+}

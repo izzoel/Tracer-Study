@@ -1,0 +1,31 @@
+.blog-card-img{
+  height: 320px;
+}
+.category-widget{
+  .tag-list li a{
+    background-color: $light-200;
+    color: $light-500;
+    padding: 8px 16px;
+    font-size: 14px;
+    &:hover{
+      background-color: $color-primary;
+      color: $white !important;
+    }
+  }
+}
+
+.comment-area{
+  small{
+    font-size: 14px;
+    color: $light-300;
+  }
+
+  h5{
+    font-weight: 500;
+    border-bottom: 3px solid $color-primary;
+    display: inline-block;
+    padding-bottom: 5px;
+    text-transform: capitalize;
+    margin-bottom: 2rem;
+  }
+}

@@ -1,0 +1,33 @@
+// import bootstrap
+@import 'bootstrap/bootstrap';
+
+// import theme style
+// @import 'variables';
+
+// @import 'mixins';
+
+// @import 'typography';
+
+// 
+
+// @import 'common';
+
+// @import 'templates/navigation.scss';
+
+// @import 'templates/main.scss';
+
+
+@import './variables';
+@import './mixins';
+@import './typography';
+@import './buttons';
+@import './common';
+
+
+
+@import './templates/navigation.scss';
+@import './templates/homepage.scss';
+@import './templates/aboutpage.scss';
+@import './templates/contact.scss';
+@import './templates/blog.scss';
+@import './templates/portfolio.scss';

@@ -1,0 +1,305 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+::selection {
+  background-color: $color-primary;
+  color: $white;
+}
+
+ol,
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+a,
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+
+a {
+  transition: 0.4s;
+
+  &:hover {
+    color: $color-primary !important;
+  }
+}
+
+.text-primary {
+  color: $color-primary !important;
+}
+
+.text-secondery {
+  color: $light-500 !important;
+}
+
+.text-tertiary {
+  color: $text-color !important;
+}
+
+.bg-primary {
+  background-color: $light-100 !important;
+}
+
+.radius {
+  border-radius: 8px !important;
+}
+
+.shadow {
+  box-shadow: 0px 15px 55px rgba(0, 0, 0, 0.06) !important;
+}
+
+.fw-medium {
+  font-weight: 500;
+}
+.font-primary {
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: $font-primary;
+  }
+}
+
+// form
+.form-control {
+  padding: 12px;
+  margin-bottom: 30px;
+  &:focus {
+    box-shadow: none;
+    border-color: $color-primary;
+  }
+}
+.form-check {
+  font-size: 0.933rem;
+  font-weight: 500;
+  padding: 0;
+  margin-bottom: 2rem;
+
+  label {
+    color: #b7b7b7;
+    margin: 0;
+    cursor: pointer;
+  }
+
+  .form-check-input {
+    margin: 6px 8px 0 0;
+    cursor: pointer;
+  }
+}
+.form-check-input {
+  &:checked {
+    background-color: $color-primary;
+    border-color: $color-primary;
+  }
+
+  &:focus {
+    border-color: $color-primary;
+    box-shadow: 0 0 0 0.25rem rgba($color-primary, 25%);
+  }
+}
+
+// Section padding
+.section {
+  padding-top: 100px;
+  padding-bottom: 100px;
+
+  @include mobile{
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+}
+
+.section-title {
+  strong {
+    position: relative;
+
+    svg {
+      position: absolute;
+      right: 0;
+      bottom: -20px;
+      max-width: 100%;
+    }
+  }
+}
+
+.backtotop {
+  width: 50px;
+  height: 50px;
+  background: $color-primary;
+  color: #fff;
+  position: fixed;
+  bottom: 20px;
+  right: 0px;
+  display: none;
+  border: 0;
+  text-align: center;
+  line-height: 50px;
+}
+
+// preloader
+.preloader {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+  background: $white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+}
+.dots {
+  border: 0 solid transparent;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  top: calc(50vh - 75px);
+  left: calc(50vw - 75px);
+  &::before, &::after {
+    content: '';
+    border: 15px solid rgba($color-primary, .5);
+    border-radius: 50%;
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: loader 2s linear infinite;
+    opacity: 0;
+  }
+  &::after {
+    animation-delay: 0.5s;
+  }
+}
+@keyframes loader{
+  0%{
+    transform: scale(0);
+    opacity: 0;
+  }
+  50%{
+    opacity: 0.7;
+  }
+  100%{
+    transform: scale(0.7);
+    opacity: 0;
+  }
+}
+
+// footer{
+  .footer-top {
+    background: $light-100;
+}
+
+// content style
+.content {
+  p {
+    color: $text-color;
+  }
+
+  * {
+    margin-bottom: 35px;
+  }
+
+  h2,
+  h3,
+  h4 {
+    margin-bottom: 1rem;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  a {
+    color: $color-secondary;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  ol,
+  ul {
+    padding-left: 1.33rem;
+
+    li {
+      margin-bottom: 0.66rem;
+    }
+  }
+
+  blockquote {
+    font-size: 1.6rem !important;
+    color: $text-color;
+    padding: 2.665rem 5.33rem;
+    margin: 2.665rem 0;
+    font-weight: 500;
+    background: #f8f8f8;
+    border-radius: 1rem;
+    line-height: 32px;
+    font-style: italic;
+    font-family: $font-secondary;
+
+    @include tablet {
+      padding: 2.665rem;
+    }
+
+    h3 {
+      position: relative;
+      z-index: 1;
+      font-size: 25px;
+      line-height: 40px;
+
+      @include tablet {
+        font-size: 18px;
+      }
+
+      &::before,
+      &::after {
+        position: absolute;
+        color: $color-primary;
+        font-size: 2.13rem;
+        font-family: $font-icon;
+      }
+
+      &::before {
+        left: -4rem;
+        top: -1.266rem;
+        content: "\f10d";
+
+        @include tablet {
+          left: -2.4rem;
+        }
+      }
+
+      &::after {
+        right: 0;
+        bottom: -3rem;
+        content: "\f10e";
+
+        @include tablet {
+          right: -1.667rem;
+        }
+      }
+    }
+
+    p {
+      margin-bottom: 0 !important;
+      font-size: 1.33rem;
+      font-weight: 400;
+      color: lighten($text-color, 19.999999999999993);
+      margin-top: 0.66rem;
+    }
+  }
+}
+
