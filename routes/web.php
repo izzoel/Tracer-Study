@@ -7,6 +7,7 @@ use App\Http\Controllers\SurveyLulusanController;
 use App\Http\Controllers\UserAlumniController;
 
 use App\Http\Controllers\BankAlumniController;
+use App\Http\Controllers\BankLulusanController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -56,6 +57,7 @@ Route::group(['middleware' => ['guest']], function () {
 
 
     Route::post('/survey/alumni/submit', [BankAlumniController::class, 'store'])->name('alumni_submit');
+    Route::post('/survey/lulusan/submit', [BankLulusanController::class, 'store'])->name('lulusan_submit');
 });
 
 

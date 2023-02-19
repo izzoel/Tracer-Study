@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class SurveyLulusan extends Model
 {
     use HasFactory;
-
     protected $fillable = [
         'no',
         'survey',

@@ -117,7 +117,7 @@
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Tambah Pertanyaan</h5>
+                    <h5 class="modal-title">Tambah Pertanyaan</h5>
                 </div>
                 <form action="{{ route('add_alumni') }}" method="POST">
                     @csrf
@@ -207,7 +207,7 @@
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Edit Pertanyaan</h5>
+                        <h5 class="modal-title">Edit Pertanyaan</h5>
                     </div>
                     <form action="{{ route('edit_alumni', $data->id) }}" method="POST">
                         @csrf

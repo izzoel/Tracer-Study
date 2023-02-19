@@ -7,99 +7,117 @@
                 <p class="card-category m-2">Formulir Pengisisan ...</p>
             </div>
             <div class="card-body">
+                <form action="{{ route('lulusan_submit') }}" method="POST">
+                    @csrf
+                    @foreach ($form_lulusan as $data)
+                        <table class="table table-borderless responsive ">
+                            <tbody>
+                                <tr>
+                                    <td class="align-top" style="min-width: 5%;width: 5%">{{ $data->no }}.&nbsp;</td>
+                                    <td class="text-break " style="min-width: 100%;width: 40rem">
+                                        {{ $data->survey }}
+                                        @if ($data->wajib == 1)
+                                            <span class="ms-0 ps-0 me-0 pe-0 text-danger">*</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @auth
+                                            <a class="btn-sm btn-primary bg-secondary"
+                                                href="{{ route('delete_lulusan', $data->id) }}" role="button"><i
+                                                    class="fa fa-trash"></i></a>
+                                            <a class="btn-sm btn-primary" href="#" role="button" data-bs-toggle="modal"
+                                                data-bs-target="#modal_edit_{{ $data->no }}"><i
+                                                    class="fa fa-pencil"></i></a>
+                                        @endauth
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    </td>
+                                    <td class="col">
+                                        @if ($data->ganda == 1)
+                                            @php
+                                                $type = 'checkbox';
+                                                $array = '[]';
+                                            @endphp
+                                        @else
+                                            @php
+                                                $type = 'radio';
+                                                $array = '';
+                                            @endphp
+                                        @endif
 
-                @foreach ($form_lulusan as $data)
-                    <table class="table table-borderless responsive ">
-                        <tbody>
-                            <tr>
-                                <td class="align-top" style="min-width: 5%;width: 5%">{{ $data->no }}.&nbsp;</td>
-                                <td class="text-break " style="min-width: 100%;width: 40rem">
-                                    {{ $data->survey }}
-                                    @if ($data->wajib == 1)
-                                        <span class="ms-0 ps-0 me-0 pe-0 text-danger">*</span>
-                                    @endif
-                                </td>
-                                <td>
-                                    @auth
-                                        <a class="btn-sm btn-primary bg-secondary"
-                                            href="{{ route('delete_lulusan', $data->id) }}" role="button"><i
-                                                class="fa fa-trash"></i></a>
-                                        <a class="btn-sm btn-primary" href="#" role="button" data-bs-toggle="modal"
-                                            data-bs-target="#modal_edit_{{ $data->no }}"><i class="fa fa-pencil"></i></a>
-                                    @endauth
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                </td>
-                                <td class="col">
-                                    @if ($data->ganda == 1)
-                                        @php
-                                            $type = 'checkbox';
-                                        @endphp
-                                    @else
-                                        @php
-                                            $type = 'radio';
-                                        @endphp
-                                    @endif
-                                    @if ($data->pilihan == '')
-                                        <input type="text" class="form-control mb-1">
-                                    @else
-                                        @foreach (explode(';', $data->pilihan) as $info)
-                                            <div class="form-check mb-0">
-                                                <input class="form-check-input" type="{{ $type }}"
-                                                    name="multiple-{{ $data->no }}"
-                                                    id="{{ $data->no . $loop->iteration }}">
-                                                <label class="form-check-label text-dark"
-                                                    for="{{ $data->no . $loop->iteration }}">
-                                                    {{ $info }}
-                                                </label>
-
-                                            </div>
-                                        @endforeach
-                                        @if ($data->other)
-                                            <div class="row input-other">
-                                                <div class="col-auto form-check ms-2 ps-1 me-0 pe-0">
-                                                    <input class="form-check-input" type="{{ $type }}"
-                                                        id="other{{ $loop->iteration }}"
-                                                        name="multiple-{{ $data->no }}">
+                                        @if ($data->pilihan == '')
+                                            <input type="text" class="form-control mb-1" name="bank{{ $data->no }}"
+                                                {{ $data->wajib == 1 ? 'required' : '' }}>
+                                        @else
+                                            @foreach (explode(';', $data->pilihan) as $info)
+                                                <div class="form-check mb-0">
+                                                    <input class="form-check-input gandaOpsi{{ $data->no }}"
+                                                        type="{{ $type }}" id="{{ $data->no . $loop->iteration }}"
+                                                        @if ($data->wajib == 1 && $data->ganda != 1) {{ 'required' }} 
+                                                        @elseif($data->wajib == 1 && $data->ganda == 1)
+                                                         {{ '' }} @endif
+                                                        name="bank{{ $data->no }}{{ $array }}"
+                                                        value="{{ $info }}">
+                                                    <label class="form-check-label text-dark"
+                                                        for="{{ $data->no . $loop->iteration }}">
+                                                        {{ $info }}
+                                                    </label>
                                                 </div>
+                                            @endforeach
 
-                                                <div class="col ms-0 ps-0">
-                                                    <div class="input-group input-group-sm mb-1"
-                                                        style="min-width: 100%;width: 3rem">
-                                                        <input type="text" class="form-control"
-                                                            data-other="other{{ $loop->iteration }}" id="other">
+                                            @if ($data->other)
+                                                <div class="row input-other">
+                                                    <div class="col-auto form-check ms-2 ps-1 me-0 pe-0">
+                                                        <input
+                                                            class="form-check-input otherOpsiName{{ $data->no }} gandaOpsi{{ $data->no }}"
+                                                            type="{{ $type }}" id="other{{ $loop->iteration }}"
+                                                            name="bank{{ $data->no }}{{ $array }}">
+                                                    </div>
+
+                                                    <div class="col ms-0 ps-0">
+                                                        <div class="input-group input-group-sm mb-1"
+                                                            style="min-width: 100%;width: 3rem">
+                                                            <input type="text" class="form-control"
+                                                                data-other="other{{ $loop->iteration }}"
+                                                                id="otherOpsi{{ $data->no }}">
+                                                        </div>
                                                     </div>
                                                 </div>
+                                            @endif
                                         @endif
-                                    @endif
-                                </td>
-                                <td class="d-none d-lg-block" style="width: 200px">
+                                    </td>
+                                    <td class="d-none d-lg-block" style="width: 200px">
 
-                                </td>
-                            </tr>
+                                    </td>
+                                </tr>
 
-                        </tbody>
-                    </table>
-                @endforeach
-                @auth
-                    <a class="btn-sm btn-primary" href="#" role="button" data-bs-toggle="modal"
-                        data-bs-target="#modal_form">&plus;</a>
-                @endauth
-                <br>
-                <br>
+                            </tbody>
+                        </table>
+                    @endforeach
+                    @auth
+                        <a class="btn-sm btn-primary" href="#" role="button" data-bs-toggle="modal"
+                            data-bs-target="#modal_form">&plus;</a>
+
+                    @endauth
+                    @guest
+                        <button type="submit" class="btn btn-primary position-relative top-50 start-50">Kirim</button>
+                    @endguest
+                    <br>
+                    <br>
+                </form>
             </div>
         </div>
     </div>
 
 
-    <!-- Modal Form Alumni-->
+    <!-- Modal Form Lulusan-->
     <div class="modal fade" id="modal_form" tabindex="-1">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Tambah Pertanyaan</h5>
+                    <h5 class="modal-title">Tambah Pertanyaan</h5>
                 </div>
                 <form action="{{ route('add_lulusan') }}" method="POST">
                     @csrf
@@ -139,8 +157,7 @@
 
                                             <div class="input-group input-group-sm mb-1 addOpsi" id="opsiList">
                                                 <label class="input-group-text" id="opsi" data-lab="1">1.</label>
-                                                <input type="text" class="form-control mb-0 inputOpsi" name="opsi[]"
-                                                    required>
+                                                <input type="text" class="form-control mb-0 inputOpsi" name="opsi[]">
                                             </div>
 
                                             <div id="newRow"></div>
@@ -179,7 +196,7 @@
     </div>
 
 
-    <!-- Modal Edit Alumni-->
+    <!-- Modal Edit Lulusan-->
     @foreach ($form_lulusan as $data)
         @php
             $pilihan = explode(';', $data->pilihan);
@@ -190,7 +207,7 @@
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Edit Pertanyaan</h5>
+                        <h5 class="modal-title">Edit Pertanyaan</h5>
                     </div>
                     <form action="{{ route('edit_lulusan', $data->id) }}" method="POST">
                         @csrf
