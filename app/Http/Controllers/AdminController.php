@@ -54,7 +54,10 @@ class AdminController extends Controller
     {
         $data_alumni = BankAlumni::all();
         // ['title' => 'dashboard']
-        return view('content.admin')->with(['data_alumni' => $data_alumni, 'title' => 'dashboard']);
+        $count = $data_alumni->count();
+        // $count = json_encode($data_alumni->count());
+        // dd($count);
+        return view('content.admin')->with(['data_alumni' => $data_alumni, 'title' => 'dashboard', 'count' => $count]);
     }
 
     /**
