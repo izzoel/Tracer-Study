@@ -35,13 +35,15 @@
 
 <body>
 
-    <div class="preloader">
-        <div class="dots dot1">
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
+    @guest
+        <div class="preloader">
+            <div class="dots dot1">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
         </div>
-    </div>
+    @endguest
 
     <header class="navigation border-bottom">
         <nav class="navbar navbar-expand-sm flex-sm-nowrap flex-wrap">
@@ -853,13 +855,11 @@
 
 
 <script>
-    // $(document).ready(function() {
-    $('#tbl_alumni').DataTable({
-        // "lengthChange": false,
-        // "searching": false
-    });
-    // });
+    $('#tbl_alumni').DataTable({});
+    $('#tbl_alumni2').DataTable({});
+
     $('select[name="tbl_alumni_length"]').css('width', '100%');
+    $('select[name="tbl_alumni2_length"]').css('width', '100%');
 </script>
 
 </html>
