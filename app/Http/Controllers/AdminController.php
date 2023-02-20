@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Admin;
 use App\Models\User;
+use App\Models\BankAlumni;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -19,6 +20,7 @@ class AdminController extends Controller
     public function index()
     {
         // return view('admin');
+
     }
 
     /**
@@ -50,7 +52,9 @@ class AdminController extends Controller
      */
     public function show(Admin $admin)
     {
-        //
+        $data_alumni = BankAlumni::all();
+        // ['title' => 'dashboard']
+        return view('content.admin')->with(['data_alumni' => $data_alumni, 'title' => 'dashboard']);
     }
 
     /**

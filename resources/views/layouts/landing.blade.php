@@ -25,6 +25,12 @@
     <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
 
+    <!-- Datatables -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/css/dataTables.bootstrap5.min.css">
+    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css"> --}}
+
+
 </head>
 
 <body>
@@ -143,8 +149,8 @@
                     @csrf
                     <div class="modal-body">
                         <div class="input-group">
-                            <input type="text" name="name" class="form-control ms-4 me-4" placeholder="Username"
-                                aria-label="Username" style="margin-bottom: 20px" required>
+                            <input type="text" name="name" class="form-control ms-4 me-4"
+                                placeholder="Username" aria-label="Username" style="margin-bottom: 20px" required>
                         </div>
                         <div class="input-group">
                             <input type="password" name="password" class="form-control ms-4 me-4"
@@ -171,7 +177,8 @@
 
 
     <!-- jQuery -->
-    <script src="../plugins/jquery/jquery.min.js"></script>
+    {{-- <script src="../plugins/jquery/jquery.min.js"></script> --}}
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <!-- Bootstrap JS -->
     <script src="../plugins/bootstrap/bootstrap.bundle.min.js"></script>
     <!-- slick-slider-->
@@ -182,8 +189,11 @@
     <script src="../plugins/shuffle/shuffle.js"></script>
     <!-- Main Script -->
     <script src="../js/script.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
 
-
+    <!-- Datatables Script -->
+    <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.2/js/dataTables.bootstrap5.min.js"></script>
 </body>
 
 
@@ -611,5 +621,245 @@
         </script>
     @endforeach
 @endif
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Data retrieved from https://gs.statcounter.com/browser-market-share#monthly-202201-202201-bar
+
+        // Create the chart
+        Highcharts.chart('container', {
+            chart: {
+                type: 'column'
+            },
+            title: {
+                align: 'left',
+                text: 'Responden'
+            },
+            subtitle: {
+                align: 'left',
+                // text: 'Click the columns to view versions'
+            },
+            accessibility: {
+                announceNewData: {
+                    enabled: true
+                }
+            },
+            xAxis: {
+                type: 'category'
+            },
+            yAxis: {
+                title: {
+                    text: 'Total Responden'
+                }
+
+            },
+            legend: {
+                enabled: false
+            },
+            plotOptions: {
+                series: {
+                    borderWidth: 0,
+                    dataLabels: {
+                        enabled: true,
+                        format: '{point.y:.1f}'
+                    }
+                }
+            },
+
+            tooltip: {
+                headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+                pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
+            },
+
+            series: [{
+                name: 'Browsers',
+                colorByPoint: true,
+                data: [{
+                        name: '2023',
+                        y: 43.06,
+                        drilldown: '2023'
+                    },
+                    {
+                        name: '2024',
+                        y: 19.84,
+                        drilldown: '2024'
+                    },
+                    {
+                        name: '2025',
+                        y: 30.84,
+                        drilldown: '2025'
+                    },
+                    {
+                        name: '2026',
+                        y: 2.84,
+                        drilldown: '2026'
+                    },
+                ]
+            }],
+            drilldown: {
+                breadcrumbs: {
+                    position: {
+                        align: 'right'
+                    }
+                },
+                series: [{
+                        name: '2023',
+                        id: '2023',
+                        data: [
+                            [
+                                'v65.0',
+                                0.1
+                            ],
+                            [
+                                'v64.0',
+                                1.3
+                            ],
+                            [
+                                'v63.0',
+                                53.02
+                            ],
+                            [
+                                'v62.0',
+                                1.4
+                            ],
+                            [
+                                'v61.0',
+                                0.88
+                            ],
+                            [
+                                'v60.0',
+                                0.56
+                            ],
+                            [
+                                'v59.0',
+                                0.45
+                            ],
+                            [
+                                'v58.0',
+                                0.49
+                            ],
+                            [
+                                'v57.0',
+                                0.32
+                            ],
+                            [
+                                'v56.0',
+                                0.29
+                            ],
+                            [
+                                'v55.0',
+                                0.79
+                            ],
+                            [
+                                'v54.0',
+                                0.18
+                            ],
+                            [
+                                'v51.0',
+                                0.13
+                            ],
+                            [
+                                'v49.0',
+                                2.16
+                            ],
+                            [
+                                'v48.0',
+                                0.13
+                            ],
+                            [
+                                'v47.0',
+                                0.11
+                            ],
+                            [
+                                'v43.0',
+                                0.17
+                            ],
+                            [
+                                'v29.0',
+                                0.26
+                            ]
+                        ]
+                    },
+
+                    {
+                        name: '2024',
+                        id: '2024',
+                        data: [
+                            [
+                                'v11.0',
+                                3.39
+                            ],
+                            [
+                                'v10.1',
+                                0.96
+                            ],
+                            [
+                                'v10.0',
+                                0.36
+                            ],
+                            [
+                                'v9.1',
+                                0.54
+                            ],
+                            [
+                                'v9.0',
+                                0.13
+                            ],
+                            [
+                                'v5.1',
+                                0.2
+                            ]
+                        ]
+                    },
+                    {
+                        name: '2025',
+                        id: '2025',
+                        data: [
+                            [
+                                'v11.0',
+                                3.39
+                            ],
+                            [
+                                'v10.1',
+                                0.96
+                            ],
+
+                        ]
+                    },
+                    {
+                        name: '2026',
+                        id: '2026',
+                        data: [
+                            [
+                                'v11.0',
+                                3.39
+                            ],
+                            [
+                                'v10.1',
+                                0.96
+                            ],
+
+                        ]
+                    },
+
+
+                ]
+            }
+        });
+
+    });
+</script>
+
+
+<script>
+    // $(document).ready(function() {
+    $('#tbl_alumni').DataTable({
+        // "lengthChange": false,
+        // "searching": false
+    });
+    // });
+    $('select[name="tbl_alumni_length"]').css('width', '100%');
+</script>
 
 </html>

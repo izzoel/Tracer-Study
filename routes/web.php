@@ -64,9 +64,13 @@ Route::group(['middleware' => ['guest']], function () {
 
 
 Route::group(['middleware' => ['auth']], function () {
-    Route::get('/admin/dashboard', function () {
-        return view('content.admin', ['title' => 'dashboard']);
-    })->name('admin_dashboard');
+    // Route::get('/admin/dashboard', function () {
+    //     return view('content.admin', ['title' => 'dashboard']);
+    // })->name('admin_dashboard');
+
+    Route::get('/admin/dashboard', [AdminController::class, 'show'])->name('admin_dashboard');
+
+
 
     Route::get('/admin/form_alumni', [SurveyAlumniController::class, 'show'])->name('form_alumni');
     Route::post('/admin/form_alumni', [SurveyAlumniController::class, 'store'])->name('add_alumni');
