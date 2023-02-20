@@ -13,23 +13,23 @@
                 <table class="table table-sm table-bordered" style="width: 100%" id="tbl_alumni">
                     <thead border="1">
                         <tr>
-                            <th>Name</th>
-                            <th>Position</th>
-                            <th>Office</th>
-                            <th>Age</th>
+                            <th>Nama</th>
+                            <th>Angkatan</th>
+                            <th>Prodi</th>
+                            {{-- <th>Age</th>
                             <th>Start date</th>
-                            <th>Salary</th>
+                            <th>Salary</th> --}}
                         </tr>
                     </thead>
                     <tbody>
-                        {{-- @foreach ($data_alumni as $data)
+                        @foreach ($data_alumni as $data)
                             <tr>
                                 <td>{{ $data->bank1 }}</td>
                                 <td>{{ $data->bank2 }}</td>
                                 <td>{{ $data->bank3 }}</td>
                             </tr>
-                        @endforeach --}}
-
+                        @endforeach
+                        {{-- 
                         <tr>
                             <td>Tiger Nixon</td>
                             <td>System Architect</td>
@@ -77,7 +77,7 @@
                             <td>61</td>
                             <td>2012-12-02</td>
                             <td>$372,000</td>
-                        </tr>
+                        </tr> --}}
 
                     </tbody>
                 </table>
