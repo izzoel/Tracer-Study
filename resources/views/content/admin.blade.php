@@ -22,17 +22,20 @@
                             </thead>
                             <tbody>
                                 @foreach ($data_alumni as $data)
+                                    @php
+                                        $a = 'bank' . $loop->iteration;
+                                    @endphp
                                     <tr>
-                                        <td class="p-1">{{ $data->bank1 }}</td>
-                                        <td class="p-1">{{ $data->bank2 }}</td>
-                                        <td class="p-1">{{ $data->bank3 }}</td>
+                                        @for ($i = 1; $i < $loop->count + 1; $i++)
+                                            <td class="p-1">{{ $data['bank' . $i] }}</td>
+                                        @endfor
                                     </tr>
                                 @endforeach
                             </tbody>
                         </table>
                     </div>
                 </div>
-                <div class="col">
+                {{-- <div class="col">
                     <div class="card-body">
 
                         <div class="mt-4">Data Responden Alumni2</div>
@@ -46,17 +49,11 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($data_alumni as $data)
-                                    <tr>
-                                        <td class="p-1">{{ $data->bank1 }}</td>
-                                        <td class="p-1">{{ $data->bank2 }}</td>
-                                        <td class="p-1">{{ $data->bank3 }}</td>
-                                    </tr>
-                                @endforeach
+
                             </tbody>
                         </table>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>

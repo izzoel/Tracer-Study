@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
 
     <!-- Datatables -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/css/jquery.dataTables.css">
+    {{-- <link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/css/jquery.dataTables.css"> --}}
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/css/dataTables.bootstrap5.min.css">
     {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css"> --}}
 
@@ -622,11 +622,32 @@
             })
         </script>
     @endforeach
-@elseif (Request::segment(2) == 'dashboard')
+@elseif (Request::segment(2) == 'dashboard' || Request::segment(0))
+    <script>
+        $('#tbl_alumni').DataTable({
+            // "lengthChange": false
+            "dom": 'frtp'
+        });
+        $('#tbl_alumni2').DataTable({});
+
+        $('select[name="tbl_alumni_length"]').css('width', '100%');
+        $('select[name="tbl_alumni2_length"]').css('width', '100%');
+
+        $('input[type="search"]').css({
+            'padding': '0',
+            'margin-bottom': '0'
+        });
+        // $('.p-1').css({
+        //     "font-size",
+        //     "1px"
+        // });
+
+        // $(".p-1 td:nth-child(n)").text();
+    </script>
+    {{-- @endauth --}}
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Data retrieved from https://gs.statcounter.com/browser-market-share#monthly-202201-202201-bar
-
             // Create the chart
             Highcharts.chart('container', {
                 chart: {
@@ -851,15 +872,7 @@
 
         });
     </script>
-
-
-    <script>
-        $('#tbl_alumni').DataTable({});
-        $('#tbl_alumni2').DataTable({});
-
-        $('select[name="tbl_alumni_length"]').css('width', '100%');
-        $('select[name="tbl_alumni2_length"]').css('width', '100%');
-    </script>
 @endif
+
 
 </html>

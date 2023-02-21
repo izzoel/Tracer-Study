@@ -4310,12 +4310,14 @@ textarea.form-control-lg {
 
 .page-item:not(:first-child) .page-link {
   margin-left: -1px;
+  color: chocolate;
 }
 .page-item.active .page-link {
   z-index: 3;
-  color: #fff;
-  background-color: #0d6efd;
-  border-color: #0d6efd;
+  color: chocolate;
+  /* color: #fff; */
+  /* background-color: #0d6efd;
+  border-color: #0d6efd; */
 }
 .page-item.disabled .page-link {
   color: #6c757d;

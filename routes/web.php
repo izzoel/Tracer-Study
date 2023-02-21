@@ -35,7 +35,10 @@ Route::group(['middleware' => ['guest']], function () {
     Route::get('/', function () {
         return view(
             'content.main',
-            ['title' => 'home']
+            [
+                'title' => 'home',
+                'data_alumni' => ' ',
+            ]
         );
     })->name('landing')->middleware('guest');
 
@@ -52,6 +55,7 @@ Route::group(['middleware' => ['guest']], function () {
         );
     })->name('survey');
 
+
     Route::get('/survey/alumni', [SurveyAlumniController::class, 'show'])->name('alumni');
     Route::get('/survey/lulusan', [SurveyLulusanController::class, 'show'])->name('lulusan');
 
@@ -67,9 +71,11 @@ Route::group(['middleware' => ['auth']], function () {
     // Route::get('/admin/dashboard', function () {
     //     return view('content.admin', ['title' => 'dashboard']);
     // })->name('admin_dashboard');
+    // Route::get('/', function () {
+    //     return redirect('/admin/dashboard');
+    // });
 
     Route::get('/admin/dashboard', [AdminController::class, 'show'])->name('admin_dashboard');
-
 
 
     Route::get('/admin/form_alumni', [SurveyAlumniController::class, 'show'])->name('form_alumni');
