@@ -26,11 +26,7 @@ use Illuminate\Support\Facades\Session;
 Route::get('/admin', [AdminController::class, 'admin_popup'])->name('login');
 Route::post('/admin', [AdminController::class, 'admin_login'])->name('login');
 
-
-
-
-
-
+Route::get('/logout', [AdminController::class, 'admin_logout'])->name('logout');
 
 Route::group(['middleware' => ['guest']], function () {
 
@@ -118,6 +114,4 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/admin/form_lulusan/{id}', [SurveyLulusanController::class, 'destroy'])->name('delete_lulusan');
 
     Route::get('/admin/user_alumni', [UserAlumniController::class, 'show'])->name('user_alumni');
-
-    Route::get('/logout', [AdminController::class, 'admin_logout'])->name('logout');
 });

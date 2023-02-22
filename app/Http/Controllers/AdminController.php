@@ -119,6 +119,11 @@ class AdminController extends Controller
         $request->session()->regenerateToken();
 
         // return redirect('/');
+
+
+
+
+
         // // $this->guard()->logout();
 
         // $request->session()->flush();
