@@ -113,6 +113,21 @@ class AdminController extends Controller
     public function admin_logout(Request $request)
     {
         Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        // return redirect('/');
+        // // $this->guard()->logout();
+
+        // $request->session()->flush();
+
+        // $request->session()->regenerate();
+
+        // Auth::logout();
         return redirect()->route('landing');
+        // // return redirect('/');
+        // // return redirect('/');
     }
 }

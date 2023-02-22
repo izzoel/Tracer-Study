@@ -76,17 +76,63 @@ CREATE TABLE IF NOT EXISTS `bank_alumnis` (
   `bank48` text COLLATE utf8mb4_unicode_ci,
   `bank49` text COLLATE utf8mb4_unicode_ci,
   `bank50` text COLLATE utf8mb4_unicode_ci,
+  `bank51` text COLLATE utf8mb4_unicode_ci,
+  `bank52` text COLLATE utf8mb4_unicode_ci,
+  `bank53` text COLLATE utf8mb4_unicode_ci,
+  `bank54` text COLLATE utf8mb4_unicode_ci,
+  `bank55` text COLLATE utf8mb4_unicode_ci,
+  `bank56` text COLLATE utf8mb4_unicode_ci,
+  `bank57` text COLLATE utf8mb4_unicode_ci,
+  `bank58` text COLLATE utf8mb4_unicode_ci,
+  `bank59` text COLLATE utf8mb4_unicode_ci,
+  `bank60` text COLLATE utf8mb4_unicode_ci,
+  `bank61` text COLLATE utf8mb4_unicode_ci,
+  `bank62` text COLLATE utf8mb4_unicode_ci,
+  `bank63` text COLLATE utf8mb4_unicode_ci,
+  `bank64` text COLLATE utf8mb4_unicode_ci,
+  `bank65` text COLLATE utf8mb4_unicode_ci,
+  `bank66` text COLLATE utf8mb4_unicode_ci,
+  `bank67` text COLLATE utf8mb4_unicode_ci,
+  `bank68` text COLLATE utf8mb4_unicode_ci,
+  `bank69` text COLLATE utf8mb4_unicode_ci,
+  `bank70` text COLLATE utf8mb4_unicode_ci,
+  `bank71` text COLLATE utf8mb4_unicode_ci,
+  `bank72` text COLLATE utf8mb4_unicode_ci,
+  `bank73` text COLLATE utf8mb4_unicode_ci,
+  `bank74` text COLLATE utf8mb4_unicode_ci,
+  `bank75` text COLLATE utf8mb4_unicode_ci,
+  `bank76` text COLLATE utf8mb4_unicode_ci,
+  `bank77` text COLLATE utf8mb4_unicode_ci,
+  `bank78` text COLLATE utf8mb4_unicode_ci,
+  `bank79` text COLLATE utf8mb4_unicode_ci,
+  `bank80` text COLLATE utf8mb4_unicode_ci,
+  `bank81` text COLLATE utf8mb4_unicode_ci,
+  `bank82` text COLLATE utf8mb4_unicode_ci,
+  `bank83` text COLLATE utf8mb4_unicode_ci,
+  `bank84` text COLLATE utf8mb4_unicode_ci,
+  `bank85` text COLLATE utf8mb4_unicode_ci,
+  `bank86` text COLLATE utf8mb4_unicode_ci,
+  `bank87` text COLLATE utf8mb4_unicode_ci,
+  `bank88` text COLLATE utf8mb4_unicode_ci,
+  `bank89` text COLLATE utf8mb4_unicode_ci,
+  `bank90` text COLLATE utf8mb4_unicode_ci,
+  `bank91` text COLLATE utf8mb4_unicode_ci,
+  `bank92` text COLLATE utf8mb4_unicode_ci,
+  `bank93` text COLLATE utf8mb4_unicode_ci,
+  `bank94` text COLLATE utf8mb4_unicode_ci,
+  `bank95` text COLLATE utf8mb4_unicode_ci,
+  `bank96` text COLLATE utf8mb4_unicode_ci,
+  `bank97` text COLLATE utf8mb4_unicode_ci,
+  `bank98` text COLLATE utf8mb4_unicode_ci,
+  `bank99` text COLLATE utf8mb4_unicode_ci,
+  `bank100` text COLLATE utf8mb4_unicode_ci,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table tracer.bank_alumnis: ~3 rows (approximately)
+-- Dumping data for table tracer.bank_alumnis: ~0 rows (approximately)
 /*!40000 ALTER TABLE `bank_alumnis` DISABLE KEYS */;
-INSERT INTO `bank_alumnis` (`id`, `bank1`, `bank2`, `bank3`, `bank4`, `bank5`, `bank6`, `bank7`, `bank8`, `bank9`, `bank10`, `bank11`, `bank12`, `bank13`, `bank14`, `bank15`, `bank16`, `bank17`, `bank18`, `bank19`, `bank20`, `bank21`, `bank22`, `bank23`, `bank24`, `bank25`, `bank26`, `bank27`, `bank28`, `bank29`, `bank30`, `bank31`, `bank32`, `bank33`, `bank34`, `bank35`, `bank36`, `bank37`, `bank38`, `bank39`, `bank40`, `bank41`, `bank42`, `bank43`, `bank44`, `bank45`, `bank46`, `bank47`, `bank48`, `bank49`, `bank50`, `created_at`, `updated_at`) VALUES
-	(1, 'Pertama kali mengisi', 'Admin', '74615', 'Halimun 20 Januari 2000', 'Laki-laki', '08974183737', 'admin@mail.me', 'Jl. Kelapa Sawit 8 Bumi Berkat, Sei. Besar, Banjarbaru (70714)', '2,00-2,59', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-	(2, 'Pertama kali mengisi', 'Admin', '74616', 'Limosin 20 Januari 2000', 'Perempuan', '08974183737', 'admin@mail.me', 'Jl. Kelapa Sawit 8 Bumi Berkat, Sei. Besar, Banjarbaru (70714)', '2,60-2,99', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-	(3, 'Pertama kali mengisi', 'Admin', '74617', 'Palang 20 Januari 2000', 'Laki-laki', '08974183737', 'admin@mail.me', 'Jl. Kelapa Sawit 8 Bumi Berkat, Sei. Besar, Banjarbaru (70714)', '3,00-3,59', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 /*!40000 ALTER TABLE `bank_alumnis` ENABLE KEYS */;
 
 -- Dumping structure for table tracer.bank_lulusans
@@ -142,6 +188,56 @@ CREATE TABLE IF NOT EXISTS `bank_lulusans` (
   `bank48` text COLLATE utf8mb4_unicode_ci,
   `bank49` text COLLATE utf8mb4_unicode_ci,
   `bank50` text COLLATE utf8mb4_unicode_ci,
+  `bank51` text COLLATE utf8mb4_unicode_ci,
+  `bank52` text COLLATE utf8mb4_unicode_ci,
+  `bank53` text COLLATE utf8mb4_unicode_ci,
+  `bank54` text COLLATE utf8mb4_unicode_ci,
+  `bank55` text COLLATE utf8mb4_unicode_ci,
+  `bank56` text COLLATE utf8mb4_unicode_ci,
+  `bank57` text COLLATE utf8mb4_unicode_ci,
+  `bank58` text COLLATE utf8mb4_unicode_ci,
+  `bank59` text COLLATE utf8mb4_unicode_ci,
+  `bank60` text COLLATE utf8mb4_unicode_ci,
+  `bank61` text COLLATE utf8mb4_unicode_ci,
+  `bank62` text COLLATE utf8mb4_unicode_ci,
+  `bank63` text COLLATE utf8mb4_unicode_ci,
+  `bank64` text COLLATE utf8mb4_unicode_ci,
+  `bank65` text COLLATE utf8mb4_unicode_ci,
+  `bank66` text COLLATE utf8mb4_unicode_ci,
+  `bank67` text COLLATE utf8mb4_unicode_ci,
+  `bank68` text COLLATE utf8mb4_unicode_ci,
+  `bank69` text COLLATE utf8mb4_unicode_ci,
+  `bank70` text COLLATE utf8mb4_unicode_ci,
+  `bank71` text COLLATE utf8mb4_unicode_ci,
+  `bank72` text COLLATE utf8mb4_unicode_ci,
+  `bank73` text COLLATE utf8mb4_unicode_ci,
+  `bank74` text COLLATE utf8mb4_unicode_ci,
+  `bank75` text COLLATE utf8mb4_unicode_ci,
+  `bank76` text COLLATE utf8mb4_unicode_ci,
+  `bank77` text COLLATE utf8mb4_unicode_ci,
+  `bank78` text COLLATE utf8mb4_unicode_ci,
+  `bank79` text COLLATE utf8mb4_unicode_ci,
+  `bank80` text COLLATE utf8mb4_unicode_ci,
+  `bank81` text COLLATE utf8mb4_unicode_ci,
+  `bank82` text COLLATE utf8mb4_unicode_ci,
+  `bank83` text COLLATE utf8mb4_unicode_ci,
+  `bank84` text COLLATE utf8mb4_unicode_ci,
+  `bank85` text COLLATE utf8mb4_unicode_ci,
+  `bank86` text COLLATE utf8mb4_unicode_ci,
+  `bank87` text COLLATE utf8mb4_unicode_ci,
+  `bank88` text COLLATE utf8mb4_unicode_ci,
+  `bank89` text COLLATE utf8mb4_unicode_ci,
+  `bank90` text COLLATE utf8mb4_unicode_ci,
+  `bank91` text COLLATE utf8mb4_unicode_ci,
+  `bank92` text COLLATE utf8mb4_unicode_ci,
+  `bank93` text COLLATE utf8mb4_unicode_ci,
+  `bank94` text COLLATE utf8mb4_unicode_ci,
+  `bank95` text COLLATE utf8mb4_unicode_ci,
+  `bank96` text COLLATE utf8mb4_unicode_ci,
+  `bank97` text COLLATE utf8mb4_unicode_ci,
+  `bank98` text COLLATE utf8mb4_unicode_ci,
+  `bank99` text COLLATE utf8mb4_unicode_ci,
+  `bank100` text COLLATE utf8mb4_unicode_ci,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -174,21 +270,21 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table tracer.migrations: ~10 rows (approximately)
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-	(11, '2014_10_12_000000_create_users_table', 1),
-	(12, '2014_10_12_100000_create_password_resets_table', 1),
-	(13, '2019_08_19_000000_create_failed_jobs_table', 1),
-	(14, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-	(15, '2023_02_01_125844_create_survey_alumnis_table', 1),
-	(16, '2023_02_08_023802_create_admins_table', 1),
-	(17, '2023_02_15_151316_create_survey_lulusans_table', 1),
-	(18, '2023_02_15_161059_create_user_alumnis_table', 1),
-	(19, '2023_02_17_125220_create_bank_alumnis_table', 1),
-	(20, '2023_02_19_102632_create_bank_lulusans_table', 1);
+	(31, '2014_10_12_000000_create_users_table', 1),
+	(32, '2014_10_12_100000_create_password_resets_table', 1),
+	(33, '2019_08_19_000000_create_failed_jobs_table', 1),
+	(34, '2019_12_14_000001_create_personal_access_tokens_table', 1),
+	(35, '2023_02_01_125844_create_survey_alumnis_table', 1),
+	(36, '2023_02_08_023802_create_admins_table', 1),
+	(37, '2023_02_15_151316_create_survey_lulusans_table', 1),
+	(38, '2023_02_15_161059_create_user_alumnis_table', 1),
+	(39, '2023_02_17_125220_create_bank_alumnis_table', 1),
+	(40, '2023_02_19_102632_create_bank_lulusans_table', 1);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 
 -- Dumping structure for table tracer.password_resets
@@ -236,43 +332,24 @@ CREATE TABLE IF NOT EXISTS `survey_alumnis` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table tracer.survey_alumnis: ~32 rows (approximately)
+-- Dumping data for table tracer.survey_alumnis: ~0 rows (approximately)
 /*!40000 ALTER TABLE `survey_alumnis` DISABLE KEYS */;
 INSERT INTO `survey_alumnis` (`id`, `no`, `survey`, `pilihan`, `ganda`, `other`, `wajib`, `created_at`, `updated_at`) VALUES
-	(1, '1', 'Apakah sudah pernah mengisi formulir tracer study?', 'Pertama kali mengisi;Sudah pernah mengisi dan hendak update data pekerjaan pertama', '0', '0', '1', '2023-02-21 07:51:40', '2023-02-21 07:52:41'),
-	(2, '2', 'Nama', '', '0', '0', '1', '2023-02-21 08:19:16', '2023-02-21 08:19:16'),
-	(3, '3', 'NIM', '', '0', '0', '1', '2023-02-21 08:19:24', '2023-02-21 08:19:24'),
-	(4, '4', 'Tempat Tangal Lahir', '', '0', '0', '1', '2023-02-21 08:19:43', '2023-02-21 08:19:43'),
-	(5, '5', 'Jenis Kelamin', 'Laki-laki;Perempuan', '0', '0', '1', '2023-02-21 08:20:05', '2023-02-21 08:20:05'),
-	(6, '6', 'No Hp', '', '0', '0', '1', '2023-02-21 08:21:35', '2023-02-21 08:21:35'),
-	(7, '7', 'Email', '', '0', '0', '1', '2023-02-21 08:21:48', '2023-02-21 08:21:48'),
-	(8, '8', 'Alamat', '', '0', '0', '1', '2023-02-21 08:22:01', '2023-02-21 08:22:01'),
-	(9, '9', 'IPK setelah Lulus', '2,00-2,59;2,60-2,99;3,00-3,59;3,59-4,00', '0', '0', '1', '2023-02-21 08:22:54', '2023-02-21 08:22:54'),
-	(10, '10', 'Tahun Masuk Kuliah di D3 Farmasi Borneo Lestari?', 'Ganjil 2014/2015;Ganjil 2015/2016;Ganjil 2017/2018;Ganjil 2018/2019;Ganjil 2019/2020;Ganjil 2020/2021;Ganjil 2021/2022;Ganjil 2022/2023', '0', '1', '1', '2023-02-22 00:47:10', '2023-02-22 00:48:25'),
-	(11, '11', 'Tahun lulus', '2017;2018;2019;2020;2021;2022;2023', '0', '0', '1', '2023-02-22 00:49:15', '2023-02-22 00:49:15'),
-	(12, '12', 'Semester Lulus', 'Genap;Ganjil', '0', '0', '1', '2023-02-22 00:49:40', '2023-02-22 00:49:40'),
-	(13, '13', 'Apa yang anda lakukan setelah lulus?', 'Belum bekerja;Melanjutkan jenjang sekolah lebih tinggi;Langsung bekerja;Berwirausaha', '0', '0', '1', '2023-02-22 00:50:44', '2023-02-22 00:51:05'),
-	(14, '14', 'Berapa lama anda menunggu untuk mendapatkan pekerjaan setelah lulus', '≤ 3 bulan;3 < MT < 12;MT ≥ 12;-', '0', '0', '1', '2023-02-22 01:42:07', '2023-02-22 01:43:00'),
-	(15, '15', 'Jika sampai saat ini anda belum bekerja, karena: hanya diisi untuk alumni yang belum bekerja', 'Sudah melamar tapi tidak dipanggil;Sudah mengikuti tes/interview/training tapi tidak lulus;Belum ada lowongan kerja yang sesuai dengan minat saya (karir, gaji, dll);TRTTK belum keluar;Menjadi ibu rumah tangga', '0', '1', '0', '2023-02-22 01:44:32', '2023-02-22 01:44:32'),
-	(16, '16', 'Nama Institusi', '', '0', '0', '1', '2023-02-22 01:45:24', '2023-02-22 01:45:24'),
-	(17, '17', 'Program Studi yang diambil', '', '0', '0', '1', '2023-02-22 01:45:43', '2023-02-22 01:45:43'),
-	(18, '18', 'Tahun masuk', '', '0', '0', '1', '2023-02-22 01:49:05', '2023-02-22 01:49:05'),
-	(19, '19', 'Semester masuk kuliah', 'Genap;Ganjil', '0', '0', '1', '2023-02-22 01:49:32', '2023-02-22 01:49:32'),
-	(20, '20', 'Nama ketua program studi', '', '0', '0', '1', '2023-02-22 01:50:49', '2023-02-22 01:50:49'),
-	(21, '20', 'Nama ketua program studi', '', '0', '0', '1', '2023-02-22 01:52:05', '2023-02-22 01:52:05'),
-	(22, '21', 'Apakah anda bersedia untuk berbagi dengan almamater Universitas Borneo Lestari?', 'Ya;Tidak', '0', '0', '1', '2023-02-22 01:53:10', '2023-02-22 01:53:10'),
-	(23, '22', 'Jika bersedia, hal apa yang ingin anda bagikan untuk almamater Universitas Borneo Lestari?', '', '0', '0', '0', '2023-02-22 01:53:37', '2023-02-22 01:53:37'),
-	(24, '23', 'Kepuasan alumni terhadap Dosen D3 Farmasi? \r\nAspek yang dinilai antara lain keandalan dan kemampuan dosen dalam memberikan pelayanan terhadap mahasiswa, daya tanggap dosen dalam membantu mahasiswa dan memberikan jasa dengan cepat, kepastian bahwa pelayanan dosen sesuai dengan ketentuan, dan kepedulian dosen dalam memberi perhatian kepada mahasiswa (Keterangan skala: 1 = kurang, 2 = cukup, 3 = baik, 4 = sangat baik)', '1;2;3;4', '0', '0', '1', '2023-02-22 01:55:04', '2023-02-22 01:57:21'),
-	(25, '24', 'Kepuasan alumni terhadap Tenaga Kependidikan?\r\nAspek yang dinilai antara lain keandalan dan kemampuan tenaga kependidikan dalam memberikan pelayanan terhadap mahasiswa, daya tanggap tenaga kependidikan dalam membantu mahasiswa dan memberikan jasa dengan cepat, kepastian bahwa pelayanan tenaga kependidikan sesuai dengan ketentuan, dan kepedulian tenaga kependidikan dalam memberi perhatian kepada mahasiswa (Keterangan skala: 1 = kurang, 2 = cukup, 3 = baik, 4 = sangat baik)', '1;2;3;4', '0', '0', '1', '2023-02-22 01:58:02', '2023-02-22 01:58:02'),
-	(26, '25', 'Kepuasan alumni terhadap Pengelola Prodi D3 Farmasi? Aspek yang dinilai antara lain keandalan dan kemampuan pengelola program studi dalam memberikan pelayanan terhadap mahasiswa, daya tanggap pengelola program studi dalam membantu mahasiswa dan memberikan jasa dengan cepat, kepastian bahwa pelayanan pengelola program studi sesuai dengan ketentuan, dan kepedulian tenaga kependidikan dalam memberi perhatian kepada mahasiswa (Keterangan skala: 1 = kurang, 2 = cukup, 3 = baik, 4 = sangat baik)', '1;2;3;4', '0', '0', '1', '2023-02-22 01:59:03', '2023-02-22 01:59:03'),
-	(27, '26', 'Kepuasan alumni terhadap Sarana dan Prasarana Prodi D3 Farmasi?\r\nAspek yang dinilai antara lain kecukupan, aksesibitas, kualitas sarana dan prasarana (Keterangan skala: 1 = kurang, 2 = cukup, 3 = baik, 4 = sangat baik)', '1;2;3;4', '0', '0', '1', '2023-02-22 01:59:50', '2023-02-22 01:59:50'),
-	(29, '27', 'Kepuasan alumni terhadap Pengelolaan Keuangan selama Proses Pendidikan di Prodi D3 Farmasi? Aspek yang dinilai adalah biaya yang dibebankan kepada alumni selama proses pendidikan dengan pelayanan yang didapatkan (Keterangan skala: 1 = kurang, 2 = cukup, 3 = baik, 4 = sangat baik)', '1;2;3;4', '0', '0', '1', '2023-02-22 02:32:50', '2023-02-22 02:49:58'),
-	(30, '28', 'Saran untuk Prodi D3 Farmasi STIKES Borneo Lestari', '', '0', '0', '1', '2023-02-22 02:50:34', '2023-02-22 02:50:34'),
-	(31, '29', 'Jenis Pekerjaan/Instansi saat ini', 'Pemerintah;BUMN;Swasta (Apotek/PBF/Rumah Sakit);Wiraswasta;Lembaga Non Profit', '0', '1', '1', '2023-02-22 03:09:50', '2023-02-22 03:09:50'),
-	(32, '30', 'Jenis Pekerjaan saat ini', 'Akademisi;Peneliti;Administrasi;Praktisi;PBF;Apotek;Dinas kesehatan;Rumah sakit;Toko Obat', '0', '1', '1', '2023-02-22 03:12:05', '2023-02-22 03:12:05'),
-	(33, '31', 'Kapan anda mencari pekerjaan', 'Sebelum lulus;Setelah lulus', '0', '0', '1', '2023-02-22 03:12:30', '2023-02-22 03:12:30');
+	(1, '1', 'Apakah sudah pernah mengisi formulir tracer study?', 'Pertama kali mengisi;Sudah pernah mengisi dan hendak update data pekerjaan pertama', '0', '0', '1', '2023-02-22 15:40:38', '2023-02-22 16:00:25'),
+	(2, '2', 'Nama', '', '0', '0', '1', '2023-02-22 16:05:41', '2023-02-22 16:05:41'),
+	(3, '3', 'NIM', '', '0', '0', '1', '2023-02-22 16:05:53', '2023-02-22 16:05:53'),
+	(4, '4', 'Tempat, tangal lahir', '', '0', '0', '1', '2023-02-22 16:06:19', '2023-02-22 16:07:24'),
+	(5, '5', 'Jenis kelamin', 'Laki-laki;Perempuan', '0', '0', '1', '2023-02-22 16:07:13', '2023-02-22 16:07:13'),
+	(6, '6', 'No HP', '', '0', '0', '1', '2023-02-22 16:08:16', '2023-02-22 16:08:16'),
+	(7, '7', 'Email', '', '0', '0', '1', '2023-02-22 16:08:25', '2023-02-22 16:08:33'),
+	(8, '8', 'Alamat', '', '0', '0', '1', '2023-02-22 16:08:41', '2023-02-22 16:08:41'),
+	(9, '9', 'IPK setelah lulus', '2,00-2,59;2,60-2,99;3,00-3,59;3,59-4,00', '0', '0', '1', '2023-02-22 16:09:31', '2023-02-22 16:09:31'),
+	(10, '10', 'Tahun Masuk Kuliah di D3 Farmasi Borneo Lestari', 'Ganjil 2014/2015;Ganjil 2015/2016;Ganjil 2016/2017;Ganjil 2017/2018;Ganjil 2018/2019;Ganjil 2019/2020;Ganjil 2020/2021;Ganjil 2021/2022;Ganjil 2022/2023;Ganjil 2023/2024', '0', '1', '1', '2023-02-22 16:12:21', '2023-02-22 16:12:21'),
+	(11, '11', 'Tahun Lulus D3 Farmasi STIKES Borneo Lestari', '2017;2018;2019;2020;2021;2022;2023', '0', '0', '1', '2023-02-22 16:13:21', '2023-02-22 16:13:21'),
+	(12, '12', 'Semester Lulus D3 Farmasi STIKES Borneo Lestari', 'Genap;Ganjil', '0', '0', '1', '2023-02-22 16:13:57', '2023-02-22 16:13:57'),
+	(13, '13', 'Apa yang anda lakukan setelah lulus? Kuesioner selanjutnya akan disesuaikan dengan jawaban yang Anda pilih. Jika saat mengisi kuesioner ini Anda belum bekerja, maka diharapkan dapat mengisi kembali kuesioner setelah Anda mendapatkan pekerjaan pertama untuk mengisi kuesioner mengenai profil pekerjaan', 'Belum bekerja;Melanjutkan jenjang sekolah lebih tinggi;Langsung bekerja;Berwirausaha', '0', '0', '1', '2023-02-22 16:15:24', '2023-02-22 16:15:24');
 /*!40000 ALTER TABLE `survey_alumnis` ENABLE KEYS */;
 
 -- Dumping structure for table tracer.survey_lulusans
@@ -304,7 +381,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table tracer.users: ~1 rows (approximately)
+-- Dumping data for table tracer.users: ~0 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `name`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 	(1, 'admin', '$2y$10$P5/r.KGtmPGTdRwvvPJeCuqhxVqyNNW6NFz8ABPM5oksHoTWfM5EO', NULL, NULL, NULL);

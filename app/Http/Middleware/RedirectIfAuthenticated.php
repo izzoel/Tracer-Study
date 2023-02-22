@@ -24,10 +24,14 @@ class RedirectIfAuthenticated
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
                 // return redirect(RouteServiceProvider::HOME);
-                return response()->view(
-                    'content.admin',
-                    ['title' => 'home']
-                );
+                return redirect()->route('admin_dashboard');
+                // return response()->view(
+                //     'content.admin.',
+                //     [
+                //         'title' => 'home',
+                //         'data_alumni' => ' ',
+                //     ]
+                // );
             }
         }
 

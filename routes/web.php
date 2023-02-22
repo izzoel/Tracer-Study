@@ -8,6 +8,8 @@ use App\Http\Controllers\UserAlumniController;
 
 use App\Http\Controllers\BankAlumniController;
 use App\Http\Controllers\BankLulusanController;
+
+use Illuminate\Support\Facades\Session;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,7 +26,7 @@ use App\Http\Controllers\BankLulusanController;
 Route::get('/admin', [AdminController::class, 'admin_popup'])->name('login');
 Route::post('/admin', [AdminController::class, 'admin_login'])->name('login');
 
-Route::get('/logout', [AdminController::class, 'admin_logout'])->name('logout');
+
 
 
 
@@ -40,7 +42,7 @@ Route::group(['middleware' => ['guest']], function () {
                 'data_alumni' => ' ',
             ]
         );
-    })->name('landing')->middleware('guest');
+    })->name('landing');
 
 
     Route::get('/unduhan', function () {
@@ -71,9 +73,36 @@ Route::group(['middleware' => ['auth']], function () {
     // Route::get('/admin/dashboard', function () {
     //     return view('content.admin', ['title' => 'dashboard']);
     // })->name('admin_dashboard');
+
+
     // Route::get('/', function () {
-    //     return redirect('/admin/dashboard');
-    // });
+    //     // Session::flush();
+    //     return view(
+    //         'content.main',
+    //         [
+    //             'title' => 'home',
+    //             'data_alumni' => ' ',
+    //         ]
+    //     );
+    //     // Session::flush();
+    // })->name('landing');
+
+
+    // Route::get('/', function () {
+    //     return redirect('/');
+    // })->name('landing');
+
+    // Route::get('/', [AdminController::class, 'admin_logout'])->name('logout');
+
+    // Route::get('/', function () {
+    //     return view(
+    //         'content.main',
+    //         [
+    //             'title' => 'home',
+    //             'data_alumni' => ' ',
+    //         ]
+    //     );
+    // })->name('landing');
 
     Route::get('/admin/dashboard', [AdminController::class, 'show'])->name('admin_dashboard');
 
@@ -89,4 +118,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/admin/form_lulusan/{id}', [SurveyLulusanController::class, 'destroy'])->name('delete_lulusan');
 
     Route::get('/admin/user_alumni', [UserAlumniController::class, 'show'])->name('user_alumni');
+
+    Route::get('/logout', [AdminController::class, 'admin_logout'])->name('logout');
 });
