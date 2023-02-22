@@ -22,9 +22,6 @@
                             </thead>
                             <tbody>
                                 @foreach ($data_alumni as $data)
-                                    @php
-                                        $a = 'bank' . $loop->iteration;
-                                    @endphp
                                     <tr>
                                         @for ($i = 1; $i < $loop->count + 1; $i++)
                                             <td class="p-1">{{ $data['bank' . $i] }}</td>

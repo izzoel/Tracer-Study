@@ -641,8 +641,6 @@
         //     "font-size",
         //     "1px"
         // });
-
-        // $(".p-1 td:nth-child(n)").text();
     </script>
     {{-- @endauth --}}
 

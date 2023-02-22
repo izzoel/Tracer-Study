@@ -79,10 +79,14 @@ CREATE TABLE IF NOT EXISTS `bank_alumnis` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table tracer.bank_alumnis: ~0 rows (approximately)
+-- Dumping data for table tracer.bank_alumnis: ~3 rows (approximately)
 /*!40000 ALTER TABLE `bank_alumnis` DISABLE KEYS */;
+INSERT INTO `bank_alumnis` (`id`, `bank1`, `bank2`, `bank3`, `bank4`, `bank5`, `bank6`, `bank7`, `bank8`, `bank9`, `bank10`, `bank11`, `bank12`, `bank13`, `bank14`, `bank15`, `bank16`, `bank17`, `bank18`, `bank19`, `bank20`, `bank21`, `bank22`, `bank23`, `bank24`, `bank25`, `bank26`, `bank27`, `bank28`, `bank29`, `bank30`, `bank31`, `bank32`, `bank33`, `bank34`, `bank35`, `bank36`, `bank37`, `bank38`, `bank39`, `bank40`, `bank41`, `bank42`, `bank43`, `bank44`, `bank45`, `bank46`, `bank47`, `bank48`, `bank49`, `bank50`, `created_at`, `updated_at`) VALUES
+	(1, 'Pertama kali mengisi', 'Admin', '74615', 'Halimun 20 Januari 2000', 'Laki-laki', '08974183737', 'admin@mail.me', 'Jl. Kelapa Sawit 8 Bumi Berkat, Sei. Besar, Banjarbaru (70714)', '2,00-2,59', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+	(2, 'Pertama kali mengisi', 'Admin', '74616', 'Limosin 20 Januari 2000', 'Perempuan', '08974183737', 'admin@mail.me', 'Jl. Kelapa Sawit 8 Bumi Berkat, Sei. Besar, Banjarbaru (70714)', '2,60-2,99', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+	(3, 'Pertama kali mengisi', 'Admin', '74617', 'Palang 20 Januari 2000', 'Laki-laki', '08974183737', 'admin@mail.me', 'Jl. Kelapa Sawit 8 Bumi Berkat, Sei. Besar, Banjarbaru (70714)', '3,00-3,59', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 /*!40000 ALTER TABLE `bank_alumnis` ENABLE KEYS */;
 
 -- Dumping structure for table tracer.bank_lulusans
@@ -232,10 +236,43 @@ CREATE TABLE IF NOT EXISTS `survey_alumnis` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table tracer.survey_alumnis: ~0 rows (approximately)
+-- Dumping data for table tracer.survey_alumnis: ~32 rows (approximately)
 /*!40000 ALTER TABLE `survey_alumnis` DISABLE KEYS */;
+INSERT INTO `survey_alumnis` (`id`, `no`, `survey`, `pilihan`, `ganda`, `other`, `wajib`, `created_at`, `updated_at`) VALUES
+	(1, '1', 'Apakah sudah pernah mengisi formulir tracer study?', 'Pertama kali mengisi;Sudah pernah mengisi dan hendak update data pekerjaan pertama', '0', '0', '1', '2023-02-21 07:51:40', '2023-02-21 07:52:41'),
+	(2, '2', 'Nama', '', '0', '0', '1', '2023-02-21 08:19:16', '2023-02-21 08:19:16'),
+	(3, '3', 'NIM', '', '0', '0', '1', '2023-02-21 08:19:24', '2023-02-21 08:19:24'),
+	(4, '4', 'Tempat Tangal Lahir', '', '0', '0', '1', '2023-02-21 08:19:43', '2023-02-21 08:19:43'),
+	(5, '5', 'Jenis Kelamin', 'Laki-laki;Perempuan', '0', '0', '1', '2023-02-21 08:20:05', '2023-02-21 08:20:05'),
+	(6, '6', 'No Hp', '', '0', '0', '1', '2023-02-21 08:21:35', '2023-02-21 08:21:35'),
+	(7, '7', 'Email', '', '0', '0', '1', '2023-02-21 08:21:48', '2023-02-21 08:21:48'),
+	(8, '8', 'Alamat', '', '0', '0', '1', '2023-02-21 08:22:01', '2023-02-21 08:22:01'),
+	(9, '9', 'IPK setelah Lulus', '2,00-2,59;2,60-2,99;3,00-3,59;3,59-4,00', '0', '0', '1', '2023-02-21 08:22:54', '2023-02-21 08:22:54'),
+	(10, '10', 'Tahun Masuk Kuliah di D3 Farmasi Borneo Lestari?', 'Ganjil 2014/2015;Ganjil 2015/2016;Ganjil 2017/2018;Ganjil 2018/2019;Ganjil 2019/2020;Ganjil 2020/2021;Ganjil 2021/2022;Ganjil 2022/2023', '0', '1', '1', '2023-02-22 00:47:10', '2023-02-22 00:48:25'),
+	(11, '11', 'Tahun lulus', '2017;2018;2019;2020;2021;2022;2023', '0', '0', '1', '2023-02-22 00:49:15', '2023-02-22 00:49:15'),
+	(12, '12', 'Semester Lulus', 'Genap;Ganjil', '0', '0', '1', '2023-02-22 00:49:40', '2023-02-22 00:49:40'),
+	(13, '13', 'Apa yang anda lakukan setelah lulus?', 'Belum bekerja;Melanjutkan jenjang sekolah lebih tinggi;Langsung bekerja;Berwirausaha', '0', '0', '1', '2023-02-22 00:50:44', '2023-02-22 00:51:05'),
+	(14, '14', 'Berapa lama anda menunggu untuk mendapatkan pekerjaan setelah lulus', '≤ 3 bulan;3 < MT < 12;MT ≥ 12;-', '0', '0', '1', '2023-02-22 01:42:07', '2023-02-22 01:43:00'),
+	(15, '15', 'Jika sampai saat ini anda belum bekerja, karena: hanya diisi untuk alumni yang belum bekerja', 'Sudah melamar tapi tidak dipanggil;Sudah mengikuti tes/interview/training tapi tidak lulus;Belum ada lowongan kerja yang sesuai dengan minat saya (karir, gaji, dll);TRTTK belum keluar;Menjadi ibu rumah tangga', '0', '1', '0', '2023-02-22 01:44:32', '2023-02-22 01:44:32'),
+	(16, '16', 'Nama Institusi', '', '0', '0', '1', '2023-02-22 01:45:24', '2023-02-22 01:45:24'),
+	(17, '17', 'Program Studi yang diambil', '', '0', '0', '1', '2023-02-22 01:45:43', '2023-02-22 01:45:43'),
+	(18, '18', 'Tahun masuk', '', '0', '0', '1', '2023-02-22 01:49:05', '2023-02-22 01:49:05'),
+	(19, '19', 'Semester masuk kuliah', 'Genap;Ganjil', '0', '0', '1', '2023-02-22 01:49:32', '2023-02-22 01:49:32'),
+	(20, '20', 'Nama ketua program studi', '', '0', '0', '1', '2023-02-22 01:50:49', '2023-02-22 01:50:49'),
+	(21, '20', 'Nama ketua program studi', '', '0', '0', '1', '2023-02-22 01:52:05', '2023-02-22 01:52:05'),
+	(22, '21', 'Apakah anda bersedia untuk berbagi dengan almamater Universitas Borneo Lestari?', 'Ya;Tidak', '0', '0', '1', '2023-02-22 01:53:10', '2023-02-22 01:53:10'),
+	(23, '22', 'Jika bersedia, hal apa yang ingin anda bagikan untuk almamater Universitas Borneo Lestari?', '', '0', '0', '0', '2023-02-22 01:53:37', '2023-02-22 01:53:37'),
+	(24, '23', 'Kepuasan alumni terhadap Dosen D3 Farmasi? \r\nAspek yang dinilai antara lain keandalan dan kemampuan dosen dalam memberikan pelayanan terhadap mahasiswa, daya tanggap dosen dalam membantu mahasiswa dan memberikan jasa dengan cepat, kepastian bahwa pelayanan dosen sesuai dengan ketentuan, dan kepedulian dosen dalam memberi perhatian kepada mahasiswa (Keterangan skala: 1 = kurang, 2 = cukup, 3 = baik, 4 = sangat baik)', '1;2;3;4', '0', '0', '1', '2023-02-22 01:55:04', '2023-02-22 01:57:21'),
+	(25, '24', 'Kepuasan alumni terhadap Tenaga Kependidikan?\r\nAspek yang dinilai antara lain keandalan dan kemampuan tenaga kependidikan dalam memberikan pelayanan terhadap mahasiswa, daya tanggap tenaga kependidikan dalam membantu mahasiswa dan memberikan jasa dengan cepat, kepastian bahwa pelayanan tenaga kependidikan sesuai dengan ketentuan, dan kepedulian tenaga kependidikan dalam memberi perhatian kepada mahasiswa (Keterangan skala: 1 = kurang, 2 = cukup, 3 = baik, 4 = sangat baik)', '1;2;3;4', '0', '0', '1', '2023-02-22 01:58:02', '2023-02-22 01:58:02'),
+	(26, '25', 'Kepuasan alumni terhadap Pengelola Prodi D3 Farmasi? Aspek yang dinilai antara lain keandalan dan kemampuan pengelola program studi dalam memberikan pelayanan terhadap mahasiswa, daya tanggap pengelola program studi dalam membantu mahasiswa dan memberikan jasa dengan cepat, kepastian bahwa pelayanan pengelola program studi sesuai dengan ketentuan, dan kepedulian tenaga kependidikan dalam memberi perhatian kepada mahasiswa (Keterangan skala: 1 = kurang, 2 = cukup, 3 = baik, 4 = sangat baik)', '1;2;3;4', '0', '0', '1', '2023-02-22 01:59:03', '2023-02-22 01:59:03'),
+	(27, '26', 'Kepuasan alumni terhadap Sarana dan Prasarana Prodi D3 Farmasi?\r\nAspek yang dinilai antara lain kecukupan, aksesibitas, kualitas sarana dan prasarana (Keterangan skala: 1 = kurang, 2 = cukup, 3 = baik, 4 = sangat baik)', '1;2;3;4', '0', '0', '1', '2023-02-22 01:59:50', '2023-02-22 01:59:50'),
+	(29, '27', 'Kepuasan alumni terhadap Pengelolaan Keuangan selama Proses Pendidikan di Prodi D3 Farmasi? Aspek yang dinilai adalah biaya yang dibebankan kepada alumni selama proses pendidikan dengan pelayanan yang didapatkan (Keterangan skala: 1 = kurang, 2 = cukup, 3 = baik, 4 = sangat baik)', '1;2;3;4', '0', '0', '1', '2023-02-22 02:32:50', '2023-02-22 02:49:58'),
+	(30, '28', 'Saran untuk Prodi D3 Farmasi STIKES Borneo Lestari', '', '0', '0', '1', '2023-02-22 02:50:34', '2023-02-22 02:50:34'),
+	(31, '29', 'Jenis Pekerjaan/Instansi saat ini', 'Pemerintah;BUMN;Swasta (Apotek/PBF/Rumah Sakit);Wiraswasta;Lembaga Non Profit', '0', '1', '1', '2023-02-22 03:09:50', '2023-02-22 03:09:50'),
+	(32, '30', 'Jenis Pekerjaan saat ini', 'Akademisi;Peneliti;Administrasi;Praktisi;PBF;Apotek;Dinas kesehatan;Rumah sakit;Toko Obat', '0', '1', '1', '2023-02-22 03:12:05', '2023-02-22 03:12:05'),
+	(33, '31', 'Kapan anda mencari pekerjaan', 'Sebelum lulus;Setelah lulus', '0', '0', '1', '2023-02-22 03:12:30', '2023-02-22 03:12:30');
 /*!40000 ALTER TABLE `survey_alumnis` ENABLE KEYS */;
 
 -- Dumping structure for table tracer.survey_lulusans

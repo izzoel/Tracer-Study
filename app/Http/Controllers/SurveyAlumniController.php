@@ -69,7 +69,8 @@ class SurveyAlumniController extends Controller
         ]);
 
 
-        return back();
+        return redirect(url()->previous() . '#tambah');;
+        // return redirect(back() . '#tambah');
     }
 
     /**

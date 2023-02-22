@@ -97,7 +97,7 @@
                         </table>
                     @endforeach
                     @auth
-                        <a class="btn-sm btn-primary" href="#" role="button" data-bs-toggle="modal"
+                        <a class="btn-sm btn-primary" id="tambah" href="#" role="button" data-bs-toggle="modal"
                             data-bs-target="#modal_form">&plus;</a>
 
                     @endauth
