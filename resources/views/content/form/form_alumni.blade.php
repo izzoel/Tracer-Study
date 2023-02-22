@@ -10,14 +10,31 @@
                 <form action="{{ route('alumni_submit') }}" method="POST">
                     @csrf
                     @foreach ($form_alumni as $data)
+                        {{-- @php
+                            $haystack = $data->survey;
+                            $needle = '?';
+                            
+                            if (strpos($haystack, $needle) !== false) {
+                                // $char = $data->survey;
+                                // $char = json_encode($data->survey);
+                                // $char = explode('?', $char . toString());
+                                $char = implode($data->survey);
+                                $br = '<br>';
+                            } else {
+                                // $char = '';
+                                $br = '';
+                            }
+                        @endphp --}}
                         <table class="table table-borderless responsive ">
                             <tbody>
                                 <tr>
                                     <td class="align-top" style="min-width: 5%;width: 5%">{{ $data->no }}.&nbsp;</td>
                                     <td class="text-break " style="min-width: 100%;width: 40rem">
                                         {{ $data->survey }}
+                                        {{-- {!! $char !!} --}}
                                         @if ($data->wajib == 1)
                                             <span class="ms-0 ps-0 me-0 pe-0 text-danger">*</span>
+                                            {{-- {!! $br !!} --}}
                                         @endif
                                     </td>
                                     <td>
