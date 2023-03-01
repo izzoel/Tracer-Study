@@ -87,6 +87,14 @@ class SurveyAlumniController extends Controller
         return view('content.form.form_alumni', ['title' => 'form_alumni'])->with(['form_alumni' => $form_alumni, 'no_urut' => $no_urut, 'title' => 'form']);
     }
 
+    public function showAlumni(SurveyAlumni $survey_Alumni)
+    {
+        $form_alumni = SurveyAlumni::all()->sortBy("no");
+        $no_urut = $form_alumni->pluck('no')->last();
+
+        return view('survey.alumni', ['title' => 'form_alumni'])->with(['form_alumni' => $form_alumni, 'no_urut' => $no_urut, 'title' => 'form']);
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

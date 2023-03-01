@@ -274,7 +274,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
 
 -- Dumping data for table tracer.migrations: ~10 rows (approximately)
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
-INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
+INSERT IGNORE INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(31, '2014_10_12_000000_create_users_table', 1),
 	(32, '2014_10_12_100000_create_password_resets_table', 1),
 	(33, '2019_08_19_000000_create_failed_jobs_table', 1),
@@ -332,11 +332,11 @@ CREATE TABLE IF NOT EXISTS `survey_alumnis` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table tracer.survey_alumnis: ~0 rows (approximately)
+-- Dumping data for table tracer.survey_alumnis: ~47 rows (approximately)
 /*!40000 ALTER TABLE `survey_alumnis` DISABLE KEYS */;
-INSERT INTO `survey_alumnis` (`id`, `no`, `survey`, `pilihan`, `ganda`, `other`, `wajib`, `created_at`, `updated_at`) VALUES
+INSERT IGNORE INTO `survey_alumnis` (`id`, `no`, `survey`, `pilihan`, `ganda`, `other`, `wajib`, `created_at`, `updated_at`) VALUES
 	(1, '1', 'Apakah sudah pernah mengisi formulir tracer study?', 'Pertama kali mengisi;Sudah pernah mengisi dan hendak update data pekerjaan pertama', '0', '0', '1', '2023-02-22 15:40:38', '2023-02-22 16:00:25'),
 	(2, '2', 'Nama', '', '0', '0', '1', '2023-02-22 16:05:41', '2023-02-22 16:05:41'),
 	(3, '3', 'NIM', '', '0', '0', '1', '2023-02-22 16:05:53', '2023-02-22 16:05:53'),
@@ -349,7 +349,65 @@ INSERT INTO `survey_alumnis` (`id`, `no`, `survey`, `pilihan`, `ganda`, `other`,
 	(10, '10', 'Tahun Masuk Kuliah di D3 Farmasi Borneo Lestari', 'Ganjil 2014/2015;Ganjil 2015/2016;Ganjil 2016/2017;Ganjil 2017/2018;Ganjil 2018/2019;Ganjil 2019/2020;Ganjil 2020/2021;Ganjil 2021/2022;Ganjil 2022/2023;Ganjil 2023/2024', '0', '1', '1', '2023-02-22 16:12:21', '2023-02-22 16:12:21'),
 	(11, '11', 'Tahun Lulus D3 Farmasi STIKES Borneo Lestari', '2017;2018;2019;2020;2021;2022;2023', '0', '0', '1', '2023-02-22 16:13:21', '2023-02-22 16:13:21'),
 	(12, '12', 'Semester Lulus D3 Farmasi STIKES Borneo Lestari', 'Genap;Ganjil', '0', '0', '1', '2023-02-22 16:13:57', '2023-02-22 16:13:57'),
-	(13, '13', 'Apa yang anda lakukan setelah lulus? Kuesioner selanjutnya akan disesuaikan dengan jawaban yang Anda pilih. Jika saat mengisi kuesioner ini Anda belum bekerja, maka diharapkan dapat mengisi kembali kuesioner setelah Anda mendapatkan pekerjaan pertama untuk mengisi kuesioner mengenai profil pekerjaan', 'Belum bekerja;Melanjutkan jenjang sekolah lebih tinggi;Langsung bekerja;Berwirausaha', '0', '0', '1', '2023-02-22 16:15:24', '2023-02-22 16:15:24');
+	(13, '13', 'Apa yang anda lakukan setelah lulus? Kuesioner selanjutnya akan disesuaikan dengan jawaban yang Anda pilih. Jika saat mengisi kuesioner ini Anda belum bekerja, maka diharapkan dapat mengisi kembali kuesioner setelah Anda mendapatkan pekerjaan pertama untuk mengisi kuesioner mengenai profil pekerjaan', 'Belum bekerja;Melanjutkan jenjang sekolah lebih tinggi;Langsung bekerja;Berwirausaha', '0', '0', '1', '2023-02-22 16:15:24', '2023-02-22 16:15:24'),
+	(14, '14', 'Berapa lama anda menunggu untuk mendapatkan pekerjaan setelah lulus? (dalam satuan bulan, terhitung setelah yudisium profesi apoteker) *Indikator masa tunggu merupakan salah satu poin penilaian akreditasi. Jika saat mengisi kuesioner ini Anda belum mendapatkan pekerjaan maka dapat menuliskan tanda "-"', '≤ 3 bulan;3 < MT < 12;MT ≥ 12;-', '0', '0', '1', '2023-02-23 00:47:08', '2023-02-23 00:49:17'),
+	(15, '15', 'Jika sampai saat ini anda belum bekerja, karena: hanya diisi untuk alumni yang belum bekerja', 'Sudah melamar tapi tidak dipanggil;Sudah mengikuti tes/interview/training tapi tidak lulus;Belum ada lowongan kerja yang sesuai dengan minat saya (karir, gaji, dll);TRTTK belum keluar;Menjadi ibu rumah tangga', '0', '1', '1', '2023-02-23 00:50:31', '2023-02-23 00:51:05'),
+	(16, '16', 'Nama institusi', '', '0', '0', '1', '2023-02-23 00:51:29', '2023-02-23 00:51:36'),
+	(17, '17', 'Program studi yang diambil', '', '0', '0', '1', '2023-02-23 00:52:04', '2023-02-23 00:52:04'),
+	(18, '18', 'Tahun masuk', '', '0', '0', '1', '2023-02-23 00:52:12', '2023-02-23 00:52:12'),
+	(19, '19', 'Semester masuk kuliah', 'Genap;Ganjil', '0', '0', '1', '2023-02-23 00:52:41', '2023-02-23 00:52:41'),
+	(20, '20', 'Nama ketua program studi', '', '0', '0', '1', '2023-02-23 00:53:03', '2023-02-23 00:53:03'),
+	(21, '21', 'Apakah anda bersedia untuk berbagi dengan almamater STIKES Borneo Lestari?', 'Ya;Tidak', '0', '0', '1', '2023-02-23 00:53:28', '2023-02-23 00:53:28'),
+	(22, '22', 'Jika bersedia, hal apa yang ingin anda bagikan untuk almamater STIKES Borneo Lestari?', '', '0', '0', '0', '2023-02-23 00:53:52', '2023-02-23 00:54:20'),
+	(23, '23', 'Kepuasan alumni terhadap Dosen D3 Farmasi? Aspek yang dinilai antara lain keandalan dan kemampuan dosen dalam memberikan pelayanan terhadap mahasiswa, daya tanggap dosen dalam membantu mahasiswa dan memberikan jasa dengan cepat, kepastian bahwa pelayanan dosen sesuai dengan ketentuan, dan kepedulian dosen dalam memberi perhatian kepada mahasiswa (Keterangan skala: 1 = kurang, 2 = cukup, 3 = baik, 4 = sangat baik)', '1;2;3;4', '0', '0', '1', '2023-02-23 00:54:13', '2023-02-23 00:54:46'),
+	(24, '24', 'Kepuasan alumni terhadap Tenaga Kependidikan? Aspek yang dinilai antara lain keandalan dan kemampuan tenaga kependidikan dalam memberikan pelayanan terhadap mahasiswa, daya tanggap tenaga kependidikan dalam membantu mahasiswa dan memberikan jasa dengan cepat, kepastian bahwa pelayanan tenaga kependidikan sesuai dengan ketentuan, dan kepedulian tenaga kependidikan dalam memberi perhatian kepada mahasiswa (Keterangan skala: 1 = kurang, 2 = cukup, 3 = baik, 4 = sangat baik)', '1;2;3;4', '0', '0', '1', '2023-02-23 00:55:17', '2023-02-23 00:55:17'),
+	(25, '25', 'Kepuasan alumni terhadap Pengelola Prodi D3 Farmasi? Aspek yang dinilai antara lain keandalan dan kemampuan pengelola program studi dalam memberikan pelayanan terhadap mahasiswa, daya tanggap pengelola program studi dalam membantu mahasiswa dan memberikan jasa dengan cepat, kepastian bahwa pelayanan pengelola program studi sesuai dengan ketentuan, dan kepedulian tenaga kependidikan dalam memberi perhatian kepada mahasiswa (Keterangan skala: 1 = kurang, 2 = cukup, 3 = baik, 4 = sangat baik)', '1;2;3;4', '0', '0', '1', '2023-02-23 00:55:57', '2023-02-23 00:55:57'),
+	(26, '26', 'Kepuasan alumni terhadap Sarana dan Prasarana Prodi D3 Farmasi.  Aspek yang dinilai antara lain kecukupan, aksesibitas, kualitas sarana dan prasarana (Keterangan skala: 1 = kurang, 2 = cukup, 3 = baik, 4 = sangat baik)', '1;2;3;4', '0', '0', '1', '2023-02-23 00:56:49', '2023-02-23 00:56:49'),
+	(27, '27', 'Kepuasan alumni terhadap Pengelolaan Keuangan selama Proses Pendidikan di Prodi D3 Farmasi. Aspek yang dinilai adalah biaya yang dibebankan kepada alumni selama proses pendidikan dengan pelayanan yang didapatkan (Keterangan skala: 1 = kurang, 2 = cukup, 3 = baik, 4 = sangat baik)', '1;2;3;4', '0', '0', '1', '2023-02-23 00:57:27', '2023-02-23 00:57:27'),
+	(28, '28', 'Saran untuk Prodi D3 Farmasi STIKES Borneo Lestari', '', '0', '0', '1', '2023-02-23 00:57:52', '2023-02-23 00:57:52'),
+	(29, '29', 'Jenis Pekerjaan/Instansi saat ini. Tuliskan Bidang perkerjaan saat ini termasuk bagian atau departemen jika bekerja pada suatu pemerintahan atau lembaga', 'Pemerintah;BUMN;Swasta (Apotek/PBF/Rumah Sakit);Wiraswasta;Lembaga Non Profit', '0', '1', '1', '2023-02-23 01:00:24', '2023-02-23 01:00:24'),
+	(30, '30', 'Jenis Pekerjaan saat ini', 'Akademisi;Peneliti;Administrasi;Praktisi;PBF;Apotek;Dinas kesehatan;Rumah sakit;Toko Obat', '0', '1', '1', '2023-02-23 01:02:00', '2023-02-23 01:02:00'),
+	(31, '31', 'Kapan anda mencari pekerjaan?', 'Sebelum lulus;Setelah lulus', '0', '0', '1', '2023-02-23 01:02:54', '2023-02-23 01:02:54'),
+	(32, '32', 'Nama institusi atau jenis usaha tempat anda bekerja', '', '0', '0', '1', '2023-02-23 01:10:09', '2023-02-23 01:10:09'),
+	(33, '33', 'Jabatan pekerjaan', '', '0', '0', '1', '2023-02-23 01:10:22', '2023-02-23 01:10:22'),
+	(34, '34', 'Apa status pekerjaan anda saat ini?', 'Tenaga tetap;Honorer;Kontrak paruh waktu;Kontrak penuh waktu', '0', '1', '1', '2023-02-23 01:11:17', '2023-02-23 01:11:17'),
+	(35, '35', 'Lama periode pekerjaan saat ini', '', '0', '0', '1', '2023-02-23 01:11:30', '2023-02-23 01:11:30'),
+	(36, '36', 'Apakah instansi tempat Anda bekerja saat ini merupakan pekerjaan pertama anda?', 'Ya;Tidak', '0', '0', '1', '2023-02-23 01:11:48', '2023-02-23 01:12:14'),
+	(37, '37', 'Nama atasan langsung Anda (beserta gelar). Tujuan pengumpulan data ini adalah untuk menghubungi atasan langsung guna mengisi tracer study untuk pengguna lulusan', '', '0', '0', '1', '2023-02-23 01:12:36', '2023-02-23 01:12:36'),
+	(38, '38', 'Alamat email atasan Anda', '', '0', '0', '1', '2023-02-23 01:13:41', '2023-02-23 01:13:41'),
+	(39, '39', 'Mohon sebutkan riwayat pekerjaan anda dan lama periodenya sebelum	pekerjaan yang saat ini (jika ada). Tuliskan jenis pekerjaan dan berapa lama anda bekerja', '', '0', '0', '1', '2023-02-23 01:14:29', '2023-02-23 01:14:29'),
+	(40, '40', 'Apakah bidang pekerjaan anda relevan dengan bidang ilmu hasil pendidikan anda?', 'Ya;Tidak', '0', '0', '1', '2023-02-23 01:14:53', '2023-02-23 01:14:53'),
+	(41, '41', 'Dari mana anda mendapatkan informasi pekerjaan pertama?', 'Iklan/media massa;Prodi D3 Farmasi STIKES Borneo Lestari;Relasi keluarga dan teman;Ikatan Alumni', '0', '1', '1', '2023-02-23 01:15:34', '2023-02-23 01:15:34'),
+	(42, '42', 'Apakah pekerjaan anda saat ini memenuhi harapan anda (boleh memilih alasan lebih dari satu)', 'Ya, karena gaji sesuai;Ya, karena kedudukan/jabatan sesuai;Ya, karena iklim kerja menyenangkan;Tidak, karena gaji tidak sesuai;Tidak, karena kedudukan/jabatan sesuai;Tidak, karena iklim kerja tidak menyenangkan', '1', '1', '1', '2023-02-23 01:16:39', '2023-02-23 01:17:56'),
+	(43, '43', 'Berapa take home pay (gaji+tunjangan+insentif+ dll) pertama anda dalam satu bulan?', 'Kurang dari Rp 2.000.000;Rp 2.000.000 – 5.000.000;Rp 5.000.000 – 10.000.000;Rp 10.000.000 – 15.000.000;Rp 15.000.000 – 25.000.000;Lebih dari Rp 25.000.000', '0', '0', '1', '2023-02-23 01:19:07', '2023-02-23 01:19:07'),
+	(44, '44', 'Faktor apa yang paling berperan dalam mendapatkan pekerjaan (dapat lebih dari satu)?', 'IPK/kemampuan akademik;Asal perguruan tinggi;Kepribadian;Ekstra kurikuler: pengalaman organisasi, kelompok studi;Pengalaman lain: kursus keterampilan;Pengalaman lain: penguasaan bahasa asing', '1', '1', '1', '2023-02-23 01:20:37', '2023-02-23 01:20:37'),
+	(45, '45', 'Pernahkan anda pindah bekerja?', 'belum pernah;1 kali;2 kali;> 2 kali', '0', '1', '1', '2023-02-23 01:21:24', '2023-02-23 01:21:24'),
+	(46, '46', 'Apakah alasan anda pindah bekerja?', 'Perbaikan gaji;Kesesuaian dengan bidang ilmu;Manajemen instansi/Lembaga perusahaan;Peluang karir;Lingkungan pekerjaan tidak mendukung', '0', '1', '1', '2023-02-23 01:22:50', '2023-02-23 01:22:50'),
+	(47, '47', 'Apakah anda bersedia untuk berbagi dengan almamater STIKES Borneo Lestari?', 'Ya;Tidak', '0', '0', '1', '2023-02-23 01:23:04', '2023-02-23 01:23:16'),
+	(48, '48', 'Jika bersedia, hal apa yang dapat anda bagikan untuk almamater STIKES Borneo Lestari (dapat lebih dari satu pilihan)?', 'Berbagi pengalaman/keahlian;Informasi lowongan pekerjaan;Kerjasama penelitian;Fasilitasi tempat bekerja;Beasiswa untuk adik kelas yang memerlukan;Sarana dan prasarana pengembangan kampus', '1', '1', '1', '2023-02-23 01:35:47', '2023-02-23 01:35:47'),
+	(49, '49', 'Kepuasan alumni terhadap Dosen D3 Farmasi. Aspek yang dinilai antara lain keandalan dan kemampuan dosen dalam memberikan pelayanan terhadap mahasiswa, daya tanggap dosen dalam membantu mahasiswa dan memberikan jasa dengan cepat, kepastian bahwa pelayanan dosen sesuai dengan ketentuan, dan kepedulian dosen dalam memberi perhatian kepada mahasiswa (Keterangan skala: 1 = kurang, 2 = cukup, 3 = baik, 4 = sangat baik)', '1;2;3;4', '0', '0', '1', '2023-02-23 01:36:18', '2023-02-23 01:36:18'),
+	(50, '50', 'Kepuasan alumni terhadap Tenaga Kependidikan. Aspek yang dinilai antara lain keandalan dan kemampuan tenaga kependidikan dalam memberikan pelayanan terhadap mahasiswa, daya tanggap tenaga kependidikan dalam membantu mahasiswa dan memberikan jasa dengan cepat, kepastian bahwa pelayanan tenaga kependidikan sesuai dengan ketentuan, dan kepedulian tenaga kependidikan dalam memberi perhatian kepada mahasiswa (Keterangan skala: 1 = kurang, 2 = cukup, 3 = baik, 4 = sangat baik)', '1;2;3;4', '0', '0', '1', '2023-02-23 01:36:54', '2023-02-23 01:36:54'),
+	(51, '51', 'Kepuasan alumni terhadap Pengelola Prodi D3 Farmasi. Aspek yang dinilai antara lain keandalan dan kemampuan pengelola program studi dalam memberikan pelayanan terhadap mahasiswa, daya tanggap pengelola program studi dalam membantu mahasiswa dan memberikan jasa dengan cepat, kepastian bahwa pelayanan pengelola program studi sesuai dengan ketentuan, dan kepedulian tenaga kependidikan dalam memberi perhatian kepada mahasiswa (Keterangan skala: 1 = kurang, 2 = cukup, 3 = baik, 4 = sangat baik)', '1;2;3;4', '0', '0', '1', '2023-02-23 01:38:22', '2023-02-23 01:38:22'),
+	(52, '52', 'Kepuasan alumni terhadap Sarana dan Prasarana Prodi D3 Farmasi. Aspek yang dinilai antara lain kecukupan, aksesibitas, kualitas sarana dan prasarana (Keterangan skala: 1 = kurang, 2 = cukup, 3 = baik, 4 = sangat baik)', '1;2;3;4', '0', '0', '1', '2023-02-23 01:38:58', '2023-02-23 01:38:58'),
+	(53, '53', 'Kepuasan alumni terhadap Pengelolaan Keuangan selama Proses Pendidikan di Prodi D3 Farmasi. Aspek yang dinilai adalah biaya yang dibebankan kepada alumni selama proses pendidikan dengan pelayanan yang didapatkan (Keterangan skala: 1 = kurang, 2 = cukup, 3 = baik, 4 = sangat baik)', '1;2;3;4', '0', '0', '1', '2023-02-23 01:39:38', '2023-02-23 01:39:38'),
+	(54, '54', 'Saran untuk Prodi D3 Farmasi STIKES Borneo Lestari', '', '0', '0', '1', '2023-02-23 01:39:58', '2023-02-23 01:39:58'),
+	(55, '55', 'Nama usaha Anda', '', '0', '0', '1', '2023-02-23 01:40:32', '2023-02-23 01:40:32'),
+	(56, '56', 'Lama periode Anda berwirausaha', '', '0', '0', '1', '2023-02-23 01:40:47', '2023-02-23 01:40:47'),
+	(57, '57', 'Bagaimana status kepemilikan perusahaan Anda saat ini?', 'Milik sendiri;Kemitraan', '0', '1', '1', '2023-02-23 01:41:19', '2023-02-23 01:41:19'),
+	(58, '58', 'Jenis usaha apakah yang Anda lakukan saat ini?', 'Jasa;Dagang;Pabrik;Produksi', '0', '1', '1', '2023-02-23 01:42:04', '2023-02-23 01:42:04'),
+	(59, '59', 'Motivasi apa yang mendorong Anda membuka usaha mandiri?', 'Meneruskan bisnis orang tua;Tidak suka bekerja dengan orang lain;Mencari tantangan;Mencari uang tambahan', '0', '1', '1', '2023-02-23 01:42:47', '2023-02-23 01:42:47'),
+	(60, '60', 'Mohon sebutkan riwayat pekerjaan anda dan lama periodenya sebelum	pekerjaan yang saat ini (jika ada).\r\nTuliskan jenis pekerjaan dan berapa lama anda bekerja', '', '0', '0', '1', '2023-02-23 01:43:06', '2023-02-23 01:43:06'),
+	(61, '61', 'Apakah bidang wirausaha anda relevan dengan bidang ilmu hasil pendidikan anda (kefarmasian)?', 'Ya;Tidak', '0', '0', '1', '2023-02-23 01:43:25', '2023-02-23 01:43:25'),
+	(62, '62', 'Berapa penghasilan pertama anda dalam satu bulan?', 'Kurang dari Rp 2.000.000;Rp 2.000.000 – 5.000.000;Rp 5.000.000 – 10.000.000;Rp 10.000.000 – 15.000.000;Rp 15.000.000 – 25.000.000;Lebih dari Rp 25.000.000', '0', '0', '1', '2023-02-23 01:44:22', '2023-02-23 01:44:22'),
+	(63, '63', 'Faktor apa yang paling berperan dalam berwirausaha? Jelaskan faktor yang berperan dalam anda berwirausaha', '', '0', '0', '1', '2023-02-23 01:44:40', '2023-02-23 01:44:40'),
+	(64, '64', 'Apakah anda bersedia untuk berbagi dengan almamater STIKES Borneo Lestari?', 'Ya;Tidak', '0', '0', '1', '2023-02-23 01:45:03', '2023-02-23 01:45:03'),
+	(65, '65', 'Jika bersedia, hal apa yang dapat anda bagikan untuk STIKES Borneo Lestari (dapat lebih dari satu pilihan)?', 'Berbagi pengalaman/keahlian;Informasi lowongan pekerjaan;Kerjasama penelitian;Fasilitasi tempat praktik kerja profesi apoteker;Beasiswa untuk adik kelas yang memerlukan;Sarana dan prasarana pengembangan kampus', '1', '1', '1', '2023-02-23 01:46:16', '2023-02-23 01:46:31'),
+	(66, '66', 'Kepuasan alumni terhadap Dosen D3 Farmasi. Aspek yang dinilai antara lain keandalan dan kemampuan dosen dalam memberikan pelayanan terhadap mahasiswa, daya tanggap dosen dalam membantu mahasiswa dan memberikan jasa dengan cepat, kepastian bahwa pelayanan dosen sesuai dengan ketentuan, dan kepedulian dosen dalam memberi perhatian kepada mahasiswa (Keterangan skala: 1 = kurang, 2 = cukup, 3 = baik, 4 = sangat baik)', '1;2;3;4', '0', '0', '1', '2023-02-23 01:47:00', '2023-02-23 01:47:00'),
+	(67, '67', 'Kepuasan alumni terhadap Tenaga Kependidikan. Aspek yang dinilai antara lain keandalan dan kemampuan tenaga kependidikan dalam memberikan pelayanan terhadap mahasiswa, daya tanggap tenaga kependidikan dalam membantu mahasiswa dan memberikan jasa dengan cepat, kepastian bahwa pelayanan tenaga kependidikan sesuai dengan ketentuan, dan kepedulian tenaga kependidikan dalam memberi perhatian kepada mahasiswa (Keterangan skala: 1 = kurang, 2 = cukup, 3 = baik, 4 = sangat baik)', '1;2;3;4', '0', '0', '1', '2023-02-23 01:47:28', '2023-02-23 01:47:28'),
+	(68, '68', 'Kepuasan alumni terhadap Pengelola Prodi D3 Farmasi. Aspek yang dinilai antara lain keandalan dan kemampuan pengelola program studi dalam memberikan pelayanan terhadap mahasiswa, daya tanggap pengelola program studi dalam membantu mahasiswa dan memberikan jasa dengan cepat, kepastian bahwa pelayanan pengelola program studi sesuai dengan ketentuan, dan kepedulian tenaga kependidikan dalam memberi perhatian kepada mahasiswa (Keterangan skala: 1 = kurang, 2 = cukup, 3 = baik, 4 = sangat baik)', '1;2;3;4', '0', '0', '1', '2023-02-23 01:47:51', '2023-02-23 01:47:51'),
+	(69, '69', 'Kepuasan alumni terhadap Sarana dan Prasarana Prodi D3 Farmasi.  Aspek yang dinilai antara lain kecukupan, aksesibitas, kualitas sarana dan prasarana (Keterangan skala: 1 = kurang, 2 = cukup, 3 = baik, 4 = sangat baik)', '1;2;3;4', '0', '0', '1', '2023-02-23 01:48:15', '2023-02-23 01:48:15'),
+	(70, '70', 'Kepuasan alumni terhadap Pengelolaan Keuangan selama Proses Pendidikan di Prodi D3 Farmasi. Aspek yang dinilai adalah biaya yang dibebankan kepada alumni selama proses pendidikan dengan pelayanan yang didapatkan (Keterangan skala: 1 = kurang, 2 = cukup, 3 = baik, 4 = sangat baik)', '1;2;3;4', '0', '0', '1', '2023-02-23 01:48:54', '2023-02-23 01:48:54'),
+	(71, '71', 'Saran untuk Prodi D3 Farmasi STIKES Borneo Lestari', '', '0', '0', '1', '2023-02-23 01:49:04', '2023-02-23 01:49:04');
 /*!40000 ALTER TABLE `survey_alumnis` ENABLE KEYS */;
 
 -- Dumping structure for table tracer.survey_lulusans
@@ -381,9 +439,9 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table tracer.users: ~0 rows (approximately)
+-- Dumping data for table tracer.users: ~1 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` (`id`, `name`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+INSERT IGNORE INTO `users` (`id`, `name`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 	(1, 'admin', '$2y$10$P5/r.KGtmPGTdRwvvPJeCuqhxVqyNNW6NFz8ABPM5oksHoTWfM5EO', NULL, NULL, NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 

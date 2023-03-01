@@ -5,7 +5,13 @@
             <div class="card-header" style="background-color: rgb(255, 255, 255)">
                 {{-- <h4 class="card-title text-dark m-2">Dashboard</h4>
                 <p class="card-category m-2">Dashboard</p> --}}
-                <div id="container" class="p-5" style="width:100%; height:400px;"></div>
+                {{-- <div id="container" class="p-5" style="width:100%; height:400px;"></div> --}}
+                {{-- <div > --}}
+                <div class="wrapper" style="height:60vh">
+                    <canvas id="myChart"></canvas>
+
+                </div>
+                {{-- </div> --}}
             </div>
             <div class="row">
                 <div class="col">

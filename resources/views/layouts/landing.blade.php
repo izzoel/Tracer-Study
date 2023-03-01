@@ -30,6 +30,11 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/css/dataTables.bootstrap5.min.css">
     {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css"> --}}
 
+    <link href="../css/smart_wizard_all.css" rel="stylesheet" type="text/css" />
+    {{-- <link href="https://cdn.jsdelivr.net/npm/smartwizard@6/dist/css/smart_wizard_all.min.css" rel="stylesheet"
+        type="text/css" /> --}}
+
+
 
 </head>
 
@@ -191,13 +196,40 @@
     <script src="../plugins/shuffle/shuffle.js"></script>
     <!-- Main Script -->
     <script src="../js/script.js"></script>
-    <script src="https://code.highcharts.com/highcharts.js"></script>
+    {{-- <script src="https://code.highcharts.com/highcharts.js"></script> --}}
 
     <!-- Datatables Script -->
     <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.2/js/dataTables.bootstrap5.min.js"></script>
+
+    <!-- chart -->
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.1/chart.min.js"
+        integrity="sha512-v3ygConQmvH0QehvQa6gSvTE2VdBZ6wkLOlmK7Mcy2mZ0ZF9saNbbk19QeaoTHdWIEiTlWmrwAL4hS8ElnGFbA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script> --}}
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.1/chart.js"
+        integrity="sha512-Cv3WnEz5uGwmTnA48999hgbYV1ImGjsDWyYQakowKw+skDXEYYSU+rlm9tTflyXc8DbbKamcLFF80Cf89f+vOQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.1/chart.umd.js"
+        integrity="sha512-vCUbejtS+HcWYtDHRF2T5B0BKwVG/CLeuew5uT2AiX4SJ2Wff52+kfgONvtdATqkqQMC9Ye5K+Td0OTaz+P7cw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.1/helpers.js"
+        integrity="sha512-Kkt+9BdRfSBFaKgC+9xNLDVzBX3nAlj2EE95amI6F/XV2LKxED93uUigInw7w9JABWGVnuD1WZU3SKy+J+aDPw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/smartwizard@6/dist/js/jquery.smartWizard.min.js" type="text/javascript">
+    </script>
 </body>
 
+<script>
+    $(function() {
+        // SmartWizard initialize
+        $('#smartwizard').smartWizard({
+            theme: 'square'
+        });
+    });
+</script>
 
 <script>
     var url = window.location.href.substr(1);
@@ -644,7 +676,7 @@
     </script>
     {{-- @endauth --}}
 
-    <script>
+    {{-- <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Create the chart
             Highcharts.chart('container', {
@@ -868,6 +900,99 @@
                 }
             });
 
+        });
+    </script> --}}
+
+    {{-- <script>
+        const ctx = document.getElementById('myChart');
+
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [12, 19, 3, 5, 2, 3],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                maintainAspectRatio: false,
+                // responsive: true
+            }
+        });
+    </script> --}}
+
+    <script>
+        const ctx = document.getElementById('myChart');
+
+        // const DATA_COUNT = 7;
+        // const NUMBER_CFG = {
+        //     count: DATA_COUNT,
+        //     min: -100,
+        //     max: 100
+        // };
+
+        // const labels = Utils.months({
+        //     count: 7
+        // });
+        // const data = {
+        //     labels: labels,
+        //     datasets: [{
+        //             label: 'Dataset 1',
+        //             data: Utils.numbers(NUMBER_CFG),
+        //             borderColor: Utils.CHART_COLORS.red,
+        //             backgroundColor: Utils.transparentize(Utils.CHART_COLORS.red, 0.5),
+        //             order: 1
+        //         },
+        //         {
+        //             label: 'Dataset 2',
+        //             data: Utils.numbers(NUMBER_CFG),
+        //             borderColor: Utils.CHART_COLORS.blue,
+        //             backgroundColor: Utils.transparentize(Utils.CHART_COLORS.blue, 0.5),
+        //             type: 'line',
+        //             order: 0
+        //         }
+        //     ]
+        // };
+
+
+        new Chart(ctx, {
+            type: 'bar',
+            // data: data,
+            data: {
+                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [12, 19, 3, 5, 2, 3],
+                    borderWidth: 1,
+                    order: 1
+                }, {
+                    label: '# of Votes',
+                    data: [12, 19, 3, 5, 2, 3],
+                    borderWidth: 1,
+                    type: 'line',
+                    order: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Chart.js Combined Line/Bar Chart'
+                    }
+                }
+            },
         });
     </script>
 @endif
