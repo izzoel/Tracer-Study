@@ -903,80 +903,53 @@
         });
     </script> --}}
 
-    {{-- <script>
-        const ctx = document.getElementById('myChart');
 
-        new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-                datasets: [{
-                    label: '# of Votes',
-                    data: [12, 19, 3, 5, 2, 3],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                },
-                maintainAspectRatio: false,
-                // responsive: true
-            }
-        });
-    </script> --}}
 
     <script>
         const ctx = document.getElementById('myChart');
 
-        // const DATA_COUNT = 7;
-        // const NUMBER_CFG = {
-        //     count: DATA_COUNT,
-        //     min: -100,
-        //     max: 100
-        // };
-
-        // const labels = Utils.months({
-        //     count: 7
-        // });
-        // const data = {
-        //     labels: labels,
-        //     datasets: [{
-        //             label: 'Dataset 1',
-        //             data: Utils.numbers(NUMBER_CFG),
-        //             borderColor: Utils.CHART_COLORS.red,
-        //             backgroundColor: Utils.transparentize(Utils.CHART_COLORS.red, 0.5),
-        //             order: 1
-        //         },
-        //         {
-        //             label: 'Dataset 2',
-        //             data: Utils.numbers(NUMBER_CFG),
-        //             borderColor: Utils.CHART_COLORS.blue,
-        //             backgroundColor: Utils.transparentize(Utils.CHART_COLORS.blue, 0.5),
-        //             type: 'line',
-        //             order: 0
-        //         }
-        //     ]
-        // };
-
-
         new Chart(ctx, {
             type: 'bar',
-            // data: data,
             data: {
-                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                labels: ['2020', '2021', '2022', '2023'],
                 datasets: [{
-                    label: '# of Votes',
+                    label: 'Jumlah Responden',
                     data: [12, 19, 3, 5, 2, 3],
                     borderWidth: 1,
-                    order: 1
+                    order: 0
                 }, {
-                    label: '# of Votes',
+                    label: 'Trace',
                     data: [12, 19, 3, 5, 2, 3],
                     borderWidth: 1,
                     type: 'line',
+                    order: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Total Responden Tracer Study'
+                    }
+                }
+            },
+        });
+    </script>
+
+    <script>
+        new Chart(document.getElementById('diagInfoLowonganFF'), {
+            type: 'pie',
+            data: {
+                labels: ['D3 Farmasi', 'S1 Farmasi', 'Profesi Apoteker'],
+                datasets: [{
+                    label: 'Jumlah Responden',
+                    data: [12, 5, 15],
+                    borderWidth: 1,
                     order: 0
                 }]
             },
@@ -989,7 +962,125 @@
                     },
                     title: {
                         display: true,
-                        text: 'Chart.js Combined Line/Bar Chart'
+                        text: 'Fakultas Farmasi'
+                    }
+                }
+            },
+        });
+
+        new Chart(document.getElementById('diagInfoLowonganSaintek'), {
+            type: 'pie',
+            data: {
+                labels: ['D3 TLM', 'S1 ARS', 'S1 Gizi'],
+                datasets: [{
+                    label: 'Jumlah Responden',
+                    data: [12, 19, 3],
+                    borderWidth: 1,
+                    order: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Fakultas Sain dan Teknologi'
+                    }
+                }
+            },
+        });
+
+        new Chart(document.getElementById('diagInfoLowonganFISH'), {
+            type: 'pie',
+            data: {
+                labels: ['S1 Hukum', 'S1 Manajemen', 'S1 PGSD'],
+                datasets: [{
+                    label: 'Jumlah Responden',
+                    data: [12, 5, 3],
+                    borderWidth: 1,
+                    order: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Fakultas Ilmu Sosial dan Humaniora'
+                    }
+                }
+            },
+        });
+
+        new Chart(document.getElementById('diagMasaTunggu'), {
+            type: 'bar',
+            data: {
+                labels: ['Jumlah Responden'],
+                datasets: [{
+                    label: '≤ 3 bulan',
+                    data: [12],
+                    borderWidth: 1,
+                }, {
+                    label: '3 < MT < 12',
+                    data: [5],
+                    borderWidth: 1,
+                }, {
+                    label: 'MT ≥ 12',
+                    data: [2],
+                    borderWidth: 1,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Masa Tunggu Mendapat Pekerjaan'
+                    }
+                }
+            },
+        });
+
+        new Chart(document.getElementById('diagRelevansiPekerjaan'), {
+            type: 'bar',
+            data: {
+                labels: ['Jumlah Responden'],
+                datasets: [{
+                    label: '≤ 3 bulan',
+                    data: [12],
+                    borderWidth: 1,
+                }, {
+                    label: '3 < MT < 12',
+                    data: [5],
+                    borderWidth: 1,
+                }, {
+                    label: 'MT ≥ 12',
+                    data: [2],
+                    borderWidth: 1,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Masa Tunggu Mendapat Pekerjaan'
                     }
                 }
             },
