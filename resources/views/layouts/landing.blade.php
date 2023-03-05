@@ -35,6 +35,23 @@
         type="text/css" /> --}}
 
 
+    <!-- Bootrap for the demo page -->
+    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <!-- Animate CSS for the css animation support if needed -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet" />
+
+    <!-- Include SmartWizard CSS -->
+    <link href="./css/demo.css" rel="stylesheet" type="text/css" />
+    <!-- <link href="../css/smart_wizard_all.css" rel="stylesheet" type="text/css" /> -->
+    <link href="https://cdn.jsdelivr.net/npm/smartwizard@6/dist/css/smart_wizard_all.min.css" rel="stylesheet"
+        type="text/css" <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css"> --}}
+
+
+    <!-- Include SmartWizard CSS -->
+    {{-- <link href="../css/demo.css" rel="stylesheet" type="text/css" /> --}}
 
 </head>
 
@@ -217,19 +234,42 @@
         integrity="sha512-Kkt+9BdRfSBFaKgC+9xNLDVzBX3nAlj2EE95amI6F/XV2LKxED93uUigInw7w9JABWGVnuD1WZU3SKy+J+aDPw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/smartwizard@6/dist/js/jquery.smartWizard.js" type="text/javascript"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/smartwizard@6/dist/js/jquery.smartWizard.min.js" type="text/javascript">
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.js"></script>
+
 </body>
 
 <script>
-    $(function() {
-        // SmartWizard initialize
-        $('#smartwizard').smartWizard({
-            theme: 'square'
-        });
+    // SmartWizard initialize
+    $('#smartwizard').smartWizard({
+        theme: 'square',
+        toolbar: {
+            position: 'bottom', // none|top|bottom|both
+            showNextButton: true, // show/hide a Next button
+            showPreviousButton: true, // show/hide a Previous button
+        },
+        lang: { // Language variables for button
+            next: 'Selanjutnya',
+            previous: 'Kembali'
+        }
+    });
+
+    $("#smartwizard").on("leaveStep", function(e, anchorObject, currentStepIndex, nextStepIndex, stepDirection) {
+        if ($('#myForm')[0].checkValidity()) {
+            if (nextStepIndex == 3) {
+                $('.sw-btn-next').after('<button class="btn sw-kirim sw-btn" type="submit">Kirim</button>')
+            } else {
+                $('.sw-kirim').remove();
+            }
+            return true;
+        } else {
+            $("#myForm")[0].reportValidity()
+            return false;
+        }
     });
 </script>
+
 
 <script>
     var url = window.location.href.substr(1);
