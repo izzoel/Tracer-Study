@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class UserAlumni extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'nama',
+        'nim',
+        'prodi'
+    ];
 }

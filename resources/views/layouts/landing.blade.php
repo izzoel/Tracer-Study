@@ -31,6 +31,14 @@
     {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css"> --}}
 
     <link href="../css/smart_wizard_all.css" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" href="../css/tooltipster.bundle.css">
+    <link rel="stylesheet" href="../css/tooltipster-sideTip-light.min.css">
+    <link rel="stylesheet" href="../css/tooltipster-sideTip-shadow.min.css">
+    {{-- <link rel="stylesheet" href="../css/tooltipster.main.css"> --}}
+
+
+
     {{-- <link href="https://cdn.jsdelivr.net/npm/smartwizard@6/dist/css/smart_wizard_all.min.css" rel="stylesheet"
         type="text/css" /> --}}
 
@@ -238,7 +246,54 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.js"></script>
 
+    <script type="text/javascript" src="../js/tooltipster.bundle.js"></script>
+    {{-- <script type="text/javascript" src="../js/tooltipster.main.js"></script> --}}
+
 </body>
+
+
+<script>
+    // $(window).bind('beforeunload', function() {
+
+    //     //save info somewhere
+    //     // window.location.href.split('#')[0];
+    //     return 'are you sure you want to leave?';
+
+    // });
+</script>
+
+<script>
+    // $('.tooltip').tooltipster();
+    // $(document).ready(function() {
+    // $('.tooltip').tooltipster({
+    //     // trigger: 'custom', // default is 'hover' which is no good here
+    //     // position: 'top',
+    //     // animation: 'grow'
+    // });
+    // });
+
+    $('form input').tooltipster({
+        trigger: 'custom',
+        onlyOne: false,
+        position: 'right',
+        side: 'right',
+        repositionOnScroll: true,
+        timer: 5000,
+        theme: 'tooltipster-light',
+    });
+
+    // $('#myForm').tooltipster({
+    //     // trigger: 'custom', // default is 'hover' which is no good here
+    //     position: 'top',
+    //     // animation: 'grow'
+    // });
+
+    // $('input[type="text"]').tooltipster({ //find more options on the tooltipster page
+    //     trigger: 'custom', // default is 'hover' which is no good here
+    //     position: 'top',
+    //     animation: 'grow'
+    // });
+</script>
 
 <script>
     // SmartWizard initialize
@@ -252,22 +307,268 @@
         lang: { // Language variables for button
             next: 'Selanjutnya',
             previous: 'Kembali'
+        },
+        enableUrlHash: false,
+        onFinish: function() {
+            $("myForm").submit();
         }
     });
 
-    $("#smartwizard").on("leaveStep", function(e, anchorObject, currentStepIndex, nextStepIndex, stepDirection) {
-        if ($('#myForm')[0].checkValidity()) {
-            if (nextStepIndex == 3) {
-                $('.sw-btn-next').after('<button class="btn sw-kirim sw-btn" type="submit">Kirim</button>')
-            } else {
-                $('.sw-kirim').remove();
-            }
-            return true;
-        } else {
-            $("#myForm")[0].reportValidity()
-            return false;
+
+    $('#myForm').validate({
+
+        errorPlacement: function(error, element) {
+
+            var ele = $(element);
+            // var ele = $(element);
+            var err = $(error);
+            msg = err.text();
+            // newError = $(error).text('asdsa');
+
+            // $(element).data('lastError', newError);
+
+            // if (newError !== '' && newError !== lastError) {
+            //     $(element).tooltipster('content', newError);
+            //     $(element).tooltipster('show');
+            // }
+            ele.tooltipster('content', msg);
+            ele.tooltipster('open');
+            // alert(msg);
+            // console.log(ele);
+        },
+        invalidHandler: function(form, validator) {
+
+            if (!validator.numberOfInvalids())
+                return;
+
+            $('html, body').animate({
+                scrollTop: $('.table').offset().top - 100
+            });
+
         }
+        // errorPlacement: function(error, element) {
+
+        //     // var lastError = $(element).data('lastError'),
+        //     //     newError = $(error).text();
+
+        //     // $(element).data('lastError', newError);
+
+        //     // if (newError !== '' && newError !== lastError) {
+        //     //     $(element).tooltipster('content', newError);
+        //     //     $(element).tooltipster('show');
+        //     // }
+        //     alert('asdasd');
+        //     console.log('asd');
+
+        // },
     });
+
+    // $("myForm").validate({
+
+
+
+
+    //         // var validator = $("myForm").validate({
+    //         //         errorPlacement: function(error, element) {
+
+    //         //             var lastError = $(element).data('lastError'),
+    //         //                 newError = $(error).text();
+
+    //         //             $(element).data('lastError', newError);
+
+    //         //             if (newError !== '' && newError !== lastError) {
+    //         //                 $(element).tooltipster('content', newError);
+    //         //                 $(element).tooltipster('show');
+    //         //             }
+
+    //         //         },
+    //         //         success: function(label, element) {
+    //         //             $(element).tooltipster('hide');
+    //         //         },
+
+    //         //         submitHandler: function(form) { // for demo
+    //         //             alert('valid form');
+    //         //             return false;
+    //         //         }
+    //         // errorPlacement: function(error, element) {
+    //         //     // $(element).tooltipster('update', $(error).text('a'));
+    //         //     // $(element).tooltipster('show');
+    //         //     alert('asdas');
+    //         // },
+
+
+    //         // errorPlacement: function(error, element) {
+    //         //     if (element.is(":radio")) {
+    //         //         // error append here
+    //         //         error.appendTo('#tooltip');
+    //         //     } else {
+    //         //         error.insertAfter(element);
+    //         //     }
+    //         // }
+
+
+
+    //         // errorPlacement: function(error, element) {
+    //         //     var ele = $(element),
+    //         //         err = $(error),
+    //         //         msg = err.text('adfs');
+    //         //     if (msg != null && msg !== '') {
+    //         //         ele.tooltipster('content', msg);
+    //         //         ele.tooltipster('open');
+    //         //     }
+    //         // },
+    //         // unhighlight: function(element, errorClass, validClass) {
+    //         //     $(element).removeClass(errorClass).addClass(validClass).tooltipster('close');
+    //         // },
+
+
+
+
+    //         // errorPlacement: function(error, element) {
+
+    //         //     var lastError = $(element).data('lastError'),
+    //         //         newError = $(error).text();
+
+    //         //     $(element).data('lastError', newError);
+
+    //         //     if (newError !== '' && newError !== lastError) {
+    //         //         $(element).tooltipster('content', newError);
+    //         //         $(element).tooltipster('show');
+    //         //     }
+    //         // },
+    //         // success: function(label, element) {
+    //         //     $(element).tooltipster('hide');
+    //         // },
+    //     }
+    //     // {
+    //     // errorElement: 'label',
+    //     // errorPlacement: function(error, element) {
+    //     //     error.insertAfter(element);
+    //     //     //element.focus();
+    //     // },
+    //     // $("#commentForm").validate({
+    //     // focusInvalid: true,
+    //     // invalidHandler: function(form, validator) {
+    //     //     var errors = validator.numberOfInvalids();
+    //     //     if (errors) {
+    //     //         validator.errorList[0].element.focus();
+    //     //     }
+    //     // }
+    //     // });
+    //     // invalidHandler: function(form, validator) {
+    //     //     var errors = validator.numberOfInvalids();
+    //     //     if (errors) {
+    //     //         validator.errorList[0].element.focus();
+    //     //     }
+    //     // }
+    //     // }
+    // );
+
+    // // Initialize the showStep event
+    // $("#smartwizard").on("showStep", function(e, anchorObject, stepIndex, stepDirection, stepPosition) {
+    //     alert("You are on step " + stepIndex + " now");
+    //     if ($("#myForm").validate()) {
+    //         return true;
+    //     } else {
+    //         return false;
+    //     }
+    // });
+
+
+
+    $("#smartwizard").on("leaveStep", function(e, anchorObject, currentStepIndex, nextStepIndex,
+        stepDirection) {
+
+        // alert()
+
+        if ($('#myForm').valid()) {} else {
+            if (nextStepIndex < currentStepIndex) {
+                return true
+            } else {
+                return false
+            }
+        }
+
+
+        // $('#smartwizard').smartWizard('goToStep', 3);
+
+        // if ($("#myForm").valid()) {
+        //     alert('valid');
+        // } else {
+
+        // validator.focusInvalid();
+        // $("#myForm").valid()
+        // return false;
+        // }
+        // if (nextStepIndex == 3) {
+        //     $('.sw-btn-next').after('<button class="btn sw-kirim sw-btn" type="submit">Kirim</button>')
+        //     return true;
+        // } else {
+        //     $('.sw-kirim').remove();
+        //     $(document).ready(function() {
+        //         $("#myForm").validate();
+        //     });
+        //     return true;
+        // }
+        // // } else {
+        //     // if (nextStepIndex != 3) {
+        //     $("#myForm")[0].reportValidity();
+        //     return false;
+        // }
+
+    });
+
+
+
+
+
+    // return true;
+    // $('.nav a[href="#step-3"]').tab('show');
+    // alert('#f' + currentStepIndex);
+    // var valid = $('#myForm')[0].checkValidity();
+    // var valid = $('#sf0').checkValidity();
+    // alert(valid);
+    // if (valid) {
+    //     // alert('valid');
+    //     return true;
+    // } else {
+    //     // alert('tidak valid');
+    //     // $("#myForm")[0].reportValidity();
+    //     // alert($("#myForm")[1].reportValidity());
+    //     // $('.nav a[href="#' + id + '"]').tab('show');
+    //     // $('#smartwizard').smartWizard("goToStep", 2, true);
+    //     // $('#fi').find(':submit').click()
+    //     // $('#f1').trigger('submit');
+    //     // $('#sf' + currentStepIndex).trigger('click');
+
+    //     return false;
+    // }
+
+
+    //     // $('a[href=#step-2]').tab('show');
+
+    //     // $('.nav a[href="#step-1"]').tab('show');
+    //     // $('.nav a[href="#' + 'step-4' + '"]').tab('show');
+    //     // function activaTab(tab) {
+    //     //     $('.nav-tabs a[href="#' + 'ccc' + '"]').tab('show');
+    //     // };
+
+    //     // activaTab('aaa');
+    // }
+    // if ($('#myForm')[0].checkValidity()) {
+    // if (nextStepIndex == 3) {
+    //     $('.sw-btn-next').after('<button class="btn sw-kirim sw-btn" type="submit">Kirim</button>')
+    //     return true;
+    // } else {
+    //     $('.sw-kirim').remove();
+    // return true;
+    // }
+    // } else {
+    //     // if (nextStepIndex != 3) {
+    //     $("#myForm")[0].reportValidity();
+    //     return false;
+    // }
+    // });
 </script>
 
 
@@ -388,7 +689,6 @@
         $('#newRow').append(html);
 
     }
-
 
     function otherOpsi() {
         var html = '';
@@ -688,6 +988,22 @@
 @elseif (Request::segment(2) == 'alumni')
     @foreach ($form_alumni as $data)
         <script>
+            // $(window).bind('load', function() {
+            //     window.history.replaceState({}, "", window.location.href.split("#")[0]);
+            //     // $(window).bind('onbeforeunload', function() {
+            //     // window.scrollTo(0, 0);
+            //     //save info somewhere
+            //     // window.location.href.split('#')[0];
+            //     // return 'are you sure you want to leave?';
+
+            //     // window.location.replace(window.location.href + '?reload');
+            //     if (window.location.href.indexOf('reload') == -1) {
+            //         // window.location.replace(window.location.href + '?reload');
+            //         // location.reload();
+            //     }
+            // });
+            // location.reload();
+
             $('#otherOpsi' + {{ $data->no }}).on("input", function() {
                 var txt = $('#otherOpsi' + {{ $data->no }}).val();
                 $('.otherOpsiName' + {{ $data->no }}).val(txt);
@@ -714,236 +1030,6 @@
         //     "1px"
         // });
     </script>
-    {{-- @endauth --}}
-
-    {{-- <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Create the chart
-            Highcharts.chart('container', {
-                chart: {
-                    type: 'column'
-                },
-                title: {
-                    align: 'left',
-                    text: 'Responden'
-                },
-                subtitle: {
-                    align: 'left',
-                    // text: 'Click the columns to view versions'
-                },
-                accessibility: {
-                    announceNewData: {
-                        enabled: true
-                    }
-                },
-                xAxis: {
-                    type: 'category'
-                },
-                yAxis: {
-                    title: {
-                        text: 'Total Responden'
-                    }
-
-                },
-                legend: {
-                    enabled: false
-                },
-                plotOptions: {
-                    series: {
-                        borderWidth: 0,
-                        dataLabels: {
-                            enabled: true,
-                            format: '{point.y}'
-                        }
-                    }
-                },
-
-                tooltip: {
-                    headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-                    pointFormat: '<span style="color:{point.color}">{point.name}</span>: total <b style="color:chocolate">{point.y}</b> responden<br/>'
-                },
-
-                series: [{
-                    name: 'Responden',
-                    colorByPoint: true,
-                    data: [{
-                            name: '2023',
-                            y: {{ $count }},
-                            // y: {!! $count !!},
-                            drilldown: '2023'
-                        },
-                        {
-                            name: '2024',
-                            y: 0,
-                            drilldown: '2024'
-                        },
-                        {
-                            name: '2025',
-                            y: 0,
-                            drilldown: '2025'
-                        },
-                        {
-                            name: '2026',
-                            y: 0,
-                            drilldown: '2026'
-                        },
-                    ]
-                }],
-                drilldown: {
-                    breadcrumbs: {
-                        position: {
-                            align: 'right'
-                        }
-                    },
-                    series: [{
-                            name: '2023',
-                            id: '2023',
-                            data: [
-                                [
-                                    'v65.0',
-                                    0.1
-                                ],
-                                [
-                                    'v64.0',
-                                    1.3
-                                ],
-                                [
-                                    'v63.0',
-                                    53.02
-                                ],
-                                [
-                                    'v62.0',
-                                    1.4
-                                ],
-                                [
-                                    'v61.0',
-                                    0.88
-                                ],
-                                [
-                                    'v60.0',
-                                    0.56
-                                ],
-                                [
-                                    'v59.0',
-                                    0.45
-                                ],
-                                [
-                                    'v58.0',
-                                    0.49
-                                ],
-                                [
-                                    'v57.0',
-                                    0.32
-                                ],
-                                [
-                                    'v56.0',
-                                    0.29
-                                ],
-                                [
-                                    'v55.0',
-                                    0.79
-                                ],
-                                [
-                                    'v54.0',
-                                    0.18
-                                ],
-                                [
-                                    'v51.0',
-                                    0.13
-                                ],
-                                [
-                                    'v49.0',
-                                    2.16
-                                ],
-                                [
-                                    'v48.0',
-                                    0.13
-                                ],
-                                [
-                                    'v47.0',
-                                    0.11
-                                ],
-                                [
-                                    'v43.0',
-                                    0.17
-                                ],
-                                [
-                                    'v29.0',
-                                    0.26
-                                ]
-                            ]
-                        },
-
-                        {
-                            name: '2024',
-                            id: '2024',
-                            data: [
-                                [
-                                    'v11.0',
-                                    3.39
-                                ],
-                                [
-                                    'v10.1',
-                                    0.96
-                                ],
-                                [
-                                    'v10.0',
-                                    0.36
-                                ],
-                                [
-                                    'v9.1',
-                                    0.54
-                                ],
-                                [
-                                    'v9.0',
-                                    0.13
-                                ],
-                                [
-                                    'v5.1',
-                                    0.2
-                                ]
-                            ]
-                        },
-                        {
-                            name: '2025',
-                            id: '2025',
-                            data: [
-                                [
-                                    'v11.0',
-                                    3.39
-                                ],
-                                [
-                                    'v10.1',
-                                    0.96
-                                ],
-
-                            ]
-                        },
-                        {
-                            name: '2026',
-                            id: '2026',
-                            data: [
-                                [
-                                    'v11.0',
-                                    3.39
-                                ],
-                                [
-                                    'v10.1',
-                                    0.96
-                                ],
-
-                            ]
-                        },
-
-
-                    ]
-                }
-            });
-
-        });
-    </script> --}}
-
-
 
     <script>
         const ctx = document.getElementById('myChart');

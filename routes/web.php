@@ -54,7 +54,10 @@ Route::group(['middleware' => ['guest']], function () {
     })->name('survey');
 
 
+    // Route::get('/survey/alumni', [SurveyAlumniController::class, 'verifikasi'])->name('alumni_verif');
     Route::get('/survey/alumni', [SurveyAlumniController::class, 'showAlumni'])->name('alumni');
+    Route::post('/survey/alumni', [SurveyAlumniController::class, 'showAlumni'])->name('alumni');
+
     Route::get('/survey/lulusan', [SurveyLulusanController::class, 'show'])->name('lulusan');
 
 
