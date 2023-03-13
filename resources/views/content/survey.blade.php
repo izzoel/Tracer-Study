@@ -46,47 +46,61 @@
     <div class="modal fade" id="alumniModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
+
                 <form action="{{ route('alumni') }}" method="post">
                     @csrf
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Verifikasi</h5>
-                        <a href="" data-bs-dismiss="modal">
+                        <a href="" data-bs-dismiss="modal" style="color: #FF5733;">
                             <span>&times;</span>
                         </a>
                     </div>
                     <div class="modal-body">
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">
-                                Nama Lengkap<span class="ms-0 ps-0 me-0 pe-0 text-danger">*</span>
-                            </label>
-                            <input type="nama" class="form-control" name="nama">
-                        </div>
-                        <div class="mb-3">
-                            <label for="nim" class="form-label">
-                                NIM<span class="ms-0 ps-0 me-0 pe-0 text-danger">*</span>
-                            </label>
-                            <input type="nim" class="form-control" name="nim">
-                        </div>
-                        <div class="mb-3">
-                            <label for="prodi" class="form-label">
-                                Program Studi<span class="ms-0 ps-0 me-0 pe-0 text-danger">*</span>
-                            </label>
-                            <select name="prodi" class="form-select">
-                                <option disabled>-- Fakultas Farmasi</option>
-                                <option value="D3 Farmasi">D3 Farmasi</option>
-                                <option value="S1 Farmasi">S1 Farmasi</option>
-                                <option value="Profesi Apoteker">Profesi Apoteker</option>
-                                <option disabled></option>
-                                <option disabled>-- Fakultas Saintek</option>
-                                <option value="D3 TLM">D3 TLM</option>
-                                <option value="S1 ARS">S1 ARS</option>
-                                <option value="S1 Ilmu Gizi">S1 Ilmu Gizi</option>
-                                <option disabled></option>
-                                <option disabled>-- Fakultas Soshum</option>
-                                <option value="S1 Ilmu Hukum">S1 Ilmu Hukum</option>
-                                <option value="S1 Manajemen">S1 Manajemen</option>
-                                <option value="S1 PGSD">S1 PGSD</option>
-                            </select>
+                        <div class="m-5 mt-1 mb-1">
+                            <div class="mb-3">
+                                <label for="nama" class="form-label">
+                                    Nama Lengkap<span class="ms-0 ps-0 me-0 pe-0 text-danger">*</span>
+                                </label>
+                                <input type="nama" class="form-control" name="nama">
+                            </div>
+                            <div class="mb-3">
+                                <label for="nim" class="form-label">
+                                    NIM<span class="ms-0 ps-0 me-0 pe-0 text-danger">*</span>
+                                </label>
+                                <input type="nim" class="form-control" name="nim">
+                            </div>
+                            <div class="mb-3">
+                                <label for="prodi" class="form-label">
+                                    Program Studi<span class="ms-0 ps-0 me-0 pe-0 text-danger">*</span>
+                                </label>
+                                <select name="prodi" class="form-select">
+                                    <option disabled>-- Fakultas Farmasi</option>
+                                    <option value="D3 Farmasi">D3 Farmasi</option>
+                                    <option value="S1 Farmasi">S1 Farmasi</option>
+                                    <option value="Profesi Apoteker">Profesi Apoteker</option>
+                                    <option disabled></option>
+                                    <option disabled>-- Fakultas Saintek</option>
+                                    <option value="D3 TLM">D3 TLM</option>
+                                    <option value="S1 ARS">S1 ARS</option>
+                                    <option value="S1 Ilmu Gizi">S1 Ilmu Gizi</option>
+                                    <option disabled></option>
+                                    <option disabled>-- Fakultas Soshum</option>
+                                    <option value="S1 Ilmu Hukum">S1 Ilmu Hukum</option>
+                                    <option value="S1 Manajemen">S1 Manajemen</option>
+                                    <option value="S1 PGSD">S1 PGSD</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="karir" class="form-label">
+                                    Profil Karir Alumni<span class="ms-0 ps-0 me-0 pe-0 text-danger">*</span>
+                                </label>
+                                <select name="karir" class="form-select">
+                                    <option value="Belum Bekerja">Belum Bekerja</option>
+                                    <option value="Sudah Bekerja">Sudah Bekerja</option>
+                                    <option value="Berwirausaha">Berwirausaha</option>
+                                    <option value="Melanjutkan Pendidikan">Melanjutkan Pendidikan</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -94,6 +108,7 @@
                         <button type="submit" class="btn btn-primary">Lanjutkan</button>
                     </div>
                 </form>
+
             </div>
         </div>
     </div>

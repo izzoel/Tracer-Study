@@ -190,6 +190,9 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 
     _createClass(SmartWizard, [{
       key: "_init",
+      goToStep: function (stepNum) {
+        this._showStep(stepNum);
+      },
       value: function _init() {
         // Set the elements
         this._setElements(); // Add toolbar

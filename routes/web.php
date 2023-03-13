@@ -111,6 +111,19 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/admin/form_alumni/{id}', [SurveyAlumniController::class, 'update'])->name('edit_alumni');
     Route::get('/admin/form_alumni/{id}', [SurveyAlumniController::class, 'destroy'])->name('delete_alumni');
 
+    Route::post('/admin/form_alumni/belum_bekerja', [SurveyAlumniController::class, 'storeBelumBekerja'])->name('add_alumni_belum_bekerja');
+    Route::post('/admin/form_alumni/belum_bekerja/{id}', [SurveyAlumniController::class, 'updateBelumBekerja'])->name('edit_alumni_belum_bekerja');
+    Route::get('/admin/form_alumni/belum_bekerja/{id}', [SurveyAlumniController::class, 'destroyBelumBekerja'])->name('delete_alumni_belum_bekerja');
+
+    Route::post('/admin/form_alumni/sudah_bekerja', [SurveyAlumniController::class, 'storeSudahBekerja'])->name('add_alumni_sudah_bekerja');
+    // Route::post('/admin/form_alumni/sudah_bekerja/{id}', [SurveyAlumniController::class, 'updateSudahBekerja'])->name('edit_alumni_sudah_bekerja');
+    // Route::get('/admin/form_alumni/sudah_bekerja/{id}', [SurveyAlumniController::class, 'destroySudahBekerja'])->name('delete_alumni_sudah_bekerja');
+
+
+
+
+
+
     Route::get('/admin/form_lulusan', [SurveyLulusanController::class, 'show'])->name('form_lulusan');
     Route::post('/admin/form_lulusan', [SurveyLulusanController::class, 'store'])->name('add_lulusan');
     Route::post('/admin/form_lulusan/{id}', [SurveyLulusanController::class, 'update'])->name('edit_lulusan');

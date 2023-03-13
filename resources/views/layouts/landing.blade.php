@@ -248,7 +248,8 @@
 
     <script type="text/javascript" src="../js/tooltipster.bundle.js"></script>
     {{-- <script type="text/javascript" src="../js/tooltipster.main.js"></script> --}}
-
+    <script src="../js/enchanter.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 </body>
 
 
@@ -260,6 +261,61 @@
     //     return 'are you sure you want to leave?';
 
     // });
+    // const wizard = new Enchanter('myForm');
+
+    $(".gandaOpsi13").on('change', function() {
+        if ($("#133").is(':checked')) {
+            // $("#step3-tab").show();
+            alert('Nothing is checked!');
+            // console.log('asdas');
+        }
+    })
+
+    const wizard = new Enchanter('myForm', {}, {
+        onNext: () => {
+            // do something
+            // show active
+
+            $('#step1').removeClass("show");
+            $('#step1').removeClass("active");
+            // $('#step2').removeClass("show");
+            // $('#step2').removeClass("active");
+            $('#step2').hide();
+            $('#step2-tab').hide();
+            // $('#step2-tab').hide();
+            $('#step3').addClass("show");
+            $('#step3').addClass("active");
+            $('#step3').show();
+        },
+        onPrevious: () => {
+            // do something
+
+        },
+        onFinish: () => {
+            // do something
+        },
+    });
+    // $('#attached_docs [value=123]').
+    // if ($('.gandaOpsi13 [value=Langsung bekerja]').is(':checked')) {
+    //     alert('asdsa');
+    //     console.log('asdas');
+    // }
+    // $("#step3-tab").hide();
+
+    // $(".gandaOpsi13").on('change', function() {
+    //     if ($("#133").is(':checked')) {
+    //         // $("#step3-tab").show();
+    //         // alert('Nothing is checked!');
+    //         // console.log('asdas');
+    //     }
+    // })
+
+
+
+    //  else {
+    //     alert('One of the radio buttons is checked!');
+    // }
+    // $('#pilihan').is(':checked'))
 </script>
 
 <script>
@@ -294,7 +350,7 @@
     //     animation: 'grow'
     // });
 </script>
-
+{{-- 
 <script>
     // SmartWizard initialize
     $('#smartwizard').smartWizard({
@@ -363,126 +419,16 @@
         // },
     });
 
-    // $("myForm").validate({
-
-
-
-
-    //         // var validator = $("myForm").validate({
-    //         //         errorPlacement: function(error, element) {
-
-    //         //             var lastError = $(element).data('lastError'),
-    //         //                 newError = $(error).text();
-
-    //         //             $(element).data('lastError', newError);
-
-    //         //             if (newError !== '' && newError !== lastError) {
-    //         //                 $(element).tooltipster('content', newError);
-    //         //                 $(element).tooltipster('show');
-    //         //             }
-
-    //         //         },
-    //         //         success: function(label, element) {
-    //         //             $(element).tooltipster('hide');
-    //         //         },
-
-    //         //         submitHandler: function(form) { // for demo
-    //         //             alert('valid form');
-    //         //             return false;
-    //         //         }
-    //         // errorPlacement: function(error, element) {
-    //         //     // $(element).tooltipster('update', $(error).text('a'));
-    //         //     // $(element).tooltipster('show');
-    //         //     alert('asdas');
-    //         // },
-
-
-    //         // errorPlacement: function(error, element) {
-    //         //     if (element.is(":radio")) {
-    //         //         // error append here
-    //         //         error.appendTo('#tooltip');
-    //         //     } else {
-    //         //         error.insertAfter(element);
-    //         //     }
-    //         // }
-
-
-
-    //         // errorPlacement: function(error, element) {
-    //         //     var ele = $(element),
-    //         //         err = $(error),
-    //         //         msg = err.text('adfs');
-    //         //     if (msg != null && msg !== '') {
-    //         //         ele.tooltipster('content', msg);
-    //         //         ele.tooltipster('open');
-    //         //     }
-    //         // },
-    //         // unhighlight: function(element, errorClass, validClass) {
-    //         //     $(element).removeClass(errorClass).addClass(validClass).tooltipster('close');
-    //         // },
-
-
-
-
-    //         // errorPlacement: function(error, element) {
-
-    //         //     var lastError = $(element).data('lastError'),
-    //         //         newError = $(error).text();
-
-    //         //     $(element).data('lastError', newError);
-
-    //         //     if (newError !== '' && newError !== lastError) {
-    //         //         $(element).tooltipster('content', newError);
-    //         //         $(element).tooltipster('show');
-    //         //     }
-    //         // },
-    //         // success: function(label, element) {
-    //         //     $(element).tooltipster('hide');
-    //         // },
-    //     }
-    //     // {
-    //     // errorElement: 'label',
-    //     // errorPlacement: function(error, element) {
-    //     //     error.insertAfter(element);
-    //     //     //element.focus();
-    //     // },
-    //     // $("#commentForm").validate({
-    //     // focusInvalid: true,
-    //     // invalidHandler: function(form, validator) {
-    //     //     var errors = validator.numberOfInvalids();
-    //     //     if (errors) {
-    //     //         validator.errorList[0].element.focus();
-    //     //     }
-    //     // }
-    //     // });
-    //     // invalidHandler: function(form, validator) {
-    //     //     var errors = validator.numberOfInvalids();
-    //     //     if (errors) {
-    //     //         validator.errorList[0].element.focus();
-    //     //     }
-    //     // }
-    //     // }
-    // );
-
-    // // Initialize the showStep event
-    // $("#smartwizard").on("showStep", function(e, anchorObject, stepIndex, stepDirection, stepPosition) {
-    //     alert("You are on step " + stepIndex + " now");
-    //     if ($("#myForm").validate()) {
-    //         return true;
-    //     } else {
-    //         return false;
-    //     }
-    // });
-
-
-
     $("#smartwizard").on("leaveStep", function(e, anchorObject, currentStepIndex, nextStepIndex,
         stepDirection) {
 
         // alert()
-
-        if ($('#myForm').valid()) {} else {
+        if ($('#myForm').valid()) {
+            // $('#myForm').smartWizard("goToStep", 2);
+            alert('aaa');
+        } else {
             if (nextStepIndex < currentStepIndex) {
+                // 
                 return true
             } else {
                 return false
@@ -569,7 +515,7 @@
     //     return false;
     // }
     // });
-</script>
+</script> --}}
 
 
 <script>

@@ -11,6 +11,7 @@ class UserAlumni extends Model
     protected $fillable = [
         'nama',
         'nim',
-        'prodi'
+        'prodi',
+        'karir'
     ];
 }
