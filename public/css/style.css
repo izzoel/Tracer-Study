@@ -2068,6 +2068,7 @@ progress {
   background-color: #dde0e3;
 }
 
+
 .form-control-plaintext {
   display: block;
   width: 100%;
@@ -3575,7 +3576,7 @@ textarea.form-control-lg {
 .nav-link {
   display: block;
   padding: 0.5rem 1rem;
-  color: #0d6efd;
+  color: #212529;
   text-decoration: none;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
@@ -3585,7 +3586,7 @@ textarea.form-control-lg {
   }
 }
 .nav-link:hover, .nav-link:focus {
-  color: #0a58ca;
+  color: #FF5733;
 }
 .nav-link.disabled {
   color: #6c757d;
@@ -3614,7 +3615,8 @@ textarea.form-control-lg {
 }
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
-  color: #495057;
+  /* color: #495057; */
+  color: #FF5733;
   background-color: #fff;
   border-color: #dee2e6 #dee2e6 #fff;
 }
@@ -8601,6 +8603,7 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+
 body {
   font-family: "Roboto", sans-serif;
   font-size: 18px;
@@ -10298,29 +10301,3 @@ p a:hover {
 .portfolio-filters label:not(:last-child) {
   margin-right: 10px;
 }
-/*# sourceMappingURL=style.css.map */
-
-/* <style> */
-/* :root {
-  --sw-border-color:  #eeeeee;
-  --sw-toolbar-btn-color:  #ffffff;
-  --sw-toolbar-btn-background-color:  #009EF7;
-  --sw-anchor-default-primary-color:  #f8f9fa;
-  --sw-anchor-default-secondary-color:  #b0b0b1;
-  --sw-anchor-active-primary-color:  #009EF7;
-  --sw-anchor-active-secondary-color:  #ffffff;
-  --sw-anchor-done-primary-color:  #90d4fa;
-  --sw-anchor-done-secondary-color:  #fefefe;
-  --sw-anchor-disabled-primary-color:  #f8f9fa;
-  --sw-anchor-disabled-secondary-color:  #dbe0e5;
-  --sw-anchor-error-primary-color:  #dc3545;
-  --sw-anchor-error-secondary-color:  #ffffff;
-  --sw-anchor-warning-primary-color:  #ffc107;
-  --sw-anchor-warning-secondary-color:  #ffffff;
-  --sw-progress-color:  #009EF7;
-  --sw-progress-background-color:  #f8f9fa;
-  --sw-loader-color:  #009EF7;
-  --sw-loader-background-color:  #f8f9fa;
-  --sw-loader-background-wrapper-color:  rgba(255, 255, 255, 0.7);
-} */
-/* <style/> */
