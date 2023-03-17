@@ -1,7 +1,3 @@
-{{-- @extends('layouts.landing')
-@section('script_modal') --}}
-
-
 @foreach ($form_alumni_belum_bekerja as $data)
     @php
         if ($data->pilihan == '') {
@@ -122,4 +118,3 @@
         }
     </script>
 @endforeach
-{{-- @endsection --}}

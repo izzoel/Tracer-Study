@@ -10301,3 +10301,36 @@ p a:hover {
 .portfolio-filters label:not(:last-child) {
   margin-right: 10px;
 }
+
+
+
+
+/* #################### */
+input[type=checkbox] { 
+	display:none;
+} 
+
+input[type=checkbox] + label:before {
+	font-family: FontAwesome;
+	display: inline-block;
+	content: "\f096";
+	letter-spacing: 10px;
+	cursor: pointer;
+}
+
+input[type=checkbox]:checked + label:before { 
+	content: "\f046";
+} 
+
+input[type=checkbox]:checked + label:before { 
+	letter-spacing: 8px;
+} 
+
+label{
+    display: inline-block;
+    margin-left: 20px;
+}
+
+label:before{
+    margin-left: -23px;
+}

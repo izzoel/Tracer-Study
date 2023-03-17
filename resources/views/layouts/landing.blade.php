@@ -365,115 +365,11 @@
 
 
 {{-- @include('scripts.script_modal') --}}
+@include('scripts.script_form_alumni')
 
-<script>
-    if ($('.active #tab-title').text() == "Belum Bekerja") {
-        $.ajax({
-            url: "{{ route('get_form_alumni') }}",
-            method: 'get',
-            dataType: 'json',
-            success: function(data) {
-                $.each(data, function(key, values) {
-                    i = 1;
-                    id = data[key].id;
-                    no = data[key].no;
-                    survey = data[key].survey;
-                    pilihan = data[key].pilihan;
-                    ganda = data[key].ganda;
-                    other = data[key].other;
-                    wajib = data[key].wajib;
-                    var routeAdd = "{{ route('delete_alumni_belum_bekerja', '') }}" + "/" + id;
 
-                    if (wajib == 1) {
-                        if (ganda != 1) {
-                            required = "required";
-                        } else {
-                            required = "";
-                        }
-                        wajibHtml = '<span class="ms-0 ps-0 me-0 pe-0 text-danger">*</span>';
-                    }
 
-                    if (ganda == 1) {
-                        var type = 'checkbox';
-                        var array = '[]';
-                    } else {
-                        var type = 'radio';
-                        var array = '';
-                    }
-
-                    var html = ''
-                    html += '<table class="table table-borderless responsive ">';
-                    html += '<tbody>';
-                    html += '<tr>';
-                    html +=
-                        '<td class="align-top" style="min-width:5%;width:5%">' + no +
-                        '.&nbsp;</td>';
-                    html += '<td class="text-break ">' + survey + wajibHtml + '</td>';
-                    html += '<td style="min-width: 5rem;width: 5rem">';
-                    html += '<a class="btn-sm btn-primary bg-secondary" id="destroy"' + id +
-                        ' href="' + routeAdd + '"role="button"><i class="fa fa-trash"></i></a>';
-                    html += '<a class="btn-sm btn-primary" id="edit' + id +
-                        '"role="button" data-bs-toggle="modal" data-bs-target="#modal_edit_' + no +
-                        '"><i class="fa fa-pencil"></i></a>';
-                    html += '</td>';
-                    html += '</tr>';
-                    html += '<tr>';
-                    html += '<td>';
-                    html += '</td>';
-                    html += '<td class="col">';
-                    if (pilihan == '') {
-                        html += '<input type="text" class="form-control mb-1" name="bank' + no +
-                            '"' + wajib + '== 1 ? "required" : "" }}>';
-                    } else {
-                        var arPilihan = pilihan.split(';');
-                        $.each(arPilihan, function(item, val) {
-
-                            html += '<div class="form-check mb-0">';
-                            html += '<input class="form-check-input gandaOpsi' + no +
-                                '" type="' +
-                                type +
-                                '"id="' + no + i + '"' + required + 'name="bank' + no +
-                                array +
-                                '" value="' + item + '">';
-                            html += '<label class="form-check-label text-dark" for="' + no +
-                                i + '">' + arPilihan[item] +
-                                '</label>';
-                            html += '</div>';
-                        });
-                    }
-                    html += '</td>';
-                    html += '</tr>';
-                    html += '</tbody>';
-                    html += '</table">';
-
-                    $('#formulir').append(html);
-                });
-            }
-
-        });
-    }
-    // $('.nav-link #tab-title').on('click', function() {
-    //     if ($(this).text() == "Belum Bekerja") {
-    //         // alert($(this).text())
-    //         $.ajax({
-    //             url: "{{ route('get_form_alumni') }}",
-    //             method: 'get',
-    //             dataType: 'json',
-    //             success: function(data) {
-    //                 // alert(data);
-    //                 $.each(data, function(key, value) {
-    //                     console.log(data);
-    //                 });
-    //                 // $('#ass').append(data);
-    //             }
-
-    //         });
-    //     }
-    //     // console.log('msg');
-    // });
-</script>
-
-<script>
+{{-- <script>
     const wizard = new Enchanter('myForm', {}, {
         onNext: () => {
             // do something
@@ -498,9 +394,9 @@
             // do something
         },
     });
-</script>
+</script> --}}
 
-<script>
+{{-- <script>
     $('form input').tooltipster({
         trigger: 'custom',
         onlyOne: false,
@@ -510,7 +406,7 @@
         timer: 5000,
         theme: 'tooltipster-light',
     });
-</script>
+</script> --}}
 {{-- 
 <script>
     // SmartWizard initialize
@@ -695,7 +591,7 @@
     }
 </script>
 
-<script>
+{{-- <script>
     document.addEventListener("DOMContentLoaded", function(event) {
 
         const showNavbar = (toggleId, navId, bodyId, headerId) => {
@@ -734,8 +630,8 @@
 
         // Your code to run since DOM is loaded and ready
     });
-</script>
-
+</script> --}}
+{{-- 
 @if (session('admin'))
     <script>
         var myModal = new bootstrap.Modal(document.getElementById("modal_login"), {});
@@ -896,7 +792,7 @@
         $("#addOpsiSB").show();
         $("#queOpsiSB").show();
     }
-</script>
+</script> --}}
 
 <script>
     $('input:text').click(function() {

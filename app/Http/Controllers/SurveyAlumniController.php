@@ -187,42 +187,67 @@ class SurveyAlumniController extends Controller
 
 
 
-    public function show(SurveyAlumni $survey_Alumni)
+    // public function show(SurveyAlumni $survey_Alumni)
+    // {
+    //     $form_alumni = SurveyAlumni::all()->sortBy("no");
+    //     $no_urut = $form_alumni->pluck('no')->last();
+
+    //     $form_alumni_belum_bekerja = SurveyAlumniBelumBekerja::all()->sortBy("no");
+    //     $no_urut_belum_bekerja = $form_alumni_belum_bekerja->pluck('no')->last();
+
+    //     $form_alumni_sudah_bekerja = SurveyAlumniSudahBekerja::all()->sortBy("no");
+    //     $no_urut_sudah_bekerja = $form_alumni_sudah_bekerja->pluck('no')->last();
+
+    //     $form_alumni_wirausaha = SurveyAlumniWirausaha::all()->sortBy("no");
+    //     $no_urut_wirausaha = $form_alumni_wirausaha->pluck('no')->last();
+
+    //     $form_alumni_lanjut_pendidikan = SurveyAlumniLanjutPendidikan::all()->sortBy("no");
+    //     $no_urut_lanjut_pendidikan = $form_alumni_lanjut_pendidikan->pluck('no')->last();
+
+    //     return view('content.form.form_alumni', ['title' => 'form_alumni'])->with([
+    //         'form_alumni' => $form_alumni,
+    //         'no_urut' => $no_urut,
+    //         'form_alumni_belum_bekerja' => $form_alumni_belum_bekerja,
+    //         'no_urut_belum_bekerja' => $no_urut_belum_bekerja,
+    //         'form_alumni_sudah_bekerja' => $form_alumni_sudah_bekerja,
+    //         'no_urut_sudah_bekerja' => $no_urut_sudah_bekerja,
+    //         'form_alumni_wirausaha' => $form_alumni_wirausaha,
+    //         'no_urut_wirausaha' => $no_urut_wirausaha,
+    //         'form_alumni_lanjut_pendidikan' => $form_alumni_lanjut_pendidikan,
+    //         'no_urut_lanjut_pendidikan' => $no_urut_lanjut_pendidikan,
+    //         'title' => 'form'
+    //     ]);
+    // }
+
+    public function formAlumni()
     {
-        $form_alumni = SurveyAlumni::all()->sortBy("no");
-        $no_urut = $form_alumni->pluck('no')->last();
-
-        $form_alumni_belum_bekerja = SurveyAlumniBelumBekerja::all()->sortBy("no");
-        $no_urut_belum_bekerja = $form_alumni_belum_bekerja->pluck('no')->last();
-
-        $form_alumni_sudah_bekerja = SurveyAlumniSudahBekerja::all()->sortBy("no");
-        $no_urut_sudah_bekerja = $form_alumni_sudah_bekerja->pluck('no')->last();
-
-        $form_alumni_wirausaha = SurveyAlumniWirausaha::all()->sortBy("no");
-        $no_urut_wirausaha = $form_alumni_wirausaha->pluck('no')->last();
-
-        $form_alumni_lanjut_pendidikan = SurveyAlumniLanjutPendidikan::all()->sortBy("no");
-        $no_urut_lanjut_pendidikan = $form_alumni_lanjut_pendidikan->pluck('no')->last();
-
         return view('content.form.form_alumni', ['title' => 'form_alumni'])->with([
-            'form_alumni' => $form_alumni,
-            'no_urut' => $no_urut,
-            'form_alumni_belum_bekerja' => $form_alumni_belum_bekerja,
-            'no_urut_belum_bekerja' => $no_urut_belum_bekerja,
-            'form_alumni_sudah_bekerja' => $form_alumni_sudah_bekerja,
-            'no_urut_sudah_bekerja' => $no_urut_sudah_bekerja,
-            'form_alumni_wirausaha' => $form_alumni_wirausaha,
-            'no_urut_wirausaha' => $no_urut_wirausaha,
-            'form_alumni_lanjut_pendidikan' => $form_alumni_lanjut_pendidikan,
-            'no_urut_lanjut_pendidikan' => $no_urut_lanjut_pendidikan,
+            //         'form_alumni' => $form_alumni,
+            //         'no_urut' => $no_urut,
+            //         'form_alumni_belum_bekerja' => $form_alumni_belum_bekerja,
+            //         'no_urut_belum_bekerja' => $no_urut_belum_bekerja,
+            //         'form_alumni_sudah_bekerja' => $form_alumni_sudah_bekerja,
+            //         'no_urut_sudah_bekerja' => $no_urut_sudah_bekerja,
+            //         'form_alumni_wirausaha' => $form_alumni_wirausaha,
+            //         'no_urut_wirausaha' => $no_urut_wirausaha,
+            //         'form_alumni_lanjut_pendidikan' => $form_alumni_lanjut_pendidikan,
+            //         'no_urut_lanjut_pendidikan' => $no_urut_lanjut_pendidikan,
             'title' => 'form'
         ]);
     }
 
-    public function show2(SurveyAlumni $survey_Alumni)
+    public function showFormAlumni(SurveyAlumni $survey_Alumni, $kategori)
     {
         // $data = ;
-        return response()->json(SurveyAlumniBelumBekerja::all());
+        if ($kategori == "belum_bekerja") {
+            return response()->json(SurveyAlumniBelumBekerja::all());
+        } elseif ($kategori == "sudah_bekerja") {
+            return response()->json(SurveyAlumniSudahBekerja::all());
+        } elseif ($kategori == "berwirausaha") {
+            return response()->json(SurveyAlumniWirausaha::all());
+        } elseif ($kategori == "lanjut_pendidikan") {
+            return response()->json(SurveyAlumniLanjutPendidikan::all());
+        }
     }
 
 
@@ -460,39 +485,22 @@ class SurveyAlumniController extends Controller
 
 
 
-    public function destroyBelumBekerja($id, SurveyAlumni $survey_Alumni)
+    public function destroyFormAlumni($kategori, $id, SurveyAlumni $survey_Alumni)
     {
-        SurveyAlumniBelumBekerja::destroy($id);
-        $destroy = SurveyAlumniBelumBekerja::all()->sortBy("no");
-        $no_urut = $destroy->pluck('no')->last();
-        return redirect(url()->previous() . '#destroy' . $no_urut);
-        // return back();
-    }
+        if ($kategori == "belum_bekerja") {
+            SurveyAlumniBelumBekerja::destroy($id);
+            $no_urut = SurveyAlumniBelumBekerja::all()->sortBy("no")->pluck('no')->last();
+        } elseif ($kategori == "sudah_bekerja") {
+            SurveyAlumniSudahBekerja::destroy($id);
+            $no_urut = SurveyAlumniSudahBekerja::all()->sortBy("no")->pluck('no')->last();
+        } elseif ($kategori == "berwirausaha") {
+            SurveyAlumniWirausaha::destroy($id);
+            $no_urut = SurveyAlumniWirausaha::all()->sortBy("no")->pluck('no')->last();
+        } elseif ($kategori == "berwirausaha") {
+            SurveyAlumniLanjutPendidikan::destroy($id);
+            $no_urut = SurveyAlumniLanjutPendidikan::all()->sortBy("no")->pluck('no')->last();
+        }
 
-    public function destroySudahBekerja($id, SurveyAlumni $survey_Alumni)
-    {
-        SurveyAlumniSudahBekerja::destroy($id);
-        $destroy = SurveyAlumniSudahBekerja::all()->sortBy("no");
-        $no_urut = $destroy->pluck('no')->last();
         return redirect(url()->previous() . '#destroy' . $no_urut);
-        // return back();
-    }
-
-    public function destroyWirausaha($id, SurveyAlumni $survey_Alumni)
-    {
-        SurveyAlumniWirausaha::destroy($id);
-        $destroy = SurveyAlumniWirausaha::all()->sortBy("no");
-        $no_urut = $destroy->pluck('no')->last();
-        return redirect(url()->previous() . '#destroy' . $no_urut);
-        // return back();
-    }
-
-    public function destroyLanjutPendidikan($id, SurveyAlumni $survey_Alumni)
-    {
-        SurveyAlumniLanjutPendidikan::destroy($id);
-        $destroy = SurveyAlumniLanjutPendidikan::all()->sortBy("no");
-        $no_urut = $destroy->pluck('no')->last();
-        return redirect(url()->previous() . '#destroy' . $no_urut);
-        // return back();
     }
 }

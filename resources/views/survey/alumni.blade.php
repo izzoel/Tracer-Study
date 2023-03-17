@@ -10,7 +10,7 @@
 
                 <form action="" method="POST">
                     @csrf
-                    @foreach ($form_alumni as $data)
+                    {{-- @foreach ($form_alumni as $data)
                         <table class="table table-borderless responsive ">
                             <tbody>
                                 <tr>
@@ -96,7 +96,7 @@
 
                             </tbody>
                         </table>
-                    @endforeach
+                    @endforeach --}}
                     @auth
                         <a class="btn-sm btn-primary" id="tambah" href="#" role="button" data-bs-toggle="modal"
                             data-bs-target="#modal_form_belum_bekerja">&plus;</a>
