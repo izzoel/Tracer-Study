@@ -1,120 +1,126 @@
-@foreach ($form_alumni_belum_bekerja as $data)
-    @php
-        if ($data->pilihan == '') {
-            $noPilihan = 1;
-        } else {
-            $noPilihan = 0;
-        }
-    @endphp
-    <script>
-        $('#modal_edit_' + {{ $data->no }}).on('shown.bs.modal', function(e) {
-            if ({{ $noPilihan }} == 1) {
-                $(".buttonListBB" + {{ $data->no }}).hide();
-                $("#gandaOpsiEditBB" + {{ $data->no }}).hide();
+<script>
+    var myModal = new bootstrap.Modal(document.getElementById("modal_form_tambah"), {});
+
+
+
+
+
+    // $('#modal_form_tambah').on('shown.bs.modal', function() {
+    //     var html = "";
+    //     html += '<tbody><tr>';
+    //     html += '<td class="col-auto pe-0 tambahNoUrut"></td>';
+    //     html += '<td></td>';
+    //     html += '<div></div>';
+    //     html += '<td></td>';
+    //     html += '</tr></tbody>';
+    //     $('.modTambah').append(html);
+    // });
+
+    // $('#modal_form_tambah').on('hidden.bs.modal', function() {
+    //     $('.modTambah').html("");
+    // });
+
+
+    function modTambah() {
+        // $('#modal_form_tambah').on('show.bs.modal', function(e) {
+        //     console.log('modal opened');
+        //     // Your code goes here
+        // })
+        // $('#modal_form_tambah').on('hidden.bs.modal', function(e) {
+        //     console.log('modal closed');
+        //     // Your code goes here
+        // })
+        // switchStatus = false;
+        // switchStatus = false;
+        myModal.show();
+        lab = $("#opsiList label:last").data("lab");
+        $("#gandaOpsi").hide();
+        $(".addOpsi").hide();
+        $("#opsiList").hide();
+        $(".buttonList").hide();
+        // $("#pilihan").removeAttr("checked");
+
+
+
+
+        $("#pilihan").on('change', function() {
+            if ($('#pilihan').is(':checked')) {
+                // switchStatus = $(this).is(':checked');
+                $("#gandaOpsi").show();
+                $(".addOpsi").show();
+                $(".buttonList").show();
+                $("#opsiList").show();
+                $("#opsiRow").show();
+                $("#newRow").show();
+                $(".inputOpsi").attr("required", true);
+                $("#pilihan").attr("checked", true);
+                $("#rmvOpsi").hide();
             } else {
-                $("#gandaOpsiEditBB" + {{ $data->no }}).show();
+                // switchStatus = $(this).is(':checked');
+                $(".addOpsi1").removeAttr("required");
+                $(".inputOpsi").removeAttr("required");
+                $("#pilihan").removeAttr("checked");
+                $("#gandaOpsi").hide();
+                $(".addOpsi").hide();
+                $(".buttonList").hide();
+                $("#opsiList").hide();
+                $("#opsiRow").hide();
+                $("#newRow").hide();
             }
-
-            if ({{ $data->other }} != 0) {
-                $("#queOpsiBB" + {{ $data->no }}).hide();
-                $("#addOpsiBB" + {{ $data->no }}).hide();
-            }
-
-            $('#edit_pilihan_BB' + {{ $data->no }}).on("change", function() {
-                if ($(this).is(':checked')) {
-                    $("#gandaOpsiEditBB" + {{ $data->no }}).show();
-                    $(".editOpsiBB" + {{ $data->no }}).show();
-                    $("#opsiListBB" + {{ $data->no }}).show();
-                    $(".buttonListBB" + {{ $data->no }}).show();
-                    $("#opsiRowBB").show();
-                    $("#newRowBB").show();
-                    $(".inputOpsiBB").attr("required", true);
-
-                    var html = '';
-                    var lab = 0;
-                    html += '<div class="input-group input-group-sm mb-1 editOpsiBB' +
-                        {{ $data->no }};
-                    html += '"><label class="input-group-text" data-edit="';
-                    html += lab + 1;
-                    html += '" data-lab="';
-                    html += lab + 1;
-                    html += '"> ';
-                    html += lab + 1;
-                    html +=
-                        '.</label><input type="text" class="form-control mb-0" name="opsi[]" required></div>';
-                    if ($('.editOpsiBB' + {{ $data->no }}).length) {
-                        $("#addOpsiBB" + {{ $data->no }}).show();
-                        $("#queOpsiBB" + {{ $data->no }}).show();
-                    } else {
-                        $('#editRowBB' + {{ $data->no }}).prepend(html);
-                        $("#rmvOpsiBB" + {{ $data->no }}).hide();
-                        $("#addOpsiBB" + {{ $data->no }}).show();
-                        $("#queOpsiBB" + {{ $data->no }}).show();
-                    }
-                } else {
-                    switchStatus = $(this).is(':checked');
-                    $(".inputOpsiBB").removeAttr("required");
-                    $("#gandaOpsiEditBB" + {{ $data->no }}).hide();
-                    $(".editOpsiBB" + {{ $data->no }}).hide();
-                    $("#opsiListBB" + {{ $data->no }}).hide();
-                    $(".buttonListBB" + {{ $data->no }}).hide();
-                    $("#opsiRowBB").hide();
-                    $("#newRowBB").hide();
-                    $(".noPilihanBB" + {{ $data->no }}).remove();
-                }
-            });
         });
 
-        function editOpsiBB{{ $data->no }}() {
-            var html = '';
-            var lab = $(".editOpsiBB" + {{ $data->no }} + " label:last ").data("edit");
+    }
 
-            html += '<div class="input-group input-group-sm mb-1 editOpsiBB' + {{ $data->no }};
-            html += '"><label class="input-group-text" data-edit="';
-            html += lab + 1;
-            html += '" data-lab="';
-            html += lab + 1;
-            html += '"> ';
-            html += lab + 1;
-            html +=
-                '.</label><input type="text" class="form-control mb-0" name="opsi[]" required></div>';
+    function addOpsi() {
+        var html = '';
+        var lab = $(".addOpsi label:last").data("lab");
 
-            $('#editRowBB' + {{ $data->no }}).append(html);
-            $("#rmvOpsiBB" + {{ $data->no }}).show();
+        html +=
+            '<div class="input-group input-group-sm addOpsi mb-1" id="opsiList"><label class="input-group-text" for="inputGroupSelect01"  data-lab="';
+        html += lab + 1;
+        html += '"> ';
+        html += lab + 1;
+        html +=
+            '.</label><input type="text" class="form-control mb-0 addOpsi1" name="opsi[]" required></div>';
+        $('#newRow').append(html);
+
+        if (lab >= 1) {
+            $("#rmvOpsi").show();
+        } else {
+            $("#addOpsi").show();
+            $("#queOpsi").show();
         }
+    }
 
-        function otherOpsiBB{{ $data->no }}() {
-            var html = '';
-            var lab = $(".editOpsiBB" + {{ $data->no }} + " label:last ").data("edit");
+    function otherOpsi() {
+        var html = '';
+        var lab = $(".addOpsi label:last").data("lab");
 
-            html += '<div class="input-group input-group-sm mb-1 editOpsiBB' + {{ $data->no }};
-            html += '"><label class="input-group-text" data-edit="';
-            html += lab + 1;
-            html += '" data-lab="';
-            html += lab + 1;
-            html += '"> ';
-            html += lab + 1;
-            html +=
-                '.</label><input type="text" class="form-control mb-0" placeholder="..." disabled></div><input type="hidden" name="other" value="other"></div>';
+        html +=
+            '<div class="input-group input-group-sm mb-1" id="opsiList"><label class="input-group-text" for="inputGroupSelect01"  data-lab="';
+        html += lab + 1
+        html += '"> ';
+        html += lab + 1;
+        html +=
+            '.</label><input type="text" class="form-control mb-0" placeholder="..." disabled><input type="hidden" name="other" value="other"></div>';
+        $('#newRow').append(html);
+        $("#queOpsi").hide();
+        $("#addOpsi").hide();
+        $("#rmvOpsi").show();
+    }
 
-            $('#editRowBB' + {{ $data->no }}).append(html);
-            $("#addOpsiBB" + {{ $data->no }}).hide();
-            $("#queOpsiBB" + {{ $data->no }}).hide();
-            $("#rmvOpsiBB" + {{ $data->no }}).show();
+    function removeOpsi() {
+        var largestID = $("#newRow input:last");
+        largestID.closest('.input-group-sm').remove();
+        var lab = $(".addOpsi label:last").data("lab");
+
+        if (lab <= 1) {
+            $("#rmvOpsi").hide();
+            $("#addOpsi").show();
+            $("#queOpsi").show();
+        } else {
+            $("#addOpsi").show();
+            $("#queOpsi").show();
         }
-
-        function removeOpsiBB{{ $data->no }}() {
-            var lab = $(".editOpsiBB" + {{ $data->no }} + " label:last ").data("edit");
-            var largestID = $(".editOpsiBB" + {{ $data->no }} + ":last").remove();
-
-            if (lab <= 2) {
-                $("#rmvOpsiBB" + {{ $data->no }}).hide();
-                $("#addOpsiBB" + {{ $data->no }}).show();
-                $("#queOpsiBB" + {{ $data->no }}).show();
-            } else {
-                $("#addOpsiBB" + {{ $data->no }}).show();
-                $("#queOpsiBB" + {{ $data->no }}).show();
-            }
-        }
-    </script>
-@endforeach
+    }
+</script>

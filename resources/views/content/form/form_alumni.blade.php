@@ -37,8 +37,8 @@
                         <form action="{{ route('add_alumni_belum_bekerja') }}" method="POST">
                             @csrf
                             <div id="formulir_belum_bekerja"></div>
-                            <a class="btn-sm btn-primary" id="tambah" href="#" role="button"
-                                data-bs-toggle="modal" data-bs-target="#modal_form_belum_bekerja">&plus;</a>
+                            {{-- <a class="btn-sm btn-primary" id="tambah" href="#" role="button"
+                                data-bs-toggle="modal">&plus;</a> --}}
                             <br>
                             <br>
                         </form>
@@ -48,8 +48,8 @@
                         <form action="{{ route('add_alumni_sudah_bekerja') }}" method="POST">
                             @csrf
                             <div id="formulir_sudah_bekerja"></div>
-                            <a class="btn-sm btn-primary" id="tambah" href="#" role="button"
-                                data-bs-toggle="modal" data-bs-target="#modal_form_sudah_bekerja">&plus;</a>
+                            {{-- <a class="btn-sm btn-primary" id="tambah" href="#" role="button"
+                                data-bs-toggle="modal">&plus;</a> --}}
                             <br>
                             <br>
                         </form>
@@ -58,8 +58,8 @@
                         <form action="{{ route('add_alumni_berwirausaha') }}" method="POST">
                             @csrf
                             <div id="formulir_berwirausaha"></div>
-                            <a class="btn-sm btn-primary" id="tambah" href="#" role="button"
-                                data-bs-toggle="modal" data-bs-target="#modal_form_berwirausaha">&plus;</a>
+                            {{-- <a class="btn-sm btn-primary" id="tambah" href="#" role="button"
+                                data-bs-toggle="modal">&plus;</a> --}}
                             <br>
                             <br>
                         </form>
@@ -69,8 +69,8 @@
                         <form action="{{ route('add_alumni_lanjut_pendidikan') }}" method="POST">
                             @csrf
                             <div id="formulir_lanjut_pendidikan"></div>
-                            <a class="btn-sm btn-primary" id="tambah" href="#" role="button"
-                                data-bs-toggle="modal" data-bs-target="#modal_form_lanjut_pendidikan">&plus;</a>
+                            {{-- <a class="btn-sm btn-primary" id="tambah" href="#" role="button"
+                                data-bs-toggle="modal">&plus;</a> --}}
                             <br>
                             <br>
                         </form>
@@ -83,7 +83,29 @@
 
     {{-- ######### Start Form Alumni Belum Bekerja ######### --}}
     <!-- Modal Tambah-->
-    <div class="modal fade" id="modal_form_belum_bekerja" tabindex="-1">
+    <div class="modal fade" id="modal_form_tambah" tabindex="-1">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Tambah Pertanyaan</h5>
+                </div>
+                <form action="" method="POST">
+                    @csrf
+                    <div class="modal-body">
+                        Preview :
+                        <hr>
+                        <table class="table modTambah">
+                        </table>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary me-4">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{-- <div class="modal fade" id="modal_form_belum_bekerja" tabindex="-1">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
@@ -97,9 +119,7 @@
                         <table class="table">
                             <tbody>
                                 <tr>
-                                    <td class="col-auto tambahNoUrut">
-                                        {{-- {{ $no_urut + 1 }}. --}}
-                                        {{-- <input type="hidden" name="no" value="{{ $no_urut + 1 }}"> --}}
+                                    <td class="col-auto pe-0 tambahNoUrut">
                                     </td>
                                     <td>
                                         <div class="form-group">
@@ -164,7 +184,7 @@
                 </form>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- Modal Edit-->
     {{-- @foreach ($form_alumni_belum_bekerja as $data)
         @php

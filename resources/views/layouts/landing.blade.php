@@ -364,8 +364,8 @@
 @endforeach --}}
 
 
-{{-- @include('scripts.script_modal') --}}
 @include('scripts.script_form_alumni')
+{{-- @include('scripts.script_modal') --}}
 
 
 
