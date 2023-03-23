@@ -112,7 +112,14 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/admin/form_alumni/{kategori}', [SurveyAlumniController::class, 'showFormAlumni'])->name('get_form_alumni');
     Route::get('/admin/form_alumni/{destroy}', [SurveyAlumniController::class, 'destroyFormAlumni'])->name('destroy_form_alumni');
     Route::get('/admin/form_alumni/destroy/{kategori}/{id?}', [SurveyAlumniController::class, 'destroyFormAlumni'])->name('destroy_form_alumni');
-    Route::get('/admin/form_alumni/{kategori}/{id?}', [SurveyAlumniController::class, 'destroyFoarmAlumni'])->name('delete_aalumni_belum_bekerja');
+
+    // Route::post('/admin/form_alumni/store/belum_bekerja', [SurveyAlumniController::class, 'store'])->name('add_form_alumni');
+    Route::post('/admin/form_alumni/store/{kategori}', [SurveyAlumniController::class, 'store'])->name('add_form_alumni');
+    // Route::post('/admin/form_alumni/store/{kategori}', [SurveyAlumniController::class, 'store'])->name('add_form_alumni');
+
+
+
+    // Route::get('/admin/form_alumni/{kategori}/{id?}', [SurveyAlumniController::class, 'destroyFoarmAlumni'])->name('delete_alumni_belum_bekerja');
     // Route::get('/admin/form_alumni/{kategori}/{id?}', [SurveyAlumniController::class, 'destroyFormAlumni'])->name('delete_alumni_sudah_bekerja');
     // Route::get('/admin/form_alumni/{kategori}/{id?}', [SurveyAlumniController::class, 'destroyFormAlumni'])->name('delete_alumni_berwirausaha');
     // Route::get('/admin/form_alumni/{kategori}/{id?}', [SurveyAlumniController::class, 'destroyFormAlumni'])->name('delete_alumni_lanjut_pendidikan');
@@ -120,20 +127,20 @@ Route::group(['middleware' => ['auth']], function () {
     // Route::post('/admin/form_alumni/{id}', [SurveyAlumniController::class, 'update'])->name('edit_alumni');
     // Route::get('/admin/form_alumni/{id}', [SurveyAlumniController::class, 'destroy'])->name('delete_alumni');
 
-    Route::post('/admin/form_alumni/belum_bekerja', [SurveyAlumniController::class, 'storeBelumBekerja'])->name('add_alumni_belum_bekerja');
-    Route::post('/admin/form_alumni/belum_bekerja/{id}', [SurveyAlumniController::class, 'updateBelumBekerja'])->name('edit_alumni_belum_bekerja');
+    // Route::post('/admin/form_alumni/belum_bekerja', [SurveyAlumniController::class, 'storeBelumBekerja'])->name('add_alumni_belum_bekerja');
+    // Route::post('/admin/form_alumni/belum_bekerja/{id}', [SurveyAlumniController::class, 'updateBelumBekerja'])->name('edit_alumni_belum_bekerja');
     // Route::get('/admin/form_alumni/belum_bekerja/{id}', [SurveyAlumniController::class, 'destroyBelumBekerja'])->name('delete_alumni_belum_bekerja');
 
-    Route::post('/admin/form_alumni/sudah_bekerja', [SurveyAlumniController::class, 'storeSudahBekerja'])->name('add_alumni_sudah_bekerja');
-    Route::post('/admin/form_alumni/sudah_bekerja/{id}', [SurveyAlumniController::class, 'updateSudahBekerja'])->name('edit_alumni_sudah_bekerja');
+    // Route::post('/admin/form_alumni/sudah_bekerja', [SurveyAlumniController::class, 'storeSudahBekerja'])->name('add_alumni_sudah_bekerja');
+    // Route::post('/admin/form_alumni/sudah_bekerja/{id}', [SurveyAlumniController::class, 'updateSudahBekerja'])->name('edit_alumni_sudah_bekerja');
     // Route::get('/admin/form_alumni/sudah_bekerja/{id}', [SurveyAlumniController::class, 'destroySudahBekerja'])->name('delete_alumni_sudah_bekerja');
 
-    Route::post('/admin/form_alumni/wirausaha', [SurveyAlumniController::class, 'storeWirausaha'])->name('add_alumni_berwirausaha');
-    Route::post('/admin/form_alumni/wirausaha/{id}', [SurveyAlumniController::class, 'updateWirausaha'])->name('edit_alumni_berwirausaha');
+    // Route::post('/admin/form_alumni/wirausaha', [SurveyAlumniController::class, 'storeWirausaha'])->name('add_alumni_berwirausaha');
+    // Route::post('/admin/form_alumni/wirausaha/{id}', [SurveyAlumniController::class, 'updateWirausaha'])->name('edit_alumni_berwirausaha');
     // Route::get('/admin/form_alumni/wirausaha/{id}', [SurveyAlumniController::class, 'destroyWirausaha'])->name('delete_alumni_berwirausaha');
 
-    Route::post('/admin/form_alumni/lanjut_pendidikan', [SurveyAlumniController::class, 'storeLanjutPendidikan'])->name('add_alumni_lanjut_pendidikan');
-    Route::post('/admin/form_alumni/lanjut_pendidikan/{id}', [SurveyAlumniController::class, 'updateLanjutPendidikan'])->name('edit_alumni_lanjut_pendidikan');
+    // Route::post('/admin/form_alumni/lanjut_pendidikan', [SurveyAlumniController::class, 'storeLanjutPendidikan'])->name('add_alumni_lanjut_pendidikan');
+    // Route::post('/admin/form_alumni/lanjut_pendidikan/{id}', [SurveyAlumniController::class, 'updateLanjutPendidikan'])->name('edit_alumni_lanjut_pendidikan');
     // Route::get('/admin/form_alumni/lanjut_pendidikan/{id}', [SurveyAlumniController::class, 'destroyLanjutPendidikan'])->name('delete_alumni_lanjut_pendidikan');
 
 

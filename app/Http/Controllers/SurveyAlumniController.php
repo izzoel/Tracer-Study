@@ -142,7 +142,7 @@ class SurveyAlumniController extends Controller
         // return redirect(back() . '#tambah');
     }
 
-    public function storeLanjutPendidikan(Request $request)
+    public function storeLanjutPendidikan(Request $request, $kategori)
     {
         if ($request->input('wajib') != "on") {
             $wajib = 0;
@@ -183,7 +183,94 @@ class SurveyAlumniController extends Controller
 
 
 
+    public function store(Request $request, $kategori)
+    {
+        if ($request->wajib != "on") {
+            $wajib = 0;
+        } else {
+            $wajib = 1;
+        }
 
+        if ($request->ganda != "on") {
+            $ganda = 0;
+        } else {
+            $ganda = 1;
+        }
+
+        if ($request->pilihan != "on") {
+            $pilihan[] = null;
+            $other = 0;
+        } else {
+            $pilihan = $request->opsi;
+            if ($request->other) {
+                $other = 1;
+            } else {
+                $other = 0;
+            }
+        }
+
+        $model = [
+            'no' => $request->no,
+            'survey' => $request->pertanyaan,
+            'pilihan' => implode(";",  $pilihan),
+            'ganda' => $ganda,
+            'other' => $other,
+            'wajib' => $wajib
+        ];
+        // $model = [
+        //     'no' => 100,
+        //     'survey' => $request->input('pertanyaan'),
+        //     'pilihan' => implode(";",  $pilihan),
+        //     'ganda' => $ganda,
+        //     'other' => $other,
+        //     'wajib' => $wajib
+        // ];
+        // 
+        // $model = [
+        //     'no' => $request->input('no'),
+        //     'survey' => $request->input('pertanyaan'),
+        //     'pilihan' => implode(";",  $pilihan),
+        //     'ganda' => $ganda,
+        //     'other' => $other,
+        //     'wajib' => $wajib
+        // ];
+
+        // SurveyAlumniBelumBekerja::create(
+        //     $model
+        // );
+
+
+        // return response()->json(
+        //     //     [
+        //     //     // 'success' => true,
+        //     //     'message' => 'Data Berhasil Disimpan!',
+        //     //     // 'data'    => $post  
+        //     // ]
+        // );
+
+        if ($kategori == "belum_bekerja") {
+            SurveyAlumniBelumBekerja::create(
+                $model
+            );
+            // return response()->json([
+            //     'scrollTambah' => '#tambah',
+            // ]);
+            // return redirect(url()->previous() . '#tambah');
+        } elseif ($kategori == "sudah_bekerja") {
+            SurveyAlumniSudahBekerja::create(
+                $model
+            );
+        } elseif ($kategori == "berwirausaha") {
+            SurveyAlumniWirausaha::create(
+                $model
+            );
+        } else
+        if ($kategori == "lanjut_pendidikan") {
+            SurveyAlumniLanjutPendidikan::create(
+                $model
+            );
+        }
+    }
 
 
 

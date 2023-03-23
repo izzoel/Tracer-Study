@@ -34,7 +34,7 @@
                 <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade show active" id="nav-belum-bekerja" role="tabpanel"
                         aria-labelledby="nav-belum-bekerja-tab">
-                        <form action="{{ route('add_alumni_belum_bekerja') }}" method="POST">
+                        <form action="" method="POST">
                             @csrf
                             <div id="formulir_belum_bekerja"></div>
                             {{-- <a class="btn-sm btn-primary" id="tambah" href="#" role="button"
@@ -45,7 +45,7 @@
                     </div>
                     <div class="tab-pane fade" id="nav-sudah-bekerja" role="tabpanel"
                         aria-labelledby="nav-sudah-bekerja-tab">
-                        <form action="{{ route('add_alumni_sudah_bekerja') }}" method="POST">
+                        <form action="" method="POST">
                             @csrf
                             <div id="formulir_sudah_bekerja"></div>
                             {{-- <a class="btn-sm btn-primary" id="tambah" href="#" role="button"
@@ -55,7 +55,7 @@
                         </form>
                     </div>
                     <div class="tab-pane fade" id="nav-berwirausaha" role="tabpanel" aria-labelledby="nav-berwirausaha-tab">
-                        <form action="{{ route('add_alumni_berwirausaha') }}" method="POST">
+                        <form action="" method="POST">
                             @csrf
                             <div id="formulir_berwirausaha"></div>
                             {{-- <a class="btn-sm btn-primary" id="tambah" href="#" role="button"
@@ -66,7 +66,7 @@
                     </div>
                     <div class="tab-pane fade" id="nav-lanjut-pendidikan" role="tabpanel"
                         aria-labelledby="nav-lanjut-pendidikan-tab">
-                        <form action="{{ route('add_alumni_lanjut_pendidikan') }}" method="POST">
+                        <form action="" method="POST">
                             @csrf
                             <div id="formulir_lanjut_pendidikan"></div>
                             {{-- <a class="btn-sm btn-primary" id="tambah" href="#" role="button"
@@ -89,7 +89,8 @@
                 <div class="modal-header">
                     <h5 class="modal-title">Tambah Pertanyaan</h5>
                 </div>
-                <form action="" method="POST">
+                <form id="formTambah">
+                    {{-- <form action="" method="POST" id="formTambah"> --}}
                     @csrf
                     <div class="modal-body">
                         Preview :
@@ -99,7 +100,7 @@
 
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary me-4">Save</button>
+                        <button type="submit" id="save" class="btn btn-primary me-4">Save</button>
                     </div>
                 </form>
             </div>

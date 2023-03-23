@@ -7,7 +7,7 @@
 
     <!-- mobile responsive meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-
+    <meta name="_token" content="{{ csrf_token() }}">
     <!-- ** Plugins Needed for the Project ** -->
     <!-- Slick -->
     <link rel="stylesheet" href="../plugins/slick/slick.css">
