@@ -239,6 +239,8 @@
     <script src="../js/enchanter.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.3/jquery.scrollTo.min.js"></script>
+
 </body>
 
 {{-- @yield('script_modal') --}}

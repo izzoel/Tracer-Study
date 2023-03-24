@@ -4,8 +4,8 @@
         kategori = $('.active #tab-title').text().replace(' ', '_').toLowerCase();
         route = "{{ route('get_form_alumni', ':kategori') }}";
         route = route.replace(':kategori', kategori)
-        $('#formulir_' + kategori).html("");
-        $('#tambah').remove();
+        init = "tab";
+        $('#formulir_' + kategori).empty();
         getData(route, kategori);
     }
     // end inisiasi
@@ -13,11 +13,13 @@
     $('.nav-link[role="tab"]').on("click", function() {
         kategori = $('.active #tab-title').text().replace(' ', '_').toLowerCase();
         route = "{{ route('get_form_alumni', ':kategori') }}";
-        route = route.replace(':kategori', kategori)
+        route = route.replace(':kategori', kategori);
+        init = "";
         tab = $(this);
         $('#formulir_' + kategori).html("");
         $('#tambah').remove();
         getData(route, kategori);
+
     });
 
     $('#modal_form_tambah').on('hidden.bs.modal', function() {
@@ -26,7 +28,6 @@
 
 
     function getData(route, kategori) {
-
         $.ajax({
             url: route,
             method: 'get',
@@ -41,10 +42,8 @@
                     ganda = data[key].ganda;
                     other = data[key].other;
                     wajib = data[key].wajib;
-
                     var routeDestroy = "{{ route('destroy_form_alumni', '') }}" + "/" +
                         kategori + "/" + id;
-
                     if (wajib == 1) {
                         if (ganda != 1) {
                             required = "required";
@@ -53,7 +52,6 @@
                         }
                         wajibHtml = '<span class="ms-0 ps-0 me-0 pe-0 text-danger">*</span>';
                     }
-
                     if (ganda == 1) {
                         var type = 'checkbox';
                         var array = '[]';
@@ -94,13 +92,11 @@
                         var arPilihan = pilihan.split(';');
                         var j = 1;
                         var k = 1;
-
                         html += '<td class="col pe-0 pt-0">';
                         $.each(arPilihan, function(item, val) {
                             html += '<div class="row ms-0">';
                             html +=
                                 '<div class="form-check mb-0 ps-0 me-0">';
-
                             html +=
                                 '<input class="form-check-input gandaOpsi' +
                                 no +
@@ -130,7 +126,6 @@
                             j++;
 
                         });
-
                         if (other == 1) {
                             html += '<div class="row input-other">';
 
@@ -148,7 +143,6 @@
 
                             html += '</div>';
                         }
-                        // html += 'asdasdasd';
                         html += '</td>';
                     }
                     html += '<td>';
@@ -156,23 +150,15 @@
                     html += '</tr>';
                     html += '</tbody>';
                     html += '</table">';
-
                     $('#formulir_' + kategori).append(html);
-
-
+                    $(window).scrollTo('#tambah');
                 });
                 tambahNoUrut = parseInt(no) + 1;
-                $(' <a class="btn-sm btn-primary" id="tambah" onclick="modTambah(tambahNoUrut)" href="#" role="button" data-bs-toggle="modal">&plus;</a>')
-                    .insertAfter($('#formulir_' + kategori));
-
-
-                $('html, body').animate({
-                    scrollTop: $("#tambah").offset().top
-                });
             }
         });
+        $(' <a class="btn-sm btn-primary" id="tambah" onclick="modTambah(tambahNoUrut)" href="#" role="button" data-bs-toggle="modal">&plus;</a>')
+            .insertAfter($('#formulir_' + kategori));
     }
-
 
     function modTambah(tambahNoUrut) {
         var myModal = new bootstrap.Modal(document.getElementById("modal_form_tambah"), {});
@@ -269,15 +255,16 @@
             }
         });
 
-        $("#formTambah").on('submit', function(e) {
+        $("#formTambah").one('submit', function(e) {
             e.preventDefault();
             ajaxFormTambah(routeName);
             myModal.hide();
+            // $('html, body').animate({
+            //     scrollTop: $("#tambah").offset().top
+            // });
         })
 
     }
-
-
 
     function ajaxFormTambah(routeName) {
         $.ajaxSetup({
@@ -285,11 +272,11 @@
                 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
             }
         });
-        var token = $("meta[name='_token']").attr("content");
-        var no = $("#no").val();
-        var pertanyaan = $("#pertanyaan").val();
-        var pilihan = $("#pilihan").val();
-        var opsi = $("input[name='opsi[]']")
+        let token = $("meta[name='_token']").attr("content");
+        let no = $("#no").val();
+        let pertanyaan = $("#pertanyaan").val();
+        let pilihan = $("#pilihan").val();
+        let opsi = $("input[name='opsi[]']")
             .map(function() {
                 return $(this).val();
             }).get();
@@ -304,7 +291,7 @@
         } else {
             var other = 0;
         }
-        var wajib = $("#wajib").val();
+        let wajib = $("#wajib").val();
 
         data = {
             _token: token,
@@ -321,8 +308,20 @@
             method: 'post',
             data: data,
             success: function(data) {
-                tab.trigger('click');
+                // if (init == 'tab') {
+                // location.reload();
+                //     // $('#tambah').remove();
+
+                // }
+                // tab.trigger('click');
                 $('#tambah').remove();
+                $('#formulir_' + kategori).empty();
+                let activeKategori = kategori;
+                getData(route, activeKategori);
+
+                // $('html, body').animate({
+                //     scrollTop: $("#tambah").offset().top
+                // });
             },
             error: function(data) {
                 console.log(data)
@@ -330,182 +329,6 @@
             },
         });
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //     // alert('ajax');
-    //     // $.ajax({
-    //     //     /* the route pointing to the post function */
-    //     //     url: '/admin/form_alumni/store/' + kategori,
-    //     //     method: 'post',
-    //     //     /* send the csrf-token and the input to the controller */
-    //     //     data: {
-    //     //         // _token: token,
-    //     //         // message: $(".getinfo").val()
-    //     //     },
-    //     //     // dataType: 'JSON',
-    //     //     /* remind that 'data' is the response of the AjaxController */
-    //     //     success: function(data) {
-    //     //         // $(".writeinfo").append(data.msg);
-    //     //         alert('suc');
-    //     //     },
-    //     //     error: function(data) {
-    //     //         // $(".writeinfo").append(data.msg);
-    //     //         alert('gag');
-    //     //     }
-    //     // });
-    // });
-
-
-
-    // $("#save").on('click', function() {
-    //     $.ajaxSetup({
-    //         headers: {
-    //             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    //         }
-    //     });
-
-    //     let token = $("meta[name='csrf-token']").attr("content");
-    //     // alert(token);
-    //     // title =
-    //     // valFormTambah = $("#formTambah").serialize();
-
-    //     // data: {
-    //     //                 "title": title,
-    //     //                 "content": content,
-    //     //                 "_token": token
-    //     //             },
-    //     var no = $("#no").val()
-
-    //     $.ajax({
-    //         url: '/admin/form_alumni/store/' + kategori,
-    //         method: 'post',
-    //         cache: false,
-    //         data: {
-    //             "no": no,
-    //             //         "pertanyaan": pertanyaan
-    //             // 'survey' => $request->input('pertanyaan'),
-    //             // 'pilihan' => implode(";",  $pilihan),
-    //             // 'ganda' => $ganda,
-    //             // 'other' => $other,
-    //             // 'wajib' => $wajib
-    //             // "content": content,
-    //             "_token": token
-    //         },
-    //         dataType: 'json',
-    //         success: function(data) {
-    //             alert('success');
-    //             console.log(data);
-    //         },
-    //         error: function(data) {
-    //             alert('gagal');
-    //         }
-    //         //     // }
-    //     });
-
-    //     // $.post("routeName", {[]
-    //     //     // name: "Donald Duck",
-    //     //     // city: "Duckburg",
-    //     //     // no: 100,
-    //     //     // survey: "asas",
-    //     //     // pilihan: 'asas',
-    //     //     // ganda: => 0,
-    //     //     // other: => 0,
-    //     //     // wajib: => 1
-    //     // })
-    //     // function(data, status) {
-    //     //     // alert("Data: " + data + "\nStatus: " + status);
-    //     //     alert("ajax ok");
-    //     // });
-
-    //     // $.ajax({
-    //     //     method: 'POST',
-    //     //     url: routeName,
-    //     //     data: {
-    //     //         no: 100,
-    //     //     }
-    //     //     //     // dataType: 'json',
-    //     //     // success: function(data) {
-
-    //     //     //     alert("ajax");
-    //     //     // }
-    //     // });
-    //     // .done(function(response) {
-    //     //     alert("Data Saved: ");
-    //     // });
-    // })
-
-
-
-    // $.ajax({
-    //     url: routeName,
-    //     // method: 'post',
-    //     // dataType: 'json',
-    //     // success: function(data) {}
-    // });
-    // // console.log(routeName);
-    // alert(routeName);
-
-
-    // var addNo = $("#no");
-    // valFormTambah = $("#formTambah").serialize();
-    // console.log(valFormTambah);
-    // console.log(routeName);
-    // alert(valFormTambah);
-
-    // $.ajax({
-    //     method: 'post',
-    //     url: routeName,
-    //     data: ['id', 100],
-    //     dataType: 'json',
-    //     success: function(data) {
-    //         alert('valFormTambah');
-    //         // $.each(data, function(key, values) {
-    //         //     console.log(key);
-    //         //     alert(key);
-    //         // });
-    //     }
-    // });
-
-
-    // $.post(routeName[, data][, success][, dataType])
-    // $.post(routeName, valFormTambah, );
-
-    // $.post(routeName, {
-    //         name: "Donald Duck",
-    //         city: "Duckburg"
-    //     },
-
-    //     function(response) {
-    //         alert("success");
-    //         $("#mypar").html(response.amount);
-    //     });
-
-    // },
-    // function(data,status){
-    //   alert("Data: " + data + "\nStatus: " + status);
-    // });
-
-
-
-    // }
-
-
 
     function addOpsi() {
         var html = '';

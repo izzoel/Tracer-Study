@@ -25,161 +25,161 @@ class SurveyAlumniController extends Controller
     }
 
 
-    public function storeBelumBekerja(Request $request)
-    {
-        if ($request->input('wajib') != "on") {
-            $wajib = 0;
-        } else {
-            $wajib = 1;
-        }
+    // public function storeBelumBekerja(Request $request)
+    // {
+    //     if ($request->input('wajib') != "on") {
+    //         $wajib = 0;
+    //     } else {
+    //         $wajib = 1;
+    //     }
 
-        if ($request->input('ganda') != "on") {
-            $ganda = 0;
-        } else {
-            $ganda = 1;
-        }
+    //     if ($request->input('ganda') != "on") {
+    //         $ganda = 0;
+    //     } else {
+    //         $ganda = 1;
+    //     }
 
-        if ($request->input('pilihan') != "on") {
-            $pilihan[] = null;
-            $other = 0;
-        } else {
-            $pilihan = $request->input('opsi');
-            if ($request->input('other')) {
-                $other = 1;
-            } else {
-                $other = 0;
-            }
-        }
+    //     if ($request->input('pilihan') != "on") {
+    //         $pilihan[] = null;
+    //         $other = 0;
+    //     } else {
+    //         $pilihan = $request->input('opsi');
+    //         if ($request->input('other')) {
+    //             $other = 1;
+    //         } else {
+    //             $other = 0;
+    //         }
+    //     }
 
-        SurveyAlumniBelumBekerja::create([
-            'no' => $request->input('no'),
-            'survey' => $request->input('pertanyaan'),
-            'pilihan' => implode(";",  $pilihan),
-            'ganda' => $ganda,
-            'other' => $other,
-            'wajib' => $wajib
-        ]);
-        return redirect(url()->previous() . '#tambah');
-    }
+    //     SurveyAlumniBelumBekerja::create([
+    //         'no' => $request->input('no'),
+    //         'survey' => $request->input('pertanyaan'),
+    //         'pilihan' => implode(";",  $pilihan),
+    //         'ganda' => $ganda,
+    //         'other' => $other,
+    //         'wajib' => $wajib
+    //     ]);
+    //     return redirect(url()->previous() . '#tambah');
+    // }
 
-    public function storeSudahBekerja(Request $request)
-    {
-        if ($request->input('wajib') != "on") {
-            $wajib = 0;
-        } else {
-            $wajib = 1;
-        }
+    // public function storeSudahBekerja(Request $request)
+    // {
+    //     if ($request->input('wajib') != "on") {
+    //         $wajib = 0;
+    //     } else {
+    //         $wajib = 1;
+    //     }
 
-        if ($request->input('ganda') != "on") {
-            $ganda = 0;
-        } else {
-            $ganda = 1;
-        }
+    //     if ($request->input('ganda') != "on") {
+    //         $ganda = 0;
+    //     } else {
+    //         $ganda = 1;
+    //     }
 
-        if ($request->input('pilihan') != "on") {
-            $pilihan[] = null;
-            $other = 0;
-        } else {
-            $pilihan = $request->input('opsi');
-            if ($request->input('other')) {
-                $other = 1;
-            } else {
-                $other = 0;
-            }
-        }
+    //     if ($request->input('pilihan') != "on") {
+    //         $pilihan[] = null;
+    //         $other = 0;
+    //     } else {
+    //         $pilihan = $request->input('opsi');
+    //         if ($request->input('other')) {
+    //             $other = 1;
+    //         } else {
+    //             $other = 0;
+    //         }
+    //     }
 
-        SurveyAlumniSudahBekerja::create([
-            'no' => $request->input('no'),
-            'survey' => $request->input('pertanyaan'),
-            'pilihan' => implode(";",  $pilihan),
-            'ganda' => $ganda,
-            'other' => $other,
-            'wajib' => $wajib
-        ]);
-
-
-        return redirect(url()->previous() . '#tambah');
-        // return redirect(back() . '#tambah');
-    }
-
-    public function storeWirausaha(Request $request)
-    {
-        if ($request->input('wajib') != "on") {
-            $wajib = 0;
-        } else {
-            $wajib = 1;
-        }
-
-        if ($request->input('ganda') != "on") {
-            $ganda = 0;
-        } else {
-            $ganda = 1;
-        }
-
-        if ($request->input('pilihan') != "on") {
-            $pilihan[] = null;
-            $other = 0;
-        } else {
-            $pilihan = $request->input('opsi');
-            if ($request->input('other')) {
-                $other = 1;
-            } else {
-                $other = 0;
-            }
-        }
-
-        SurveyAlumniWirausaha::create([
-            'no' => $request->input('no'),
-            'survey' => $request->input('pertanyaan'),
-            'pilihan' => implode(";",  $pilihan),
-            'ganda' => $ganda,
-            'other' => $other,
-            'wajib' => $wajib
-        ]);
+    //     SurveyAlumniSudahBekerja::create([
+    //         'no' => $request->input('no'),
+    //         'survey' => $request->input('pertanyaan'),
+    //         'pilihan' => implode(";",  $pilihan),
+    //         'ganda' => $ganda,
+    //         'other' => $other,
+    //         'wajib' => $wajib
+    //     ]);
 
 
-        return redirect(url()->previous() . '#tambah');
-        // return redirect(back() . '#tambah');
-    }
+    //     return redirect(url()->previous() . '#tambah');
+    //     // return redirect(back() . '#tambah');
+    // }
 
-    public function storeLanjutPendidikan(Request $request, $kategori)
-    {
-        if ($request->input('wajib') != "on") {
-            $wajib = 0;
-        } else {
-            $wajib = 1;
-        }
+    // public function storeWirausaha(Request $request)
+    // {
+    //     if ($request->input('wajib') != "on") {
+    //         $wajib = 0;
+    //     } else {
+    //         $wajib = 1;
+    //     }
 
-        if ($request->input('ganda') != "on") {
-            $ganda = 0;
-        } else {
-            $ganda = 1;
-        }
+    //     if ($request->input('ganda') != "on") {
+    //         $ganda = 0;
+    //     } else {
+    //         $ganda = 1;
+    //     }
 
-        if ($request->input('pilihan') != "on") {
-            $pilihan[] = null;
-            $other = 0;
-        } else {
-            $pilihan = $request->input('opsi');
-            if ($request->input('other')) {
-                $other = 1;
-            } else {
-                $other = 0;
-            }
-        }
+    //     if ($request->input('pilihan') != "on") {
+    //         $pilihan[] = null;
+    //         $other = 0;
+    //     } else {
+    //         $pilihan = $request->input('opsi');
+    //         if ($request->input('other')) {
+    //             $other = 1;
+    //         } else {
+    //             $other = 0;
+    //         }
+    //     }
 
-        SurveyAlumniLanjutPendidikan::create([
-            'no' => $request->input('no'),
-            'survey' => $request->input('pertanyaan'),
-            'pilihan' => implode(";",  $pilihan),
-            'ganda' => $ganda,
-            'other' => $other,
-            'wajib' => $wajib
-        ]);
+    //     SurveyAlumniWirausaha::create([
+    //         'no' => $request->input('no'),
+    //         'survey' => $request->input('pertanyaan'),
+    //         'pilihan' => implode(";",  $pilihan),
+    //         'ganda' => $ganda,
+    //         'other' => $other,
+    //         'wajib' => $wajib
+    //     ]);
 
 
-        return redirect(url()->previous() . '#tambah');
-    }
+    //     return redirect(url()->previous() . '#tambah');
+    //     // return redirect(back() . '#tambah');
+    // }
+
+    // public function storeLanjutPendidikan(Request $request, $kategori)
+    // {
+    //     if ($request->input('wajib') != "on") {
+    //         $wajib = 0;
+    //     } else {
+    //         $wajib = 1;
+    //     }
+
+    //     if ($request->input('ganda') != "on") {
+    //         $ganda = 0;
+    //     } else {
+    //         $ganda = 1;
+    //     }
+
+    //     if ($request->input('pilihan') != "on") {
+    //         $pilihan[] = null;
+    //         $other = 0;
+    //     } else {
+    //         $pilihan = $request->input('opsi');
+    //         if ($request->input('other')) {
+    //             $other = 1;
+    //         } else {
+    //             $other = 0;
+    //         }
+    //     }
+
+    //     SurveyAlumniLanjutPendidikan::create([
+    //         'no' => $request->input('no'),
+    //         'survey' => $request->input('pertanyaan'),
+    //         'pilihan' => implode(";",  $pilihan),
+    //         'ganda' => $ganda,
+    //         'other' => $other,
+    //         'wajib' => $wajib
+    //     ]);
+
+
+    //     return redirect(url()->previous() . '#tambah');
+    // }
 
 
 
@@ -217,45 +217,11 @@ class SurveyAlumniController extends Controller
             'other' => $other,
             'wajib' => $wajib
         ];
-        // $model = [
-        //     'no' => 100,
-        //     'survey' => $request->input('pertanyaan'),
-        //     'pilihan' => implode(";",  $pilihan),
-        //     'ganda' => $ganda,
-        //     'other' => $other,
-        //     'wajib' => $wajib
-        // ];
-        // 
-        // $model = [
-        //     'no' => $request->input('no'),
-        //     'survey' => $request->input('pertanyaan'),
-        //     'pilihan' => implode(";",  $pilihan),
-        //     'ganda' => $ganda,
-        //     'other' => $other,
-        //     'wajib' => $wajib
-        // ];
-
-        // SurveyAlumniBelumBekerja::create(
-        //     $model
-        // );
-
-
-        // return response()->json(
-        //     //     [
-        //     //     // 'success' => true,
-        //     //     'message' => 'Data Berhasil Disimpan!',
-        //     //     // 'data'    => $post  
-        //     // ]
-        // );
 
         if ($kategori == "belum_bekerja") {
             SurveyAlumniBelumBekerja::create(
                 $model
             );
-            // return response()->json([
-            //     'scrollTambah' => '#tambah',
-            // ]);
-            // return redirect(url()->previous() . '#tambah');
         } elseif ($kategori == "sudah_bekerja") {
             SurveyAlumniSudahBekerja::create(
                 $model
@@ -309,23 +275,12 @@ class SurveyAlumniController extends Controller
     public function formAlumni()
     {
         return view('content.form.form_alumni', ['title' => 'form_alumni'])->with([
-            //         'form_alumni' => $form_alumni,
-            //         'no_urut' => $no_urut,
-            //         'form_alumni_belum_bekerja' => $form_alumni_belum_bekerja,
-            //         'no_urut_belum_bekerja' => $no_urut_belum_bekerja,
-            //         'form_alumni_sudah_bekerja' => $form_alumni_sudah_bekerja,
-            //         'no_urut_sudah_bekerja' => $no_urut_sudah_bekerja,
-            //         'form_alumni_wirausaha' => $form_alumni_wirausaha,
-            //         'no_urut_wirausaha' => $no_urut_wirausaha,
-            //         'form_alumni_lanjut_pendidikan' => $form_alumni_lanjut_pendidikan,
-            //         'no_urut_lanjut_pendidikan' => $no_urut_lanjut_pendidikan,
             'title' => 'form'
         ]);
     }
 
     public function showFormAlumni(SurveyAlumni $survey_Alumni, $kategori)
     {
-        // $data = ;
         if ($kategori == "belum_bekerja") {
             return response()->json(SurveyAlumniBelumBekerja::all());
         } elseif ($kategori == "sudah_bekerja") {
@@ -572,7 +527,7 @@ class SurveyAlumniController extends Controller
 
 
 
-    public function destroyFormAlumni($kategori, $id, SurveyAlumni $survey_Alumni)
+    public function destroyFormAlumni($kategori, $id)
     {
         if ($kategori == "belum_bekerja") {
             SurveyAlumniBelumBekerja::destroy($id);
@@ -583,11 +538,11 @@ class SurveyAlumniController extends Controller
         } elseif ($kategori == "berwirausaha") {
             SurveyAlumniWirausaha::destroy($id);
             $no_urut = SurveyAlumniWirausaha::all()->sortBy("no")->pluck('no')->last();
-        } elseif ($kategori == "berwirausaha") {
+        } elseif ($kategori == "lanjut_pendidikan") {
             SurveyAlumniLanjutPendidikan::destroy($id);
             $no_urut = SurveyAlumniLanjutPendidikan::all()->sortBy("no")->pluck('no')->last();
         }
-
-        return redirect(url()->previous() . '#destroy' . $no_urut);
+        // dd($kategori);
+        // return redirect(url()->previous() . '#destroy' . $no_urut);
     }
 }

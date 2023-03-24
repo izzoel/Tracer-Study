@@ -39,6 +39,8 @@
                             <div id="formulir_belum_bekerja"></div>
                             {{-- <a class="btn-sm btn-primary" id="tambah" href="#" role="button"
                                 data-bs-toggle="modal">&plus;</a> --}}
+                            {{-- <a class="btn-sm btn-primary" id="tambah" onclick="modTambah(tambahNoUrut)" href="#"
+                                role="button" data-bs-toggle="modal">&plus;</a> --}}
                             <br>
                             <br>
                         </form>
@@ -50,6 +52,8 @@
                             <div id="formulir_sudah_bekerja"></div>
                             {{-- <a class="btn-sm btn-primary" id="tambah" href="#" role="button"
                                 data-bs-toggle="modal">&plus;</a> --}}
+                            {{-- <a class="btn-sm btn-primary" id="tambah" onclick="modTambah(tambahNoUrut)" href="#"
+                                role="button" data-bs-toggle="modal">&plus;</a> --}}
                             <br>
                             <br>
                         </form>
@@ -60,6 +64,8 @@
                             <div id="formulir_berwirausaha"></div>
                             {{-- <a class="btn-sm btn-primary" id="tambah" href="#" role="button"
                                 data-bs-toggle="modal">&plus;</a> --}}
+                            {{-- <a class="btn-sm btn-primary" id="tambah" onclick="modTambah(tambahNoUrut)" href="#"
+                                role="button" data-bs-toggle="modal">&plus;</a> --}}
                             <br>
                             <br>
                         </form>
@@ -71,6 +77,8 @@
                             <div id="formulir_lanjut_pendidikan"></div>
                             {{-- <a class="btn-sm btn-primary" id="tambah" href="#" role="button"
                                 data-bs-toggle="modal">&plus;</a> --}}
+                            {{-- <a class="btn-sm btn-primary" id="tambah" onclick="modTambah(tambahNoUrut)" href="#"
+                                role="button" data-bs-toggle="modal">&plus;</a> --}}
                             <br>
                             <br>
                         </form>

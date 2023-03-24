@@ -136,7 +136,7 @@ CREATE TABLE IF NOT EXISTS `bank_alumnis` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table tracer.bank_alumnis: ~8 rows (approximately)
+-- Dumping data for table tracer.bank_alumnis: ~9 rows (approximately)
 /*!40000 ALTER TABLE `bank_alumnis` DISABLE KEYS */;
 INSERT INTO `bank_alumnis` (`id`, `bank1`, `bank2`, `bank3`, `bank4`, `bank5`, `bank6`, `bank7`, `bank8`, `bank9`, `bank10`, `bank11`, `bank12`, `bank13`, `bank14`, `bank15`, `bank16`, `bank17`, `bank18`, `bank19`, `bank20`, `bank21`, `bank22`, `bank23`, `bank24`, `bank25`, `bank26`, `bank27`, `bank28`, `bank29`, `bank30`, `bank31`, `bank32`, `bank33`, `bank34`, `bank35`, `bank36`, `bank37`, `bank38`, `bank39`, `bank40`, `bank41`, `bank42`, `bank43`, `bank44`, `bank45`, `bank46`, `bank47`, `bank48`, `bank49`, `bank50`, `bank51`, `bank52`, `bank53`, `bank54`, `bank55`, `bank56`, `bank57`, `bank58`, `bank59`, `bank60`, `bank61`, `bank62`, `bank63`, `bank64`, `bank65`, `bank66`, `bank67`, `bank68`, `bank69`, `bank70`, `bank71`, `bank72`, `bank73`, `bank74`, `bank75`, `bank76`, `bank77`, `bank78`, `bank79`, `bank80`, `bank81`, `bank82`, `bank83`, `bank84`, `bank85`, `bank86`, `bank87`, `bank88`, `bank89`, `bank90`, `bank91`, `bank92`, `bank93`, `bank94`, `bank95`, `bank96`, `bank97`, `bank98`, `bank99`, `bank100`, `created_at`, `updated_at`) VALUES
 	(1, 'Sudah pernah mengisi dan hendak update data pekerjaan pertama', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
@@ -287,7 +287,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table tracer.migrations: ~12 rows (approximately)
+-- Dumping data for table tracer.migrations: ~14 rows (approximately)
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(31, '2014_10_12_000000_create_users_table', 1),
@@ -435,7 +435,7 @@ CREATE TABLE IF NOT EXISTS `survey_alumni_belum_bekerja` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=190 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table tracer.survey_alumni_belum_bekerja: ~26 rows (approximately)
 /*!40000 ALTER TABLE `survey_alumni_belum_bekerja` DISABLE KEYS */;
@@ -480,7 +480,7 @@ CREATE TABLE IF NOT EXISTS `survey_alumni_lanjut_pendidikan` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=75 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table tracer.survey_alumni_lanjut_pendidikan: ~18 rows (approximately)
 /*!40000 ALTER TABLE `survey_alumni_lanjut_pendidikan` DISABLE KEYS */;
@@ -517,7 +517,7 @@ CREATE TABLE IF NOT EXISTS `survey_alumni_sudah_bekerja` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=89 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table tracer.survey_alumni_sudah_bekerja: ~40 rows (approximately)
 /*!40000 ALTER TABLE `survey_alumni_sudah_bekerja` DISABLE KEYS */;
@@ -576,9 +576,9 @@ CREATE TABLE IF NOT EXISTS `survey_alumni_wirausaha` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=84 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table tracer.survey_alumni_wirausaha: ~42 rows (approximately)
+-- Dumping data for table tracer.survey_alumni_wirausaha: ~44 rows (approximately)
 /*!40000 ALTER TABLE `survey_alumni_wirausaha` DISABLE KEYS */;
 INSERT INTO `survey_alumni_wirausaha` (`id`, `no`, `survey`, `pilihan`, `ganda`, `other`, `wajib`, `created_at`, `updated_at`) VALUES
 	(1, '1', 'Apakah sudah pernah mengisi formulir tracer study?', 'Pertama kali mengisi;Sudah pernah mengisi dan hendak update data pekerjaan pertama', '0', '0', '1', '2023-03-13 02:48:13', '2023-03-13 02:48:13'),
@@ -695,7 +695,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table tracer.users: ~0 rows (approximately)
+-- Dumping data for table tracer.users: ~1 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `name`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 	(1, 'admin', '$2y$10$P5/r.KGtmPGTdRwvvPJeCuqhxVqyNNW6NFz8ABPM5oksHoTWfM5EO', NULL, NULL, NULL);
