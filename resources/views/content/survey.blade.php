@@ -61,13 +61,13 @@
                                 <label for="nama" class="form-label">
                                     Nama Lengkap<span class="ms-0 ps-0 me-0 pe-0 text-danger">*</span>
                                 </label>
-                                <input type="nama" class="form-control" name="nama">
+                                <input type="nama" class="form-control" name="nama" required>
                             </div>
                             <div class="mb-3">
                                 <label for="nim" class="form-label">
                                     NIM<span class="ms-0 ps-0 me-0 pe-0 text-danger">*</span>
                                 </label>
-                                <input type="nim" class="form-control" name="nim">
+                                <input type="nim" class="form-control" name="nim" required>
                             </div>
                             <div class="mb-3">
                                 <label for="prodi" class="form-label">
@@ -95,10 +95,10 @@
                                     Profil Karir Alumni<span class="ms-0 ps-0 me-0 pe-0 text-danger">*</span>
                                 </label>
                                 <select name="karir" class="form-select">
-                                    <option value="Belum Bekerja">Belum Bekerja</option>
-                                    <option value="Sudah Bekerja">Sudah Bekerja</option>
-                                    <option value="Berwirausaha">Berwirausaha</option>
-                                    <option value="Melanjutkan Pendidikan">Melanjutkan Pendidikan</option>
+                                    <option value="belum_bekerja">Belum Bekerja</option>
+                                    <option value="sudah_bekerja">Sudah Bekerja</option>
+                                    <option value="berwirausaha">Berwirausaha</option>
+                                    <option value="lanjut_pendidikan">Melanjutkan Pendidikan</option>
                                 </select>
                             </div>
                         </div>

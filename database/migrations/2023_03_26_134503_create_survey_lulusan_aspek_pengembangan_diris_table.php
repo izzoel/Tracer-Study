@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('survey_alumni_lanjut_pendidikan', function (Blueprint $table) {
+        Schema::create('survey_lulusan_aspek_pengembangan_diri', function (Blueprint $table) {
             $table->id();
             $table->string('no');
             $table->text('survey');
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('survey_alumni_lanjut_pendidikan');
+        Schema::dropIfExists('survey_lulusan_aspek_pengembangan_diri');
     }
 };

@@ -53,6 +53,9 @@ Route::group(['middleware' => ['guest']], function () {
         );
     })->name('survey');
 
+    Route::get('/survey/alumni/{kategori}', [SurveyAlumniController::class, 'showFormAlumni'])->name('survey_alumni');
+
+
 
     // Route::get('/survey/alumni', [SurveyAlumniController::class, 'verifikasi'])->name('alumni_verif');
     Route::get('/survey/alumni', [SurveyAlumniController::class, 'showAlumni'])->name('alumni');
@@ -116,11 +119,16 @@ Route::group(['middleware' => ['auth']], function () {
 
 
 
+    Route::get('/admin/form_lulusan/{kategori}', [SurveyLulusanController::class, 'showFormLulusan'])->name('get_form_lulusan');
+    Route::get('/admin/form_lulusan/{kategori}/{id?}', [SurveyLulusanController::class, 'editFormLulusan'])->name('edit_show_form_lulusan');
 
     Route::get('/admin/form_lulusan', [SurveyLulusanController::class, 'show'])->name('form_lulusan');
-    Route::post('/admin/form_lulusan', [SurveyLulusanController::class, 'store'])->name('add_lulusan');
-    Route::post('/admin/form_lulusan/{id}', [SurveyLulusanController::class, 'update'])->name('edit_lulusan');
-    Route::get('/admin/form_lulusan/{id}', [SurveyLulusanController::class, 'destroy'])->name('delete_lulusan');
+    Route::post('/admin/form_lulusan/store/{kategori}', [SurveyLulusanController::class, 'store'])->name('add_form_lulusan');
+    Route::post('/admin/form_lulusan/update/{kategori}/{id?}', [SurveyLulusanController::class, 'update'])->name('edit_form_lulusan');
+    // Route::post('/admin/form_lulusan', [SurveyLulusanController::class, 'store'])->name('add_lulusan');
+    // Route::post('/admin/form_lulusan/{id}', [SurveyLulusanController::class, 'update'])->name('edit_lulusan');
+    Route::get('/admin/form_lulusan/destroy/{kategori}/{id?}', [SurveyLulusanController::class, 'destroy'])->name('destroy_form_lulusan');
+    // Route::get('/admin/form_lulusan/{id}', [SurveyLulusanController::class, 'destroy'])->name('delete_lulusan');
 
     Route::get('/admin/user_alumni', [UserAlumniController::class, 'show'])->name('user_alumni');
 });

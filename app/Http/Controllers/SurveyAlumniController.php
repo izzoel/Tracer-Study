@@ -72,8 +72,7 @@ class SurveyAlumniController extends Controller
             SurveyAlumniWirausaha::create(
                 $model
             );
-        } else
-        if ($kategori == "lanjut_pendidikan") {
+        } elseif ($kategori == "lanjut_pendidikan") {
             SurveyAlumniLanjutPendidikan::create(
                 $model
             );
@@ -103,67 +102,22 @@ class SurveyAlumniController extends Controller
 
     public function showAlumni(SurveyAlumni $survey_Alumni, Request $request)
     {
-        // verifikasi
-        // $verifikasi_alumni = DB::table('user_alumnis')->select('nama')->get();
-        // $verifikasi_nama_alumni = UserAlumni::all()->pluck('nama')->first();
-        // $verifikasi_nim_alumni = UserAlumni::all()->pluck('nim')->first();
-
-        // $verifikasi_alumni = DB::table('user_alumnis')->where($request->input('nama'))->first();
-        // $verifikasi_alumni = DB::table('user_alumnis')->where('nama', 'nim', 'prodi')->first();
-
         $verifikasi_alumni = UserAlumni::find($request->input('nim'));
-        // $verifikasi_alumni = UserAlumni::where('nim', $request->input('nim'))->first()->makeHidden(['id', 'created_at', 'updated_at'])->toArray();
-
-
-        // dd($request->input('nama') . "|" . $request->input('nim') . "|" . $request->input('prodi'), $verifikasi_nama_alumni . " " . $verifikasi_nim_alumni);
-        // dd($request->input('nama') . "|" . $request->input('nim') . "|" . $request->input('prodi'), $verifikasi_alumni);
-        // dd($request->input('nama') . "|" . $request->input('nim') . "|" . $request->input('prodi'), $verifikasi_alumni);
-        // dd($request->except('_token'), $verifikasi_alumni);
-
-        // dd(array_diff($request->except('_token'), $verifikasi_alumni));
-
-        // dd(array_diff($request->except('credit_card'), $verifikasi_alumni));
 
         if ($verifikasi_alumni == null) {
             return back();
         } else {
-            // dd($request->input('karir'));
             $verifikasi_alumni = UserAlumni::where('nim', $request->input('nim'))->first()->makeHidden(['id', 'created_at', 'updated_at'])->toArray();
-            if (array_diff($request->except('_token'), $verifikasi_alumni) == null) {
-
-                if ($request->input('karir') == "Belum Bekerja") {
-                    $form_alumni = SurveyAlumniBelumBekerja::all()->sortBy("no");
-                    $no_urut = $form_alumni->pluck('no')->last();
-                    $karir = "Belum Bekerja";
-                } elseif ($request->input('karir') == "Sudah Bekerja") {
-                    $form_alumni = SurveyAlumniSudahBekerja::all()->sortBy("no");
-                    $no_urut = $form_alumni->pluck('no')->last();
-                    $karir = "Sudah Bekerja";
-                } elseif ($request->input('karir') == "Berwirausaha") {
-                    $form_alumni = SurveyAlumniWirausaha::all()->sortBy("no");
-                    $no_urut = $form_alumni->pluck('no')->last();
-                    $karir = "Berwirausaha";
-                } elseif ($request->input('karir') == "Melanjutkan Pendidikan") {
-                    $form_alumni = SurveyAlumniLanjutPendidikan::all()->sortBy("no");
-                    $no_urut = $form_alumni->pluck('no')->last();
-                    $karir = "Melanjutkan Pendidikan";
-                }
-
+            if (array_diff($request->except('_token', 'karir'), $verifikasi_alumni) == null) {
+                $karir = $request->input('karir');
                 return view('survey.alumni', ['title' => 'form_alumni'])->with([
-                    'form_alumni' => $form_alumni,
-                    'no_urut' => $no_urut,
                     'title' => 'form',
                     'nama' => $request->input('nama'),
                     'karir' => $karir
                 ]);
             }
         }
-        return back();
     }
-
-
-
-
 
     public function editFormAlumni($kategori, $id)
     {
@@ -177,6 +131,7 @@ class SurveyAlumniController extends Controller
             return response()->json(SurveyAlumniLanjutPendidikan::find($id));
         }
     }
+
     public function update(Request $request, $kategori, $id)
     {
         if ($request->wajib != "on") {
@@ -213,185 +168,15 @@ class SurveyAlumniController extends Controller
         ];
 
         if ($kategori == "belum_bekerja") {
-            SurveyAlumniBelumBekerja::find($id)->update(
-                $model
-            );
+            SurveyAlumniBelumBekerja::find($id)->update($model);
         } elseif ($kategori == "sudah_bekerja") {
-            SurveyAlumniSudahBekerja::find($id)->update(
-                $model
-            );
+            SurveyAlumniSudahBekerja::find($id)->update($model);
         } elseif ($kategori == "berwirausaha") {
-            SurveyAlumniWirausaha::find($id)->update(
-                $model
-            );
+            SurveyAlumniWirausaha::find($id)->update($model);
         } elseif ($kategori == "lanjut_pendidikan") {
-            SurveyAlumniLanjutPendidikan::find($id)->update(
-                $model
-            );
+            SurveyAlumniLanjutPendidikan::find($id)->update($model);
         }
     }
-
-    public function updateBelumBekerja($id, Request $request, SurveyAlumni $survey_Alumni)
-    {
-        $editForm = SurveyAlumniBelumBekerja::find($id);
-
-        if ($request->input('wajib') != "on") {
-            $wajib = 0;
-        } else {
-            $wajib = 1;
-        }
-
-        if ($request->input('ganda') != "on") {
-            $ganda = 0;
-        } else {
-            $ganda = 1;
-        }
-
-        if ($request->input('pilihan') != "on") {
-            $pilihan[] = null;
-            $other = 0;
-        } else {
-            $pilihan = $request->input('opsi');
-            if ($request->input('other')) {
-                $other = 1;
-            } else {
-                $other = 0;
-            }
-        }
-
-        $editForm->update([
-            'no' => $request->input('no'),
-            'survey' => $request->input('pertanyaan'),
-            'pilihan' => implode(";",  $pilihan),
-            'ganda' => $ganda,
-            'other' => $other,
-            'wajib' => $wajib
-        ]);
-        return redirect(url()->previous() . '#edit' . $id);
-        // return back();
-    }
-
-    public function updateSudahBekerja($id, Request $request, SurveyAlumni $survey_Alumni)
-    {
-        $editForm = SurveyAlumniSudahBekerja::find($id);
-
-        if ($request->input('wajib') != "on") {
-            $wajib = 0;
-        } else {
-            $wajib = 1;
-        }
-
-        if ($request->input('ganda') != "on") {
-            $ganda = 0;
-        } else {
-            $ganda = 1;
-        }
-
-        if ($request->input('pilihan') != "on") {
-            $pilihan[] = null;
-            $other = 0;
-        } else {
-            $pilihan = $request->input('opsi');
-            if ($request->input('other')) {
-                $other = 1;
-            } else {
-                $other = 0;
-            }
-        }
-
-        $editForm->update([
-            'no' => $request->input('no'),
-            'survey' => $request->input('pertanyaan'),
-            'pilihan' => implode(";",  $pilihan),
-            'ganda' => $ganda,
-            'other' => $other,
-            'wajib' => $wajib
-        ]);
-        return redirect(url()->previous() . '#edit' . $id);
-        // return back();
-    }
-
-    public function updateWirausaha($id, Request $request, SurveyAlumni $survey_Alumni)
-    {
-        $editForm = SurveyAlumniWirausaha::find($id);
-
-        if ($request->input('wajib') != "on") {
-            $wajib = 0;
-        } else {
-            $wajib = 1;
-        }
-
-        if ($request->input('ganda') != "on") {
-            $ganda = 0;
-        } else {
-            $ganda = 1;
-        }
-
-        if ($request->input('pilihan') != "on") {
-            $pilihan[] = null;
-            $other = 0;
-        } else {
-            $pilihan = $request->input('opsi');
-            if ($request->input('other')) {
-                $other = 1;
-            } else {
-                $other = 0;
-            }
-        }
-
-        $editForm->update([
-            'no' => $request->input('no'),
-            'survey' => $request->input('pertanyaan'),
-            'pilihan' => implode(";",  $pilihan),
-            'ganda' => $ganda,
-            'other' => $other,
-            'wajib' => $wajib
-        ]);
-        return redirect(url()->previous() . '#edit' . $id);
-        // return back();
-    }
-
-    public function updateLanjutPendidikan($id, Request $request, SurveyAlumni $survey_Alumni)
-    {
-        $editForm = SurveyAlumniLanjutPendidikan::find($id);
-
-        if ($request->input('wajib') != "on") {
-            $wajib = 0;
-        } else {
-            $wajib = 1;
-        }
-
-        if ($request->input('ganda') != "on") {
-            $ganda = 0;
-        } else {
-            $ganda = 1;
-        }
-
-        if ($request->input('pilihan') != "on") {
-            $pilihan[] = null;
-            $other = 0;
-        } else {
-            $pilihan = $request->input('opsi');
-            if ($request->input('other')) {
-                $other = 1;
-            } else {
-                $other = 0;
-            }
-        }
-
-        $editForm->update([
-            'no' => $request->input('no'),
-            'survey' => $request->input('pertanyaan'),
-            'pilihan' => implode(";",  $pilihan),
-            'ganda' => $ganda,
-            'other' => $other,
-            'wajib' => $wajib
-        ]);
-        return redirect(url()->previous() . '#edit' . $id);
-    }
-
-
-
 
 
     public function destroyFormAlumni($kategori, $id)

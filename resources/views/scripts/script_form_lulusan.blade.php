@@ -1,19 +1,17 @@
-@if (Request::segment(2) == 'form_alumni')
+@if (Request::segment(2) == 'form_lulusan')
     <script>
-        // inisiasi
-        if ($('.active #tab-title').text() == "Belum Bekerja") {
-            kategori = $('.active #tab-title').text().replace(' ', '_').toLowerCase();
-            route = "{{ route('get_form_alumni', ':kategori') }}";
+        if ($('.active #tab-title').text() == "Profil Pengguna Lulusan") {
+            kategori = $('.active #tab-title').text().replace(/ /g, '_').toLowerCase();
+            route = "{{ route('get_form_lulusan', ':kategori') }}";
             route = route.replace(':kategori', kategori)
             init = "tab";
             $('#formulir_' + kategori).empty();
             getData(route, kategori);
         }
-        // end inisiasi
 
         $('.nav-link[role="tab"]').on("click", function() {
-            kategori = $('.active #tab-title').text().replace(' ', '_').toLowerCase();
-            route = "{{ route('get_form_alumni', ':kategori') }}";
+            kategori = $('.active #tab-title').text().replace(/ /g, '_').toLowerCase();
+            route = "{{ route('get_form_lulusan', ':kategori') }}";
             route = route.replace(':kategori', kategori);
             init = "";
             tab = $(this);
@@ -22,8 +20,6 @@
             getData(route, kategori);
 
         });
-
-
 
         function getData(route, kategori) {
             $.ajax({
@@ -149,6 +145,9 @@
                         $(window).scrollTo('#tambah');
                     });
                     tambahNoUrut = parseInt(no) + 1;
+                },
+                error: function(data) {
+                    tambahNoUrut = 1;
                 }
             });
             $(' <a class="btn-sm btn-primary" id="tambah" onclick="modTambah(tambahNoUrut)" href="#" role="button" data-bs-toggle="modal">&plus;</a>')
@@ -161,7 +160,7 @@
             });
 
             var myModal = new bootstrap.Modal(document.getElementById("modal_form_tambah"), {});
-            var routeName = "{{ route('add_form_alumni', ':kategori') }}";
+            var routeName = "{{ route('add_form_lulusan', ':kategori') }}";
             var routeName = routeName.replace(':kategori', kategori)
             var html = '';
 
@@ -258,7 +257,7 @@
             });
 
             var myModal = new bootstrap.Modal(document.getElementById("modal_edit"), {});
-            var routeName = "{{ route('edit_show_form_alumni', '') }}" + "/" +
+            var routeName = "{{ route('edit_show_form_lulusan', '') }}" + "/" +
                 kategori + "/" + id;
             var html = '';
 
@@ -447,12 +446,14 @@
 
             $("#formEdit").one('submit', function(e) {
                 e.preventDefault();
-                var routeEdit = "{{ route('edit_form_alumni', '') }}" + "/" +
+                var routeEdit = "{{ route('edit_form_lulusan', '') }}" + "/" +
                     kategori + "/" + id;
                 ajaxFormEdit(routeEdit);
                 myModal.hide();
             });
         }
+
+
 
         function ajaxFormTambah(routeName) {
             $.ajaxSetup({
@@ -618,7 +619,7 @@
         }
 
         function destroyData(id) {
-            var routeDestroy = "{{ route('destroy_form_alumni', '') }}" + "/" +
+            var routeDestroy = "{{ route('destroy_form_lulusan', '') }}" + "/" +
                 kategori + "/" + id;
             $.ajax({
                 url: routeDestroy,

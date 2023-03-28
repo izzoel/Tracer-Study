@@ -7,188 +7,153 @@
                 <p class="card-category m-2">Formulir Pengisisan ...</p>
             </div>
             <div class="card-body">
-                <form action="{{ route('lulusan_submit') }}" method="POST">
-                    @csrf
-                    @foreach ($form_lulusan as $data)
-                        <table class="table table-borderless responsive ">
-                            <tbody>
-                                <tr>
-                                    <td class="align-top" style="min-width: 5%;width: 5%">{{ $data->no }}.&nbsp;</td>
-                                    <td class="text-break " style="min-width: 100%;width: 40rem">
-                                        {{ $data->survey }}
-                                        @if ($data->wajib == 1)
-                                            <span class="ms-0 ps-0 me-0 pe-0 text-danger">*</span>
-                                        @endif
-                                    </td>
-                                    <td>
-                                        @auth
-                                            <a class="btn-sm btn-primary bg-secondary"
-                                                href="{{ route('delete_lulusan', $data->id) }}" role="button"><i
-                                                    class="fa fa-trash"></i></a>
-                                            <a class="btn-sm btn-primary" href="#" role="button" data-bs-toggle="modal"
-                                                data-bs-target="#modal_edit_{{ $data->no }}"><i
-                                                    class="fa fa-pencil"></i></a>
-                                        @endauth
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                    </td>
-                                    <td class="col">
-                                        @if ($data->ganda == 1)
-                                            @php
-                                                $type = 'checkbox';
-                                                $array = '[]';
-                                            @endphp
-                                        @else
-                                            @php
-                                                $type = 'radio';
-                                                $array = '';
-                                            @endphp
-                                        @endif
 
-                                        @if ($data->pilihan == '')
-                                            <input type="text" class="form-control mb-1" name="bank{{ $data->no }}"
-                                                {{ $data->wajib == 1 ? 'required' : '' }}>
-                                        @else
-                                            @foreach (explode(';', $data->pilihan) as $info)
-                                                <div class="form-check mb-0">
-                                                    <input class="form-check-input gandaOpsi{{ $data->no }}"
-                                                        type="{{ $type }}" id="{{ $data->no . $loop->iteration }}"
-                                                        @if ($data->wajib == 1 && $data->ganda != 1) {{ 'required' }} 
-                                                        @elseif($data->wajib == 1 && $data->ganda == 1)
-                                                         {{ '' }} @endif
-                                                        name="bank{{ $data->no }}{{ $array }}"
-                                                        value="{{ $info }}">
-                                                    <label class="form-check-label text-dark"
-                                                        for="{{ $data->no . $loop->iteration }}">
-                                                        {{ $info }}
-                                                    </label>
-                                                </div>
-                                            @endforeach
+                <nav>
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <a class="nav-link active" id="nav-profil-pengguna-lulusan-tab" data-bs-toggle="tab"
+                            data-bs-target="#nav-profil-pengguna-lulusan" type="button" role="tab">
+                            <span id="tab-title">Profil Pengguna Lulusan</span>
+                        </a>
+                        <a class="nav-link" id="nav-aspek-integritas-tab" data-bs-toggle="tab"
+                            data-bs-target="#nav-aspek-integritas" type="button" role="tab"
+                            aria-controls="nav-aspek-integritas" aria-selected="false">
+                            <span id="tab-title">Aspek Integritas</span>
+                        </a>
+                        <a class="nav-link" id="nav-aspek-profesionalisme-tab" data-bs-toggle="tab"
+                            data-bs-target="#nav-aspek-profesionalisme" type="button" role="tab"
+                            aria-controls="nav-aspek-profesionalisme" aria-selected="false">
+                            <span id="tab-title">Aspek Profesionalisme</span>
+                        </a>
+                        <a class="nav-link" id="nav-aspek-kemampuan-berbahasa-asing-tab" data-bs-toggle="tab"
+                            data-bs-target="#nav-aspek-kemampuan-berbahasa-asing" type="button" role="tab"
+                            aria-controls="nav-aspek-kemampuan-berbahasa-asing" aria-selected="false">
+                            <span id="tab-title">Aspek Kemampuan Berbahasa Asing</span>
+                        </a>
+                        <a class="nav-link" id="nav-aspek-penggunaan-teknologi-tab" data-bs-toggle="tab"
+                            data-bs-target="#nav-aspek-penggunaan-teknologi" type="button" role="tab"
+                            aria-controls="nav-aspek-penggunaan-teknologi" aria-selected="false">
+                            <span id="tab-title">Aspek Penggunaan Teknologi</span>
+                        </a>
+                        <a class="nav-link" id="nav-aspek-komunikasi-tab" data-bs-toggle="tab"
+                            data-bs-target="#nav-aspek-komunikasi" type="button" role="tab"
+                            aria-controls="nav-aspek-komunikasi" aria-selected="false">
+                            <span id="tab-title">Aspek Komunikasi</span>
+                        </a>
+                        <a class="nav-link" id="nav-aspek-kerjasama-tim-tab" data-bs-toggle="tab"
+                            data-bs-target="#nav-aspek-kerjasama-tim" type="button" role="tab"
+                            aria-controls="nav-aspek-kerjasama-tim" aria-selected="false">
+                            <span id="tab-title">Aspek Kerjasama Tim</span>
+                        </a>
+                        <a class="nav-link" id="nav-aspek-pengembangan-diri-tab" data-bs-toggle="tab"
+                            data-bs-target="#nav-aspek-pengembangan-diri" type="button" role="tab"
+                            aria-controls="nav-aspek-pengembangan-diri" aria-selected="false">
+                            <span id="tab-title">Aspek Pengembangan Diri</span>
+                        </a>
+                    </div>
+                </nav>
 
-                                            @if ($data->other)
-                                                <div class="row input-other">
-                                                    <div class="col-auto form-check ms-2 ps-1 me-0 pe-0">
-                                                        <input
-                                                            class="form-check-input otherOpsiName{{ $data->no }} gandaOpsi{{ $data->no }}"
-                                                            type="{{ $type }}" id="other{{ $loop->iteration }}"
-                                                            name="bank{{ $data->no }}{{ $array }}">
-                                                    </div>
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-profil-pengguna-lulusan" role="tabpanel">
+                        <form action="" method="POST">
+                            @csrf
+                            <div id="formulir_profil_pengguna_lulusan"></div>
+                            <br>
+                            <br>
+                        </form>
+                    </div>
 
-                                                    <div class="col ms-0 ps-0">
-                                                        <div class="input-group input-group-sm mb-1"
-                                                            style="min-width: 100%;width: 3rem">
-                                                            <input type="text" class="form-control"
-                                                                data-other="other{{ $loop->iteration }}"
-                                                                id="otherOpsi{{ $data->no }}">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            @endif
-                                        @endif
-                                    </td>
-                                    <td class="d-none d-lg-block" style="width: 200px">
+                    <div class="tab-pane fade" id="nav-aspek-integritas" role="tabpanel">
+                        <form action="" method="POST">
+                            @csrf
+                            <div id="formulir_aspek_integritas"></div>
+                            <br>
+                            <br>
+                        </form>
+                    </div>
 
-                                    </td>
-                                </tr>
+                    <div class="tab-pane fade" id="nav-aspek-profesionalisme" role="tabpanel">
+                        <form action="" method="POST">
+                            @csrf
+                            <div id="formulir_aspek_profesionalisme"></div>
+                            <br>
+                            <br>
+                        </form>
+                    </div>
 
-                            </tbody>
-                        </table>
-                    @endforeach
-                    @auth
-                        <a class="btn-sm btn-primary" href="#" role="button" data-bs-toggle="modal"
-                            data-bs-target="#modal_form">&plus;</a>
+                    <div class="tab-pane fade" id="nav-aspek-kemampuan-berbahasa-asing" role="tabpanel">
+                        <form action="" method="POST">
+                            @csrf
+                            <div id="formulir_aspek_kemampuan_berbahasa_asing"></div>
+                            <br>
+                            <br>
+                        </form>
+                    </div>
 
-                    @endauth
-                    @guest
-                        <button type="submit" class="btn btn-primary position-relative top-50 start-50">Kirim</button>
-                    @endguest
-                    <br>
-                    <br>
-                </form>
+                    <div class="tab-pane fade" id="nav-aspek-penggunaan-teknologi" role="tabpanel">
+                        <form action="" method="POST">
+                            @csrf
+                            <div id="formulir_aspek_penggunaan_teknologi"></div>
+                            <br>
+                            <br>
+                        </form>
+                    </div>
+
+                    <div class="tab-pane fade" id="nav-aspek-komunikasi" role="tabpanel">
+                        <form action="" method="POST">
+                            @csrf
+                            <div id="formulir_aspek_komunikasi"></div>
+                            <br>
+                            <br>
+                        </form>
+                    </div>
+
+                    <div class="tab-pane fade" id="nav-aspek-kerjasama-tim" role="tabpanel">
+                        <form action="" method="POST">
+                            @csrf
+                            <div id="formulir_aspek_kerjasama_tim"></div>
+                            <br>
+                            <br>
+                        </form>
+                    </div>
+
+                    <div class="tab-pane fade" id="nav-aspek-pengembangan-diri" role="tabpanel">
+                        <form action="" method="POST">
+                            @csrf
+                            <div id="formulir_aspek_pengembangan_diri"></div>
+                            <br>
+                            <br>
+                        </form>
+                    </div>
+
+                </div>
+
+
+
+
+
             </div>
         </div>
     </div>
 
 
     <!-- Modal Form Lulusan-->
-    <div class="modal fade" id="modal_form" tabindex="-1">
+    <div class="modal fade" id="modal_form_tambah" tabindex="-1">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Tambah Pertanyaan</h5>
                 </div>
-                <form action="{{ route('add_lulusan') }}" method="POST">
+                <form id="formTambah">
                     @csrf
                     <div class="modal-body">
                         Preview :
                         <hr>
-                        <table class="table">
-                            <tbody>
-                                <tr>
-                                    <td class="col-auto">
-                                        {{ $no_urut + 1 }}.
-                                        <input type="hidden" name="no" value="{{ $no_urut + 1 }}">
-                                    </td>
-                                    <td>
-                                        <div class="form-group">
-                                            <div class="form-floating">
-                                                <textarea class="form-control" id="pertanyaan" name="pertanyaan" placeholder="pertanyaan" required
-                                                    style="height: 100px"></textarea>
-                                                <label for="pertanyaan" class="text-secondary">Pertanyaan</label>
-                                            </div>
-                                        </div>
-                                    </td>
-
-                                    <div class="d-none d-lg-block">
-                                        <td>
-                                            <div class="form-check form-switch form-check-inline mb-1">
-                                                <input class="form-check-input" type="checkbox" role="switch"
-                                                    id="pilihan" name="pilihan">
-                                                <label class="form-check-label text-dark" for="pilihan">Pilihan</label>
-                                            </div>
-
-                                            <div class="form-check form-switch form-check-inline mb-1" id="gandaOpsi">
-                                                <input class="form-check-input" type="checkbox" name="ganda"
-                                                    id="ganda">
-                                                <label class="form-check-label text-dark" for="ganda">Ganda</label>
-                                            </div>
-
-                                            <div class="input-group input-group-sm mb-1 addOpsi" id="opsiList">
-                                                <label class="input-group-text" id="opsi" data-lab="1">1.</label>
-                                                <input type="text" class="form-control mb-0 inputOpsi" name="opsi[]">
-                                            </div>
-
-                                            <div id="newRow"></div>
-                                            <div class="pull-right buttonList">
-                                                <a class="btn-sm btn-primary" id="queOpsi" onclick="otherOpsi()"
-                                                    role="button">&quest;</a>
-                                                <a class="btn-sm btn-primary" id="addOpsi" onclick="addOpsi()"
-                                                    role="button">&plus;</a>
-                                                <a class="btn-sm btn-primary" id="rmvOpsi" onclick="removeOpsi()"
-                                                    role="button">&minus;</a>
-                                            </div>
-                                        </td>
-                                    </div>
-
-
-
-                                    <td>
-                                        <div class="form-check form-switch">
-                                            <input class="form-check-input" type="checkbox" id="wajib"
-                                                name="wajib" checked>
-                                            <label class="form-check-label text-dark" for="wajib">wajib</label>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                            </tbody>
+                        <table class="table modTambah">
                         </table>
 
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary me-4">Save</button>
+                        <button type="submit" id="save" class="btn btn-primary me-4">Save</button>
                     </div>
                 </form>
             </div>
@@ -196,8 +161,32 @@
     </div>
 
 
+    <!-- Modal Edit-->
+    <div class="modal fade modal_edit" id="modal_edit" tabindex="-1">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Pertanyaan</h5>
+                </div>
+                <form id="formEdit">
+                    @csrf
+                    <div class="modal-body">
+                        Preview :
+                        <hr>
+                        <table class="table modEdit">
+                        </table>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" id="save" class="btn btn-primary me-4">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <!-- Modal Edit Lulusan-->
-    @foreach ($form_lulusan as $data)
+    {{-- @foreach ($form_lulusan as $data)
         @php
             $pilihan = explode(';', $data->pilihan);
             $edit_other = count($pilihan) + 1;
@@ -221,7 +210,6 @@
                                             <div class="input-group input-group-sm mb-1">
                                                 <input type="number" class="form-control mb-0" name="no"
                                                     value="{{ $data->no }}" style="min-width: 100%;width: 1rem">
-                                                {{-- <input type="hidden" value="{{ $data->id }}" name="id"> --}}
                                             </div>
                                         <td>
                                             <div class="form-group">
@@ -268,7 +256,6 @@
                                                         $i += 1;
                                                     @endphp
                                                 @endforeach
-                                                {{-- loop = {{ $i }} --}}
                                                 @if ($data->other != 0)
                                                     <div class="input-group input-group-sm mb-1 editOpsi{{ $data->no }}"
                                                         id="opsiList{{ $data->no }}">
@@ -314,5 +301,5 @@
                 </div>
             </div>
         </div>
-    @endforeach
+    @endforeach --}}
 @endsection

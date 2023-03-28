@@ -214,7 +214,7 @@
     <!-- Datatables Script -->
     <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.2/js/dataTables.bootstrap5.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- chart -->
     {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.1/chart.min.js"
         integrity="sha512-v3ygConQmvH0QehvQa6gSvTE2VdBZ6wkLOlmK7Mcy2mZ0ZF9saNbbk19QeaoTHdWIEiTlWmrwAL4hS8ElnGFbA=="
@@ -367,6 +367,12 @@
 
 
 @include('scripts.script_form_alumni')
+@include('scripts.script_form_lulusan')
+
+
+@include('scripts.script_survey_alumni')
+
+
 {{-- @include('scripts.script_modal') --}}
 
 

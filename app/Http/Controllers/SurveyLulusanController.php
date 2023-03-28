@@ -3,6 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\SurveyLulusan;
+use App\Models\SurveyLulusanAspekIntegritas;
+use App\Models\SurveyLulusanAspekKemampuanBerbahasaAsing;
+use App\Models\SurveyLulusanAspekKerjasamaTim;
+use App\Models\SurveyLulusanAspekKomunikasi;
+use App\Models\SurveyLulusanAspekPengembanganDiri;
+use App\Models\SurveyLulusanAspekPenggunaanTeknologi;
+use App\Models\SurveyLulusanAspekProfesionalisme;
+use App\Models\SurveyLulusanProfilPenggunaLulusan;
 use Illuminate\Http\Request;
 
 class SurveyLulusanController extends Controller
@@ -33,7 +41,7 @@ class SurveyLulusanController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,  $kategori)
     {
         if ($request->input('wajib') != "on") {
             $wajib = 0;
@@ -47,29 +55,103 @@ class SurveyLulusanController extends Controller
             $ganda = 1;
         }
 
-        if ($request->input('pilihan') != "on") {
+        if ($request->pilihan != "on") {
             $pilihan[] = null;
             $other = 0;
         } else {
-            $pilihan = $request->input('opsi');
-            if ($request->input('other')) {
+            $pilihan = $request->opsi;
+            if ($request->other) {
                 $other = 1;
             } else {
                 $other = 0;
             }
         }
 
-        SurveyLulusan::create([
+        $model = [
             'no' => $request->input('no'),
             'survey' => $request->input('pertanyaan'),
             'pilihan' => implode(";",  $pilihan),
             'ganda' => $ganda,
             'other' => $other,
             'wajib' => $wajib
-        ]);
+        ];
 
-        return back();
+
+        if ($kategori == "profil_pengguna_lulusan") {
+            SurveyLulusanProfilPenggunaLulusan::create(
+                $model
+            );
+        } elseif ($kategori == "aspek_integritas") {
+            return response()->json(SurveyLulusanAspekIntegritas::all());
+            SurveyLulusanAspekIntegritas::create(
+                $model
+            );
+        } elseif ($kategori == "aspek_profesionalisme") {
+            SurveyLulusanAspekProfesionalisme::create(
+                $model
+            );
+        } elseif ($kategori == "aspek_kemampuan_berbahasa_asing") {
+            SurveyLulusanAspekKemampuanBerbahasaAsing::create(
+                $model
+            );
+        } elseif ($kategori == "aspek_penggunaan_teknologi") {
+            SurveyLulusanAspekPenggunaanTeknologi::create(
+                $model
+            );
+        } elseif ($kategori == "aspek_komunikasi") {
+            SurveyLulusanAspekKomunikasi::create(
+                $model
+            );
+        } elseif ($kategori == "aspek_kerjasama_tim") {
+            SurveyLulusanAspekKerjasamaTim::create(
+                $model
+            );
+        } elseif ($kategori == "aspek_pengembangan_diri") {
+            SurveyLulusanAspekPengembanganDiri::create(
+                $model
+            );
+        }
     }
+
+    public function showFormLulusan($kategori)
+    {
+        if ($kategori == "profil_pengguna_lulusan") {
+            return response()->json(SurveyLulusanProfilPenggunaLulusan::all());
+        } elseif ($kategori == "aspek_integritas") {
+            return response()->json(SurveyLulusanAspekIntegritas::all());
+        } elseif ($kategori == "aspek_profesionalisme") {
+            return response()->json(SurveyLulusanAspekProfesionalisme::all());
+        } elseif ($kategori == "aspek_kemampuan_berbahasa_asing") {
+            return response()->json(SurveyLulusanAspekKemampuanBerbahasaAsing::all());
+        } elseif ($kategori == "aspek_penggunaan_teknologi") {
+            return response()->json(SurveyLulusanAspekPenggunaanTeknologi::all());
+        } elseif ($kategori == "aspek_komunikasi") {
+            return response()->json(SurveyLulusanAspekKomunikasi::all());
+        } elseif ($kategori == "aspek_kerjasama_tim") {
+            return response()->json(SurveyLulusanAspekKerjasamaTim::all());
+        } elseif ($kategori == "aspek_pengembangan_diri") {
+            return response()->json(SurveyLulusanAspekPengembanganDiri::all());
+        }
+    }
+
+    // public function showAlumni(SurveyAlumni $survey_Alumni, Request $request)
+    // {
+    //     $verifikasi_alumni = UserAlumni::find($request->input('nim'));
+
+    //     if ($verifikasi_alumni == null) {
+    //         return back();
+    //     } else {
+    //         $verifikasi_alumni = UserAlumni::where('nim', $request->input('nim'))->first()->makeHidden(['id', 'created_at', 'updated_at'])->toArray();
+    //         if (array_diff($request->except('_token', 'karir'), $verifikasi_alumni) == null) {
+    //             $karir = $request->input('karir');
+    //             return view('survey.alumni', ['title' => 'form_alumni'])->with([
+    //                 'title' => 'form',
+    //                 'nama' => $request->input('nama'),
+    //                 'karir' => $karir
+    //             ]);
+    //         }
+    //     }
+    // }
 
     /**
      * Display the specified resource.
@@ -77,12 +159,19 @@ class SurveyLulusanController extends Controller
      * @param  \App\Models\SurveyLulusan  $surveyLulusan
      * @return \Illuminate\Http\Response
      */
-    public function show(SurveyLulusan $surveyLulusan)
+    public function show(Request $request)
     {
         $form_lulusan = SurveyLulusan::all()->sortBy("no");
         $no_urut = $form_lulusan->pluck('no')->last();
-
-        return view('content.form.form_lulusan', ['title' => 'form_lulusan'])->with(['form_lulusan' => $form_lulusan, 'no_urut' => $no_urut, 'title' => 'form']);
+        // $karir = $request->input('karir');
+        return view('survey.lulusan', ['title' => 'form_lulusan'])->with([
+            'title' => 'form',
+            'nama' => $request->input('nama'),
+            'form_lulusan' => $form_lulusan
+            // 'karir' => $karir
+        ]);
+        // return view('content.form.form_lulusan', ['title' => 'form_lulusan']);
+        // return view('content.form.form_lulusan', ['title' => 'form_lulusan'])->with(['form_lulusan' => $form_lulusan, 'no_urut' => $no_urut, 'title' => 'form']);
     }
 
     /**
@@ -96,6 +185,31 @@ class SurveyLulusanController extends Controller
         //
     }
 
+
+
+    public function editFormLulusan($kategori, $id)
+    {
+        if ($kategori == "profil_pengguna_lulusan") {
+            return response()->json(SurveyLulusanProfilPenggunaLulusan::find($id));
+        } elseif ($kategori == "aspek_integritas") {
+            return response()->json(SurveyLulusanAspekIntegritas::find($id));
+        } elseif ($kategori == "aspek_profesionalisme") {
+            return response()->json(SurveyLulusanAspekProfesionalisme::find($id));
+        } elseif ($kategori == "aspek_kemampuan_berbahasa_asing") {
+            return response()->json(SurveyLulusanAspekKemampuanBerbahasaAsing::find($id));
+        } elseif ($kategori == "aspek_penggunaan_teknologi") {
+            return response()->json(SurveyLulusanAspekPenggunaanTeknologi::find($id));
+        } elseif ($kategori == "aspek_komunikasi") {
+            return response()->json(SurveyLulusanAspekKomunikasi::find($id));
+        } elseif ($kategori == "aspek_kerjasama_tim") {
+            return response()->json(SurveyLulusanAspekKerjasamaTim::find($id));
+        } elseif ($kategori == "aspek_pengembangan_diri") {
+            return response()->json(SurveyLulusanAspekPengembanganDiri::find($id));
+        }
+    }
+
+
+
     /**
      * Update the specified resource in storage.
      *
@@ -103,45 +217,60 @@ class SurveyLulusanController extends Controller
      * @param  \App\Models\SurveyLulusan  $surveyLulusan
      * @return \Illuminate\Http\Response
      */
-    public function update($id, Request $request, SurveyLulusan $surveyLulusan)
+    public function update(Request $request, $kategori, $id)
     {
-        $editForm = SurveyLulusan::find($id);
-
-        if ($request->input('wajib') != "on") {
+        if ($request->wajib != "on") {
             $wajib = 0;
         } else {
             $wajib = 1;
         }
 
-        if ($request->input('ganda') != "on") {
+        if ($request->ganda != "on") {
             $ganda = 0;
         } else {
             $ganda = 1;
         }
 
-        if ($request->input('pilihan') != "on") {
+        if ($request->pilihan != "on") {
             $pilihan[] = null;
             $other = 0;
         } else {
-            $pilihan = $request->input('opsi');
-            if ($request->input('other')) {
+            $pilihan = $request->opsi;
+            if ($request->other) {
                 $other = 1;
             } else {
                 $other = 0;
             }
         }
 
-        $editForm->update([
-            'no' => $request->input('no'),
-            'survey' => $request->input('pertanyaan'),
+        $model = [
+            'no' => $request->no,
+            'survey' => $request->pertanyaan,
             'pilihan' => implode(";",  $pilihan),
             'ganda' => $ganda,
             'other' => $other,
             'wajib' => $wajib
-        ]);
+        ];
 
-        return back();
+        if ($kategori == "profil_pengguna_lulusan") {
+            SurveyLulusanProfilPenggunaLulusan::find($id)->update($model);
+        } elseif ($kategori == "aspek_integritas") {
+            SurveyLulusanAspekIntegritas::find($id)->update($model);
+        } elseif ($kategori == "aspek_profesionalisme") {
+            SurveyLulusanAspekProfesionalisme::find($id)->update($model);
+        } elseif ($kategori == "aspek_kemampuan_berbahasa_asing") {
+            SurveyLulusanAspekKemampuanBerbahasaAsing::find($id)->update($model);
+        } elseif ($kategori == "aspek_penggunaan_teknologi") {
+            SurveyLulusanAspekPenggunaanTeknologi::find($id)->update($model);
+        } elseif ($kategori == "aspek_komunikasi") {
+            SurveyLulusanAspekKomunikasi::find($id)->update($model);
+        } elseif ($kategori == "aspek_kerjasama_tim") {
+            SurveyLulusanAspekKerjasamaTim::find($id)->update($model);
+        } elseif ($kategori == "aspek_pengembangan_diri") {
+            SurveyLulusanAspekPengembanganDiri::find($id)->update($model);
+        }
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -149,9 +278,24 @@ class SurveyLulusanController extends Controller
      * @param  \App\Models\SurveyLulusan  $surveyLulusan
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id, SurveyLulusan $surveyLulusan)
+    public function destroy($kategori, $id)
     {
-        SurveyLulusan::destroy($id);
-        return back();
+        if ($kategori == "profil_pengguna_lulusan") {
+            return response()->json(SurveyLulusanProfilPenggunaLulusan::destroy($id));
+        } elseif ($kategori == "aspek_integritas") {
+            return response()->json(SurveyLulusanAspekIntegritas::destroy($id));
+        } elseif ($kategori == "aspek_profesionalisme") {
+            return response()->json(SurveyLulusanAspekProfesionalisme::destroy($id));
+        } elseif ($kategori == "aspek_kemampuan_berbahasa_asing") {
+            return response()->json(SurveyLulusanAspekKemampuanBerbahasaAsing::destroy($id));
+        } elseif ($kategori == "aspek_penggunaan_teknologi") {
+            return response()->json(SurveyLulusanAspekPenggunaanTeknologi::destroy($id));
+        } elseif ($kategori == "aspek_komunikasi") {
+            return response()->json(SurveyLulusanAspekKomunikasi::destroy($id));
+        } elseif ($kategori == "aspek_kerjasama_tim") {
+            return response()->json(SurveyLulusanAspekKerjasamaTim::destroy($id));
+        } elseif ($kategori == "aspek_pengembangan_diri") {
+            return response()->json(SurveyLulusanAspekPengembanganDiri::destroy($id));
+        }
     }
 }

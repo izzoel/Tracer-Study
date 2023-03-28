@@ -11,64 +11,8 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
--- Dumping data for table tracer.admins: ~1 rows (approximately)
-/*!40000 ALTER TABLE `admins` DISABLE KEYS */;
-INSERT INTO `admins` (`id`, `admin_nama`, `admin_password`, `created_at`, `updated_at`) VALUES
-	(1, 'admin', '$2y$10$P5/r.KGtmPGTdRwvvPJeCuqhxVqyNNW6NFz8ABPM5oksHoTWfM5EO', '2023-03-26 22:14:58', NULL);
-/*!40000 ALTER TABLE `admins` ENABLE KEYS */;
-
--- Dumping data for table tracer.bank_alumnis: ~0 rows (approximately)
-/*!40000 ALTER TABLE `bank_alumnis` DISABLE KEYS */;
-/*!40000 ALTER TABLE `bank_alumnis` ENABLE KEYS */;
-
--- Dumping data for table tracer.bank_lulusans: ~0 rows (approximately)
-/*!40000 ALTER TABLE `bank_lulusans` DISABLE KEYS */;
-/*!40000 ALTER TABLE `bank_lulusans` ENABLE KEYS */;
-
--- Dumping data for table tracer.failed_jobs: ~0 rows (approximately)
-/*!40000 ALTER TABLE `failed_jobs` DISABLE KEYS */;
-/*!40000 ALTER TABLE `failed_jobs` ENABLE KEYS */;
-
--- Dumping data for table tracer.migrations: ~22 rows (approximately)
-/*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
-INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-	(1, '2014_10_12_000000_create_users_table', 1),
-	(2, '2014_10_12_100000_create_password_resets_table', 1),
-	(3, '2019_08_19_000000_create_failed_jobs_table', 1),
-	(4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-	(5, '2023_02_01_125844_create_survey_alumnis_table', 1),
-	(6, '2023_02_08_023802_create_admins_table', 1),
-	(7, '2023_02_15_151316_create_survey_lulusans_table', 1),
-	(8, '2023_02_15_161059_create_user_alumnis_table', 1),
-	(9, '2023_02_17_125220_create_bank_alumnis_table', 1),
-	(10, '2023_02_19_102632_create_bank_lulusans_table', 1),
-	(11, '2023_03_13_015625_create_survey_alumni_belum_bekerja_table', 1),
-	(12, '2023_03_13_153420_create_survey_alumni_sudah_bekerjas_table', 1),
-	(13, '2023_03_14_054653_create_survey_alumni_wirausahas_table', 1),
-	(14, '2023_03_14_063252_create_survey_alumni_lanjut_pendidikans_table', 1),
-	(15, '2023_03_26_134049_create_survey_lulusan_profil_pengguna_lulusans_table', 1),
-	(16, '2023_03_26_134336_create_survey_lulusan_aspek_integritas_table', 1),
-	(17, '2023_03_26_134352_create_survey_lulusan_aspek_profesionalismes_table', 1),
-	(18, '2023_03_26_134406_create_survey_lulusan_aspek_kemampuan_berbahasa_asings_table', 1),
-	(19, '2023_03_26_134426_create_survey_lulusan_aspek_penggunaan_teknologis_table', 1),
-	(20, '2023_03_26_134438_create_survey_lulusan_aspek_komunikasis_table', 1),
-	(21, '2023_03_26_134449_create_survey_lulusan_aspek_kerjasama_tims_table', 1),
-	(22, '2023_03_26_134503_create_survey_lulusan_aspek_pengembangan_diris_table', 1);
-/*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
-
--- Dumping data for table tracer.password_resets: ~0 rows (approximately)
-/*!40000 ALTER TABLE `password_resets` DISABLE KEYS */;
-/*!40000 ALTER TABLE `password_resets` ENABLE KEYS */;
-
--- Dumping data for table tracer.personal_access_tokens: ~0 rows (approximately)
-/*!40000 ALTER TABLE `personal_access_tokens` DISABLE KEYS */;
-/*!40000 ALTER TABLE `personal_access_tokens` ENABLE KEYS */;
-
--- Dumping data for table tracer.survey_alumnis: ~0 rows (approximately)
-/*!40000 ALTER TABLE `survey_alumnis` DISABLE KEYS */;
-/*!40000 ALTER TABLE `survey_alumnis` ENABLE KEYS */;
-
 -- Dumping data for table tracer.survey_alumni_belum_bekerja: ~26 rows (approximately)
+DELETE FROM `survey_alumni_belum_bekerja`;
 /*!40000 ALTER TABLE `survey_alumni_belum_bekerja` DISABLE KEYS */;
 INSERT INTO `survey_alumni_belum_bekerja` (`id`, `no`, `survey`, `pilihan`, `ganda`, `other`, `wajib`, `created_at`, `updated_at`) VALUES
 	(1, '1', 'Apakah sudah pernah mengisi formulir tracer study?', 'Pertama kali mengisi;Sudah pernah mengisi dan hendak update data pekerjaan pertama', '0', '0', '1', '2023-03-13 02:48:13', '2023-03-13 02:48:13'),
@@ -99,7 +43,8 @@ INSERT INTO `survey_alumni_belum_bekerja` (`id`, `no`, `survey`, `pilihan`, `gan
 	(26, '26', 'Apakah anda aktif mencari pekerjaan dalam 4 minggu terakhir? Pilihlah satu jawaban', 'Tidak;Tidak, tapi saya sedang menunggu hasil lamaran kerja;Ya, saya akan mulai bekerja dalam 2 minggu ke depan;Ya, tapi saya belum pasti akan bekerja dalam 2 minggu ke depan', '0', '1', '1', '2023-03-08 13:42:50', '2023-03-13 15:56:04');
 /*!40000 ALTER TABLE `survey_alumni_belum_bekerja` ENABLE KEYS */;
 
--- Dumping data for table tracer.survey_alumni_lanjut_pendidikan: ~18 rows (approximately)
+-- Dumping data for table tracer.survey_alumni_lanjut_pendidikan: ~0 rows (approximately)
+DELETE FROM `survey_alumni_lanjut_pendidikan`;
 /*!40000 ALTER TABLE `survey_alumni_lanjut_pendidikan` DISABLE KEYS */;
 INSERT INTO `survey_alumni_lanjut_pendidikan` (`id`, `no`, `survey`, `pilihan`, `ganda`, `other`, `wajib`, `created_at`, `updated_at`) VALUES
 	(1, '1', 'Apakah sudah pernah mengisi formulir tracer study?', 'Pertama kali mengisi;Sudah pernah mengisi dan hendak update data pekerjaan pertama', '0', '0', '1', '2023-03-13 02:48:13', '2023-03-13 02:48:13'),
@@ -123,6 +68,7 @@ INSERT INTO `survey_alumni_lanjut_pendidikan` (`id`, `no`, `survey`, `pilihan`, 
 /*!40000 ALTER TABLE `survey_alumni_lanjut_pendidikan` ENABLE KEYS */;
 
 -- Dumping data for table tracer.survey_alumni_sudah_bekerja: ~40 rows (approximately)
+DELETE FROM `survey_alumni_sudah_bekerja`;
 /*!40000 ALTER TABLE `survey_alumni_sudah_bekerja` DISABLE KEYS */;
 INSERT INTO `survey_alumni_sudah_bekerja` (`id`, `no`, `survey`, `pilihan`, `ganda`, `other`, `wajib`, `created_at`, `updated_at`) VALUES
 	(1, '1', 'Apakah sudah pernah mengisi formulir tracer study?', 'Pertama kali mengisi;Sudah pernah mengisi dan hendak update data pekerjaan pertama', '0', '0', '1', '2023-03-13 02:48:13', '2023-03-13 02:48:13'),
@@ -168,6 +114,7 @@ INSERT INTO `survey_alumni_sudah_bekerja` (`id`, `no`, `survey`, `pilihan`, `gan
 /*!40000 ALTER TABLE `survey_alumni_sudah_bekerja` ENABLE KEYS */;
 
 -- Dumping data for table tracer.survey_alumni_wirausaha: ~44 rows (approximately)
+DELETE FROM `survey_alumni_wirausaha`;
 /*!40000 ALTER TABLE `survey_alumni_wirausaha` DISABLE KEYS */;
 INSERT INTO `survey_alumni_wirausaha` (`id`, `no`, `survey`, `pilihan`, `ganda`, `other`, `wajib`, `created_at`, `updated_at`) VALUES
 	(1, '1', 'Apakah sudah pernah mengisi formulir tracer study?', 'Pertama kali mengisi;Sudah pernah mengisi dan hendak update data pekerjaan pertama', '0', '0', '1', '2023-03-13 02:48:13', '2023-03-13 02:48:13'),
@@ -215,52 +162,6 @@ INSERT INTO `survey_alumni_wirausaha` (`id`, `no`, `survey`, `pilihan`, `ganda`,
 	(43, '43', 'Berapa penghasilan pertama anda dalam satu bulan?', 'Kurang dari Rp 2.000.000;Rp 2.000.000 – 5.000.000;Rp 5.000.000 – 10.000.000;Rp 10.000.000 – 15.000.000;Rp 15.000.000 – 25.000.000;Lebih dari Rp 25.000.000', '0', '0', '1', '2023-02-23 09:44:22', '2023-02-23 09:44:22'),
 	(44, '44', 'Faktor apa yang paling berperan dalam berwirausaha? Jelaskan faktor yang berperan dalam anda berwirausaha', '', '0', '0', '1', '2023-02-23 09:44:40', '2023-02-23 09:44:40');
 /*!40000 ALTER TABLE `survey_alumni_wirausaha` ENABLE KEYS */;
-
--- Dumping data for table tracer.survey_lulusans: ~0 rows (approximately)
-/*!40000 ALTER TABLE `survey_lulusans` DISABLE KEYS */;
-/*!40000 ALTER TABLE `survey_lulusans` ENABLE KEYS */;
-
--- Dumping data for table tracer.survey_lulusan_aspek_integritas: ~0 rows (approximately)
-/*!40000 ALTER TABLE `survey_lulusan_aspek_integritas` DISABLE KEYS */;
-/*!40000 ALTER TABLE `survey_lulusan_aspek_integritas` ENABLE KEYS */;
-
--- Dumping data for table tracer.survey_lulusan_aspek_kemampuan_berbahasa_asing: ~0 rows (approximately)
-/*!40000 ALTER TABLE `survey_lulusan_aspek_kemampuan_berbahasa_asing` DISABLE KEYS */;
-/*!40000 ALTER TABLE `survey_lulusan_aspek_kemampuan_berbahasa_asing` ENABLE KEYS */;
-
--- Dumping data for table tracer.survey_lulusan_aspek_kerjasama_tim: ~0 rows (approximately)
-/*!40000 ALTER TABLE `survey_lulusan_aspek_kerjasama_tim` DISABLE KEYS */;
-/*!40000 ALTER TABLE `survey_lulusan_aspek_kerjasama_tim` ENABLE KEYS */;
-
--- Dumping data for table tracer.survey_lulusan_aspek_komunikasi: ~0 rows (approximately)
-/*!40000 ALTER TABLE `survey_lulusan_aspek_komunikasi` DISABLE KEYS */;
-/*!40000 ALTER TABLE `survey_lulusan_aspek_komunikasi` ENABLE KEYS */;
-
--- Dumping data for table tracer.survey_lulusan_aspek_pengembangan_diri: ~0 rows (approximately)
-/*!40000 ALTER TABLE `survey_lulusan_aspek_pengembangan_diri` DISABLE KEYS */;
-/*!40000 ALTER TABLE `survey_lulusan_aspek_pengembangan_diri` ENABLE KEYS */;
-
--- Dumping data for table tracer.survey_lulusan_aspek_penggunaan_teknologi: ~0 rows (approximately)
-/*!40000 ALTER TABLE `survey_lulusan_aspek_penggunaan_teknologi` DISABLE KEYS */;
-/*!40000 ALTER TABLE `survey_lulusan_aspek_penggunaan_teknologi` ENABLE KEYS */;
-
--- Dumping data for table tracer.survey_lulusan_aspek_profesionalisme: ~0 rows (approximately)
-/*!40000 ALTER TABLE `survey_lulusan_aspek_profesionalisme` DISABLE KEYS */;
-/*!40000 ALTER TABLE `survey_lulusan_aspek_profesionalisme` ENABLE KEYS */;
-
--- Dumping data for table tracer.survey_lulusan_profil_pengguna_lulusan: ~0 rows (approximately)
-/*!40000 ALTER TABLE `survey_lulusan_profil_pengguna_lulusan` DISABLE KEYS */;
-/*!40000 ALTER TABLE `survey_lulusan_profil_pengguna_lulusan` ENABLE KEYS */;
-
--- Dumping data for table tracer.users: ~1 rows (approximately)
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` (`id`, `name`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-	(1, 'admin', '$2y$10$P5/r.KGtmPGTdRwvvPJeCuqhxVqyNNW6NFz8ABPM5oksHoTWfM5EO', NULL, NULL, NULL);
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
-
--- Dumping data for table tracer.user_alumnis: ~0 rows (approximately)
-/*!40000 ALTER TABLE `user_alumnis` DISABLE KEYS */;
-/*!40000 ALTER TABLE `user_alumnis` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
