@@ -12,6 +12,7 @@ use App\Models\SurveyLulusanAspekPenggunaanTeknologi;
 use App\Models\SurveyLulusanAspekProfesionalisme;
 use App\Models\SurveyLulusanProfilPenggunaLulusan;
 use Illuminate\Http\Request;
+use PhpParser\Node\Expr\BinaryOp\Concat;
 
 class SurveyLulusanController extends Controller
 {
@@ -161,13 +162,28 @@ class SurveyLulusanController extends Controller
      */
     public function show(Request $request)
     {
-        $form_lulusan = SurveyLulusan::all()->sortBy("no");
-        $no_urut = $form_lulusan->pluck('no')->last();
+        // $form_lulusan = SurveyLulusan::all()->sortBy("no");
+        $profil_pengguna_lulusan = SurveyLulusanProfilPenggunaLulusan::all();
+        $aspek_integritas = SurveyLulusanAspekIntegritas::all();
+        $aspek_profesionalisme = SurveyLulusanAspekProfesionalisme::all();
+        $aspek_kemampuan_berbahasa_asing = SurveyLulusanAspekKemampuanBerbahasaAsing::all();
+        $aspek_penggunaan_teknologi = SurveyLulusanAspekPenggunaanTeknologi::all();
+        $aspek_komunikasi = SurveyLulusanAspekKomunikasi::all();
+        $aspek_kerjasama_tim = SurveyLulusanAspekKerjasamaTim::all();
+        $aspek_pengembangan_diri = SurveyLulusanAspekPengembanganDiri::all();
+        // $no_urut = $form_lulusan->pluck('no')->last();
         // $karir = $request->input('karir');
+        // $a = 'a';
+        // $a = 'z';
+        // $b[] = $a;
+        // dd($profil_pengguna_lulusan->concat($aspek_integritas));
+        // dd(compact('profil_pengguna_lulusan', 'aspek_integritas'));
         return view('survey.lulusan', ['title' => 'form_lulusan'])->with([
             'title' => 'form',
             'nama' => $request->input('nama'),
-            'form_lulusan' => $form_lulusan
+            // 'form_lulusan' => compact('profil_pengguna_lulusan', 'aspek_integritas')
+            // 'form_lulusan' => $profil_pengguna_lulusan,
+            'form_lulusan' => $profil_pengguna_lulusan->take(8)->concat($aspek_integritas->concat($aspek_profesionalisme->concat($aspek_kemampuan_berbahasa_asing->concat($aspek_penggunaan_teknologi)->concat($aspek_komunikasi->concat($aspek_kerjasama_tim->concat($aspek_pengembangan_diri->concat($profil_pengguna_lulusan->skip(8))))))))
             // 'karir' => $karir
         ]);
         // return view('content.form.form_lulusan', ['title' => 'form_lulusan']);
