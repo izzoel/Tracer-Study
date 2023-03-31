@@ -41,12 +41,13 @@ class BankAlumniController extends Controller
         foreach ($data as $key => $value) {
             $data[$key] = is_array($value) ? implode(",", $value) : $value;
         }
-
+        // dd($data);
         DB::table('bank_alumnis')->insert([
             $data
         ]);
 
-        return back();
+        return redirect()->route('survey');
+        // return back();
     }
 
     /**

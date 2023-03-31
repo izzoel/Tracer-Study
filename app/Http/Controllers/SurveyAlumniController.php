@@ -113,6 +113,8 @@ class SurveyAlumniController extends Controller
                 return view('survey.alumni', ['title' => 'form_alumni'])->with([
                     'title' => 'form',
                     'nama' => $request->input('nama'),
+                    'nim' => $request->input('nim'),
+                    'kategori' => ucwords(str_replace('_', ' ', $karir)),
                     'karir' => $karir
                 ]);
             }

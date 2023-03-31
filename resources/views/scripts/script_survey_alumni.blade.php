@@ -11,7 +11,9 @@
             method: 'get',
             dataType: 'json',
             success: function(data) {
-                // console.log('route');
+
+                // nama = $('#nama').val();
+                // console.log($('#nama').text());
                 $.each(data, function(key, values) {
                     i = 1;
                     id = data[key].id;
@@ -21,6 +23,7 @@
                     ganda = data[key].ganda;
                     other = data[key].other;
                     wajib = data[key].wajib;
+
                     if (wajib == 1) {
                         if (ganda != 1) {
                             required = "required";
@@ -37,6 +40,7 @@
                         var array = '';
                     }
                     var html = '';
+                    // html += '<input type="text" value="' + nama + '">'
                     html += '<table class="table table-borderless responsive ">';
                     html += '<tbody>';
                     html += '<tr>';

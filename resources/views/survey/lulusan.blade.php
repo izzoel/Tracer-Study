@@ -7,11 +7,13 @@
                 <p class="card-category m-2">Formulir pengisisan untuk Pengguna Lulusan</p>
             </div>
             <div class="card-body">
-
-                <form action="" method="POST">
+                <form action="{{ route('lulusan_submit') }}" method="POST">
                     @csrf
                     <div id="survey">
                         @foreach ($form_lulusan as $data)
+                            @php
+                                $i = $loop->iteration;
+                            @endphp
                             <table class="table table-borderless responsive ">
                                 <tbody>
                                     <tr>
@@ -22,16 +24,6 @@
                                             @if ($data->wajib == 1)
                                                 <span class="ms-0 ps-0 me-0 pe-0 text-danger">*</span>
                                             @endif
-                                        </td>
-                                        <td style="min-width: 5rem;width: 5rem">
-                                            @auth
-                                                <a class="btn-sm btn-primary bg-secondary" id="destroy{{ $data->id }}"
-                                                    href="{{ route('delete_alumni_belum_bekerja', $data->id) }}"
-                                                    role="button"><i class="fa fa-trash"></i></a>
-                                                <a class="btn-sm btn-primary" id="edit{{ $data->id }}"role="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal_edit_{{ $data->no }}"><i
-                                                        class="fa fa-pencil"></i></a>
-                                            @endauth
                                         </td>
                                     </tr>
                                     <tr>
@@ -52,21 +44,21 @@
 
                                             @if ($data->pilihan == '')
                                                 <input type="text" class="form-control mb-1"
-                                                    name="bank{{ $data->no }}"
+                                                    name="bank{{ $i }}"
                                                     {{ $data->wajib == 1 ? 'required' : '' }}>
                                             @else
                                                 @foreach (explode(';', $data->pilihan) as $info)
                                                     <div class="form-check mb-0">
-                                                        <input class="form-check-input gandaOpsi{{ $data->no }}"
+                                                        <input class="form-check-input gandaOpsi{{ $i }}"
                                                             type="{{ $type }}"
-                                                            id="{{ $data->no . $loop->iteration }}"
+                                                            id="{{ $i . '-' . $loop->iteration }}"
                                                             @if ($data->wajib == 1 && $data->ganda != 1) {{ 'required' }} 
                                                         @elseif($data->wajib == 1 && $data->ganda == 1)
                                                          {{ '' }} @endif
-                                                            name="bank{{ $data->no }}{{ $array }}"
+                                                            name="bank{{ $i }}{{ $array }}"
                                                             value="{{ $info }}">
                                                         <label class="form-check-label text-dark"
-                                                            for="{{ $data->no . $loop->iteration }}">
+                                                            for="{{ $i . '-' . $loop->iteration }}">
                                                             {{ $info }}
                                                         </label>
                                                     </div>
@@ -76,17 +68,17 @@
                                                     <div class="row input-other">
                                                         <div class="col-auto form-check ms-2 ps-1 me-0 pe-0">
                                                             <input
-                                                                class="form-check-input otherOpsiName{{ $data->no }} gandaOpsi{{ $data->no }}"
+                                                                class="form-check-input otherOpsiName{{ $loop->iteration }} gandaOpsi{{ $loop->iteration }}"
                                                                 type="{{ $type }}"
                                                                 id="other{{ $loop->iteration }}"
-                                                                name="bank{{ $data->no }}{{ $array }}">
+                                                                name="bank{{ $loop->iteration }}{{ $array }}">
                                                         </div>
 
                                                         <div class="col ms-0 ps-0">
                                                             <div class="input-group input-group-sm mb-1">
                                                                 <input type="text" class="form-control"
                                                                     data-other="other{{ $loop->iteration }}"
-                                                                    id="otherOpsi{{ $data->no }}">
+                                                                    id="otherOpsi{{ $loop->iteration }}">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -101,12 +93,11 @@
                                 </tbody>
                             </table>
                         @endforeach
-                        <button type="submit" class="btn btn-primary position-relative top-50 start-50">Kirim</button>
+                        <button type="submit" class="btn btn-primary float-end">Kirim</button>
                     </div>
                     <br>
                     <br>
                 </form>
-
             </div>
         </div>
     </div>
