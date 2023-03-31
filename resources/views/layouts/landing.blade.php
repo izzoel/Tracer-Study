@@ -142,13 +142,14 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 mx-auto text-center">
-                        <p class="mb-0">Designed And
+                        <p class="mb-0">
                             <a href="#" data-bs-toggle="modal" data-bs-target="#modal_login">
                                 <d style="color: chocolate">Developed</d>
-                            </a> by @2023
+                            </a> by
                             <a rel="nofollow" href="https://izzoel.github.io/ " target="blank">
-                                <d style="color: chocolate">ZNG | Z Engine</d>
+                                <d style="color: chocolate">Z Engine</d>
                             </a>
+                            @2023
                         </p>
                     </div>
                 </div>
