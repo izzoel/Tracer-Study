@@ -40,6 +40,7 @@
                         ganda = data[key].ganda;
                         other = data[key].other;
                         wajib = data[key].wajib;
+
                         if (wajib == 1) {
                             if (ganda != 1) {
                                 required = "required";
@@ -77,12 +78,22 @@
                         html += '<td>';
                         html += '</td>';
                         if (pilihan == '') {
-                            html += '<td class="col pt-0">';
-                            html += '<input type="text" class="form-control mb-1" name="bank' + no +
-                                '"' + required + '>';
-                            html += '</td>';
-                            html += '<td>';
-                            html += '</td>';
+                            if (id >= 1 && id <= 12) {
+                                html += '<td class="col pt-0">';
+                                html += '<input type="text" class="form-control mb-1" name="alumni_' +
+                                    no +
+                                    '"' + required + '>';
+                                html += '</td>';
+                                html += '<td>';
+                                html += '</td>';
+                            } else {
+                                html += '<td class="col pt-0">';
+                                html += '<input type="text" class="form-control mb-1" name="bank' + no +
+                                    '"' + required + '>';
+                                html += '</td>';
+                                html += '<td>';
+                                html += '</td>';
+                            }
                         } else {
                             var arPilihan = pilihan.split(';');
                             var j = 1;

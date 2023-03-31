@@ -11,25 +11,278 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
--- Dumping data for table tracer.admins: ~1 rows (approximately)
+-- Dumping structure for table tracer.admins
+CREATE TABLE IF NOT EXISTS `admins` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `admin_nama` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `admin_password` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Dumping data for table tracer.admins: ~0 rows (approximately)
+DELETE FROM `admins`;
 /*!40000 ALTER TABLE `admins` DISABLE KEYS */;
-INSERT INTO `admins` (`id`, `admin_nama`, `admin_password`, `created_at`, `updated_at`) VALUES
-	(1, 'admin', '$2y$10$P5/r.KGtmPGTdRwvvPJeCuqhxVqyNNW6NFz8ABPM5oksHoTWfM5EO', '2023-03-26 22:14:58', NULL);
 /*!40000 ALTER TABLE `admins` ENABLE KEYS */;
 
+-- Dumping structure for table tracer.bank_alumnis
+CREATE TABLE IF NOT EXISTS `bank_alumnis` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `nama` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nim` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `kategori` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `bank1` text COLLATE utf8mb4_unicode_ci,
+  `bank2` text COLLATE utf8mb4_unicode_ci,
+  `bank3` text COLLATE utf8mb4_unicode_ci,
+  `bank4` text COLLATE utf8mb4_unicode_ci,
+  `bank5` text COLLATE utf8mb4_unicode_ci,
+  `bank6` text COLLATE utf8mb4_unicode_ci,
+  `bank7` text COLLATE utf8mb4_unicode_ci,
+  `bank8` text COLLATE utf8mb4_unicode_ci,
+  `bank9` text COLLATE utf8mb4_unicode_ci,
+  `bank10` text COLLATE utf8mb4_unicode_ci,
+  `bank11` text COLLATE utf8mb4_unicode_ci,
+  `bank12` text COLLATE utf8mb4_unicode_ci,
+  `bank13` text COLLATE utf8mb4_unicode_ci,
+  `bank14` text COLLATE utf8mb4_unicode_ci,
+  `bank15` text COLLATE utf8mb4_unicode_ci,
+  `bank16` text COLLATE utf8mb4_unicode_ci,
+  `bank17` text COLLATE utf8mb4_unicode_ci,
+  `bank18` text COLLATE utf8mb4_unicode_ci,
+  `bank19` text COLLATE utf8mb4_unicode_ci,
+  `bank20` text COLLATE utf8mb4_unicode_ci,
+  `bank21` text COLLATE utf8mb4_unicode_ci,
+  `bank22` text COLLATE utf8mb4_unicode_ci,
+  `bank23` text COLLATE utf8mb4_unicode_ci,
+  `bank24` text COLLATE utf8mb4_unicode_ci,
+  `bank25` text COLLATE utf8mb4_unicode_ci,
+  `bank26` text COLLATE utf8mb4_unicode_ci,
+  `bank27` text COLLATE utf8mb4_unicode_ci,
+  `bank28` text COLLATE utf8mb4_unicode_ci,
+  `bank29` text COLLATE utf8mb4_unicode_ci,
+  `bank30` text COLLATE utf8mb4_unicode_ci,
+  `bank31` text COLLATE utf8mb4_unicode_ci,
+  `bank32` text COLLATE utf8mb4_unicode_ci,
+  `bank33` text COLLATE utf8mb4_unicode_ci,
+  `bank34` text COLLATE utf8mb4_unicode_ci,
+  `bank35` text COLLATE utf8mb4_unicode_ci,
+  `bank36` text COLLATE utf8mb4_unicode_ci,
+  `bank37` text COLLATE utf8mb4_unicode_ci,
+  `bank38` text COLLATE utf8mb4_unicode_ci,
+  `bank39` text COLLATE utf8mb4_unicode_ci,
+  `bank40` text COLLATE utf8mb4_unicode_ci,
+  `bank41` text COLLATE utf8mb4_unicode_ci,
+  `bank42` text COLLATE utf8mb4_unicode_ci,
+  `bank43` text COLLATE utf8mb4_unicode_ci,
+  `bank44` text COLLATE utf8mb4_unicode_ci,
+  `bank45` text COLLATE utf8mb4_unicode_ci,
+  `bank46` text COLLATE utf8mb4_unicode_ci,
+  `bank47` text COLLATE utf8mb4_unicode_ci,
+  `bank48` text COLLATE utf8mb4_unicode_ci,
+  `bank49` text COLLATE utf8mb4_unicode_ci,
+  `bank50` text COLLATE utf8mb4_unicode_ci,
+  `bank51` text COLLATE utf8mb4_unicode_ci,
+  `bank52` text COLLATE utf8mb4_unicode_ci,
+  `bank53` text COLLATE utf8mb4_unicode_ci,
+  `bank54` text COLLATE utf8mb4_unicode_ci,
+  `bank55` text COLLATE utf8mb4_unicode_ci,
+  `bank56` text COLLATE utf8mb4_unicode_ci,
+  `bank57` text COLLATE utf8mb4_unicode_ci,
+  `bank58` text COLLATE utf8mb4_unicode_ci,
+  `bank59` text COLLATE utf8mb4_unicode_ci,
+  `bank60` text COLLATE utf8mb4_unicode_ci,
+  `bank61` text COLLATE utf8mb4_unicode_ci,
+  `bank62` text COLLATE utf8mb4_unicode_ci,
+  `bank63` text COLLATE utf8mb4_unicode_ci,
+  `bank64` text COLLATE utf8mb4_unicode_ci,
+  `bank65` text COLLATE utf8mb4_unicode_ci,
+  `bank66` text COLLATE utf8mb4_unicode_ci,
+  `bank67` text COLLATE utf8mb4_unicode_ci,
+  `bank68` text COLLATE utf8mb4_unicode_ci,
+  `bank69` text COLLATE utf8mb4_unicode_ci,
+  `bank70` text COLLATE utf8mb4_unicode_ci,
+  `bank71` text COLLATE utf8mb4_unicode_ci,
+  `bank72` text COLLATE utf8mb4_unicode_ci,
+  `bank73` text COLLATE utf8mb4_unicode_ci,
+  `bank74` text COLLATE utf8mb4_unicode_ci,
+  `bank75` text COLLATE utf8mb4_unicode_ci,
+  `bank76` text COLLATE utf8mb4_unicode_ci,
+  `bank77` text COLLATE utf8mb4_unicode_ci,
+  `bank78` text COLLATE utf8mb4_unicode_ci,
+  `bank79` text COLLATE utf8mb4_unicode_ci,
+  `bank80` text COLLATE utf8mb4_unicode_ci,
+  `bank81` text COLLATE utf8mb4_unicode_ci,
+  `bank82` text COLLATE utf8mb4_unicode_ci,
+  `bank83` text COLLATE utf8mb4_unicode_ci,
+  `bank84` text COLLATE utf8mb4_unicode_ci,
+  `bank85` text COLLATE utf8mb4_unicode_ci,
+  `bank86` text COLLATE utf8mb4_unicode_ci,
+  `bank87` text COLLATE utf8mb4_unicode_ci,
+  `bank88` text COLLATE utf8mb4_unicode_ci,
+  `bank89` text COLLATE utf8mb4_unicode_ci,
+  `bank90` text COLLATE utf8mb4_unicode_ci,
+  `bank91` text COLLATE utf8mb4_unicode_ci,
+  `bank92` text COLLATE utf8mb4_unicode_ci,
+  `bank93` text COLLATE utf8mb4_unicode_ci,
+  `bank94` text COLLATE utf8mb4_unicode_ci,
+  `bank95` text COLLATE utf8mb4_unicode_ci,
+  `bank96` text COLLATE utf8mb4_unicode_ci,
+  `bank97` text COLLATE utf8mb4_unicode_ci,
+  `bank98` text COLLATE utf8mb4_unicode_ci,
+  `bank99` text COLLATE utf8mb4_unicode_ci,
+  `bank100` text COLLATE utf8mb4_unicode_ci,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 -- Dumping data for table tracer.bank_alumnis: ~0 rows (approximately)
+DELETE FROM `bank_alumnis`;
 /*!40000 ALTER TABLE `bank_alumnis` DISABLE KEYS */;
 /*!40000 ALTER TABLE `bank_alumnis` ENABLE KEYS */;
 
+-- Dumping structure for table tracer.bank_lulusans
+CREATE TABLE IF NOT EXISTS `bank_lulusans` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `bank1` text COLLATE utf8mb4_unicode_ci,
+  `bank2` text COLLATE utf8mb4_unicode_ci,
+  `bank3` text COLLATE utf8mb4_unicode_ci,
+  `bank4` text COLLATE utf8mb4_unicode_ci,
+  `bank5` text COLLATE utf8mb4_unicode_ci,
+  `bank6` text COLLATE utf8mb4_unicode_ci,
+  `bank7` text COLLATE utf8mb4_unicode_ci,
+  `bank8` text COLLATE utf8mb4_unicode_ci,
+  `bank9` text COLLATE utf8mb4_unicode_ci,
+  `bank10` text COLLATE utf8mb4_unicode_ci,
+  `bank11` text COLLATE utf8mb4_unicode_ci,
+  `bank12` text COLLATE utf8mb4_unicode_ci,
+  `bank13` text COLLATE utf8mb4_unicode_ci,
+  `bank14` text COLLATE utf8mb4_unicode_ci,
+  `bank15` text COLLATE utf8mb4_unicode_ci,
+  `bank16` text COLLATE utf8mb4_unicode_ci,
+  `bank17` text COLLATE utf8mb4_unicode_ci,
+  `bank18` text COLLATE utf8mb4_unicode_ci,
+  `bank19` text COLLATE utf8mb4_unicode_ci,
+  `bank20` text COLLATE utf8mb4_unicode_ci,
+  `bank21` text COLLATE utf8mb4_unicode_ci,
+  `bank22` text COLLATE utf8mb4_unicode_ci,
+  `bank23` text COLLATE utf8mb4_unicode_ci,
+  `bank24` text COLLATE utf8mb4_unicode_ci,
+  `bank25` text COLLATE utf8mb4_unicode_ci,
+  `bank26` text COLLATE utf8mb4_unicode_ci,
+  `bank27` text COLLATE utf8mb4_unicode_ci,
+  `bank28` text COLLATE utf8mb4_unicode_ci,
+  `bank29` text COLLATE utf8mb4_unicode_ci,
+  `bank30` text COLLATE utf8mb4_unicode_ci,
+  `bank31` text COLLATE utf8mb4_unicode_ci,
+  `bank32` text COLLATE utf8mb4_unicode_ci,
+  `bank33` text COLLATE utf8mb4_unicode_ci,
+  `bank34` text COLLATE utf8mb4_unicode_ci,
+  `bank35` text COLLATE utf8mb4_unicode_ci,
+  `bank36` text COLLATE utf8mb4_unicode_ci,
+  `bank37` text COLLATE utf8mb4_unicode_ci,
+  `bank38` text COLLATE utf8mb4_unicode_ci,
+  `bank39` text COLLATE utf8mb4_unicode_ci,
+  `bank40` text COLLATE utf8mb4_unicode_ci,
+  `bank41` text COLLATE utf8mb4_unicode_ci,
+  `bank42` text COLLATE utf8mb4_unicode_ci,
+  `bank43` text COLLATE utf8mb4_unicode_ci,
+  `bank44` text COLLATE utf8mb4_unicode_ci,
+  `bank45` text COLLATE utf8mb4_unicode_ci,
+  `bank46` text COLLATE utf8mb4_unicode_ci,
+  `bank47` text COLLATE utf8mb4_unicode_ci,
+  `bank48` text COLLATE utf8mb4_unicode_ci,
+  `bank49` text COLLATE utf8mb4_unicode_ci,
+  `bank50` text COLLATE utf8mb4_unicode_ci,
+  `bank51` text COLLATE utf8mb4_unicode_ci,
+  `bank52` text COLLATE utf8mb4_unicode_ci,
+  `bank53` text COLLATE utf8mb4_unicode_ci,
+  `bank54` text COLLATE utf8mb4_unicode_ci,
+  `bank55` text COLLATE utf8mb4_unicode_ci,
+  `bank56` text COLLATE utf8mb4_unicode_ci,
+  `bank57` text COLLATE utf8mb4_unicode_ci,
+  `bank58` text COLLATE utf8mb4_unicode_ci,
+  `bank59` text COLLATE utf8mb4_unicode_ci,
+  `bank60` text COLLATE utf8mb4_unicode_ci,
+  `bank61` text COLLATE utf8mb4_unicode_ci,
+  `bank62` text COLLATE utf8mb4_unicode_ci,
+  `bank63` text COLLATE utf8mb4_unicode_ci,
+  `bank64` text COLLATE utf8mb4_unicode_ci,
+  `bank65` text COLLATE utf8mb4_unicode_ci,
+  `bank66` text COLLATE utf8mb4_unicode_ci,
+  `bank67` text COLLATE utf8mb4_unicode_ci,
+  `bank68` text COLLATE utf8mb4_unicode_ci,
+  `bank69` text COLLATE utf8mb4_unicode_ci,
+  `bank70` text COLLATE utf8mb4_unicode_ci,
+  `bank71` text COLLATE utf8mb4_unicode_ci,
+  `bank72` text COLLATE utf8mb4_unicode_ci,
+  `bank73` text COLLATE utf8mb4_unicode_ci,
+  `bank74` text COLLATE utf8mb4_unicode_ci,
+  `bank75` text COLLATE utf8mb4_unicode_ci,
+  `bank76` text COLLATE utf8mb4_unicode_ci,
+  `bank77` text COLLATE utf8mb4_unicode_ci,
+  `bank78` text COLLATE utf8mb4_unicode_ci,
+  `bank79` text COLLATE utf8mb4_unicode_ci,
+  `bank80` text COLLATE utf8mb4_unicode_ci,
+  `bank81` text COLLATE utf8mb4_unicode_ci,
+  `bank82` text COLLATE utf8mb4_unicode_ci,
+  `bank83` text COLLATE utf8mb4_unicode_ci,
+  `bank84` text COLLATE utf8mb4_unicode_ci,
+  `bank85` text COLLATE utf8mb4_unicode_ci,
+  `bank86` text COLLATE utf8mb4_unicode_ci,
+  `bank87` text COLLATE utf8mb4_unicode_ci,
+  `bank88` text COLLATE utf8mb4_unicode_ci,
+  `bank89` text COLLATE utf8mb4_unicode_ci,
+  `bank90` text COLLATE utf8mb4_unicode_ci,
+  `bank91` text COLLATE utf8mb4_unicode_ci,
+  `bank92` text COLLATE utf8mb4_unicode_ci,
+  `bank93` text COLLATE utf8mb4_unicode_ci,
+  `bank94` text COLLATE utf8mb4_unicode_ci,
+  `bank95` text COLLATE utf8mb4_unicode_ci,
+  `bank96` text COLLATE utf8mb4_unicode_ci,
+  `bank97` text COLLATE utf8mb4_unicode_ci,
+  `bank98` text COLLATE utf8mb4_unicode_ci,
+  `bank99` text COLLATE utf8mb4_unicode_ci,
+  `bank100` text COLLATE utf8mb4_unicode_ci,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 -- Dumping data for table tracer.bank_lulusans: ~0 rows (approximately)
+DELETE FROM `bank_lulusans`;
 /*!40000 ALTER TABLE `bank_lulusans` DISABLE KEYS */;
 /*!40000 ALTER TABLE `bank_lulusans` ENABLE KEYS */;
 
+-- Dumping structure for table tracer.failed_jobs
+CREATE TABLE IF NOT EXISTS `failed_jobs` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `uuid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 -- Dumping data for table tracer.failed_jobs: ~0 rows (approximately)
+DELETE FROM `failed_jobs`;
 /*!40000 ALTER TABLE `failed_jobs` DISABLE KEYS */;
 /*!40000 ALTER TABLE `failed_jobs` ENABLE KEYS */;
 
+-- Dumping structure for table tracer.migrations
+CREATE TABLE IF NOT EXISTS `migrations` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `batch` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 -- Dumping data for table tracer.migrations: ~22 rows (approximately)
+DELETE FROM `migrations`;
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(1, '2014_10_12_000000_create_users_table', 1),
@@ -56,19 +309,76 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(22, '2023_03_26_134503_create_survey_lulusan_aspek_pengembangan_diris_table', 1);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 
+-- Dumping structure for table tracer.password_resets
+CREATE TABLE IF NOT EXISTS `password_resets` (
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 -- Dumping data for table tracer.password_resets: ~0 rows (approximately)
+DELETE FROM `password_resets`;
 /*!40000 ALTER TABLE `password_resets` DISABLE KEYS */;
 /*!40000 ALTER TABLE `password_resets` ENABLE KEYS */;
 
+-- Dumping structure for table tracer.personal_access_tokens
+CREATE TABLE IF NOT EXISTS `personal_access_tokens` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `tokenable_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tokenable_id` bigint(20) unsigned NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `abilities` text COLLATE utf8mb4_unicode_ci,
+  `last_used_at` timestamp NULL DEFAULT NULL,
+  `expires_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
+  KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 -- Dumping data for table tracer.personal_access_tokens: ~0 rows (approximately)
+DELETE FROM `personal_access_tokens`;
 /*!40000 ALTER TABLE `personal_access_tokens` DISABLE KEYS */;
 /*!40000 ALTER TABLE `personal_access_tokens` ENABLE KEYS */;
 
+-- Dumping structure for table tracer.survey_alumnis
+CREATE TABLE IF NOT EXISTS `survey_alumnis` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `no` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `survey` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pilihan` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ganda` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `other` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `wajib` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 -- Dumping data for table tracer.survey_alumnis: ~0 rows (approximately)
+DELETE FROM `survey_alumnis`;
 /*!40000 ALTER TABLE `survey_alumnis` DISABLE KEYS */;
 /*!40000 ALTER TABLE `survey_alumnis` ENABLE KEYS */;
 
+-- Dumping structure for table tracer.survey_alumni_belum_bekerja
+CREATE TABLE IF NOT EXISTS `survey_alumni_belum_bekerja` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `no` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `survey` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pilihan` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ganda` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `other` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `wajib` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 -- Dumping data for table tracer.survey_alumni_belum_bekerja: ~26 rows (approximately)
+DELETE FROM `survey_alumni_belum_bekerja`;
 /*!40000 ALTER TABLE `survey_alumni_belum_bekerja` DISABLE KEYS */;
 INSERT INTO `survey_alumni_belum_bekerja` (`id`, `no`, `survey`, `pilihan`, `ganda`, `other`, `wajib`, `created_at`, `updated_at`) VALUES
 	(1, '1', 'Apakah sudah pernah mengisi formulir tracer study?', 'Pertama kali mengisi;Sudah pernah mengisi dan hendak update data pekerjaan pertama', '0', '0', '1', '2023-03-13 02:48:13', '2023-03-13 02:48:13'),
@@ -99,7 +409,22 @@ INSERT INTO `survey_alumni_belum_bekerja` (`id`, `no`, `survey`, `pilihan`, `gan
 	(26, '26', 'Apakah anda aktif mencari pekerjaan dalam 4 minggu terakhir? Pilihlah satu jawaban', 'Tidak;Tidak, tapi saya sedang menunggu hasil lamaran kerja;Ya, saya akan mulai bekerja dalam 2 minggu ke depan;Ya, tapi saya belum pasti akan bekerja dalam 2 minggu ke depan', '0', '1', '1', '2023-03-08 13:42:50', '2023-03-13 15:56:04');
 /*!40000 ALTER TABLE `survey_alumni_belum_bekerja` ENABLE KEYS */;
 
+-- Dumping structure for table tracer.survey_alumni_lanjut_pendidikan
+CREATE TABLE IF NOT EXISTS `survey_alumni_lanjut_pendidikan` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `no` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `survey` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pilihan` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ganda` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `other` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `wajib` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 -- Dumping data for table tracer.survey_alumni_lanjut_pendidikan: ~18 rows (approximately)
+DELETE FROM `survey_alumni_lanjut_pendidikan`;
 /*!40000 ALTER TABLE `survey_alumni_lanjut_pendidikan` DISABLE KEYS */;
 INSERT INTO `survey_alumni_lanjut_pendidikan` (`id`, `no`, `survey`, `pilihan`, `ganda`, `other`, `wajib`, `created_at`, `updated_at`) VALUES
 	(1, '1', 'Apakah sudah pernah mengisi formulir tracer study?', 'Pertama kali mengisi;Sudah pernah mengisi dan hendak update data pekerjaan pertama', '0', '0', '1', '2023-03-13 02:48:13', '2023-03-13 02:48:13'),
@@ -122,7 +447,22 @@ INSERT INTO `survey_alumni_lanjut_pendidikan` (`id`, `no`, `survey`, `pilihan`, 
 	(18, '18', 'Sumber biaya (lanjut pendidikan)', 'Mandiri;Beasiswa', '0', '0', '1', '2023-03-08 13:33:14', '2023-03-08 13:33:14');
 /*!40000 ALTER TABLE `survey_alumni_lanjut_pendidikan` ENABLE KEYS */;
 
+-- Dumping structure for table tracer.survey_alumni_sudah_bekerja
+CREATE TABLE IF NOT EXISTS `survey_alumni_sudah_bekerja` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `no` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `survey` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pilihan` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ganda` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `other` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `wajib` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 -- Dumping data for table tracer.survey_alumni_sudah_bekerja: ~40 rows (approximately)
+DELETE FROM `survey_alumni_sudah_bekerja`;
 /*!40000 ALTER TABLE `survey_alumni_sudah_bekerja` DISABLE KEYS */;
 INSERT INTO `survey_alumni_sudah_bekerja` (`id`, `no`, `survey`, `pilihan`, `ganda`, `other`, `wajib`, `created_at`, `updated_at`) VALUES
 	(1, '1', 'Apakah sudah pernah mengisi formulir tracer study?', 'Pertama kali mengisi;Sudah pernah mengisi dan hendak update data pekerjaan pertama', '0', '0', '1', '2023-03-13 02:48:13', '2023-03-13 02:48:13'),
@@ -167,7 +507,22 @@ INSERT INTO `survey_alumni_sudah_bekerja` (`id`, `no`, `survey`, `pilihan`, `gan
 	(40, '40', 'Tingkat pendidikan apa yang paling tepat/sesuai untuk pekerjaan anda saat ini ?', 'Setingkat Lebih Tinggi;Tingkat yang Sama;Setingkat Lebih Rendah;Tidak Perlu Pendidikan Tinggi', '0', '0', '1', '2023-03-08 13:35:35', '2023-03-08 13:35:35');
 /*!40000 ALTER TABLE `survey_alumni_sudah_bekerja` ENABLE KEYS */;
 
+-- Dumping structure for table tracer.survey_alumni_wirausaha
+CREATE TABLE IF NOT EXISTS `survey_alumni_wirausaha` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `no` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `survey` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pilihan` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ganda` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `other` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `wajib` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 -- Dumping data for table tracer.survey_alumni_wirausaha: ~44 rows (approximately)
+DELETE FROM `survey_alumni_wirausaha`;
 /*!40000 ALTER TABLE `survey_alumni_wirausaha` DISABLE KEYS */;
 INSERT INTO `survey_alumni_wirausaha` (`id`, `no`, `survey`, `pilihan`, `ganda`, `other`, `wajib`, `created_at`, `updated_at`) VALUES
 	(1, '1', 'Apakah sudah pernah mengisi formulir tracer study?', 'Pertama kali mengisi;Sudah pernah mengisi dan hendak update data pekerjaan pertama', '0', '0', '1', '2023-03-13 02:48:13', '2023-03-13 02:48:13'),
@@ -216,50 +571,296 @@ INSERT INTO `survey_alumni_wirausaha` (`id`, `no`, `survey`, `pilihan`, `ganda`,
 	(44, '44', 'Faktor apa yang paling berperan dalam berwirausaha? Jelaskan faktor yang berperan dalam anda berwirausaha', '', '0', '0', '1', '2023-02-23 09:44:40', '2023-02-23 09:44:40');
 /*!40000 ALTER TABLE `survey_alumni_wirausaha` ENABLE KEYS */;
 
--- Dumping data for table tracer.survey_lulusans: ~0 rows (approximately)
+-- Dumping structure for table tracer.survey_lulusans
+CREATE TABLE IF NOT EXISTS `survey_lulusans` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `no` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `survey` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pilihan` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ganda` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `other` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `wajib` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Dumping data for table tracer.survey_lulusans: ~38 rows (approximately)
+DELETE FROM `survey_lulusans`;
 /*!40000 ALTER TABLE `survey_lulusans` DISABLE KEYS */;
+INSERT INTO `survey_lulusans` (`id`, `no`, `survey`, `pilihan`, `ganda`, `other`, `wajib`, `created_at`, `updated_at`) VALUES
+	(1, '1', 'Nama Tempat Kerja', '', '0', '0', '1', '2023-03-08 13:55:24', '2023-03-08 13:55:24'),
+	(2, '2', 'Alamat Lengkap Tempat Kerja', '', '0', '0', '1', '2023-03-08 13:55:42', '2023-03-08 13:55:42'),
+	(3, '3', 'Nama Lengkap Pimpinan/Atasan', '', '0', '0', '1', '2023-03-08 13:56:09', '2023-03-08 13:56:18'),
+	(4, '4', 'Nomor WhatsApp', '', '0', '0', '1', '2023-03-08 13:56:30', '2023-03-08 13:56:36'),
+	(5, '5', 'Alamat Email Aktif', '', '0', '0', '1', '2023-03-08 13:56:48', '2023-03-08 13:56:48'),
+	(6, '6', 'Nama Alumni Yang Bapak/Ibu Pimpin', '', '0', '0', '1', '2023-03-08 13:57:59', '2023-03-08 13:57:59'),
+	(7, '7', 'Posisi Jabatan Alumni di Tempat Kerja', '', '0', '0', '1', '2023-03-08 13:58:13', '2023-03-08 13:58:13'),
+	(8, '8', 'Tahun Lulus Alumni (Sesuai Ijazah)', '2020;2021;2022;2023', '0', '0', '1', '2023-03-08 13:58:53', '2023-03-08 13:58:53'),
+	(9, '9', 'Kedisiplinan (1 : Kurang Baik, 2 : Cukup Baik, 3 : Baik, 4 : Sangat Baik)', '1;2;3;4', '0', '0', '1', '2023-03-08 14:01:03', '2023-03-08 14:01:03'),
+	(10, '10', 'Kejujuran (1 : Kurang Baik, 2 : Cukup Baik, 3 : Baik, 4 : Sangat Baik)', '1;2;3;4', '0', '0', '1', '2023-03-08 14:02:01', '2023-03-08 14:02:01'),
+	(11, '11', 'Motivasi Kerja (1 : Kurang Baik, 2 : Cukup Baik, 3 : Baik, 4 : Sangat Baik)', '1;2;3;4', '0', '0', '1', '2023-03-08 14:02:37', '2023-03-08 14:02:37'),
+	(12, '12', 'Etos Kerja (1 : Kurang Baik, 2 : Cukup Baik, 3 : Baik, 4 : Sangat Baik)', '1;2;3;4', '0', '0', '1', '2023-03-08 14:02:51', '2023-03-08 14:03:03'),
+	(13, '13', 'Moralitas (1 : Kurang Baik, 2 : Cukup Baik, 3 : Baik, 4 : Sangat Baik)', '1;2;3;4', '0', '0', '1', '2023-03-08 14:05:39', '2023-03-08 14:05:57'),
+	(14, '14', 'Etika (1 : Kurang Baik, 2 : Cukup Baik, 3 : Baik, 4 : Sangat Baik)', '1;2;3;4', '0', '0', '1', '2023-03-08 14:06:32', '2023-03-08 14:06:48'),
+	(15, '15', 'Sosialisasi (1 : Kurang Baik, 2 : Cukup Baik, 3 : Baik, 4 : Sangat Baik)', '1;2;3;4', '0', '0', '1', '2023-03-08 14:07:11', '2023-03-08 14:07:11'),
+	(16, '16', 'Penguasaan Bidang Ilmu (1 : Kurang Baik, 2 : Cukup Baik, 3 : Baik, 4 : Sangat Baik)', '1;2;3;4', '0', '0', '1', '2023-03-08 14:08:33', '2023-03-08 14:08:33'),
+	(17, '17', 'Produktivitas Kerja (1 : Kurang Baik, 2 : Cukup Baik, 3 : Baik, 4 : Sangat Baik)', '1;2;3;4', '0', '0', '1', '2023-03-08 14:08:56', '2023-03-08 14:08:56'),
+	(18, '18', 'Inovasi Dalam Bekerja (1 : Kurang Baik, 2 : Cukup Baik, 3 : Baik, 4 : Sangat Baik)', '1;2;3;4', '0', '0', '1', '2023-03-08 14:09:24', '2023-03-08 14:09:24'),
+	(19, '19', 'Kemampuan Menyelesaikan Masalah Dalam Pekerjaan (1 : Kurang Baik, 2 : Cukup Baik, 3 : Baik, 4 : Sangat Baik)', '1;2;3;4', '0', '0', '1', '2023-03-08 14:09:53', '2023-03-08 14:09:53'),
+	(20, '20', 'Inisiatif Dalam Bekerja (1 : Kurang Baik, 2 : Cukup Baik, 3 : Baik, 4 : Sangat Baik)', '1;2;3;4', '0', '0', '1', '2023-03-08 14:10:19', '2023-03-08 14:10:19'),
+	(21, '21', 'Kemampuan menulis bahasa asing (1 : Kurang Baik, 2 : Cukup Baik, 3 : Baik, 4 : Sangat Baik)', '1;2;3;4', '0', '0', '1', '2023-03-08 14:10:58', '2023-03-08 14:10:58'),
+	(22, '22', 'Kemampuan berkomunikasi dengan bahasa asing (1 : Kurang Baik, 2 : Cukup Baik, 3 : Baik, 4 : Sangat Baik)', '1;2;3;4', '0', '0', '1', '2023-03-08 14:11:43', '2023-03-08 14:11:43'),
+	(23, '23', 'Kemampuan dalam memahami teks menggunakan bahasa asing\r\n (1 : Kurang Baik, 2 : Cukup Baik, 3 : Baik, 4 : Sangat Baik)', '1;2;3;4', '0', '0', '1', '2023-03-08 14:12:06', '2023-03-08 14:12:06'),
+	(24, '24', 'Pengetahuan mengenai alat dan teknologi dalam bekerja\r\n (1 : Kurang Baik, 2 : Cukup Baik, 3 : Baik, 4 : Sangat Baik)', '1;2;3;4', '0', '0', '1', '2023-03-08 14:12:55', '2023-03-08 14:12:55'),
+	(25, '25', 'Kemampuan adaptasi teknologi baru\r\n(1 : Kurang Baik, 2 : Cukup Baik, 3 : Baik, 4 : Sangat Baik)', '1;2;3;4', '0', '0', '1', '2023-03-08 14:13:32', '2023-03-08 14:13:32'),
+	(26, '26', 'Kemampuan memanfaatkan teknologi dalam informasi dalam pekerjaan\r\n (1 : Kurang Baik, 2 : Cukup Baik, 3 : Baik, 4 : Sangat Baik)', '1;2;3;4', '0', '0', '1', '2023-03-08 14:13:56', '2023-03-08 14:13:56'),
+	(27, '27', 'Kematangan emosi/pengendalian diri\r\n(1 : Kurang Baik, 2 : Cukup Baik, 3 : Baik, 4 : Sangat Baik)', '1;2;3;4', '0', '0', '1', '2023-03-08 14:15:03', '2023-03-08 14:15:03'),
+	(28, '28', 'Kepercayaan diri\r\n(1 : Kurang Baik, 2 : Cukup Baik, 3 : Baik, 4 : Sangat Baik)', '1;2;3;4', '0', '0', '1', '2023-03-08 14:15:31', '2023-03-08 14:15:31'),
+	(29, '29', 'Keterbukaan terhadap kritik dan saran\r\n(1 : Kurang Baik, 2 : Cukup Baik, 3 : Baik, 4 : Sangat Baik)', '1;2;3;4', '0', '0', '1', '2023-03-08 14:15:52', '2023-03-08 14:15:52'),
+	(30, '30', 'Kemampuan berkomunikasi secara lisan\r\n(1 : Kurang Baik, 2 : Cukup Baik, 3 : Baik, 4 : Sangat Baik)', '1;2;3;4', '0', '0', '1', '2023-03-08 14:16:18', '2023-03-08 14:16:18'),
+	(31, '31', 'Kemampuan berkomunikasi tertulis (membuat laporan)\r\n(1 : Kurang Baik, 2 : Cukup Baik, 3 : Baik, 4 : Sangat Baik)', '1;2;3;4', '0', '0', '1', '2023-03-08 14:16:36', '2023-03-08 14:16:36'),
+	(32, '32', 'Kemampuan sebagai pemimpin\r\n(1 : Kurang Baik, 2 : Cukup Baik, 3 : Baik, 4 : Sangat Baik)', '1;2;3;4', '0', '0', '1', '2023-03-08 14:17:32', '2023-03-08 14:17:32'),
+	(33, '33', 'Kemempuan manajerial\r\n(1 : Kurang Baik, 2 : Cukup Baik, 3 : Baik, 4 : Sangat Baik)', '1;2;3;4', '0', '0', '1', '2023-03-08 14:17:50', '2023-03-08 14:17:50'),
+	(34, '34', 'Kemampuan menyelesaikan masalah\r\n(1 : Kurang Baik, 2 : Cukup Baik, 3 : Baik, 4 : Sangat Baik)', '1;2;3;4', '0', '0', '1', '2023-03-08 14:18:13', '2023-03-08 14:18:13'),
+	(35, '35', 'Motivasi dalam mempelajari hal baru untuk kemajuan instansi / perusahaan\r\n(1 : Kurang Baik, 2 : Cukup Baik, 3 : Baik, 4 : Sangat Baik)', '1;2;3;4', '0', '0', '1', '2023-03-08 14:19:05', '2023-03-08 14:19:05'),
+	(36, '36', 'Motivasi dalam mempelajari hal baru untuk kemajuan kompetensi diri\r\n(1 : Kurang Baik, 2 : Cukup Baik, 3 : Baik, 4 : Sangat Baik)', '1;2;3;4', '0', '0', '1', '2023-03-08 14:19:22', '2023-03-08 14:19:22'),
+	(37, '37', 'Motivasi dalam mempelajari hal baru untuk kemajuan kompetensi diri\r\n(1 : Kurang Baik, 2 : Cukup Baik, 3 : Baik, 4 : Sangat Baik)', '1;2;3;4', '0', '0', '1', '2023-03-08 14:19:41', '2023-03-08 14:19:41'),
+	(38, '38', 'Mohon tuliskan saran serta hal lain yang ingin disampaikan guna pengembangan Program Studi di Lingkungan Universitas Borneo Lestari, agar dapat menghasilkan lulusan yang semakin berkualitas', '', '0', '0', '1', '2023-03-08 14:20:33', '2023-03-08 14:20:33');
 /*!40000 ALTER TABLE `survey_lulusans` ENABLE KEYS */;
 
--- Dumping data for table tracer.survey_lulusan_aspek_integritas: ~0 rows (approximately)
+-- Dumping structure for table tracer.survey_lulusan_aspek_integritas
+CREATE TABLE IF NOT EXISTS `survey_lulusan_aspek_integritas` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `no` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `survey` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pilihan` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ganda` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `other` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `wajib` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Dumping data for table tracer.survey_lulusan_aspek_integritas: ~7 rows (approximately)
+DELETE FROM `survey_lulusan_aspek_integritas`;
 /*!40000 ALTER TABLE `survey_lulusan_aspek_integritas` DISABLE KEYS */;
+INSERT INTO `survey_lulusan_aspek_integritas` (`id`, `no`, `survey`, `pilihan`, `ganda`, `other`, `wajib`, `created_at`, `updated_at`) VALUES
+	(1, '1', 'Kedisiplinan (1 : Kurang Baik, 2 : Cukup Baik, 3 : Baik, 4 : Sangat Baik)', '1;2;3;4', '0', '0', '1', '2023-03-08 14:01:03', '2023-03-08 14:01:03'),
+	(2, '2', 'Kejujuran (1 : Kurang Baik, 2 : Cukup Baik, 3 : Baik, 4 : Sangat Baik)', '1;2;3;4', '0', '0', '1', '2023-03-08 14:02:01', '2023-03-08 14:02:01'),
+	(3, '3', 'Motivasi Kerja (1 : Kurang Baik, 2 : Cukup Baik, 3 : Baik, 4 : Sangat Baik)', '1;2;3;4', '0', '0', '1', '2023-03-08 14:02:37', '2023-03-08 14:02:37'),
+	(4, '4', 'Etos Kerja (1 : Kurang Baik, 2 : Cukup Baik, 3 : Baik, 4 : Sangat Baik)', '1;2;3;4', '0', '0', '1', '2023-03-08 14:02:51', '2023-03-08 14:03:03'),
+	(5, '5', 'Moralitas (1 : Kurang Baik, 2 : Cukup Baik, 3 : Baik, 4 : Sangat Baik)', '1;2;3;4', '0', '0', '1', '2023-03-08 14:05:39', '2023-03-08 14:05:57'),
+	(6, '6', 'Etika (1 : Kurang Baik, 2 : Cukup Baik, 3 : Baik, 4 : Sangat Baik)', '1;2;3;4', '0', '0', '1', '2023-03-08 14:06:32', '2023-03-08 14:06:48'),
+	(7, '7', 'Sosialisasi (1 : Kurang Baik, 2 : Cukup Baik, 3 : Baik, 4 : Sangat Baik)', '1;2;3;4', '0', '0', '1', '2023-03-08 14:07:11', '2023-03-08 14:07:11');
 /*!40000 ALTER TABLE `survey_lulusan_aspek_integritas` ENABLE KEYS */;
 
--- Dumping data for table tracer.survey_lulusan_aspek_kemampuan_berbahasa_asing: ~0 rows (approximately)
+-- Dumping structure for table tracer.survey_lulusan_aspek_kemampuan_berbahasa_asing
+CREATE TABLE IF NOT EXISTS `survey_lulusan_aspek_kemampuan_berbahasa_asing` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `no` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `survey` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pilihan` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ganda` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `other` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `wajib` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Dumping data for table tracer.survey_lulusan_aspek_kemampuan_berbahasa_asing: ~3 rows (approximately)
+DELETE FROM `survey_lulusan_aspek_kemampuan_berbahasa_asing`;
 /*!40000 ALTER TABLE `survey_lulusan_aspek_kemampuan_berbahasa_asing` DISABLE KEYS */;
+INSERT INTO `survey_lulusan_aspek_kemampuan_berbahasa_asing` (`id`, `no`, `survey`, `pilihan`, `ganda`, `other`, `wajib`, `created_at`, `updated_at`) VALUES
+	(1, '1', 'Kemampuan menulis bahasa asing (1 : Kurang Baik, 2 : Cukup Baik, 3 : Baik, 4 : Sangat Baik)', '1;2;3;4', '0', '0', '1', '2023-03-08 14:10:58', '2023-03-08 14:10:58'),
+	(2, '2', 'Kemampuan berkomunikasi dengan bahasa asing (1 : Kurang Baik, 2 : Cukup Baik, 3 : Baik, 4 : Sangat Baik)', '1;2;3;4', '0', '0', '1', '2023-03-08 14:11:43', '2023-03-08 14:11:43'),
+	(3, '3', 'Kemampuan dalam memahami teks menggunakan bahasa asing\r\n (1 : Kurang Baik, 2 : Cukup Baik, 3 : Baik, 4 : Sangat Baik)', '1;2;3;4', '0', '0', '1', '2023-03-08 14:12:06', '2023-03-08 14:12:06');
 /*!40000 ALTER TABLE `survey_lulusan_aspek_kemampuan_berbahasa_asing` ENABLE KEYS */;
 
--- Dumping data for table tracer.survey_lulusan_aspek_kerjasama_tim: ~0 rows (approximately)
+-- Dumping structure for table tracer.survey_lulusan_aspek_kerjasama_tim
+CREATE TABLE IF NOT EXISTS `survey_lulusan_aspek_kerjasama_tim` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `no` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `survey` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pilihan` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ganda` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `other` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `wajib` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Dumping data for table tracer.survey_lulusan_aspek_kerjasama_tim: ~3 rows (approximately)
+DELETE FROM `survey_lulusan_aspek_kerjasama_tim`;
 /*!40000 ALTER TABLE `survey_lulusan_aspek_kerjasama_tim` DISABLE KEYS */;
+INSERT INTO `survey_lulusan_aspek_kerjasama_tim` (`id`, `no`, `survey`, `pilihan`, `ganda`, `other`, `wajib`, `created_at`, `updated_at`) VALUES
+	(1, '1', 'Kemampuan sebagai pemimpin\r\n(1 : Kurang Baik, 2 : Cukup Baik, 3 : Baik, 4 : Sangat Baik)', '1;2;3;4', '0', '0', '1', '2023-03-08 14:17:32', '2023-03-08 14:17:32'),
+	(2, '2', 'Kemempuan manajerial\r\n(1 : Kurang Baik, 2 : Cukup Baik, 3 : Baik, 4 : Sangat Baik)', '1;2;3;4', '0', '0', '1', '2023-03-08 14:17:50', '2023-03-08 14:17:50'),
+	(3, '3', 'Kemampuan menyelesaikan masalah\r\n(1 : Kurang Baik, 2 : Cukup Baik, 3 : Baik, 4 : Sangat Baik)', '1;2;3;4', '0', '0', '1', '2023-03-08 14:18:13', '2023-03-08 14:18:13');
 /*!40000 ALTER TABLE `survey_lulusan_aspek_kerjasama_tim` ENABLE KEYS */;
 
--- Dumping data for table tracer.survey_lulusan_aspek_komunikasi: ~0 rows (approximately)
+-- Dumping structure for table tracer.survey_lulusan_aspek_komunikasi
+CREATE TABLE IF NOT EXISTS `survey_lulusan_aspek_komunikasi` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `no` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `survey` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pilihan` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ganda` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `other` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `wajib` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Dumping data for table tracer.survey_lulusan_aspek_komunikasi: ~5 rows (approximately)
+DELETE FROM `survey_lulusan_aspek_komunikasi`;
 /*!40000 ALTER TABLE `survey_lulusan_aspek_komunikasi` DISABLE KEYS */;
+INSERT INTO `survey_lulusan_aspek_komunikasi` (`id`, `no`, `survey`, `pilihan`, `ganda`, `other`, `wajib`, `created_at`, `updated_at`) VALUES
+	(1, '1', 'Kematangan emosi/pengendalian diri\r\n(1 : Kurang Baik, 2 : Cukup Baik, 3 : Baik, 4 : Sangat Baik)', '1;2;3;4', '0', '0', '1', '2023-03-08 14:15:03', '2023-03-08 14:15:03'),
+	(2, '2', 'Kepercayaan diri\r\n(1 : Kurang Baik, 2 : Cukup Baik, 3 : Baik, 4 : Sangat Baik)', '1;2;3;4', '0', '0', '1', '2023-03-08 14:15:31', '2023-03-08 14:15:31'),
+	(3, '3', 'Keterbukaan terhadap kritik dan saran\r\n(1 : Kurang Baik, 2 : Cukup Baik, 3 : Baik, 4 : Sangat Baik)', '1;2;3;4', '0', '0', '1', '2023-03-08 14:15:52', '2023-03-08 14:15:52'),
+	(4, '4', 'Kemampuan berkomunikasi secara lisan\r\n(1 : Kurang Baik, 2 : Cukup Baik, 3 : Baik, 4 : Sangat Baik)', '1;2;3;4', '0', '0', '1', '2023-03-08 14:16:18', '2023-03-08 14:16:18'),
+	(5, '5', 'Kemampuan berkomunikasi tertulis (membuat laporan)\r\n(1 : Kurang Baik, 2 : Cukup Baik, 3 : Baik, 4 : Sangat Baik)', '1;2;3;4', '0', '0', '1', '2023-03-08 14:16:36', '2023-03-08 14:16:36');
 /*!40000 ALTER TABLE `survey_lulusan_aspek_komunikasi` ENABLE KEYS */;
 
--- Dumping data for table tracer.survey_lulusan_aspek_pengembangan_diri: ~0 rows (approximately)
+-- Dumping structure for table tracer.survey_lulusan_aspek_pengembangan_diri
+CREATE TABLE IF NOT EXISTS `survey_lulusan_aspek_pengembangan_diri` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `no` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `survey` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pilihan` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ganda` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `other` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `wajib` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Dumping data for table tracer.survey_lulusan_aspek_pengembangan_diri: ~2 rows (approximately)
+DELETE FROM `survey_lulusan_aspek_pengembangan_diri`;
 /*!40000 ALTER TABLE `survey_lulusan_aspek_pengembangan_diri` DISABLE KEYS */;
+INSERT INTO `survey_lulusan_aspek_pengembangan_diri` (`id`, `no`, `survey`, `pilihan`, `ganda`, `other`, `wajib`, `created_at`, `updated_at`) VALUES
+	(1, '1', 'Motivasi dalam mempelajari hal baru untuk kemajuan instansi / perusahaan\r\n(1 : Kurang Baik, 2 : Cukup Baik, 3 : Baik, 4 : Sangat Baik)', '1;2;3;4', '0', '0', '1', '2023-03-08 14:19:05', '2023-03-08 14:19:05'),
+	(2, '2', 'Motivasi dalam mempelajari hal baru untuk kemajuan kompetensi diri\r\n(1 : Kurang Baik, 2 : Cukup Baik, 3 : Baik, 4 : Sangat Baik)', '1;2;3;4', '0', '0', '1', '2023-03-08 14:19:22', '2023-03-08 14:19:22');
 /*!40000 ALTER TABLE `survey_lulusan_aspek_pengembangan_diri` ENABLE KEYS */;
 
--- Dumping data for table tracer.survey_lulusan_aspek_penggunaan_teknologi: ~0 rows (approximately)
+-- Dumping structure for table tracer.survey_lulusan_aspek_penggunaan_teknologi
+CREATE TABLE IF NOT EXISTS `survey_lulusan_aspek_penggunaan_teknologi` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `no` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `survey` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pilihan` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ganda` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `other` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `wajib` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Dumping data for table tracer.survey_lulusan_aspek_penggunaan_teknologi: ~3 rows (approximately)
+DELETE FROM `survey_lulusan_aspek_penggunaan_teknologi`;
 /*!40000 ALTER TABLE `survey_lulusan_aspek_penggunaan_teknologi` DISABLE KEYS */;
+INSERT INTO `survey_lulusan_aspek_penggunaan_teknologi` (`id`, `no`, `survey`, `pilihan`, `ganda`, `other`, `wajib`, `created_at`, `updated_at`) VALUES
+	(1, '1', 'Pengetahuan mengenai alat dan teknologi dalam bekerja\r\n (1 : Kurang Baik, 2 : Cukup Baik, 3 : Baik, 4 : Sangat Baik)', '1;2;3;4', '0', '0', '1', '2023-03-08 14:12:55', '2023-03-08 14:12:55'),
+	(2, '2', 'Kemampuan adaptasi teknologi baru\r\n(1 : Kurang Baik, 2 : Cukup Baik, 3 : Baik, 4 : Sangat Baik)', '1;2;3;4', '0', '0', '1', '2023-03-08 14:13:32', '2023-03-08 14:13:32'),
+	(3, '3', 'Kemampuan memanfaatkan teknologi dalam informasi dalam pekerjaan\r\n (1 : Kurang Baik, 2 : Cukup Baik, 3 : Baik, 4 : Sangat Baik)', '1;2;3;4', '0', '0', '1', '2023-03-08 14:13:56', '2023-03-08 14:13:56');
 /*!40000 ALTER TABLE `survey_lulusan_aspek_penggunaan_teknologi` ENABLE KEYS */;
 
--- Dumping data for table tracer.survey_lulusan_aspek_profesionalisme: ~0 rows (approximately)
+-- Dumping structure for table tracer.survey_lulusan_aspek_profesionalisme
+CREATE TABLE IF NOT EXISTS `survey_lulusan_aspek_profesionalisme` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `no` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `survey` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pilihan` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ganda` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `other` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `wajib` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Dumping data for table tracer.survey_lulusan_aspek_profesionalisme: ~5 rows (approximately)
+DELETE FROM `survey_lulusan_aspek_profesionalisme`;
 /*!40000 ALTER TABLE `survey_lulusan_aspek_profesionalisme` DISABLE KEYS */;
+INSERT INTO `survey_lulusan_aspek_profesionalisme` (`id`, `no`, `survey`, `pilihan`, `ganda`, `other`, `wajib`, `created_at`, `updated_at`) VALUES
+	(1, '1', 'Penguasaan Bidang Ilmu (1 : Kurang Baik, 2 : Cukup Baik, 3 : Baik, 4 : Sangat Baik)', '1;2;3;4', '0', '0', '1', '2023-03-08 14:08:33', '2023-03-08 14:08:33'),
+	(2, '2', 'Produktivitas Kerja (1 : Kurang Baik, 2 : Cukup Baik, 3 : Baik, 4 : Sangat Baik)', '1;2;3;4', '0', '0', '1', '2023-03-08 14:08:56', '2023-03-08 14:08:56'),
+	(3, '3', 'Inovasi Dalam Bekerja (1 : Kurang Baik, 2 : Cukup Baik, 3 : Baik, 4 : Sangat Baik)', '1;2;3;4', '0', '0', '1', '2023-03-08 14:09:24', '2023-03-08 14:09:24'),
+	(4, '4', 'Kemampuan Menyelesaikan Masalah Dalam Pekerjaan (1 : Kurang Baik, 2 : Cukup Baik, 3 : Baik, 4 : Sangat Baik)', '1;2;3;4', '0', '0', '1', '2023-03-08 14:09:53', '2023-03-08 14:09:53'),
+	(5, '5', 'Inisiatif Dalam Bekerja (1 : Kurang Baik, 2 : Cukup Baik, 3 : Baik, 4 : Sangat Baik)', '1;2;3;4', '0', '0', '1', '2023-03-08 14:10:19', '2023-03-08 14:10:19');
 /*!40000 ALTER TABLE `survey_lulusan_aspek_profesionalisme` ENABLE KEYS */;
 
--- Dumping data for table tracer.survey_lulusan_profil_pengguna_lulusan: ~0 rows (approximately)
+-- Dumping structure for table tracer.survey_lulusan_profil_pengguna_lulusan
+CREATE TABLE IF NOT EXISTS `survey_lulusan_profil_pengguna_lulusan` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `no` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `survey` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pilihan` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ganda` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `other` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `wajib` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Dumping data for table tracer.survey_lulusan_profil_pengguna_lulusan: ~9 rows (approximately)
+DELETE FROM `survey_lulusan_profil_pengguna_lulusan`;
 /*!40000 ALTER TABLE `survey_lulusan_profil_pengguna_lulusan` DISABLE KEYS */;
+INSERT INTO `survey_lulusan_profil_pengguna_lulusan` (`id`, `no`, `survey`, `pilihan`, `ganda`, `other`, `wajib`, `created_at`, `updated_at`) VALUES
+	(1, '1', 'Nama Tempat Kerja', '', '0', '0', '1', '2023-03-26 23:03:59', '2023-03-26 23:04:00'),
+	(2, '2', 'Alamat Lengkap Tempat Kerja', '', '0', '0', '1', '2023-03-08 13:55:42', '2023-03-08 13:55:42'),
+	(3, '3', 'Nama Lengkap Pimpinan/Atasan', '', '0', '0', '1', '2023-03-08 13:56:09', '2023-03-08 13:56:18'),
+	(4, '4', 'Nomor WhatsApp', '', '0', '0', '1', '2023-03-08 13:56:30', '2023-03-08 13:56:36'),
+	(5, '5', 'Alamat Email Aktif', '', '0', '0', '1', '2023-03-08 13:56:48', '2023-03-08 13:56:48'),
+	(6, '6', 'Nama Alumni Yang Bapak/Ibu Pimpin', '', '0', '0', '1', '2023-03-08 13:57:59', '2023-03-08 13:57:59'),
+	(7, '7', 'Posisi Jabatan Alumni di Tempat Kerja', '', '0', '0', '1', '2023-03-08 13:58:13', '2023-03-08 13:58:13'),
+	(8, '8', 'Tahun Lulus Alumni (Sesuai Ijazah)', '2020;2021;2022;2023', '0', '0', '1', '2023-03-08 13:58:53', '2023-03-08 13:58:53'),
+	(9, '9', 'Mohon tuliskan saran serta hal lain yang ingin disampaikan guna pengembangan Program Studi di Lingkungan Universitas Borneo Lestari, agar dapat menghasilkan lulusan yang semakin berkualitas', '', '0', '0', '1', '2023-03-08 14:20:33', '2023-03-08 14:20:33');
 /*!40000 ALTER TABLE `survey_lulusan_profil_pengguna_lulusan` ENABLE KEYS */;
 
+-- Dumping structure for table tracer.users
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 -- Dumping data for table tracer.users: ~1 rows (approximately)
+DELETE FROM `users`;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `name`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 	(1, 'admin', '$2y$10$P5/r.KGtmPGTdRwvvPJeCuqhxVqyNNW6NFz8ABPM5oksHoTWfM5EO', NULL, NULL, NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
--- Dumping data for table tracer.user_alumnis: ~0 rows (approximately)
+-- Dumping structure for table tracer.user_alumnis
+CREATE TABLE IF NOT EXISTS `user_alumnis` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `nama` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nim` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `prodi` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Dumping data for table tracer.user_alumnis: ~2 rows (approximately)
+DELETE FROM `user_alumnis`;
 /*!40000 ALTER TABLE `user_alumnis` DISABLE KEYS */;
+INSERT INTO `user_alumnis` (`id`, `nama`, `nim`, `prodi`, `created_at`, `updated_at`) VALUES
+	(1, 'admin', '1', 'D3 Farmasi', '2023-03-27 09:39:55', '2023-03-27 09:39:57'),
+	(2, 'admin', '2', 'S1 Farmasi', '2023-03-27 10:40:46', '2023-03-27 10:40:47');
 /*!40000 ALTER TABLE `user_alumnis` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

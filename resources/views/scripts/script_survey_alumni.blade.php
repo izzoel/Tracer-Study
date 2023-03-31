@@ -1,21 +1,17 @@
 @if (Request::segment(2) == 'alumni')
     <script>
-        // console.log("{{ $karir }}");
         route = "{{ route('survey_alumni', '') }}" + "/" + "{{ $karir }}";
-        // // route = route.replace(/ /g, '_');
-
-
-
+        kategori = '{{ $kategori }}';
+        // console.log('{{ $kategori }}');
+        i = 1;
+        i_ = 1;
         $.ajax({
             url: route,
             method: 'get',
             dataType: 'json',
             success: function(data) {
-
-                // nama = $('#nama').val();
-                // console.log($('#nama').text());
                 $.each(data, function(key, values) {
-                    i = 1;
+
                     id = data[key].id;
                     no = data[key].no;
                     survey = data[key].survey;
@@ -39,8 +35,47 @@
                         var type = 'radio';
                         var array = '';
                     }
+                    if (kategori == "Belum Bekerja") {
+                        if (id >= 1 && id <= 19) {
+                            name = "alumni" + i;
+                        } else {
+                            name = "belum_bekerja" + i_;
+                            i_++;
+                        }
+                    } else if (kategori == "Sudah Bekerja") {
+                        if (id >= 1 && id <= 16) {
+                            name = "alumni" + i;
+                        } else if (id >= 17 && id <= 18) {
+                            no_ = parseInt(i) + 1;
+                            name = "alumni" + no_;
+                        } else {
+                            name = "sudah_bekerja" + i_;
+                            i_++;
+                        }
+                    } else if (kategori == "Berwirausaha") {
+                        if (id >= 1 && id <= 16) {
+                            name = "alumni" + i;
+                        } else if (id >= 17 && id <= 18) {
+                            no_ = parseInt(i) + 1;
+                            name = "alumni" + no_;
+                        } else {
+                            name = "berwirausaha" + i_;
+                            i_++;
+                        }
+                    } else if (kategori == "Lanjut Pendidikan") {
+                        if (id >= 1 && id <= 16) {
+                            name = "alumni" + i;
+                        } else if (id >= 17 && id <= 18) {
+                            no_ = parseInt(i) + 1;
+                            name = "alumni" + no_;
+                        } else {
+                            name = "lanjut_pendidikan" + i_;
+                            i_++;
+                        }
+                    }
+
+
                     var html = '';
-                    // html += '<input type="text" value="' + nama + '">'
                     html += '<table class="table table-borderless responsive ">';
                     html += '<tbody>';
                     html += '<tr>';
@@ -56,8 +91,8 @@
                     html += '</td>';
                     if (pilihan == '') {
                         html += '<td class="col pt-0">';
-                        html += '<input type="text" class="form-control mb-1" name="bank' + no +
-                            '"' + required + '>';
+                        html += '<input type="text" class="form-control mb-1" name="' + name + '"' +
+                            required + '>';
                         html += '</td>';
                         html += '<td>';
                         html += '</td>';
@@ -75,7 +110,7 @@
                                 no +
                                 '" type="' +
                                 type +
-                                '"id="' + no + j + '"' + required + ' name="bank' + no +
+                                '"id="' + no + j + '"' + required + ' name="' + name +
                                 array +
                                 '" value="' + arPilihan[item] + '" for="' +
                                 no +
@@ -105,13 +140,13 @@
                             html += '<div class="col-auto form-check ms-2 ps-1 me-0 pe-0">';
                             html += '<input class="form-check-input otherOpsiName' + no +
                                 ' gandaOpsi' + no + '" type="' + type + '" id="other' + k + '" ' +
-                                'name="bank' + no + array + '">';
+                                'name="' + name + array + '">';
                             html += '</div>';
 
                             html +=
                                 '<div class="col ms-0 ps-0"><div class="input-group input-group-sm mb-1" style="min-width: 100%;width: 3rem">';
                             html += '<input type="text" class="form-control" data-other="other' +
-                                k + '" id="otherOpsi' + no + '">';
+                                k + '" id="otherOpsi' + no + '" for="other1">';
                             html += '</div></div>';
 
                             html += '</div>';
@@ -124,9 +159,8 @@
                     html += '</tbody>';
                     html += '</table">';
                     $('#survey').append(html);
-                    // $(window).scrollTo('#tambah');
+                    i++;
                 });
-                // tambahNoUrut = parseInt(no) + 1;
             }
         });
     </script>

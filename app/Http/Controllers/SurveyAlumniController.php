@@ -100,7 +100,7 @@ class SurveyAlumniController extends Controller
     }
 
 
-    public function showAlumni(SurveyAlumni $survey_Alumni, Request $request)
+    public function show(SurveyAlumni $survey_Alumni, Request $request)
     {
         $verifikasi_alumni = UserAlumni::find($request->input('nim'));
 
@@ -114,6 +114,7 @@ class SurveyAlumniController extends Controller
                     'title' => 'form',
                     'nama' => $request->input('nama'),
                     'nim' => $request->input('nim'),
+                    'prodi' => $request->input('prodi'),
                     'kategori' => ucwords(str_replace('_', ' ', $karir)),
                     'karir' => $karir
                 ]);
@@ -185,17 +186,12 @@ class SurveyAlumniController extends Controller
     {
         if ($kategori == "belum_bekerja") {
             SurveyAlumniBelumBekerja::destroy($id);
-            // $no_urut = SurveyAlumniBelumBekerja::where('id', $id)->pluck('no')->last();
         } elseif ($kategori == "sudah_bekerja") {
             SurveyAlumniSudahBekerja::destroy($id);
-            // $no_urut = SurveyAlumniSudahBekerja::all()->sortBy("no")->pluck('no')->last();
         } elseif ($kategori == "berwirausaha") {
             SurveyAlumniWirausaha::destroy($id);
-            // $no_urut = SurveyAlumniWirausaha::all()->sortBy("no")->pluck('no')->last();
         } elseif ($kategori == "lanjut_pendidikan") {
             SurveyAlumniLanjutPendidikan::destroy($id);
-            // $no_urut = SurveyAlumniLanjutPendidikan::all()->sortBy("no")->pluck('no')->last();
         }
-        // return response()->json($no_urut);
     }
 }

@@ -25,6 +25,12 @@ class SurveyLulusanController extends Controller
         //
     }
 
+    public function formLulusan()
+    {
+        return view('content.form.form_lulusan', ['title' => 'form_lulusan'])->with([
+            'title' => 'form'
+        ]);
+    }
     /**
      * Show the form for creating a new resource.
      *

@@ -37,7 +37,8 @@
                         Selamat Datang di<br>
                         Website <b style="color: chocolate">Tracer Study</b> <br>
                         Universitas Borneo Lestari <br>
-                        <a class="btn btn-lg btn-primary rounded-pill mt-3" href="#" role="button">Isi Survey</a>
+                        <a class="btn btn-lg btn-primary rounded-pill mt-3" href="{{ route('survey') }}" role="button">Isi
+                            Survey</a>
                     </p>
                 </div>
             </div>
