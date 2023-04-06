@@ -30,7 +30,8 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/css/dataTables.bootstrap5.min.css">
     {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css"> --}}
 
-    <link href="../css/smart_wizard_all.css" rel="stylesheet" type="text/css" />
+    {{-- <link href="../css/smart_wizard_all.css" rel="stylesheet" type="text/css" /> --}}
+    <link rel="stylesheet" href="../css/chart.css">
 
     <link rel="stylesheet" href="../css/tooltipster.bundle.css">
     <link rel="stylesheet" href="../css/tooltipster-sideTip-light.min.css">
@@ -372,6 +373,8 @@
 
 
 @include('scripts.script_survey_alumni')
+
+@include('scripts.script_admin_dashboard')
 
 
 {{-- @include('scripts.script_modal') --}}
