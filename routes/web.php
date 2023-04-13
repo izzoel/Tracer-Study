@@ -70,6 +70,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/admin/dashboard', [AdminController::class, 'show'])->name('admin_dashboard');
 
 
+    Route::get('/admin/data', [SurveyAlumniController::class, 'dataAlumni'])->name('admin_data');
+
     Route::get('/admin/form_alumni', [SurveyAlumniController::class, 'formAlumni'])->name('form_alumni');
     Route::get('/admin/form_alumni/{kategori}', [SurveyAlumniController::class, 'showFormAlumni'])->name('get_form_alumni');
     Route::get('/admin/form_alumni/{kategori}/{id?}', [SurveyAlumniController::class, 'editFormAlumni'])->name('edit_show_form_alumni');
@@ -88,4 +90,5 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/admin/form_lulusan/update/{kategori}/{id?}', [SurveyLulusanController::class, 'update'])->name('edit_form_lulusan');
 
     Route::get('/admin/user_alumni', [UserAlumniController::class, 'show'])->name('user_alumni');
+    Route::post('/admin/user_alumni/store', [UserAlumniController::class, 'store'])->name('add_user_alumni');
 });

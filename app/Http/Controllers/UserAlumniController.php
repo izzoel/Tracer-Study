@@ -22,9 +22,20 @@ class UserAlumniController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
+        // dd($request->nama);
         //
+        // $model = [
+        //     'nama' => $request->nama,
+        //     // 'nim' => $request->nim,
+        //     // 'prodi' => $request->prodi,
+        //     // 'angkatan' => $request->angkatan
+        // ];
+
+        // UserAlumni::create(
+        //     $model
+        // );
     }
 
     /**
@@ -35,7 +46,16 @@ class UserAlumniController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $model = [
+            'nama' => $request->nama,
+            'nim' => $request->nim,
+            'prodi' => $request->prodi,
+            'angkatan' => $request->angkatan
+        ];
+
+        UserAlumni::create(
+            $model
+        );
     }
 
     /**
@@ -46,7 +66,12 @@ class UserAlumniController extends Controller
      */
     public function show(UserAlumni $userAlumni)
     {
-        //
+        // $data_user_alumni = ;
+        return response()->json(UserAlumni::all());
+        // return view('content.data', ['title' => 'data'])->with([
+        //     'title' => 'data',
+        //     'data_user_alumni' => $data_user_alumni
+        // ]);
     }
 
     /**

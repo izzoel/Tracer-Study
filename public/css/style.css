@@ -10306,3 +10306,7 @@ p a:hover {
   width:40rem;
   height: 20rem;
 }
+
+.fs-input{
+  font-size:0.933rem;
+}

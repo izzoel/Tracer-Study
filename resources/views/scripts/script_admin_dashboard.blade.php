@@ -111,7 +111,6 @@
         },
     });
 
-
     new Chart(document.getElementById('diagMasaTunggu'), {
         type: 'bar',
         data: {
@@ -179,16 +178,6 @@
     });
 
 
-
-
-
-
-
-
-
-
-
-    // const ctx = ;
     const labelDate = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agust', 'Sep', 'Okt', 'Nov', 'Des'];
 
     new Chart($('#respondenProdiD3Farmasi'), {
@@ -381,7 +370,15 @@
     });
 
 
+    function download() {
+        const imagelLink = document.createElement('a');
+        const canvas = document.getElementById('respondenProdiD3Farmasi');
+        imagelLink.download = 'responden_Prodi_D3_Farmasi';
+        imagelLink.href = canvas.toDataURL('image/png', 1);
 
+        document.write('<img src="' + imagelLink + '">');
+        console.log(imagelLink.href);
+    }
 
 
 

@@ -453,8 +453,6 @@
             });
         }
 
-
-
         function ajaxFormTambah(routeName) {
             $.ajaxSetup({
                 headers: {

@@ -61,6 +61,7 @@
                         <div class="row mt-4">
                             <div class="col responden-line">
                                 <canvas id="respondenProdiD3Farmasi"></canvas>
+                                <button onclick="download()">.png</button>
                             </div>
                             <div class="col">
                                 Total Responden D3 Farmasi :

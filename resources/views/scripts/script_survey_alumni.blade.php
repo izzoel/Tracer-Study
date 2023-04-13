@@ -1,3 +1,11 @@
+<script>
+    $('#nama').keyup(function() {
+        $(this).val($(this).val().toUpperCase());
+    });
+    $('#nim').keyup(function() {
+        $(this).val($(this).val().toUpperCase());
+    });
+</script>
 @if (Request::segment(2) == 'alumni')
     <script>
         route = "{{ route('survey_alumni', '') }}" + "/" + "{{ $karir }}";

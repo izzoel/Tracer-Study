@@ -7,7 +7,6 @@
                     <div class="hero-img mx-auto mb-3 position-relative">
                         <img src="images/landing-hero.png" alt="img">
                     </div>
-
                 </div>
 
                 {{-- muncul di kompi --}}

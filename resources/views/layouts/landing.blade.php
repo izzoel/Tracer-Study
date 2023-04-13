@@ -38,7 +38,10 @@
     <link rel="stylesheet" href="../css/tooltipster-sideTip-shadow.min.css">
     {{-- <link rel="stylesheet" href="../css/tooltipster.main.css"> --}}
 
-
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker3.min.css"
+        integrity="sha512-rxThY3LYIfYsVCWPCW9dB0k+e3RZB39f23ylUYTEuZMDrN/vRqLdaCBo/FbvVT6uC2r0ObfPzotsfKF9Qc5W5g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     {{-- <link href="https://cdn.jsdelivr.net/npm/smartwizard@6/dist/css/smart_wizard_all.min.css" rel="stylesheet"
         type="text/css" /> --}}
@@ -108,6 +111,11 @@
                                 <a class="nav-link {{ $title == 'dashboard' ? 'active' : '' }}"
                                     href="{{ route('admin_dashboard') }}">
                                     Dashboard
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{ $title == 'data' ? 'active' : '' }}" href="{{ route('admin_data') }}">
+                                    Data
                                 </a>
                             </li>
 
@@ -243,6 +251,9 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.3/jquery.scrollTo.min.js"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"
+        integrity="sha512-T/tUfKSV1bihCnd+MxKD0Hm1uBBroVYBOYSk1knyvQ9VyZJpc/ALb4P0r6ubwVPSGB2GvjeoMAJJImBG12TiaQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 
 {{-- @yield('script_modal') --}}
@@ -368,6 +379,7 @@
 @endforeach --}}
 
 
+@include('scripts.script_admin_data')
 @include('scripts.script_form_alumni')
 @include('scripts.script_form_lulusan')
 

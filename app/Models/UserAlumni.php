@@ -12,6 +12,6 @@ class UserAlumni extends Model
         'nama',
         'nim',
         'prodi',
-        'karir'
+        'angkatan'
     ];
 }

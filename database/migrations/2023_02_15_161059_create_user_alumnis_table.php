@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('nama');
             $table->string('nim');
             $table->string('prodi');
+            $table->string('angkatan');
             $table->timestamps();
         });
     }

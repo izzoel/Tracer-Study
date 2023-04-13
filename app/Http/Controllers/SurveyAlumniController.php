@@ -8,8 +8,6 @@ use App\Models\SurveyAlumniSudahBekerja;
 use App\Models\SurveyAlumniWirausaha;
 use App\Models\SurveyAlumniLanjutPendidikan;
 use App\Models\UserAlumni;
-
-use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class SurveyAlumniController extends Controller
@@ -83,6 +81,14 @@ class SurveyAlumniController extends Controller
     {
         return view('content.form.form_alumni', ['title' => 'form_alumni'])->with([
             'title' => 'form'
+        ]);
+    }
+    public function dataAlumni()
+    {
+        $data_user_alumni = UserAlumni::all();
+        return view('content.data', ['title' => 'data'])->with([
+            'title' => 'data',
+            'data_user_alumni' => $data_user_alumni
         ]);
     }
 
