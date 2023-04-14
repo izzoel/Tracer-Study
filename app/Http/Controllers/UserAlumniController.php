@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\FirstSheet;
 use App\Models\UserAlumni;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
 
 class UserAlumniController extends Controller
@@ -17,6 +19,9 @@ class UserAlumniController extends Controller
         //
     }
 
+
+
+
     /**
      * Show the form for creating a new resource.
      *
@@ -24,18 +29,6 @@ class UserAlumniController extends Controller
      */
     public function create(Request $request)
     {
-        // dd($request->nama);
-        //
-        // $model = [
-        //     'nama' => $request->nama,
-        //     // 'nim' => $request->nim,
-        //     // 'prodi' => $request->prodi,
-        //     // 'angkatan' => $request->angkatan
-        // ];
-
-        // UserAlumni::create(
-        //     $model
-        // );
     }
 
     /**
@@ -66,13 +59,19 @@ class UserAlumniController extends Controller
      */
     public function show(UserAlumni $userAlumni)
     {
-        // $data_user_alumni = ;
         return response()->json(UserAlumni::all());
-        // return view('content.data', ['title' => 'data'])->with([
-        //     'title' => 'data',
-        //     'data_user_alumni' => $data_user_alumni
-        // ]);
     }
+
+
+    public function import(Request $request)
+    {
+        // Excel::selectSheets('sheet1')->load();
+        Excel::import(new FirstSheet, $request->file('formFile'));
+
+        return back();
+    }
+
+
 
     /**
      * Show the form for editing the specified resource.
@@ -80,9 +79,9 @@ class UserAlumniController extends Controller
      * @param  \App\Models\UserAlumni  $userAlumni
      * @return \Illuminate\Http\Response
      */
-    public function edit(UserAlumni $userAlumni)
+    public function edit($id)
     {
-        //
+        return response()->json(UserAlumni::find($id));
     }
 
     /**
@@ -92,9 +91,16 @@ class UserAlumniController extends Controller
      * @param  \App\Models\UserAlumni  $userAlumni
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, UserAlumni $userAlumni)
+    public function update(Request $request, $id)
     {
-        //
+        $model = [
+            'nama' => $request->nama,
+            'nim' => $request->nim,
+            'prodi' => $request->prodi,
+            'angkatan' => $request->angkatan
+        ];
+
+        UserAlumni::find($id)->update($model);
     }
 
     /**
@@ -103,8 +109,8 @@ class UserAlumniController extends Controller
      * @param  \App\Models\UserAlumni  $userAlumni
      * @return \Illuminate\Http\Response
      */
-    public function destroy(UserAlumni $userAlumni)
+    public function destroy($id)
     {
-        //
+        UserAlumni::destroy($id);
     }
 }

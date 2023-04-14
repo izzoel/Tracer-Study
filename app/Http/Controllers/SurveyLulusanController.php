@@ -140,24 +140,6 @@ class SurveyLulusanController extends Controller
         }
     }
 
-    // public function showAlumni(SurveyAlumni $survey_Alumni, Request $request)
-    // {
-    //     $verifikasi_alumni = UserAlumni::find($request->input('nim'));
-
-    //     if ($verifikasi_alumni == null) {
-    //         return back();
-    //     } else {
-    //         $verifikasi_alumni = UserAlumni::where('nim', $request->input('nim'))->first()->makeHidden(['id', 'created_at', 'updated_at'])->toArray();
-    //         if (array_diff($request->except('_token', 'karir'), $verifikasi_alumni) == null) {
-    //             $karir = $request->input('karir');
-    //             return view('survey.alumni', ['title' => 'form_alumni'])->with([
-    //                 'title' => 'form',
-    //                 'nama' => $request->input('nama'),
-    //                 'karir' => $karir
-    //             ]);
-    //         }
-    //     }
-    // }
 
     /**
      * Display the specified resource.
@@ -167,7 +149,6 @@ class SurveyLulusanController extends Controller
      */
     public function show(Request $request)
     {
-        // $form_lulusan = SurveyLulusan::all()->sortBy("no");
         $profil_pengguna_lulusan = SurveyLulusanProfilPenggunaLulusan::all();
         $aspek_integritas = SurveyLulusanAspekIntegritas::all();
         $aspek_profesionalisme = SurveyLulusanAspekProfesionalisme::all();
@@ -176,23 +157,12 @@ class SurveyLulusanController extends Controller
         $aspek_komunikasi = SurveyLulusanAspekKomunikasi::all();
         $aspek_kerjasama_tim = SurveyLulusanAspekKerjasamaTim::all();
         $aspek_pengembangan_diri = SurveyLulusanAspekPengembanganDiri::all();
-        // $no_urut = $form_lulusan->pluck('no')->last();
-        // $karir = $request->input('karir');
-        // $a = 'a';
-        // $a = 'z';
-        // $b[] = $a;
-        // dd($profil_pengguna_lulusan->concat($aspek_integritas));
-        // dd(compact('profil_pengguna_lulusan', 'aspek_integritas'));
+
         return view('survey.lulusan', ['title' => 'form_lulusan'])->with([
             'title' => 'form',
             'nama' => $request->input('nama'),
-            // 'form_lulusan' => compact('profil_pengguna_lulusan', 'aspek_integritas')
-            // 'form_lulusan' => $profil_pengguna_lulusan,
             'form_lulusan' => $profil_pengguna_lulusan->take(8)->concat($aspek_integritas->concat($aspek_profesionalisme->concat($aspek_kemampuan_berbahasa_asing->concat($aspek_penggunaan_teknologi)->concat($aspek_komunikasi->concat($aspek_kerjasama_tim->concat($aspek_pengembangan_diri->concat($profil_pengguna_lulusan->skip(8))))))))
-            // 'karir' => $karir
         ]);
-        // return view('content.form.form_lulusan', ['title' => 'form_lulusan']);
-        // return view('content.form.form_lulusan', ['title' => 'form_lulusan'])->with(['form_lulusan' => $form_lulusan, 'no_urut' => $no_urut, 'title' => 'form']);
     }
 
     /**

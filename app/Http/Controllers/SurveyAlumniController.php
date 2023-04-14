@@ -108,12 +108,14 @@ class SurveyAlumniController extends Controller
 
     public function show(SurveyAlumni $survey_Alumni, Request $request)
     {
-        $verifikasi_alumni = UserAlumni::find($request->input('nim'));
-
+        $verifikasi_alumni = UserAlumni::where('nim',  $request->input('nim'));
+        // $verifikasi_alumni = UserAlumni::find('$request->input('nim')');
+        // dd($request->except('_token', 'karir'), $verifikasi_alumni);
         if ($verifikasi_alumni == null) {
             return back();
         } else {
-            $verifikasi_alumni = UserAlumni::where('nim', $request->input('nim'))->first()->makeHidden(['id', 'created_at', 'updated_at'])->toArray();
+            $verifikasi_alumni = UserAlumni::where('nim', $request->input('nim'))->first()->makeHidden(['created_at', 'updated_at'])->toArray();
+
             if (array_diff($request->except('_token', 'karir'), $verifikasi_alumni) == null) {
                 $karir = $request->input('karir');
                 return view('survey.alumni', ['title' => 'form_alumni'])->with([
@@ -122,6 +124,7 @@ class SurveyAlumniController extends Controller
                     'nim' => $request->input('nim'),
                     'prodi' => $request->input('prodi'),
                     'kategori' => ucwords(str_replace('_', ' ', $karir)),
+                    'angkatan' => UserAlumni::where('nim',  $request->input('nim'))->pluck('angkatan')->first(),
                     'karir' => $karir
                 ]);
             }

@@ -23,8 +23,6 @@
 
         });
 
-
-
         function getData(route, kategori) {
             $.ajax({
                 url: route,

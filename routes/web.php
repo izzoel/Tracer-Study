@@ -90,5 +90,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/admin/form_lulusan/update/{kategori}/{id?}', [SurveyLulusanController::class, 'update'])->name('edit_form_lulusan');
 
     Route::get('/admin/user_alumni', [UserAlumniController::class, 'show'])->name('user_alumni');
+    Route::get('/admin/user_alumni/{id}', [UserAlumniController::class, 'edit'])->name('edit_user_alumni');
+    Route::post('/admin/user_alumni/update/{id}', [UserAlumniController::class, 'update'])->name('update_user_alumni');
+    Route::get('/admin/user_alumni/destroy/{id}', [UserAlumniController::class, 'destroy'])->name('destroy_user_alumni');
+
+
     Route::post('/admin/user_alumni/store', [UserAlumniController::class, 'store'])->name('add_user_alumni');
+    Route::post('/admin/user_alumni/import', [UserAlumniController::class, 'import'])->name('import_user_alumni');
 });
