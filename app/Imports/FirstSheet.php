@@ -12,7 +12,7 @@ class FirstSheet implements WithMultipleSheets
     public function sheets(): array
     {
         return [
-            new importUserAlumni(),
+            new ImportUserAlumni(),
         ];
     }
 }
