@@ -94,6 +94,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/admin/user_alumni/update/{id}', [UserAlumniController::class, 'update'])->name('update_user_alumni');
     Route::get('/admin/user_alumni/destroy/{id}', [UserAlumniController::class, 'destroy'])->name('destroy_user_alumni');
 
+    Route::get('/admin/statistik', [UserAlumniController::class, 'countD3F'])->name('count_d3f');
 
     Route::post('/admin/user_alumni/store', [UserAlumniController::class, 'store'])->name('add_user_alumni');
     Route::post('/admin/user_alumni/import', [UserAlumniController::class, 'import'])->name('import_user_alumni');

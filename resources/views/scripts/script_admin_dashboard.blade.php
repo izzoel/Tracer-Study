@@ -178,28 +178,79 @@
     });
 
 
-    const labelDate = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agust', 'Sep', 'Okt', 'Nov', 'Des'];
+    const labelDate = ['2001', '2002', '2003', '2004', ];
+    // const labelDate = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agust', 'Sep', 'Okt', 'Nov','Des'];
 
-    new Chart($('#respondenProdiD3Farmasi'), {
-        type: 'line',
-        data: {
-            labels: labelDate,
-            datasets: [{
-                label: '# Responden D3 Farmasi',
-                data: [12, 19, 3, 5, 2, 3, 21, 15, 4, 10],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-                y: {
-                    beginAtZero: true
+
+
+    // $.get("{{ route('count_d3f') }}", function(data) {
+    //     $('#d3f').append(data);
+    //     var b = data;
+    // });
+
+    // alert($.getJSON("{{ route('count_d3f') }}"))
+    // console.log($.get("{{ route('count_d3f') }}"), 'json')
+    // alert($('#d3f').text())
+    // console.log(b);
+
+    // alert(mf())
+    // function d3f() {
+    // var retVal;
+    $.get("{{ route('count_d3f') }}", function(data) {
+        // $.each(data, function(key) {
+        //     // console.log(data['2004']);
+        //     //     // id = data[key].id
+        //     //     // nama = data[key].nama;
+        var html = '';
+        // html += '(2001) = ' + '<span class="badge rounded p-1 text-white warna-elemen">' + data[2001] +
+        //     '</span> Responden<br/>';
+        // html += '(2002) = ' + '<span class="badge rounded p-1 text-white warna-elemen">' + data[2002] +
+        //     '</span> Responden<br/>';
+        // html += '(2003) = ' + '<span class="badge rounded p-1 text-white warna-elemen">' + data[2003] +
+        //     '</span> Responden<br/>';
+        // html += '(2004) = ' + '<span class="badge rounded p-1 text-white warna-elemen">' + data[2004] +
+        //     '</span> Responden<br/>';
+        // html += '(2001) = ' + '<span class="badge rounded p-1 text-white warna-elemen">' + data[2001] +
+        //     '</span> Responden<br/>';
+        html += '(2001) = ' + data[2001] + ' Responden<br/>';
+        html += '(2002) = ' + data[2002] + ' Responden<br/>';
+        html += '(2003) = ' + data[2003] + ' Responden<br/>';
+        html += '(2004) = ' + data[2004] + ' Responden<br/>';
+
+
+        // $('#d3f').append(data[2001]+data[2002]);
+        // $('#d3f').append('(2001) = ' + data[2001]);
+        $('#d3f').append(html);
+        // });
+        // alert(data);
+        new Chart($('#respondenProdiD3Farmasi'), {
+            type: 'line',
+            data: {
+                labels: labelDate,
+                datasets: [{
+                    label: '# Responden D3 Farmasi',
+                    data: data,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
                 }
             }
-        }
+        });
     });
+    // return retVal;
+    // }
+
+
+    // d3f()
+
+
 
     new Chart($('#respondenProdiD3Tlm'), {
         type: 'line',
@@ -371,13 +422,22 @@
 
 
     function download() {
+        // var image = myChart.toBase64Image();
+        // var a = document.createElement('a');
+        // a.href = myChart.toBase64Image();
+        // a.download = 'my_file_name.png';
+
+        // Trigger the download
+        // a.click();
+        // console.log(image);
         const imagelLink = document.createElement('a');
         const canvas = document.getElementById('respondenProdiD3Farmasi');
         imagelLink.download = 'responden_Prodi_D3_Farmasi';
         imagelLink.href = canvas.toDataURL('image/png', 1);
+        imagelLink.click();
 
-        document.write('<img src="' + imagelLink + '">');
-        console.log(imagelLink.href);
+        // document.write('<img src="' + imagelLink + '">');
+        // console.log(imagelLink.href);
     }
 
 
@@ -495,7 +555,8 @@
     $('#tbl_alumni2').DataTable({});
 
     $('select[name="tbl_alumni_length"]').css('width', '100%');
-    $('select[name="tbl_alumni2_length"]').css('width', '100%');
+    $('select[name="tbl_alumni2_length"]').css(
+        'width', '100%');
 
     $('input[type="search"]').css({
         'padding': '0',

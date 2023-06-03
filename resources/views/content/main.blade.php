@@ -4,8 +4,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 mx-auto text-center" data-aos="zoom-in" data-aos-duration="1500">
-                    <div class="hero-img mx-auto mb-3 position-relative">
-                        <img src="images/landing-hero.png" alt="img">
+                    <div class="hero-aimg mx-auto mb-3 position-relative">
+                        <img class="ps-5 pt-4 pe-5 img-fluid" src="images/landing-hero.png" alt="img" width="450">
                     </div>
                 </div>
 
