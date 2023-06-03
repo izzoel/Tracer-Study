@@ -422,22 +422,11 @@
 
 
     function download() {
-        // var image = myChart.toBase64Image();
-        // var a = document.createElement('a');
-        // a.href = myChart.toBase64Image();
-        // a.download = 'my_file_name.png';
-
-        // Trigger the download
-        // a.click();
-        // console.log(image);
         const imagelLink = document.createElement('a');
         const canvas = document.getElementById('respondenProdiD3Farmasi');
         imagelLink.download = 'responden_Prodi_D3_Farmasi';
         imagelLink.href = canvas.toDataURL('image/png', 1);
         imagelLink.click();
-
-        // document.write('<img src="' + imagelLink + '">');
-        // console.log(imagelLink.href);
     }
 
 
