@@ -4,7 +4,7 @@
         <div class="card">
             <div class="card-body">
                 <div style="height:75vh">
-                    <canvas id="myChart"></canvas>
+                    <canvas id="dashboardChart"></canvas>
                 </div>
             </div>
         </div>
@@ -19,7 +19,7 @@
                 <nav>
                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
                         <a class="nav-link active" id="d3-farmasi" data-bs-toggle="tab" data-bs-target="#nav-d3-farmasi"
-                            type="button" role="tab">
+                            type="button" role="tab" value="D3 Farmasi">
                             <span id="tab-title">D3 Farmasi</span>
                         </a>
                         <a class="nav-link" id="d3-tlm" data-bs-toggle="tab" data-bs-target="#nav-d3-tlm" type="button"
@@ -60,62 +60,60 @@
                     <div class="tab-pane fade  show active" id="nav-d3-farmasi" role="tabpanel">
                         <div class="row mt-4">
                             <div class="col responden-line">
-                                <canvas id="respondenProdiD3Farmasi"></canvas>
+                                <canvas id="D3Farmasi"></canvas>
                             </div>
                             <div class="col">
-                                Total Responden D3 Farmasi (per angkatan):
-                                <div id="d3f"></div>
-                                <button href class="btn-sm btn-primary" onclick="download()">.png</button>
+                                <div id="D3FarmasiStat"></div>
                             </div>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="nav-d3-tlm" role="tabpanel">
                         <div class="row mt-4">
                             <div class="col responden-line">
-                                <canvas id="respondenProdiD3Tlm"></canvas>
+                                <canvas id="D3TLM"></canvas>
                             </div>
                             <div class="col">
-                                Total Responden D3 TLM :
+                                <div id="D3TLMStat"></div>
                             </div>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="nav-s1-farmasi" role="tabpanel">
                         <div class="row mt-4">
                             <div class="col responden-line">
-                                <canvas id="respondenProdiS1Farmasi"></canvas>
+                                <canvas id="S1Farmasi"></canvas>
                             </div>
                             <div class="col">
-                                Total Responden S1 Farmasi :
+                                <div id="S1FarmasiStat"></div>
                             </div>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="nav-s1-ars" role="tabpanel">
                         <div class="row mt-4">
                             <div class="col responden-line">
-                                <canvas id="respondenProdiS1Ars"></canvas>
+                                <canvas id="S1ARS"></canvas>
                             </div>
                             <div class="col">
-                                Total Responden S1 ARS :
+                                <div id="S1ARSStat"></div>
                             </div>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="nav-s1-gizi" role="tabpanel">
                         <div class="row mt-4">
                             <div class="col responden-line">
-                                <canvas id="respondenProdiS1Gizi"></canvas>
+                                <canvas id="S1Gizi"></canvas>
                             </div>
                             <div class="col">
-                                Total Responden S1 Gizi :
+                                <div id="S1GiziStat"></div>
                             </div>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="nav-s1-hukum" role="tabpanel">
                         <div class="row mt-4">
                             <div class="col responden-line">
-                                <canvas id="respondenProdiS1Hukum"></canvas>
+                                <canvas id="S1Hukum"></canvas>
                             </div>
                             <div class="col">
-                                Total Responden S1 Hukum :
+                                <div id="S1HukumStat"></div>
                             </div>
                         </div>
                     </div>
@@ -125,27 +123,27 @@
                                 <canvas id="respondenProdiS1Manajemen"></canvas>
                             </div>
                             <div class="col">
-                                Total Responden S1 Manajemen :
+                                <div id="S1ManajemenStat"></div>
                             </div>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="nav-s1-pgsd" role="tabpanel">
                         <div class="row mt-4">
                             <div class="col responden-line">
-                                <canvas id="respondenProdiS1Pgsd"></canvas>
+                                <canvas id="S1PGSD"></canvas>
                             </div>
                             <div class="col">
-                                Total Responden S1 PGSD :
+                                <div id="S1PGSDStat"></div>
                             </div>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="nav-apoteker" role="tabpanel">
                         <div class="row mt-4">
                             <div class="col responden-line">
-                                <canvas id="respondenProdiApoteker"></canvas>
+                                <canvas id="ProfesiApoteker"></canvas>
                             </div>
                             <div class="col">
-                                Total Responden Apoteker :
+                                <div id="ProfesiApotekerStat"></div>
                             </div>
                         </div>
                     </div>
@@ -211,7 +209,7 @@
     <div class="bg-primary p-3">
         <div class="card">
             <div class="card-header bg-white">
-                <div class="">Data Responden Alumni</div>
+                <div class="">Data Responden Alumni Yang Mengisi</div>
             </div>
             <div class="card-body">
                 <div class="row">
@@ -236,10 +234,10 @@
                                         @endfor --}}
                                         <td>{{ $data->nama }}</td>
                                         <td>{{ $data->prodi }}</td>
-                                        <td> {{ $data->kategori }}</td>
-                                        <td> {{ $data->alumni3 }}</td>
-                                        <td> {{ $data->alumni4 }}</td>
-                                        <td> {{ $data->alumni5 }}</td>
+                                        <td>{{ $data->kategori }}</td>
+                                        <td>{{ $data->alumni3 }}</td>
+                                        <td>{{ $data->alumni4 }}</td>
+                                        <td>{{ $data->alumni5 }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>

@@ -62,15 +62,30 @@ class UserAlumniController extends Controller
         return response()->json(UserAlumni::all());
     }
 
-    public function countD3F(UserAlumni $userAlumni)
+    public function statistikProdi(UserAlumni $userAlumni, $prodi)
     {
-        $d3f_2001 = UserAlumni::where('prodi', 'D3 Farmasi')->where('angkatan', '2001')->count();
-        $d3f_2002 = UserAlumni::where('prodi', 'D3 Farmasi')->where('angkatan', '2002')->count();
-        $d3f_2003 = UserAlumni::where('prodi', 'D3 Farmasi')->where('angkatan', '2003')->count();
-        $d3f_2004 = UserAlumni::where('prodi', 'D3 Farmasi')->where('angkatan', '2004')->count();
-        // $d3f_2005 = UserAlumni::where('prodi', 'D3 Farmasi')->where('angkatan', '2005')->count();
-        // return response()->json(count(UserAlumni::where('prodi', 'D3 Farmasi')->get()));
-        return response()->json(['2001' => $d3f_2001, $d3f_2002, $d3f_2003, $d3f_2004]);
+        foreach (UserAlumni::get('angkatan')->unique('angkatan') as $d) {
+            $angkatan[] = $d->angkatan;
+        }
+
+        foreach ($angkatan as $key) {
+            $res[$key] = UserAlumni::where('prodi', $prodi)->where('angkatan', $key)->count();
+        }
+
+        return response()->json($res);
+    }
+    public function statistikAlumni(UserAlumni $userAlumni)
+    {
+
+        foreach (UserAlumni::get('angkatan')->unique('angkatan')->sortBy('angkatan') as $d) {
+            $angkatan[] = $d->angkatan;
+        }
+
+        foreach ($angkatan as $key) {
+            $res[$key] = UserAlumni::where('angkatan', $key)->count();
+        }
+
+        return response()->json($res);
     }
 
     public function import(Request $request)

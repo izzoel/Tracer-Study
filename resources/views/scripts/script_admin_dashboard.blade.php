@@ -1,36 +1,127 @@
 <script>
-    const ctx = document.getElementById('myChart');
+    routeAlumni = "{{ route('statistik_alumni') }}";
+    const labelDate = ['2016', '2017', '2018', '2019', '2020', '2021', ];
 
-    new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['2020', '2021', '2022', '2023'],
-            datasets: [{
-                label: 'Jumlah Responden Alumni',
-                data: [12, 19, 3, 5],
-                borderWidth: 1,
-                order: 0
-            }, {
-                label: 'Jumlah Responden Pengguna Lulusan',
-                data: [10],
-                borderWidth: 1,
-                order: 0
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: {
-                    position: 'top',
-                },
-                title: {
-                    display: true,
-                    text: 'Total Responden Tracer Study'
+    $.get(routeAlumni, function(data) {
+        new Chart(document.getElementById('dashboardChart'), {
+            type: 'bar',
+            data: {
+                labels: labelDate,
+                datasets: [{
+                    label: 'Jumlah Responden Alumni',
+                    data: data,
+                    borderWidth: 1,
+                    order: 0
+                }, {
+                    label: 'Jumlah Responden Pengguna Lulusan',
+                    data: [0],
+                    borderWidth: 1,
+                    order: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Total Responden Tracer Study'
+                    }
                 }
-            }
-        },
+            },
+        });
     });
+
+
+    if ($('.active #tab-title').text() == "D3 Farmasi") {
+        prodi = $('.active #tab-title').text();
+        const labelDate = ['2016', '2017', '2018', '2019', '2020', '2021', ];
+
+        routeProdi = "{{ route('statistik_prodi', '') }}" + "/" + prodi;
+        $.get(routeProdi, function(data) {
+            resp_prodi = '#' + prodi.replace(/\s/g, '');
+
+            $(resp_prodi + 'Stat').html("")
+            var html = '';
+
+            html += 'Total Responden ' + prodi + ' (per angkatan):<br>';
+
+            $.each(data, function(angkatan, val) {
+                html += angkatan + ' = ' + val + ' Responden<br/>';
+            });
+
+            html += '<button href class="btn-sm btn-primary" onclick="download()">.png</button>';
+            $(resp_prodi + 'Stat').append(html);
+
+            new Chart($(resp_prodi), {
+                type: 'line',
+                data: {
+                    labels: labelDate,
+                    datasets: [{
+                        label: '# Responden ' + prodi,
+                        data: data,
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        });
+    }
+
+    $('.nav-link[role="tab"]').on("click", function() {
+        prodi = $('.active #tab-title').text();
+        const labelDate = ['2016', '2017', '2018', '2019', '2020', '2021', ];
+
+        routeProdi = "{{ route('statistik_prodi', '') }}" + "/" + prodi;
+        $.get(routeProdi, function(data) {
+            resp_prodi = '#' + prodi.replace(/\s/g, '');
+
+            $(resp_prodi + 'Stat').html("")
+            var html = '';
+
+            html += 'Total Responden ' + prodi + ' (per angkatan):<br>';
+
+            $.each(data, function(angkatan, val) {
+                html += angkatan + ' = ' + val + ' Responden<br/>';
+            });
+
+            html += '<button href class="btn-sm btn-primary" onclick="download()">.png</button>';
+            $(resp_prodi + 'Stat').append(html);
+
+            new Chart($(resp_prodi), {
+                type: 'line',
+                data: {
+                    labels: labelDate,
+                    datasets: [{
+                        label: '# Responden ' + prodi,
+                        data: data,
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        });
+    });
+
 
 
     new Chart(document.getElementById('diagInfoLowonganFF'), {
@@ -175,249 +266,6 @@
                 }
             }
         },
-    });
-
-
-    const labelDate = ['2001', '2002', '2003', '2004', ];
-    // const labelDate = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agust', 'Sep', 'Okt', 'Nov','Des'];
-
-
-
-    // $.get("{{ route('count_d3f') }}", function(data) {
-    //     $('#d3f').append(data);
-    //     var b = data;
-    // });
-
-    // alert($.getJSON("{{ route('count_d3f') }}"))
-    // console.log($.get("{{ route('count_d3f') }}"), 'json')
-    // alert($('#d3f').text())
-    // console.log(b);
-
-    // alert(mf())
-    // function d3f() {
-    // var retVal;
-    $.get("{{ route('count_d3f') }}", function(data) {
-        // $.each(data, function(key) {
-        //     // console.log(data['2004']);
-        //     //     // id = data[key].id
-        //     //     // nama = data[key].nama;
-        var html = '';
-        // html += '(2001) = ' + '<span class="badge rounded p-1 text-white warna-elemen">' + data[2001] +
-        //     '</span> Responden<br/>';
-        // html += '(2002) = ' + '<span class="badge rounded p-1 text-white warna-elemen">' + data[2002] +
-        //     '</span> Responden<br/>';
-        // html += '(2003) = ' + '<span class="badge rounded p-1 text-white warna-elemen">' + data[2003] +
-        //     '</span> Responden<br/>';
-        // html += '(2004) = ' + '<span class="badge rounded p-1 text-white warna-elemen">' + data[2004] +
-        //     '</span> Responden<br/>';
-        // html += '(2001) = ' + '<span class="badge rounded p-1 text-white warna-elemen">' + data[2001] +
-        //     '</span> Responden<br/>';
-        html += '(2001) = ' + data[2001] + ' Responden<br/>';
-        html += '(2002) = ' + data[2002] + ' Responden<br/>';
-        html += '(2003) = ' + data[2003] + ' Responden<br/>';
-        html += '(2004) = ' + data[2004] + ' Responden<br/>';
-
-
-        // $('#d3f').append(data[2001]+data[2002]);
-        // $('#d3f').append('(2001) = ' + data[2001]);
-        $('#d3f').append(html);
-        // });
-        // alert(data);
-        new Chart($('#respondenProdiD3Farmasi'), {
-            type: 'line',
-            data: {
-                labels: labelDate,
-                datasets: [{
-                    label: '# Responden D3 Farmasi',
-                    data: data,
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-    });
-    // return retVal;
-    // }
-
-
-    // d3f()
-
-
-
-    new Chart($('#respondenProdiD3Tlm'), {
-        type: 'line',
-        data: {
-            labels: labelDate,
-            datasets: [{
-                label: '# Responden D3 TLM',
-                data: [12, 19, 3, 5, 2, 3],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-
-    new Chart($('#respondenProdiS1Farmasi'), {
-        type: 'line',
-        data: {
-            labels: labelDate,
-            datasets: [{
-                label: '# Responden S1 Farmasi',
-                data: [12, 19, 3, 5, 2, 3],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-
-    new Chart($('#respondenProdiS1Ars'), {
-        type: 'line',
-        data: {
-            labels: labelDate,
-            datasets: [{
-                label: '# Responden S1 ARS',
-                data: [12, 19, 3, 5, 2, 3],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-
-    new Chart($('#respondenProdiS1Gizi'), {
-        type: 'line',
-        data: {
-            labels: labelDate,
-            datasets: [{
-                label: '# Responden S1 Gizi',
-                data: [12, 19, 3, 5, 2, 3],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-
-    new Chart($('#respondenProdiS1Hukum'), {
-        type: 'line',
-        data: {
-            labels: labelDate,
-            datasets: [{
-                label: '# Responden S1 Hukum',
-                data: [12, 19, 3, 5, 2, 3],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-
-    new Chart($('#respondenProdiS1Manajemen'), {
-        type: 'line',
-        data: {
-            labels: labelDate,
-            datasets: [{
-                label: '# Responden S1 Manajemen',
-                data: [12, 19, 3, 5, 2, 3],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-
-    new Chart($('#respondenProdiS1Pgsd'), {
-        type: 'line',
-        data: {
-            labels: labelDate,
-            datasets: [{
-                label: '# Responden S1 PGSD',
-                data: [12, 19, 3, 5, 2, 3],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-
-    new Chart($('#respondenProdiApoteker'), {
-        type: 'line',
-        data: {
-            labels: labelDate,
-            datasets: [{
-                label: '# Responden Apoteker',
-                data: [12, 19, 3, 5, 2, 3],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
     });
 
 
