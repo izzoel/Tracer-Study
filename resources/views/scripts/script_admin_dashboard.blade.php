@@ -47,10 +47,10 @@
             $(resp_prodi + 'Stat').html("")
             var html = '';
 
-            html += 'Total Responden ' + prodi + ' (per angkatan):<br>';
+            html += 'Total Alumni ' + prodi + ' (per angkatan):<br>';
 
             $.each(data, function(angkatan, val) {
-                html += angkatan + ' = ' + val + ' Responden<br/>';
+                html += angkatan + ' = ' + val + ' Alumni<br/>';
             });
 
             html += '<button href class="btn-sm btn-primary" onclick="download()">.png</button>';
@@ -61,7 +61,7 @@
                 data: {
                     labels: labelDate,
                     datasets: [{
-                        label: '# Responden ' + prodi,
+                        label: '# Alumni ' + prodi,
                         data: data,
                         borderWidth: 1
                     }]
@@ -90,10 +90,10 @@
             $(resp_prodi + 'Stat').html("")
             var html = '';
 
-            html += 'Total Responden ' + prodi + ' (per angkatan):<br>';
+            html += 'Total Alumni ' + prodi + ' (per angkatan):<br>';
 
             $.each(data, function(angkatan, val) {
-                html += angkatan + ' = ' + val + ' Responden<br/>';
+                html += angkatan + ' = ' + val + ' Alumni<br/>';
             });
 
             html += '<button href class="btn-sm btn-primary" onclick="download()">.png</button>';
@@ -104,7 +104,7 @@
                 data: {
                     labels: labelDate,
                     datasets: [{
-                        label: '# Responden ' + prodi,
+                        label: '# Alumni ' + prodi,
                         data: data,
                         borderWidth: 1
                     }]

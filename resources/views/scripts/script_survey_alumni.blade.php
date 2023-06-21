@@ -71,11 +71,8 @@
                             i_++;
                         }
                     } else if (kategori == "Lanjut Pendidikan") {
-                        if (id >= 1 && id <= 16) {
+                        if (id >= 1 && id <= 12) {
                             name = "alumni" + i;
-                        } else if (id >= 17 && id <= 18) {
-                            no_ = parseInt(i) + 1;
-                            name = "alumni" + no_;
                         } else {
                             name = "lanjut_pendidikan" + i_;
                             i_++;

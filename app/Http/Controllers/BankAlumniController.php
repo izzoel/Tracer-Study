@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\BankAlumni;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class BankAlumniController extends Controller
 {
@@ -34,7 +33,7 @@ class BankAlumniController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, BankAlumni $bankAlumni)
     {
         $data = $request->except('_token');
 
@@ -42,7 +41,7 @@ class BankAlumniController extends Controller
             $data[$key] = is_array($value) ? implode(",", $value) : $value;
         }
         // dd($data);
-        DB::table('bank_alumnis')->insert([
+        $bankAlumni->insert([
             $data
         ]);
 

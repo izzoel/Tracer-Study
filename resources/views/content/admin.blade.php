@@ -13,7 +13,7 @@
     <div class="bg-primary p-3">
         <div class="card">
             <div class="card-header bg-white">
-                <div class="">Diagram Responden Alumni - Prodi</div>
+                <div class="">Diagram Alumni - Prodi</div>
             </div>
             <div class="card-body">
                 <nav>
