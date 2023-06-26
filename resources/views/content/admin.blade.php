@@ -10,6 +10,8 @@
         </div>
     </div>
 
+
+    {{-- 
     <div class="bg-primary p-3">
         <div class="card">
             <div class="card-header bg-white">
@@ -151,32 +153,200 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
 
 
     <div class="bg-primary p-3">
         <div class="card">
             <div class="card-header bg-white">
-                <div class="">Diagram informasi lowongan pekerjaan</div>
+                <div class="">Diagram Informasi Alumni</div>
             </div>
             <div class="card-body">
-                <div class="row">
-                    <div class="col mb-5">
-                        <canvas id="diagInfoLowonganFF"></canvas>
+                <nav>
+                    <div class="nav nav-tabs" role="tablist">
+                        <a class="nav-link active" id="FF" data-bs-toggle="tab" data-bs-target="#info-FF"
+                            type="button" role="tab">
+                            <span id="tab-title-FF">Fakultas Farmasi</span>
+                        </a>
+                        <a class="nav-link" id="FIKST" data-bs-toggle="tab" data-bs-target="#info-FIKST" type="button"
+                            role="tab">
+                            <span id="tab-title-FIKST">Fakultas Ilmu Kesehatan Dan Sains Teknologi</span>
+                        </a>
+                        <a class="nav-link" id="FISH" data-bs-toggle="tab" data-bs-target="#info-FISH" type="button"
+                            role="tab">
+                            <span id="tab-title-FISH">Fakultas Ilmu Sosial Dan Humaniora</span>
+                        </a>
                     </div>
-                    <div class="col mb-5">
-                        <canvas id="diagInfoLowonganSaintek"></canvas>
+                </nav>
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="info-FF" role="tabpanel">
+                        <div class="row mt-4">
+                            <nav>
+                                <div class="nav nav-tabs" role="tablist">
+                                    <a class="sub-nav nav-link active" id="d3-farmasi" data-bs-toggle="tab"
+                                        data-bs-target="#statistik-d3-farmasi" type="button" role="tab"
+                                        value="D3 Farmasi">
+                                        <span id="tab-title">D3 Farmasi</span>
+                                    </a>
+                                    <a class="sub-nav nav-link" id="s1-farmasi" data-bs-toggle="tab"
+                                        data-bs-target="#statistik-s1-farmasi" type="button" role="tab"
+                                        value="S1 Farmasi">
+                                        <span id="tab-title">S1 Farmasi</span>
+                                    </a>
+                                    <a class="sub-nav nav-link" id="profesi-apoteker" data-bs-toggle="tab"
+                                        data-bs-target="#statistik-profesi-apoteker" type="button" role="tab"
+                                        value="Profesi Apoteker">
+                                        <span id="tab-title">Profesi Apoteker</span>
+                                    </a>
+                                </div>
+                            </nav>
+                            <div class="tab-content" id="nav-tabContent">
+                                <div class="tab-pane fade show active" id="statistik-d3-farmasi" role="tabpanel">
+                                    <div class="row mt-4 mb-5">
+                                        <div class="col" style="height: 300px">
+                                            <canvas id="D3Farmasi"></canvas>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-5 d-flex justify-content-center"">
+                                        <div class="col-auto">
+                                            <canvas id="kegiatanSetelahLulus"></canvas>
+                                        </div>
+                                        <div class="col-auto">
+                                            <canvas id="D3tempatKerja"></canvas>
+                                        </div>
+                                        <div class="col-auto">
+                                            <canvas id="D3informasiLowonganPekerjaan"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="tab-pane fade" id="statistik-s1-farmasi" role="tabpanel">
+                                    <div class="row mt-4 mb-5">
+                                        <div class="col" style="height: 300px">
+                                            <canvas id="S1Farmasi"></canvas>
+                                            {{-- s1 farmasi --}}
+                                        </div>
+                                    </div>
+                                    <div class="row mt-5 d-flex justify-content-center"">
+                                        {{-- <div class="col-auto">
+                                            <canvas id="kegiatanSetelahLulus"></canvas>
+                                        </div>
+                                        <div class="col-auto">
+                                            <canvas id="tempatKerja"></canvas>
+                                        </div>
+                                        <div class="col-auto">
+                                            <canvas id="informasiLowonganPekerjaan"></canvas>
+                                        </div> --}}
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="statistik-profesi-apoteker" role="tabpanel">
+                                    <div class="row mt-4 mb-5">
+                                        <div class="col" style="height: 300px">
+                                            <canvas id="ProfesiApoteker"></canvas>
+                                            {{-- s1 farmasi --}}
+                                        </div>
+                                    </div>
+                                    <div class="row mt-5 d-flex justify-content-center"">
+                                        {{-- <div class="col-auto">
+                                            <canvas id="kegiatanSetelahLulus"></canvas>
+                                        </div>
+                                        <div class="col-auto">
+                                            <canvas id="tempatKerja"></canvas>
+                                        </div>
+                                        <div class="col-auto">
+                                            <canvas id="informasiLowonganPekerjaan"></canvas>
+                                        </div> --}}
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
-                    <div class="col mb-5">
-                        <canvas id="diagInfoLowonganFISH"></canvas>
+                    <div class="tab-pane fade" id="info-FIKST" role="tabpanel">
+                        <div class="row mt-4">
+                            asdsadsd
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="info-FISH" role="tabpanel">
+                        <div class="row mt-4">
+                            asdsadsdfish
+                        </div>
                     </div>
                 </div>
+
+                <div class="row mt-4 pt-5">
+                    <div class="col-4">
+                        <div class="card">
+                            <div class="card-header bg-white">
+                                <div class="">Diagram Masa Tunggu Dapat Pekerjaan</div>
+                            </div>
+                            <div class="card-body">
+                                <div class="" style="height:55vh">
+                                    <canvas id="diagMasaTunggu"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card">
+                            <div class="card-header bg-white">
+                                <div class="">Diagram Relevansi Pekerjaan</div>
+                            </div>
+                            <div class="card-body">
+                                <div class="" style="height:55vh">
+                                    <canvas id="diagRelevansiPekerjaan"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card">
+                            <div class="card-header bg-white">
+                                <div class="">Diagram Kegiatan Yang Belum Bekerja</div>
+                            </div>
+                            <div class="card-body">
+                                <div class="" style="height:55vh">
+                                    <canvas id="kegiatanYangBelumBekerja"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{-- 
+                <div class="row mt-4 pt-5">
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-header bg-white">
+                                <div class="">Diagram Kegiatan Yang Belum Bekerja</div>
+                            </div>
+                            <div class="card-body">
+                                <div class="" style="height:55vh">
+                                    <canvas id="kegiatanYangBelumBekerja"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-header bg-white">
+                                <div class="">Diagram Relevansi Pekerjaan</div>
+                            </div>
+                            <div class="card-body">
+                                <div class="" style="height:55vh">
+                                    <canvas id="diagRelevansiPekerjaan"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> --}}
+
             </div>
         </div>
     </div>
 
-
+    {{-- 
     <div class="bg-primary p-3">
         <div class="row">
             <div class="col">
@@ -194,7 +364,7 @@
             <div class="col">
                 <div class="card">
                     <div class="card-header bg-white">
-                        <div class="">Diagram masa tunggu dapat pekerjaan</div>
+                        <div class="">Diagram Relevansi Pekerjaan</div>
                     </div>
                     <div class="card-body">
                         <div class="" style="height:55vh">
@@ -204,7 +374,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <div class="bg-primary p-3">
         <div class="card">

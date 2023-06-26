@@ -6,6 +6,8 @@ use App\Http\Controllers\SurveyAlumniController;
 use App\Http\Controllers\SurveyLulusanController;
 use App\Http\Controllers\UserAlumniController;
 
+use App\Http\Controllers\StatistikController;
+
 use App\Http\Controllers\BankAlumniController;
 use App\Http\Controllers\BankLulusanController;
 
@@ -94,7 +96,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/admin/user_alumni/update/{id}', [UserAlumniController::class, 'update'])->name('update_user_alumni');
     Route::get('/admin/user_alumni/destroy/{id}', [UserAlumniController::class, 'destroy'])->name('destroy_user_alumni');
 
-    Route::get('/admin/statistik/{prodi}', [UserAlumniController::class, 'statistikProdi'])->name('statistik_prodi');
+    Route::get('/admin/statistik/{prodi}', [StatistikController::class, 'statistikProdi'])->name('statistik_prodi');
     Route::get('/admin/statistik_alumni', [UserAlumniController::class, 'statistikAlumni'])->name('statistik_alumni');
     // Route::get('/admin/statistik', [UserAlumniController::class, 'countD3F'])->name('statistik_prodi');
 
