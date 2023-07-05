@@ -8,8 +8,8 @@
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">Alumni</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.
+                    <p class="card-text">Form pengisian survey untuk <b style="color: #FF5733;">Alumni</b> yang terdaftar di
+                        Universitas Borneo Lestari.
                     </p>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end" data-bs-toggle="modal"
                         data-bs-target="#alumniModal">
@@ -28,8 +28,8 @@
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">Pengguna Lulusan</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.
+                    <p class="card-text">Form pengisian survey untuk <b style="color: #FF5733;">Pengguna Lulusan</b> Alumni
+                        Universitas Borneo Lestari.
                     </p>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                         <a href="{{ route('lulusan') }}"

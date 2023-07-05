@@ -209,14 +209,45 @@
                                         </div>
                                     </div>
                                     <div class="row mt-5 d-flex justify-content-center"">
-                                        <div class="col-auto">
-                                            <canvas id="kegiatanSetelahLulus"></canvas>
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div class="">Kegiatan Setelah Lulus (Kategori?) ALL</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="" style="height:55vh">
+                                                        <canvas id="kegiatanSetelahLulus"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                         </div>
-                                        <div class="col-auto">
-                                            <canvas id="D3tempatKerja"></canvas>
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div class="">Diagram Masa Tunggu Dapat Pekerjaan</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="" style="height:55vh">
+                                                        <canvas id="tempatKerja"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                         </div>
-                                        <div class="col-auto">
-                                            <canvas id="D3informasiLowonganPekerjaan"></canvas>
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div class="">Diagram Masa Tunggu Dapat Pekerjaan</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="" style="height:55vh">
+                                                        <canvas id="informasiLowonganPekerjaan"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
                                         </div>
                                     </div>
                                 </div>
@@ -284,7 +315,7 @@
                             </div>
                             <div class="card-body">
                                 <div class="" style="height:55vh">
-                                    <canvas id="diagMasaTunggu"></canvas>
+                                    <canvas id="masaTungguDapatPekerjaan"></canvas>
                                 </div>
                             </div>
                         </div>
@@ -296,7 +327,7 @@
                             </div>
                             <div class="card-body">
                                 <div class="" style="height:55vh">
-                                    <canvas id="diagRelevansiPekerjaan"></canvas>
+                                    <canvas id="relevansiPekerjaan"></canvas>
                                 </div>
                             </div>
                         </div>
