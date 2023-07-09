@@ -10,153 +10,6 @@
         </div>
     </div>
 
-
-    {{-- 
-    <div class="bg-primary p-3">
-        <div class="card">
-            <div class="card-header bg-white">
-                <div class="">Diagram Alumni - Prodi</div>
-            </div>
-            <div class="card-body">
-                <nav>
-                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                        <a class="nav-link active" id="d3-farmasi" data-bs-toggle="tab" data-bs-target="#nav-d3-farmasi"
-                            type="button" role="tab" value="D3 Farmasi">
-                            <span id="tab-title">D3 Farmasi</span>
-                        </a>
-                        <a class="nav-link" id="d3-tlm" data-bs-toggle="tab" data-bs-target="#nav-d3-tlm" type="button"
-                            role="tab">
-                            <span id="tab-title">D3 TLM</span>
-                        </a>
-                        <a class="nav-link" id="s1-farmasi" data-bs-toggle="tab" data-bs-target="#nav-s1-farmasi"
-                            type="button" role="tab">
-                            <span id="tab-title">S1 Farmasi</span>
-                        </a>
-                        <a class="nav-link" id="s1-ars" data-bs-toggle="tab" data-bs-target="#nav-s1-ars" type="button"
-                            role="tab">
-                            <span id="tab-title">S1 ARS</span>
-                        </a>
-                        <a class="nav-link" id="s1-gizi" data-bs-toggle="tab" data-bs-target="#nav-s1-gizi" type="button"
-                            role="tab">
-                            <span id="tab-title">S1 Gizi</span>
-                        </a>
-                        <a class="nav-link" id="s1-hukum" data-bs-toggle="tab" data-bs-target="#nav-s1-hukum"
-                            type="button" role="tab">
-                            <span id="tab-title">S1 Hukum</span>
-                        </a>
-                        <a class="nav-link" id="s1-manajemen" data-bs-toggle="tab" data-bs-target="#nav-s1-manajemen"
-                            type="button" role="tab">
-                            <span id="tab-title">S1 Manajemen</span>
-                        </a>
-                        <a class="nav-link" id="s1-pgsd" data-bs-toggle="tab" data-bs-target="#nav-s1-pgsd" type="button"
-                            role="tab">
-                            <span id="tab-title">S1 PGSD</span>
-                        </a>
-                        <a class="nav-link" id="apoteker" data-bs-toggle="tab" data-bs-target="#nav-apoteker"
-                            type="button" role="tab">
-                            <span id="tab-title">Profesi Apoteker</span>
-                        </a>
-                    </div>
-                </nav>
-                <div class="tab-content" id="nav-tabContent">
-                    <div class="tab-pane fade  show active" id="nav-d3-farmasi" role="tabpanel">
-                        <div class="row mt-4">
-                            <div class="col responden-line">
-                                <canvas id="D3Farmasi"></canvas>
-                            </div>
-                            <div class="col">
-                                <div id="D3FarmasiStat"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="nav-d3-tlm" role="tabpanel">
-                        <div class="row mt-4">
-                            <div class="col responden-line">
-                                <canvas id="D3TLM"></canvas>
-                            </div>
-                            <div class="col">
-                                <div id="D3TLMStat"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="nav-s1-farmasi" role="tabpanel">
-                        <div class="row mt-4">
-                            <div class="col responden-line">
-                                <canvas id="S1Farmasi"></canvas>
-                            </div>
-                            <div class="col">
-                                <div id="S1FarmasiStat"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="nav-s1-ars" role="tabpanel">
-                        <div class="row mt-4">
-                            <div class="col responden-line">
-                                <canvas id="S1ARS"></canvas>
-                            </div>
-                            <div class="col">
-                                <div id="S1ARSStat"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="nav-s1-gizi" role="tabpanel">
-                        <div class="row mt-4">
-                            <div class="col responden-line">
-                                <canvas id="S1Gizi"></canvas>
-                            </div>
-                            <div class="col">
-                                <div id="S1GiziStat"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="nav-s1-hukum" role="tabpanel">
-                        <div class="row mt-4">
-                            <div class="col responden-line">
-                                <canvas id="S1Hukum"></canvas>
-                            </div>
-                            <div class="col">
-                                <div id="S1HukumStat"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="nav-s1-manajemen" role="tabpanel">
-                        <div class="row mt-4">
-                            <div class="col responden-line">
-                                <canvas id="respondenProdiS1Manajemen"></canvas>
-                            </div>
-                            <div class="col">
-                                <div id="S1ManajemenStat"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="nav-s1-pgsd" role="tabpanel">
-                        <div class="row mt-4">
-                            <div class="col responden-line">
-                                <canvas id="S1PGSD"></canvas>
-                            </div>
-                            <div class="col">
-                                <div id="S1PGSDStat"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="nav-apoteker" role="tabpanel">
-                        <div class="row mt-4">
-                            <div class="col responden-line">
-                                <canvas id="ProfesiApoteker"></canvas>
-                            </div>
-                            <div class="col">
-                                <div id="ProfesiApotekerStat"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div> --}}
-
-
-
     <div class="bg-primary p-3">
         <div class="card">
             <div class="card-header bg-white">
@@ -165,17 +18,17 @@
             <div class="card-body">
                 <nav>
                     <div class="nav nav-tabs" role="tablist">
-                        <a class="nav-link active" id="FF" data-bs-toggle="tab" data-bs-target="#info-FF"
+                        <a class="main-nav nav-link active" id="FF" data-bs-toggle="tab" data-bs-target="#info-FF"
                             type="button" role="tab">
-                            <span id="tab-title-FF">Fakultas Farmasi</span>
+                            <span id="tab-title-fakultas">Fakultas Farmasi</span>
                         </a>
-                        <a class="nav-link" id="FIKST" data-bs-toggle="tab" data-bs-target="#info-FIKST" type="button"
-                            role="tab">
-                            <span id="tab-title-FIKST">Fakultas Ilmu Kesehatan Dan Sains Teknologi</span>
+                        <a class="main-nav nav-link" id="FIKST" data-bs-toggle="tab" data-bs-target="#info-FIKST"
+                            type="button" role="tab">
+                            <span id="tab-title-fakultas">Fakultas Ilmu Kesehatan Dan Sains Teknologi</span>
                         </a>
-                        <a class="nav-link" id="FISH" data-bs-toggle="tab" data-bs-target="#info-FISH" type="button"
-                            role="tab">
-                            <span id="tab-title-FISH">Fakultas Ilmu Sosial Dan Humaniora</span>
+                        <a class="main-nav nav-link" id="FISH" data-bs-toggle="tab" data-bs-target="#info-FISH"
+                            type="button" role="tab">
+                            <span id="tab-title-fakultas">Fakultas Ilmu Sosial Dan Humaniora</span>
                         </a>
                     </div>
                 </nav>
@@ -225,7 +78,7 @@
                                         <div class="col-4">
                                             <div class="card">
                                                 <div class="card-header bg-white">
-                                                    <div class="">Diagram Masa Tunggu Dapat Pekerjaan</div>
+                                                    <div class="">Tempat Kerja</div>
                                                 </div>
                                                 <div class="card-body">
                                                     <div class="" style="height:55vh">
@@ -251,44 +104,97 @@
                                         </div>
                                     </div>
                                 </div>
-
-
                                 <div class="tab-pane fade" id="statistik-s1-farmasi" role="tabpanel">
                                     <div class="row mt-4 mb-5">
                                         <div class="col" style="height: 300px">
                                             <canvas id="S1Farmasi"></canvas>
-                                            {{-- s1 farmasi --}}
                                         </div>
                                     </div>
                                     <div class="row mt-5 d-flex justify-content-center"">
-                                        {{-- <div class="col-auto">
-                                            <canvas id="kegiatanSetelahLulus"></canvas>
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div class="">Kegiatan Setelah Lulus (Kategori?) ALL</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="" style="height:55vh">
+                                                        <canvas id="kegiatanSetelahLulusS1Farmasi"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                         </div>
-                                        <div class="col-auto">
-                                            <canvas id="tempatKerja"></canvas>
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div class="">Tempat Kerja</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="" style="height:55vh">
+                                                        <canvas id="tempatKerjaS1Farmasi"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                         </div>
-                                        <div class="col-auto">
-                                            <canvas id="informasiLowonganPekerjaan"></canvas>
-                                        </div> --}}
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div class="">Diagram Masa Tunggu Dapat Pekerjaan</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="" style="height:55vh">
+                                                        <canvas id="informasiLowonganPekerjaanS1Farmasi"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="tab-pane fade" id="statistik-profesi-apoteker" role="tabpanel">
                                     <div class="row mt-4 mb-5">
                                         <div class="col" style="height: 300px">
                                             <canvas id="ProfesiApoteker"></canvas>
-                                            {{-- s1 farmasi --}}
                                         </div>
                                     </div>
                                     <div class="row mt-5 d-flex justify-content-center"">
-                                        {{-- <div class="col-auto">
-                                            <canvas id="kegiatanSetelahLulus"></canvas>
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div class="">Kegiatan Setelah Lulus (Kategori?) ALL</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="" style="height:55vh">
+                                                        <canvas id="kegiatanSetelahLulusProfesiApoteker"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="col-auto">
-                                            <canvas id="tempatKerja"></canvas>
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div class="">Tempat Kerja</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="" style="height:55vh">
+                                                        <canvas id="tempatKerjaProfesiApoteker"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                         </div>
-                                        <div class="col-auto">
-                                            <canvas id="informasiLowonganPekerjaan"></canvas>
-                                        </div> --}}
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div class="">Diagram Masa Tunggu Dapat Pekerjaan</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="" style="height:55vh">
+                                                        <canvas id="informasiLowonganPekerjaanProfesiApoteker"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -297,87 +203,376 @@
                     </div>
                     <div class="tab-pane fade" id="info-FIKST" role="tabpanel">
                         <div class="row mt-4">
-                            asdsadsd
+                            <nav>
+                                <div class="nav nav-tabs" role="tablist">
+                                    <a class="sub-nav nav-link" id="d3-tlm" data-bs-toggle="tab"
+                                        data-bs-target="#statistik-d3-tlm" type="button" role="tab" value="D3 TLM">
+                                        <span id="tab-title">D3 TLM</span>
+                                    </a>
+                                    <a class="sub-nav nav-link" id="s1-tlm" data-bs-toggle="tab"
+                                        data-bs-target="#statistik-s1-ars" type="button" role="tab" value="S1 ARS">
+                                        <span id="tab-title">S1 ARS</span>
+                                    </a>
+                                    <a class="sub-nav nav-link" id="s1-gizi" data-bs-toggle="tab"
+                                        data-bs-target="#statistik-s1-gizi" type="button" role="tab"
+                                        value="S1 Gizi">
+                                        <span id="tab-title">S1 Gizi</span>
+                                    </a>
+                                </div>
+                            </nav>
+                            <div class="tab-content" id="nav-tabContent">
+                                <div class="tab-pane fade show" id="statistik-d3-tlm" role="tabpanel">
+                                    <div class="row mt-4 mb-5">
+                                        <div class="col" style="height: 300px">
+                                            <canvas id="D3TLM"></canvas>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-5 d-flex justify-content-center"">
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div class="">Kegiatan Setelah Lulus (Kategori?) ALL</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="" style="height:55vh">
+                                                        <canvas id="kegiatanSetelahLulusD3TLM"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div class="">Tempat Kerja</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="" style="height:55vh">
+                                                        <canvas id="tempatKerjaD3TLM"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div class="">Diagram Masa Tunggu Dapat Pekerjaan</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="" style="height:55vh">
+                                                        <canvas id="informasiLowonganPekerjaanD3TLM"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade show" id="statistik-s1-ars" role="tabpanel">
+                                    <div class="row mt-4 mb-5">
+                                        <div class="col" style="height: 300px">
+                                            <canvas id="S1ARS"></canvas>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-5 d-flex justify-content-center"">
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div class="">Kegiatan Setelah Lulus (Kategori?) ALL</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="" style="height:55vh">
+                                                        <canvas id="kegiatanSetelahLulusD3TLM"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div class="">Tempat Kerja</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="" style="height:55vh">
+                                                        <canvas id="tempatKerjaD3TLM"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div class="">Diagram Masa Tunggu Dapat Pekerjaan</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="" style="height:55vh">
+                                                        <canvas id="informasiLowonganPekerjaanTLM"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade show" id="statistik-s1-gizi" role="tabpanel">
+                                    <div class="row mt-4 mb-5">
+                                        <div class="col" style="height: 300px">
+                                            <canvas id="S1Gizi"></canvas>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-5 d-flex justify-content-center"">
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div class="">Kegiatan Setelah Lulus (Kategori?) ALL</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="" style="height:55vh">
+                                                        <canvas id="kegiatanSetelahLulusTLM"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div class="">Tempat Kerja</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="" style="height:55vh">
+                                                        <canvas id="tempatKerjaTLM"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div class="">Diagram Masa Tunggu Dapat Pekerjaan</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="" style="height:55vh">
+                                                        <canvas id="informasiLowonganPekerjaanTLM"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="info-FISH" role="tabpanel">
                         <div class="row mt-4">
-                            asdsadsdfish
-                        </div>
-                    </div>
-                </div>
+                            <nav>
+                                <div class="nav nav-tabs" role="tablist">
+                                    <a class="sub-nav nav-link" id="s1-hukum" data-bs-toggle="tab"
+                                        data-bs-target="#statistik-s1-hukum" type="button" role="tab"
+                                        value="S1 Hukum">
+                                        <span id="tab-title">S1 Hukum</span>
+                                    </a>
+                                    <a class="sub-nav nav-link" id="s1-manajemen" data-bs-toggle="tab"
+                                        data-bs-target="#statistik-s1-manajemen" type="button" role="tab"
+                                        value="S1 Manajemen">
+                                        <span id="tab-title">S1 Manajemen</span>
+                                    </a>
+                                    <a class="sub-nav nav-link" id="s1-pgsd" data-bs-toggle="tab"
+                                        data-bs-target="#statistik-s1-pgsd" type="button" role="tab"
+                                        value="S1 PGSD">
+                                        <span id="tab-title">S1 PGSD</span>
+                                    </a>
+                                </div>
+                            </nav>
+                            <div class="tab-content" id="nav-tabContent">
+                                <div class="tab-pane fade show" id="statistik-s1-hukum" role="tabpanel">
+                                    <div class="row mt-4 mb-5">
+                                        <div class="col" style="height: 300px">
+                                            <canvas id="S1Hukum"></canvas>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-5 d-flex justify-content-center"">
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div class="">Kegiatan Setelah Lulus (Kategori?) ALL</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="" style="height:55vh">
+                                                        <canvas id="kegiatanSetelahLulus"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
 
-                <div class="row mt-4 pt-5">
-                    <div class="col-4">
-                        <div class="card">
-                            <div class="card-header bg-white">
-                                <div class="">Diagram Masa Tunggu Dapat Pekerjaan</div>
-                            </div>
-                            <div class="card-body">
-                                <div class="" style="height:55vh">
-                                    <canvas id="masaTungguDapatPekerjaan"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="card">
-                            <div class="card-header bg-white">
-                                <div class="">Diagram Relevansi Pekerjaan</div>
-                            </div>
-                            <div class="card-body">
-                                <div class="" style="height:55vh">
-                                    <canvas id="relevansiPekerjaan"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="card">
-                            <div class="card-header bg-white">
-                                <div class="">Diagram Kegiatan Yang Belum Bekerja</div>
-                            </div>
-                            <div class="card-body">
-                                <div class="" style="height:55vh">
-                                    <canvas id="kegiatanYangBelumBekerja"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {{-- 
-                <div class="row mt-4 pt-5">
-                    <div class="col">
-                        <div class="card">
-                            <div class="card-header bg-white">
-                                <div class="">Diagram Kegiatan Yang Belum Bekerja</div>
-                            </div>
-                            <div class="card-body">
-                                <div class="" style="height:55vh">
-                                    <canvas id="kegiatanYangBelumBekerja"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card">
-                            <div class="card-header bg-white">
-                                <div class="">Diagram Relevansi Pekerjaan</div>
-                            </div>
-                            <div class="card-body">
-                                <div class="" style="height:55vh">
-                                    <canvas id="diagRelevansiPekerjaan"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> --}}
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div class="">Tempat Kerja</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="" style="height:55vh">
+                                                        <canvas id="tempatKerja"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
 
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div class="">Diagram Masa Tunggu Dapat Pekerjaan</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="" style="height:55vh">
+                                                        <canvas id="informasiLowonganPekerjaan"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade show" id="statistik-s1-manajemen" role="tabpanel">
+                                    <div class="row mt-4 mb-5">
+                                        <div class="col" style="height: 300px">
+                                            <canvas id="S1Manajemen"></canvas>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-5 d-flex justify-content-center"">
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div class="">Kegiatan Setelah Lulus (Kategori?) ALL</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="" style="height:55vh">
+                                                        <canvas id="kegiatanSetelahLulus"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div class="">Tempat Kerja</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="" style="height:55vh">
+                                                        <canvas id="tempatKerja"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div class="">Diagram Masa Tunggu Dapat Pekerjaan</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="" style="height:55vh">
+                                                        <canvas id="informasiLowonganPekerjaan"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade show" id="statistik-s1-pgsd" role="tabpanel">
+                                    <div class="row mt-4 mb-5">
+                                        <div class="col" style="height: 300px">
+                                            <canvas id="S1PGSD"></canvas>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-5 d-flex justify-content-center"">
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div class="">Kegiatan Setelah Lulus (Kategori?) ALL</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="" style="height:55vh">
+                                                        <canvas id="kegiatanSetelahLulus"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div class="">Tempat Kerja</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="" style="height:55vh">
+                                                        <canvas id="tempatKerja"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div class="">Diagram Masa Tunggu Dapat Pekerjaan</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="" style="height:55vh">
+                                                        <canvas id="informasiLowonganPekerjaan"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mt-4 pt-5">
+                        <div class="col-4">
+                            <div class="card">
+                                <div class="card-header bg-white">
+                                    <div class="">Diagram Masa Tunggu Dapat Pekerjaan</div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="" style="height:55vh">
+                                        <canvas id="masaTungguDapatPekerjaan"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="card">
+                                <div class="card-header bg-white">
+                                    <div class="">Diagram Relevansi Pekerjaan</div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="" style="height:55vh">
+                                        <canvas id="relevansiPekerjaan"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="card">
+                                <div class="card-header bg-white">
+                                    <div class="">Diagram Kegiatan Yang Belum Bekerja</div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="" style="height:55vh">
+                                        <canvas id="kegiatanYangBelumBekerja"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
-    </div>
 
-    {{-- 
+        {{-- 
     <div class="bg-primary p-3">
         <div class="row">
             <div class="col">
@@ -407,49 +602,49 @@
         </div>
     </div> --}}
 
-    <div class="bg-primary p-3">
-        <div class="card">
-            <div class="card-header bg-white">
-                <div class="">Data Responden Alumni Yang Mengisi</div>
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col">
-                        <table class="table table-sm table-striped table-hover table-bordered p-0" style="width: 100%"
-                            id="tbl_alumni">
-                            <thead border="1">
-                                <tr class="p-0">
-                                    <th>Nama</th>
-                                    <th>Prodi</th>
-                                    <th>Kategori</th>
-                                    <th>Jenis Kelamin</th>
-                                    <th>Kontak</th>
-                                    <th>Email</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($data_alumni as $data)
-                                    <tr>
-                                        {{-- @for ($i = 1; $i < $loop->count + 1; $i++)
+        <div class="bg-primary p-3">
+            <div class="card">
+                <div class="card-header bg-white">
+                    <div class="">Data Responden Alumni Yang Mengisi</div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            <table class="table table-sm table-striped table-hover table-bordered p-0" style="width: 100%"
+                                id="tbl_alumni">
+                                <thead border="1">
+                                    <tr class="p-0">
+                                        <th>Nama</th>
+                                        <th>Prodi</th>
+                                        <th>Kategori</th>
+                                        <th>Jenis Kelamin</th>
+                                        <th>Kontak</th>
+                                        <th>Email</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($data_alumni as $data)
+                                        <tr>
+                                            {{-- @for ($i = 1; $i < $loop->count + 1; $i++)
                                             <td class="p-1">{{ $data['bank' . $i] }}</td>
                                         @endfor --}}
-                                        <td>{{ $data->nama }}</td>
-                                        <td>{{ $data->prodi }}</td>
-                                        <td>{{ $data->kategori }}</td>
-                                        <td>{{ $data->alumni3 }}</td>
-                                        <td>{{ $data->alumni4 }}</td>
-                                        <td>{{ $data->alumni5 }}</td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+                                            <td>{{ $data->nama }}</td>
+                                            <td>{{ $data->prodi }}</td>
+                                            <td>{{ $data->kategori }}</td>
+                                            <td>{{ $data->alumni3 }}</td>
+                                            <td>{{ $data->alumni4 }}</td>
+                                            <td>{{ $data->alumni5 }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    {{-- <div class="bg-primary p-3">
+        {{-- <div class="bg-primary p-3">
         <div class="card">
             <div class="card-header bg-white">
                 <div class="">Data Responden Alumni</div>
@@ -481,8 +676,8 @@
                 </div>
             </div>  --}}
 
-    {{-- </div> --}}
-    {{-- 
+        {{-- </div> --}}
+        {{-- 
     <div class="bg-primary p-3">
         <div class="card">
             <div class="card-header bg-white">
@@ -553,6 +748,6 @@
                 </div>
             </div> --}}
 
-    {{-- </div> --}}
-    {{-- </div> --}}
-@endsection
+        {{-- </div> --}}
+        {{-- </div> --}}
+    @endsection

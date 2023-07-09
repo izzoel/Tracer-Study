@@ -97,7 +97,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/admin/user_alumni/destroy/{id}', [UserAlumniController::class, 'destroy'])->name('destroy_user_alumni');
 
     Route::get('/admin/statistik/{prodi}', [StatistikController::class, 'statistikProdi'])->name('statistik_prodi');
-    Route::get('/admin/diagram/{kategori}', [StatistikController::class, 'diagram'])->name('diagram');
+    Route::get('/admin/diagram/{kategori}/{prodi?}', [StatistikController::class, 'diagram'])->name('diagram');
+    // Route::get('/admin/diagram/kategori/{prodi}', [StatistikController::class, 'diagram'])->name('diagram');
     // Route::get('/admin/statistik_kategori', [StatistikController::class, 'statistikKategori'])->name('statistik_kategori');
     Route::get('/admin/statistik_alumni', [UserAlumniController::class, 'statistikAlumni'])->name('statistik_alumni');
     // Route::get('/admin/statistik', [UserAlumniController::class, 'countD3F'])->name('statistik_prodi');
