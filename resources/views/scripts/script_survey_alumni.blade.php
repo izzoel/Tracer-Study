@@ -5,6 +5,28 @@
     $('#nim').keyup(function() {
         $(this).val($(this).val().toUpperCase());
     });
+    $('#alumni-survey').submit(function(e) {
+        e.preventDefault();
+
+        routeAlumni = "{{ route('alumni_data', '') }}" + "/" + $('#nim').val();
+        // link = "{{ route('alumni_login') }}";
+
+        $.get(routeAlumni, function(data) {
+            if (data.nim == $('#nim').val()) {
+                // location.href = link;
+                $("#alumni-survey").unbind('submit');
+                $("#alumni-survey").submit();
+            } else {
+                Swal.fire({
+                    title: 'Data Tidak Ditemukan',
+                    text: "NIM/Nama tidak ditemukan",
+                    icon: 'error',
+                })
+            }
+
+        });
+
+    })
 </script>
 @if (Request::segment(2) == 'alumni')
     <script>

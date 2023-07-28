@@ -47,7 +47,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
 
-                <form action="{{ route('alumni') }}" method="post">
+                <form id="alumni-survey" action="{{ route('alumni') }}" method="post">
                     @csrf
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Verifikasi</h5>
@@ -104,7 +104,6 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        {{-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> --}}
                         <button type="submit" class="btn btn-primary">Lanjutkan</button>
                     </div>
                 </form>

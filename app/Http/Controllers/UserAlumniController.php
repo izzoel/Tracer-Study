@@ -62,6 +62,11 @@ class UserAlumniController extends Controller
         return response()->json(UserAlumni::all());
     }
 
+    public function find(UserAlumni $userAlumni, $nim)
+    {
+        return response()->json(UserAlumni::find($nim));
+    }
+
     public function statistikProdi(UserAlumni $userAlumni, $prodi)
     {
         foreach (UserAlumni::get('angkatan')->unique('angkatan') as $d) {
