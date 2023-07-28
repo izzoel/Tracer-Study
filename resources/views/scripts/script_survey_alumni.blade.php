@@ -29,7 +29,7 @@
     <script>
         route = "{{ route('survey_alumni', '') }}" + "/" + "{{ $karir }}";
         kategori = '{{ $kategori }}';
-        // console.log('{{ $kategori }}');
+
         i = 1;
         i_ = 1;
         $.ajax({
@@ -186,6 +186,28 @@
                     i++;
                 });
             }
+        });
+
+        $('#alumni-submit').submit(function(e) {
+            e.preventDefault()
+
+            Swal.fire({
+                title: 'Kirim Survey?',
+                text: "tidak dapat merubah kembali",
+                icon: 'warning',
+                showDenyButton: true,
+                showCancelButton: false,
+                confirmButtonText: 'Kirim',
+                denyButtonText: `Batal`,
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $("#alumni-submit").unbind('submit');
+                    $("#alumni-submit").submit();
+                    Swal.fire('Sukses', '', 'success')
+                } else if (result.isDenied) {
+                    Swal.fire('Batal', '', 'info')
+                }
+            })
         });
     </script>
 @endif

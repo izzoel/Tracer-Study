@@ -8,7 +8,7 @@
             </div>
             <div class="card-body">
 
-                <form action="{{ route('alumni_submit') }}" method="POST">
+                <form id="alumni-submit" action="{{ route('alumni_submit') }}" method="POST">
                     @csrf
                     <input type="hidden" name="nama" value="{{ $nama }}">
                     <input type="hidden" name="nim" value="{{ $nim }}">
