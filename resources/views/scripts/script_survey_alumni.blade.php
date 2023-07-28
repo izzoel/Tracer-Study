@@ -7,13 +7,10 @@
     });
     $('#alumni-survey').submit(function(e) {
         e.preventDefault();
-
         routeAlumni = "{{ route('alumni_data', '') }}" + "/" + $('#nim').val();
-        // link = "{{ route('alumni_login') }}";
 
         $.get(routeAlumni, function(data) {
             if (data.nim == $('#nim').val()) {
-                // location.href = link;
                 $("#alumni-survey").unbind('submit');
                 $("#alumni-survey").submit();
             } else {
