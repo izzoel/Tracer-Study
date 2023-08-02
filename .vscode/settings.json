@@ -1,4 +1,5 @@
 {
     "editor.wordWrapColumn": 150,
     // "prettier.printWidth": 71
+    // "intelephense.diagnostics.undefinedTypes": false,
 }

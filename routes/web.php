@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
+
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SurveyAlumniController;
 use App\Http\Controllers\SurveyLulusanController;
@@ -11,7 +13,9 @@ use App\Http\Controllers\StatistikController;
 use App\Http\Controllers\BankAlumniController;
 use App\Http\Controllers\BankLulusanController;
 
-use Illuminate\Support\Facades\Session;
+use App\Http\Controllers\EmailController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -65,6 +69,8 @@ Route::group(['middleware' => ['guest']], function () {
 
     Route::get('/survey/lulusan', [SurveyLulusanController::class, 'show'])->name('lulusan');
     Route::post('/survey/lulusan/submit', [BankLulusanController::class, 'store'])->name('lulusan_submit');
+
+    Route::get('/send-email', [EmailController::class, 'index']);
 });
 
 
