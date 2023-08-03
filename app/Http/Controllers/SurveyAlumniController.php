@@ -8,7 +8,9 @@ use App\Models\SurveyAlumniSudahBekerja;
 use App\Models\SurveyAlumniWirausaha;
 use App\Models\SurveyAlumniLanjutPendidikan;
 use App\Models\UserAlumni;
+
 use Illuminate\Http\Request;
+
 
 class SurveyAlumniController extends Controller
 {
@@ -109,8 +111,6 @@ class SurveyAlumniController extends Controller
     public function show(SurveyAlumni $survey_Alumni, Request $request)
     {
         $verifikasi_alumni = UserAlumni::where('nim',  $request->input('nim'));
-        // $verifikasi_alumni = UserAlumni::find('$request->input('nim')');
-        // dd($request->except('_token', 'karir'), $verifikasi_alumni);
         if ($verifikasi_alumni == null) {
             return back();
         } else {
@@ -118,15 +118,27 @@ class SurveyAlumniController extends Controller
 
             if (array_diff($request->except('_token', 'karir'), $verifikasi_alumni) == null) {
                 $karir = $request->input('karir');
-                return view('survey.alumni', ['title' => 'form_alumni'])->with([
-                    'title' => 'form',
+                // $data_email = [
+                //     'nama' => $request->input('nama'),
+                //     'nim' => $request->input('nim'),
+                //     'prodi' => $request->input('prodi'),
+                //     'kategori' => ucwords(str_replace('_', ' ', $karir)),
+                //     'angkatan' => UserAlumni::where('nim',  $request->input('nim'))->pluck('angkatan')->first(),
+                //     'karir' => $karir
+                // ];
+
+                // Mail::to('natriumination@gmail.com')->queue(new SendMail($data_email));
+                $data_user = [
                     'nama' => $request->input('nama'),
                     'nim' => $request->input('nim'),
                     'prodi' => $request->input('prodi'),
                     'kategori' => ucwords(str_replace('_', ' ', $karir)),
                     'angkatan' => UserAlumni::where('nim',  $request->input('nim'))->pluck('angkatan')->first(),
                     'karir' => $karir
-                ]);
+                ];
+
+                // Mail::to('natriumination@gmail.com')->queue(new SendMail($data_email));
+                return view('survey.alumni', ['title' => 'form_alumni'])->with($data_user);
             }
         }
     }
@@ -189,7 +201,6 @@ class SurveyAlumniController extends Controller
             SurveyAlumniLanjutPendidikan::find($id)->update($model);
         }
     }
-
 
     public function destroyFormAlumni($kategori, $id)
     {

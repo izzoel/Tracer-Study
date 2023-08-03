@@ -70,7 +70,7 @@ Route::group(['middleware' => ['guest']], function () {
     Route::get('/survey/lulusan', [SurveyLulusanController::class, 'show'])->name('lulusan');
     Route::post('/survey/lulusan/submit', [BankLulusanController::class, 'store'])->name('lulusan_submit');
 
-    Route::get('/send-email', [EmailController::class, 'index']);
+    // Route::get('/send-email', [EmailController::class, 'index']);
 });
 
 

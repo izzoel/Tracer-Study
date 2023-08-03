@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\BankAlumni;
+use App\Models\SurveyAlumniBelumBekerja;
+use App\Mail\SendMail;
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class BankAlumniController extends Controller
 {
@@ -40,13 +44,16 @@ class BankAlumniController extends Controller
         foreach ($data as $key => $value) {
             $data[$key] = is_array($value) ? implode(",", $value) : $value;
         }
-        // dd($data);
+
         $bankAlumni->insert([
             $data
         ]);
 
+
+        // Mail::to('natriumination@gmail.com')->queue(new SendMail($data_email, $data_concat));
+
+
         return redirect()->route('survey');
-        // return back();
     }
 
     /**
