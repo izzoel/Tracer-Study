@@ -16,7 +16,8 @@ use App\Models\BankAlumni;
 class SendMail extends Mailable
 {
     use Queueable, SerializesModels;
-    public $data_email;
+    public $data;
+    // public $data_email;
     public $data_survey;
 
     /**
@@ -25,9 +26,10 @@ class SendMail extends Mailable
      * @return void
      */
     // public function __construct($bookhdr)
-    public function __construct($data_email, $data_survey)
+    // public function __construct($data)
+    public function __construct($data, $data_survey)
     {
-        $this->data_email = $data_email;
+        $this->data = $data;
         $this->data_survey = $data_survey;
     }
 

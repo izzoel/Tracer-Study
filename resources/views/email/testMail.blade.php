@@ -6,7 +6,7 @@
             </td>
             <td style="color:#222222">:</td>
             <td style="color:#FF5733">
-                {{ $data_email['nama'] }}
+                {{ $data['nama'] }}
             </td>
         </tr>
         <tr>
@@ -15,7 +15,7 @@
             </td>
             <td style="color:#222222">:</td>
             <td style="color:#FF5733">
-                {{ $data_email['nim'] }}
+                {{ $data['nim'] }}
             </td>
         </tr>
         <tr>
@@ -24,7 +24,7 @@
             </td>
             <td style="color:#222222">:</td>
             <td style="color:#FF5733">
-                {{ $data_email['prodi'] }}
+                {{ $data['prodi'] }}
             </td>
         </tr>
         <tr>
@@ -33,18 +33,16 @@
             </td>
             <td style="color:#222222">:</td>
             <td style="color:#FF5733">
-                {{ $data_email['angkatan'] }}
+                {{ $data['angkatan'] }}
             </td>
         </tr>
     </table>
 
-
-    @foreach ($data_survey as $i)
-        {!! $i !!}
-        {{-- @if (isset($bundle[$i->id]))
-            @foreach ($data_email->skip(5) as $d)
-                {!! $i->survey . $d !!}
-            @endforeach
-        @endif --}}
-    @endforeach
+<table border="0" style="font-family: Roboto,sans-serif;font-size:16px;font-weight:500;">
+@foreach ($data_survey as $i)
+<td>
+<tr>{{$i->survey}}</tr>
+</td>
+@endforeach
+</table>
 @endcomponent

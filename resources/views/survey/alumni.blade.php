@@ -15,6 +15,7 @@
                     <input type="hidden" name="prodi" value="{{ $prodi }}">
                     <input type="hidden" name="kategori" value="{{ $kategori }}">
                     <input type="hidden" name="angkatan" value="{{ $angkatan }}">
+
                     <div class="row">
                         <div class="col-2">Nama</div>
                         <div class="col-auto">:</div>
