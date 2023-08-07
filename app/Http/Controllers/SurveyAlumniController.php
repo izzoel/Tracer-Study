@@ -118,16 +118,7 @@ class SurveyAlumniController extends Controller
 
             if (array_diff($request->except('_token', 'karir'), $verifikasi_alumni) == null) {
                 $karir = $request->input('karir');
-                // $data_email = [
-                //     'nama' => $request->input('nama'),
-                //     'nim' => $request->input('nim'),
-                //     'prodi' => $request->input('prodi'),
-                //     'kategori' => ucwords(str_replace('_', ' ', $karir)),
-                //     'angkatan' => UserAlumni::where('nim',  $request->input('nim'))->pluck('angkatan')->first(),
-                //     'karir' => $karir
-                // ];
 
-                // Mail::to('natriumination@gmail.com')->queue(new SendMail($data_email));
                 $data_user = [
                     'nama' => $request->input('nama'),
                     'nim' => $request->input('nim'),
@@ -137,7 +128,6 @@ class SurveyAlumniController extends Controller
                     'karir' => $karir
                 ];
 
-                // Mail::to('natriumination@gmail.com')->queue(new SendMail($data_email));
                 return view('survey.alumni', ['title' => 'form_alumni'])->with($data_user);
             }
         }

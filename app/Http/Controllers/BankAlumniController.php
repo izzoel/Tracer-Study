@@ -46,32 +46,12 @@ class BankAlumniController extends Controller
             $data[$key] = is_array($value) ? implode(",", $value) : $value;
         }
 
-        // $bankAlumni->insert([
-        //     $data
-        // ]);
+        $bankAlumni->insert([
+            $data
+        ]);
 
-        // $d = SurveyAlumniBelumBekerja::get('survey');
-        $data_bank = BankAlumni::all();
-        // $d = SurveyAlumniBelumBekerja::get('survey')->value('survey');
-        // $d = SurveyAlumniBelumBekerja::get('survey');
+        $data_email = BankAlumni::where('nim', $data['nim'])->pluck('alumni5')->last();
         $data_survey = SurveyAlumniBelumBekerja::all();
-
-        // // dd(response()->json(['a' => $d]));
-        // // $q = response()->json(['a' => $d]);
-        // // $q = response()->json(['a' => $d]);
-        // // foreach ($d as $l => $val) {
-        // //     $a[] = $val;
-        // //     // $a[] = $l->find($val);
-        // // }
-        $i = 0;
-        // foreach ($data as $k) {
-        //     // $q = [
-        //     //     'i' . $i++ => $k->pluck('survey'),
-        //     // ];
-        //     echo $i;
-        // }
-        // dd($q);
-
         $data_respon = collect($data)->skip(5);
 
         if ($data['kategori'] == 'Belum Bekerja') {
@@ -83,46 +63,31 @@ class BankAlumniController extends Controller
             }
         }
 
-        $q = [
+        $data = [
             'nama' => $data['nama'],
             'nim' => $data['nim'],
+            'email' => $data_email,
             'prodi' => $data['prodi'],
             'kategori' => $data['kategori'],
             'angkatan' => $data['angkatan'],
             'create_at' => date('Y-m-h h:i:s'),
 
-
         ];
 
-        // $qq = [
-        //     'survey' => $survey,
-        //     'respon' => $respon,
-        // ];
-
-        $qq = collect([
-            'survey' => $survey,
-            'respon' => $respon,
-        ]);
 
         $ResponEmail->create([
             'nim' => $data['nim'],
             'nama' => $data['nama'],
+            'email' => $data_email,
             'prodi' => $data['prodi'],
             'angkatan' => $data['angkatan'],
             'kategori' => $data['kategori'],
-            'survey' => $survey,
-            'respon' => $respon,
+            'survey' => implode(';', $survey),
+            'respon' => implode(';', $respon)
 
         ]);
 
-        Mail::to('natriumination@gmail.com')->queue(new SendMail($q, $qq));
-        dd($qq);
-
-        // Mail::to('natriumination@gmail.com')->queue(new SendMail($data, $q));
-        // dd(SurveyAlumniBelumBekerja::get('survey')->values());
-
-        // Mail::to('natriumination@gmail.com')->queue(new SendMail($data_email, $data_concat));
-
+        Mail::to($data_email)->queue(new SendMail($data, ResponEmail::where('created_at', '>=', now())->get()));
 
         return redirect()->route('survey');
     }

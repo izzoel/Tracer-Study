@@ -10,14 +10,12 @@ use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Http\Request;
 
-use App\Models\UserAlumni;
-use App\Models\BankAlumni;
+use App\Models\ResponEmail;
 
 class SendMail extends Mailable
 {
     use Queueable, SerializesModels;
     public $data;
-    // public $data_email;
     public $data_survey;
 
     /**
@@ -25,8 +23,6 @@ class SendMail extends Mailable
      *
      * @return void
      */
-    // public function __construct($bookhdr)
-    // public function __construct($data)
     public function __construct($data, $data_survey)
     {
         $this->data = $data;
@@ -52,29 +48,9 @@ class SendMail extends Mailable
      */
     public function content()
     {
-        // dd($testMailDat);
         return new Content(
             markdown: 'email.testMail',
-            // view: 'email.testMail',
-            // with: [
-            //     'title' => 'form',
-            //     // 'nama' => $request->input('nama'),
-            //     // 'nim' => $request->input('nim'),
-            //     // 'prodi' => $request->input('prodi'),
-            // ]
         );
-
-        // return view('survey.alumni', ['title' => 'form_alumni'])->with([
-        //     'title' => 'form',
-        //     'nama' => $request->input('nama'),
-        //     'nim' => $request->input('nim'),
-        //     'prodi' => $request->input('prodi'),
-        //     'kategori' => ucwords(str_replace('_', ' ', $karir)),
-        //     'angkatan' => UserAlumni::where('nim',  $request->input('nim'))->pluck('angkatan')->first(),
-        //     'karir' => $karir
-        // ]);
-
-        // return $this->markdown('email.testMail');
     }
 
     /**

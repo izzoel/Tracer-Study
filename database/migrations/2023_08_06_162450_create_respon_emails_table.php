@@ -17,11 +17,12 @@ return new class extends Migration
             $table->id();
             $table->string('nim');
             $table->string('nama');
+            $table->string('email');
             $table->string('prodi');
             $table->string('angkatan');
             $table->string('kategori');
-            $table->string('survey');
-            $table->string('respon');
+            $table->text('survey');
+            $table->text('respon');
             $table->timestamps();
         });
     }

@@ -21,7 +21,8 @@
 {{-- Footer --}}
 <x-slot:footer>
 <x-mail::footer>
-© {{ date('Y') }} {{ config('app.name') }}. @lang('All rights reserved.')
+Developed By <a rel="nofollow" href="https://izzoel.github.io/" target="blank"><d style="color:#FF5733">Zetware</d></a> © {{ date('Y') }}
+ 
 </x-mail::footer>
 </x-slot:footer>
 </x-mail::layout>

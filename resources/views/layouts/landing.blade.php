@@ -156,7 +156,7 @@
                                 <d style="color: chocolate">Developed</d>
                             </a> by
                             <a rel="nofollow" href="https://izzoel.github.io/ " target="blank">
-                                <d style="color: chocolate">Z Engine</d>
+                                <d style="color: chocolate">Zetware</d>
                             </a>
                             @2023
                         </p>

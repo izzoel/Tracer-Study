@@ -12,6 +12,7 @@ class ResponEmail extends Model
     protected $fillable = [
         'nim',
         'nama',
+        'email',
         'prodi',
         'angkatan',
         'kategori',
