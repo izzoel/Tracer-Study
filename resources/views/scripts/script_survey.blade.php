@@ -22,10 +22,6 @@
             }
         });
     })
-    Swal.fire({
-        imageUrl: 'images/infoSK.webp',
-        imageAlt: 'Surat Rektor',
-    })
 </script>
 @if (Request::segment(2) == 'alumni')
     <script>
@@ -211,5 +207,12 @@
                 }
             })
         });
+    </script>
+@elseif (Request::segment(1) == 'survey' && Request::segment(2) == null)
+    <script>
+        Swal.fire({
+            imageUrl: 'images/infoSK.webp',
+            imageAlt: 'Surat Rektor',
+        })
     </script>
 @endif
