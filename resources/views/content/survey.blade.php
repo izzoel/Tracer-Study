@@ -4,7 +4,7 @@
         <div class="col d-grid justify-content-md-end mt-4 me-2 ms-2" data-aos="fade-right" data-aos-duration="1500">
             <div class="card mx-auto" style="width: 20rem;">
                 <div class="mx-auto d-block mt-3 position-relative text-center card-img-top">
-                    <img src="images/alumni.png" alt="alumni" width="200">
+                    <img src="../images/alumni.png" alt="alumni" width="200">
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">Alumni</h5>
@@ -13,9 +13,8 @@
                     </p>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end" data-bs-toggle="modal"
                         data-bs-target="#alumniModal">
-                        <a href="#"
-                            class="btn btn-primary d-md-flex justify-content-md-end text-center rounded-pill">Isi
-                            Survey</a>
+                        <a class="btn btn-primary d-md-flex justify-content-md-end text-center rounded-pill"
+                            role="button">Isi Survey</a>
                     </div>
                 </div>
             </div>
@@ -24,7 +23,7 @@
         <div class="col d-grid justify-content-md-start mt-4 me-2 ms-2" data-aos="fade-left" data-aos-duration="1500">
             <div class="card mx-auto" style="width: 20rem;">
                 <div class="mx-auto d-block mt-3 position-relative text-center card-img-top">
-                    <img src="images/pengguna-lulusan.png" alt="lulusan" width="200">
+                    <img src="../images/pengguna-lulusan.png" alt="lulusan" width="200">
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">Pengguna Lulusan</h5>
@@ -34,7 +33,7 @@
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                         <a href="{{ route('lulusan') }}"
                             class="btn btn-primary d-md-flex justify-content-md-end text-center rounded-pill">Isi
-                            Survey</a>
+                            Survey </a>
                     </div>
                 </div>
             </div>

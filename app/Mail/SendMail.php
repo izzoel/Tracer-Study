@@ -8,9 +8,6 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Http\Request;
-
-use App\Models\ResponEmail;
 
 class SendMail extends Mailable
 {
@@ -49,7 +46,7 @@ class SendMail extends Mailable
     public function content()
     {
         return new Content(
-            markdown: 'email.testMail',
+            markdown: 'email.email_respon_alumni',
         );
     }
 

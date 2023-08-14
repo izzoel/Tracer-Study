@@ -22,7 +22,7 @@ class SurveyLulusanController extends Controller
      */
     public function index()
     {
-        //
+        dd('qweqw');
     }
 
     public function formLulusan()
@@ -31,6 +31,12 @@ class SurveyLulusanController extends Controller
             'title' => 'form'
         ]);
     }
+
+    public function tes()
+    {
+    }
+
+
     /**
      * Show the form for creating a new resource.
      *

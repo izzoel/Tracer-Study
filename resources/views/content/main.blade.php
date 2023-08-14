@@ -223,7 +223,7 @@
                         </div>
                         <div class="col">
                             <p class="mb-1" align="justify">
-                                Mengevaluasi output/outcome perguruan tinggi..
+                                Mengevaluasi output/outcome perguruan tinggi.
                             </p>
                         </div>
 
@@ -238,7 +238,7 @@
                         <div class="col">
                             <p class="mb-1" align="justify">
                                 Memperoleh informasi keberadaan lulusan (Alumni) serta menjalin komunikasi secara kontinyu
-                                dan up to date dari alumni.
+                                dan <i>up to date</i> dari alumni.
                             </p>
                         </div>
                     </div>

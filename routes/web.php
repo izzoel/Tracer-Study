@@ -60,17 +60,28 @@ Route::group(['middleware' => ['guest']], function () {
     })->name('survey');
 
 
-    Route::get('/survey/{nim}', [UserAlumniController::class, 'find'])->name('alumni_data');
+    Route::get('/survey/alumni/nim/{nim}', [UserAlumniController::class, 'find'])->name('alumni_data');
 
     Route::get('/survey/alumni', [SurveyAlumniController::class, 'show'])->name('alumni');
     Route::get('/survey/alumni/{kategori}', [SurveyAlumniController::class, 'showFormAlumni'])->name('survey_alumni');
     Route::post('/survey/alumni', [SurveyAlumniController::class, 'show'])->name('alumni_login');
     Route::post('/survey/alumni/submit', [BankAlumniController::class, 'store'])->name('alumni_submit');
 
+    // Route::get('/survey/tes', [SurveyLulusanController::class, 'tes'])->name('tes');
+    // Route::post('/survey/lulusan/submit', [BankLulusanController::class, 'store'])->name('lulusan_submit');
     Route::get('/survey/lulusan', [SurveyLulusanController::class, 'show'])->name('lulusan');
     Route::post('/survey/lulusan/submit', [BankLulusanController::class, 'store'])->name('lulusan_submit');
 
-    // Route::get('/send-email', [EmailController::class, 'index']);
+    // Route::get('/survey/lulusan', [SurveyLulusanController::class, 'show'])->name('tes');
+    // Route::get('/survey/lulusan', function () {
+    //     return view(
+    //         'content.survey.lulusan',
+    //         ['title' => 'survey']
+    //     );
+    // })->name('tes');
+
+    // Route::get('/survey/lulusan')->name('tes');
+    // Route::get('/survey/x', [AdminController::class, 'index'])->name('tes');
 });
 
 
@@ -106,10 +117,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/admin/statistik/{prodi}', [StatistikController::class, 'statistikProdi'])->name('statistik_prodi');
     Route::get('/admin/diagram/{kategori}/{prodi?}', [StatistikController::class, 'diagram'])->name('diagram');
-    // Route::get('/admin/diagram/kategori/{prodi}', [StatistikController::class, 'diagram'])->name('diagram');
-    // Route::get('/admin/statistik_kategori', [StatistikController::class, 'statistikKategori'])->name('statistik_kategori');
     Route::get('/admin/statistik_alumni', [UserAlumniController::class, 'statistikAlumni'])->name('statistik_alumni');
-    // Route::get('/admin/statistik', [UserAlumniController::class, 'countD3F'])->name('statistik_prodi');
 
     Route::post('/admin/user_alumni/store', [UserAlumniController::class, 'store'])->name('add_user_alumni');
     Route::post('/admin/user_alumni/import', [UserAlumniController::class, 'import'])->name('import_user_alumni');

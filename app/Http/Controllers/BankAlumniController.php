@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\BankAlumni;
 use App\Models\SurveyAlumniBelumBekerja;
+use App\Models\SurveyAlumniSudahBekerja;
+use App\Models\SurveyAlumniWirausaha;
+use App\Models\SurveyAlumniLanjutPendidikan;
 use App\Models\ResponEmail;
 use App\Mail\SendMail;
 
@@ -51,10 +54,34 @@ class BankAlumniController extends Controller
         ]);
 
         $data_email = BankAlumni::where('nim', $data['nim'])->pluck('alumni5')->last();
-        $data_survey = SurveyAlumniBelumBekerja::all();
         $data_respon = collect($data)->skip(5);
 
         if ($data['kategori'] == 'Belum Bekerja') {
+            $data_survey = SurveyAlumniBelumBekerja::all();
+            foreach ($data_survey as $s) {
+                $survey[] = $s->survey;
+            }
+            foreach ($data_respon as $r) {
+                $respon[] = $r;
+            }
+        } elseif ($data['kategori'] == 'Sudah Bekerja') {
+            $data_survey = SurveyAlumniSudahBekerja::all();
+            foreach ($data_survey as $s) {
+                $survey[] = $s->survey;
+            }
+            foreach ($data_respon as $r) {
+                $respon[] = $r;
+            }
+        } elseif ($data['kategori'] == 'Berwirausaha') {
+            $data_survey = SurveyAlumniWirausaha::all();
+            foreach ($data_survey as $s) {
+                $survey[] = $s->survey;
+            }
+            foreach ($data_respon as $r) {
+                $respon[] = $r;
+            }
+        } elseif ($data['kategori'] == 'Lanjut Pendidikan') {
+            $data_survey = SurveyAlumniLanjutPendidikan::all();
             foreach ($data_survey as $s) {
                 $survey[] = $s->survey;
             }
@@ -73,7 +100,6 @@ class BankAlumniController extends Controller
             'create_at' => date('Y-m-h h:i:s'),
 
         ];
-
 
         $ResponEmail->create([
             'nim' => $data['nim'],

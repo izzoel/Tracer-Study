@@ -4,7 +4,7 @@
         <div class="card">
             <div class="card-header" style="background-color: rgb(255, 255, 255)">
                 <h4 class="card-title text-dark m-2">Form Survey Tracer Study Alumni</h4>
-                <p class="card-category m-2">Formulir Pengisisan ...</p>
+                <p class="card-category m-2">Formulir Pengisisan Alumni</p>
             </div>
             <div class="card-body">
 
