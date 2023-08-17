@@ -7,14 +7,10 @@
     });
 
     $('#alumni-survey').on('submit', function(e) {
-        // $('#submitAlumni').on('click', function(e) {
         e.preventDefault();
-
-        // routeAlumni = "{{ route('alumni_data', '') }}" + "/" + $('#nim').val();
         routeAlumni = "{{ route('alumni_data', '') }}" + "/" + $('#nim').val() + "/" + $('#prodi').find(
             ":selected").val();
 
-        alert(routeAlumni);
         $.get(routeAlumni, function(data) {
             if (data == $('#nim').val()) {
                 $("#alumni-survey").unbind('submit');
