@@ -60,29 +60,15 @@ Route::group(['middleware' => ['guest']], function () {
     })->name('survey');
 
 
-    // Route::get('/survey/alumni/nim/{nim?}', [UserAlumniController::class, 'find'])->name('alumni_data');
-    Route::get('/survey/alumni/nim/{nim?}/{prodi?}', [UserAlumniController::class, 'find'])->name('alumni_data');
+    Route::get('/survey/verif/{nim?}/{prodi?}', [UserAlumniController::class, 'verif'])->name('verif_alumni');
 
     Route::get('/survey/alumni', [SurveyAlumniController::class, 'show'])->name('alumni');
     Route::get('/survey/alumni/{kategori}', [SurveyAlumniController::class, 'showFormAlumni'])->name('survey_alumni');
     Route::post('/survey/alumni', [SurveyAlumniController::class, 'show'])->name('alumni_login');
     Route::post('/survey/alumni/submit', [BankAlumniController::class, 'store'])->name('alumni_submit');
 
-    // Route::get('/survey/tes', [SurveyLulusanController::class, 'tes'])->name('tes');
-    // Route::post('/survey/lulusan/submit', [BankLulusanController::class, 'store'])->name('lulusan_submit');
     Route::get('/survey/lulusan', [SurveyLulusanController::class, 'show'])->name('lulusan');
     Route::post('/survey/lulusan/submit', [BankLulusanController::class, 'store'])->name('lulusan_submit');
-
-    // Route::get('/survey/lulusan', [SurveyLulusanController::class, 'show'])->name('tes');
-    // Route::get('/survey/lulusan', function () {
-    //     return view(
-    //         'content.survey.lulusan',
-    //         ['title' => 'survey']
-    //     );
-    // })->name('tes');
-
-    // Route::get('/survey/lulusan')->name('tes');
-    // Route::get('/survey/x', [AdminController::class, 'index'])->name('tes');
 });
 
 

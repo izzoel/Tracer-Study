@@ -8,11 +8,12 @@
 
     $('#alumni-survey').on('submit', function(e) {
         e.preventDefault();
-        routeAlumni = "{{ route('alumni_data', '') }}" + "/" + $('#nim').val() + "/" + $('#prodi').find(
+        routeAlumni = "{{ route('verif_alumni', '') }}" + "/" + $('#nim').val() + "/" + $('#prodi').find(
             ":selected").val();
 
+
         $.get(routeAlumni, function(data) {
-            if (data == $('#nim').val()) {
+            if (data.nim == $('#nim').val() && data.nama == $('#nama').val()) {
                 $("#alumni-survey").unbind('submit');
                 $("#alumni-survey").submit();
             } else {
@@ -22,7 +23,9 @@
                     icon: 'error',
                 })
             }
-        })
+        });
+
+
     });
 </script>
 @if (Request::segment(2) == 'alumni')

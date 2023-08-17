@@ -67,12 +67,36 @@ class UserAlumniController extends Controller
     {
         // dd('asdadd');
 
+        // return response()->json(UserAlumni::where('nim', $nim)->get());
         // return response()->json(UserAlumni::find($nim));
+        // return response()->json(UserAlumni::all());
         // return UserAlumni::where('nim', $nim)->get();
         // return UserAlumni::where('nim', $nim)->where('prodi', $prodi)->get();
-        return response()->json(UserAlumni::where('nim', $nim)->where('prodi', $prodi)->pluck('nim'));
+        // return response()->json(UserAlumni::where('nim', $nim)->where('prodi', $prodi)->pluck('nim', 'nama'));
         // return response()->json(UserAlumni::where('nim', $nim))->get();
         // return response()->json(UserAlumni::where('nim', $request->input('nim'))->get());
+
+
+
+        // return response()->json(UserAlumni::where('nim', $nim)->where('prodi', $prodi)->pluck('nim', 'nama'));
+        // return response()->json(UserAlumni::where('nim', $nim)->where('prodi', $prodi)->get('nim'));
+        return response()->json(UserAlumni::where('nim', $nim)->where('prodi', $prodi)->get('nim'));
+    }
+
+
+    public function verif($nim, $prodi)
+    {
+        $data = UserAlumni::where('nim', $nim)->where('prodi', $prodi)->get();
+        $d_nim = $data->value('nim');
+        $d_nama = $data->value('nama');
+        $d_prodi = $data->value('prodi');
+
+        $d = [
+            'nim' => $d_nim,
+            'nama' => $d_nama,
+            'prodi' => $d_prodi,
+        ];
+        return $d;
     }
 
     public function statistikProdi(UserAlumni $userAlumni, $prodi)
