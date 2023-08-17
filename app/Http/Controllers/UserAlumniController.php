@@ -62,9 +62,17 @@ class UserAlumniController extends Controller
         return response()->json(UserAlumni::all());
     }
 
-    public function find(UserAlumni $userAlumni, $nim)
+    public function find(Request $request, $nim, $prodi)
+    // public function find(Request $request, $nim)
     {
-        return response()->json(UserAlumni::find($nim));
+        // dd('asdadd');
+
+        // return response()->json(UserAlumni::find($nim));
+        // return UserAlumni::where('nim', $nim)->get();
+        // return UserAlumni::where('nim', $nim)->where('prodi', $prodi)->get();
+        return response()->json(UserAlumni::where('nim', $nim)->where('prodi', $prodi)->pluck('nim'));
+        // return response()->json(UserAlumni::where('nim', $nim))->get();
+        // return response()->json(UserAlumni::where('nim', $request->input('nim'))->get());
     }
 
     public function statistikProdi(UserAlumni $userAlumni, $prodi)

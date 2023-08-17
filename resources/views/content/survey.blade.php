@@ -46,7 +46,9 @@
         <div class="modal-dialog">
             <div class="modal-content">
 
+                {{-- <form id="alumni-survey" action="{{ route('alumni') }}" method="post"> --}}
                 <form id="alumni-survey" action="{{ route('alumni') }}" method="post">
+                    {{-- <form> --}}
                     @csrf
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Verifikasi</h5>
@@ -72,7 +74,7 @@
                                 <label for="prodi" class="form-label">
                                     Program Studi<span class="ms-0 ps-0 me-0 pe-0 text-danger">*</span>
                                 </label>
-                                <select name="prodi" class="form-select">
+                                <select id="prodi" name="prodi" class="form-select">
                                     <option disabled>-- Fakultas Farmasi</option>
                                     <option value="D3 Farmasi">D3 Farmasi</option>
                                     <option value="S1 Farmasi">S1 Farmasi</option>
@@ -103,7 +105,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Lanjutkan</button>
+                        <button type="submit" id="submitAlumni" class="btn btn-primary">Lanjutkan</button>
                     </div>
                 </form>
 

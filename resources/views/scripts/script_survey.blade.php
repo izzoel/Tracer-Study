@@ -5,12 +5,18 @@
     $('#nim').keyup(function() {
         $(this).val($(this).val().toUpperCase());
     });
-    $('#alumni-survey').submit(function(e) {
-        e.preventDefault();
-        routeAlumni = "{{ route('alumni_data', '') }}" + "/" + $('#nim').val();
 
+    $('#alumni-survey').on('submit', function(e) {
+        // $('#submitAlumni').on('click', function(e) {
+        e.preventDefault();
+
+        // routeAlumni = "{{ route('alumni_data', '') }}" + "/" + $('#nim').val();
+        routeAlumni = "{{ route('alumni_data', '') }}" + "/" + $('#nim').val() + "/" + $('#prodi').find(
+            ":selected").val();
+
+        alert(routeAlumni);
         $.get(routeAlumni, function(data) {
-            if (data.nim == $('#nim').val()) {
+            if (data == $('#nim').val()) {
                 $("#alumni-survey").unbind('submit');
                 $("#alumni-survey").submit();
             } else {
@@ -20,8 +26,8 @@
                     icon: 'error',
                 })
             }
-        });
-    })
+        })
+    });
 </script>
 @if (Request::segment(2) == 'alumni')
     <script>
@@ -211,7 +217,7 @@
 @elseif (Request::segment(1) == 'survey' && Request::segment(2) == null)
     <script>
         Swal.fire({
-            imageUrl: 'images/infoSK.webp',
+            imageUrl: '../images/infoSK.webp',
             imageAlt: 'Surat Rektor',
         })
     </script>

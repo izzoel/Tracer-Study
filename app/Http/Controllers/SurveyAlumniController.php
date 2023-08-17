@@ -117,6 +117,8 @@ class SurveyAlumniController extends Controller
             $verifikasi_alumni = UserAlumni::where('nim', $request->input('nim'))->first()->makeHidden(['created_at', 'updated_at'])->toArray();
 
             if (array_diff($request->except('_token', 'karir'), $verifikasi_alumni) == null) {
+                // if ($verifikasi_alumni == $request->input('nim')) {
+
                 $karir = $request->input('karir');
 
                 $data_user = [

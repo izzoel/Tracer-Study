@@ -60,7 +60,8 @@ Route::group(['middleware' => ['guest']], function () {
     })->name('survey');
 
 
-    Route::get('/survey/alumni/nim/{nim}', [UserAlumniController::class, 'find'])->name('alumni_data');
+    // Route::get('/survey/alumni/nim/{nim?}', [UserAlumniController::class, 'find'])->name('alumni_data');
+    Route::get('/survey/alumni/nim/{nim?}/{prodi?}', [UserAlumniController::class, 'find'])->name('alumni_data');
 
     Route::get('/survey/alumni', [SurveyAlumniController::class, 'show'])->name('alumni');
     Route::get('/survey/alumni/{kategori}', [SurveyAlumniController::class, 'showFormAlumni'])->name('survey_alumni');
