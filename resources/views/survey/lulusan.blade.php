@@ -7,7 +7,7 @@
                 <p class="card-category m-2">Formulir pengisisan untuk Pengguna Lulusan</p>
             </div>
             <div class="card-body">
-                <form action="{{ route('lulusan_submit') }}" method="POST">
+                <form id="lulusan-submit" action="{{ route('lulusan_submit') }}" method="POST">
                     @csrf
                     <div id="survey">
                         @foreach ($form_lulusan as $data)

@@ -1,12 +1,6 @@
 <script>
     routeAlumni = "{{ route('statistik_alumni') }}";
 
-    // routeKategori = "{{ route('diagram', '') }}" + "/kategori";
-
-
-
-
-
     $.get(routeAlumni, function(data) {
         new Chart(document.getElementById('dashboardChart'), {
             type: 'bar',
@@ -137,6 +131,7 @@
                 "/relevansi_pekerjaan";
             routeKegiatanYangBelumBekerja = "{{ route('diagram', '') }}" +
                 "/kegiatan_belum_bekerja";
+
             $.get(routeProdi, function(data) {
                 resp_prodi = '#' + prodi.replace(/\s/g, '');
                 canv_prodi = prodi.replace(/\s/g, '');
@@ -393,49 +388,6 @@
                 }
             },
         });
-
-        // new Chart($('#masaTungguDapatPekerjaan'), {
-        //     type: 'bar',
-        //     data: {
-        //         labels: ['a', 'b', 'c'],
-        //         datasets: [{
-        //             label: ['a', 'b', 'c'],
-        //             data: ['a', 'b', 'c'],
-        //             // data: [dataMasaTungguDapatPekerjaan.count_masa_tunggu_pekerjaan],
-        //             borderWidth: 1,
-        //             // backgroundColor: [
-        //             //     'rgba(54, 162, 235, 0.5)',
-        //             //     'rgba(255, 99, 132, 0.5)',
-        //             //     'rgba(255, 206, 86, 0.5)',
-        //             //     'rgba(153, 102, 255, 0.5)'
-        //             // ],
-        //             // borderColor: [
-        //             //     'rgba(54, 162, 235, 1)',
-        //             //     'rgba(255, 99, 132, 1)',
-        //             //     'rgba(255, 206, 86, 1)',
-        //             //     'rgba(153, 102, 255, 1)'
-        //             // ]
-        //             // strokeColor: dataset.strokeColor,
-        //         }]
-        //         // datasets: [{
-        //         //     dataMasaTungguDapatPekerjaan
-        //         // }, ]
-
-        //     },
-        //     options: {
-        //         responsive: true,
-        //         maintainAspectRatio: false,
-        //         plugins: {
-        //             legend: {
-        //                 position: 'top',
-        //             },
-        //             title: {
-        //                 display: true,
-        //                 text: 'Masa Tunggu Mendapat Pekerjaan'
-        //             }
-        //         }
-        //     },
-        // });
     }
 
     function diagRelevansiPekerjaan(dataRelevansiPekerjaan) {
@@ -493,6 +445,37 @@
             },
         });
     }
+
+    // function aspekIntegritas() {
+    new Chart($('#aspekIntegritas'), {
+        type: 'pie',
+        data: {
+            // labels: dataAspekIntegritas.aspekIntegritas,
+            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [{
+                label: 'Jumlah Responden',
+                // data: dataAspekIntegritas.count_aspekIntegritas,
+
+                data: [12, 19, 3, 5, 2, 3],
+                borderWidth: 1,
+                order: 0
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: 'Aspek Integritas'
+                }
+            }
+        },
+    });
+    // }
 
 
     function download() {

@@ -46,7 +46,8 @@ class BankLulusanController extends Controller
             $data
         ]);
 
-        return back();
+        // return back();
+        return redirect()->route('survey');
     }
 
     /**
