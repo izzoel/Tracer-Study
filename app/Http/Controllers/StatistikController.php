@@ -5,7 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\BankAlumni;
 use App\Models\UserAlumni;
 use App\Http\Controllers\Controller;
+use App\Models\BankLulusan;
 use Illuminate\Http\Request;
+
+use function PHPUnit\Framework\isEmpty;
+use function PHPUnit\Framework\isNan;
+use function PHPUnit\Framework\isNull;
 
 class StatistikController extends Controller
 {
@@ -23,6 +28,8 @@ class StatistikController extends Controller
     }
     public function diagram(BankAlumni $BankAlumni, $kategori, $prodi)
     {
+        $hit = BankLulusan::count();
+
         if ($kategori == 'kategori') {
             foreach (BankAlumni::where('prodi', $prodi)->get('kategori') as $d) {
                 $kategori_kegiatan_lulus[] = $d->kategori;
@@ -64,7 +71,6 @@ class StatistikController extends Controller
                     }
                 } elseif (!empty($r->berwirausaha12)) {
                     if ($r->berwirausaha12 == 'Ya') {
-                        # code...
                         $bw[] = $r->berwirausaha12;
                         $count_y[] = BankAlumni::where('berwirausaha12', 'Ya')->count();
                     } elseif (($r->berwirausaha12 == 'Tidak')) {
@@ -87,6 +93,293 @@ class StatistikController extends Controller
                 }
             }
             return response()->json(['kegiatan_belum_bekerja' => $bb, 'count_kegiatan_belum_bekerja' => $count_kegiatan_belum_bekerja]);
+        } elseif ($kategori == 'aspek_integritas' && $prodi == 'lulusan') {
+            //jangan lupa lihat $hit di atas
+            for ($i = 9; $i < 16; $i++) {
+                $bank = BankLulusan::get('bank' . $i);
+                if (empty($bank->contains('bank' . $i, '4'))) {
+                    $item_4[$i] = 0;
+                } else {
+                    $item_4[$i] = number_format(BankLulusan::where('bank' . $i, 4)->count() / $hit * 100, 2);
+                }
+                if (empty($bank->contains('bank' . $i, '3'))) {
+                    $item_3[$i] = 0;
+                } else {
+                    $item_3[$i] = number_format(BankLulusan::where('bank' . $i, 3)->count() / $hit * 100, 2);
+                }
+                if (empty($bank->contains('bank' . $i, '2'))) {
+                    $item_2[$i] = 0;
+                } else {
+                    $item_2[$i] = number_format(BankLulusan::where('bank' . $i, 2)->count() / $hit * 100, 2);
+                }
+                if (empty($bank->contains('bank' . $i, '1'))) {
+                    $item_1[$i] = 0;
+                } else {
+                    $item_1[$i] = number_format(BankLulusan::where('bank' . $i, 1)->count() / $hit * 100, 2);
+                }
+                $nilai[] = [$item_4[$i], $item_3[$i], $item_2[$i], $item_1[$i]];
+            }
+
+            foreach ($nilai as $p) {
+                $nilai_sangat_baik[] = $p[0];
+                $nilai_baik[] = $p[1];
+                $nilai_cukup_baik[] = $p[2];
+                $nilai_kurang_baik[] = $p[3];
+            }
+            $sangat_baik = array_sum($nilai_sangat_baik) / count($nilai_sangat_baik);
+            $baik = array_sum($nilai_baik) / count($nilai_baik);
+            $cukup_baik = array_sum($nilai_cukup_baik) / count($nilai_cukup_baik);
+            $kurang_baik = array_sum($nilai_kurang_baik) / count($nilai_kurang_baik);
+
+            $aspek_integritas = ['Sangat Baik', 'Baik', 'Cukup Baik', 'Kurang Baik'];
+            $count_aspek_integritas = [number_format($sangat_baik, 2), number_format($baik, 2), number_format($cukup_baik, 2), number_format($kurang_baik, 2)];
+            return response()->json(['aspek_integritas' => $aspek_integritas, 'count_aspek_integritas' => $count_aspek_integritas]);
+        } elseif ($kategori == 'aspek_profesionalisme' && $prodi == 'lulusan') {
+            //jangan lupa lihat $hit di atas
+            for ($i = 16; $i < 21; $i++) {
+                $bank = BankLulusan::get('bank' . $i);
+                if (empty($bank->contains('bank' . $i, '4'))) {
+                    $item_4[$i] = 0;
+                } else {
+                    $item_4[$i] = number_format(BankLulusan::where('bank' . $i, 4)->count() / $hit * 100, 2);
+                }
+                if (empty($bank->contains('bank' . $i, '3'))) {
+                    $item_3[$i] = 0;
+                } else {
+                    $item_3[$i] = number_format(BankLulusan::where('bank' . $i, 3)->count() / $hit * 100, 2);
+                }
+                if (empty($bank->contains('bank' . $i, '2'))) {
+                    $item_2[$i] = 0;
+                } else {
+                    $item_2[$i] = number_format(BankLulusan::where('bank' . $i, 2)->count() / $hit * 100, 2);
+                }
+                if (empty($bank->contains('bank' . $i, '1'))) {
+                    $item_1[$i] = 0;
+                } else {
+                    $item_1[$i] = number_format(BankLulusan::where('bank' . $i, 1)->count() / $hit * 100, 2);
+                }
+                $nilai[] = [$item_4[$i], $item_3[$i], $item_2[$i], $item_1[$i]];
+            }
+
+            foreach ($nilai as $p) {
+                $nilai_sangat_baik[] = $p[0];
+                $nilai_baik[] = $p[1];
+                $nilai_cukup_baik[] = $p[2];
+                $nilai_kurang_baik[] = $p[3];
+            }
+            $sangat_baik = array_sum($nilai_sangat_baik) / count($nilai_sangat_baik);
+            $baik = array_sum($nilai_baik) / count($nilai_baik);
+            $cukup_baik = array_sum($nilai_cukup_baik) / count($nilai_cukup_baik);
+            $kurang_baik = array_sum($nilai_kurang_baik) / count($nilai_kurang_baik);
+
+            $aspek_profesionalisme = ['Sangat Baik', 'Baik', 'Cukup Baik', 'Kurang Baik'];
+            $count_aspek_profesionalisme = [number_format($sangat_baik, 2), number_format($baik, 2), number_format($cukup_baik, 2), number_format($kurang_baik, 2)];
+            return response()->json(['aspek_profesionalisme' => $aspek_profesionalisme, 'count_aspek_profesionalisme' => $count_aspek_profesionalisme]);
+        } elseif ($kategori == 'aspek_berbahasa_asing' && $prodi == 'lulusan') {
+            //jangan lupa lihat $hit di atas
+            for ($i = 21; $i < 24; $i++) {
+                $bank = BankLulusan::get('bank' . $i);
+                if (empty($bank->contains('bank' . $i, '4'))) {
+                    $item_4[$i] = 0;
+                } else {
+                    $item_4[$i] = number_format(BankLulusan::where('bank' . $i, 4)->count() / $hit * 100, 2);
+                }
+                if (empty($bank->contains('bank' . $i, '3'))) {
+                    $item_3[$i] = 0;
+                } else {
+                    $item_3[$i] = number_format(BankLulusan::where('bank' . $i, 3)->count() / $hit * 100, 2);
+                }
+                if (empty($bank->contains('bank' . $i, '2'))) {
+                    $item_2[$i] = 0;
+                } else {
+                    $item_2[$i] = number_format(BankLulusan::where('bank' . $i, 2)->count() / $hit * 100, 2);
+                }
+                if (empty($bank->contains('bank' . $i, '1'))) {
+                    $item_1[$i] = 0;
+                } else {
+                    $item_1[$i] = number_format(BankLulusan::where('bank' . $i, 1)->count() / $hit * 100, 2);
+                }
+                $nilai[] = [$item_4[$i], $item_3[$i], $item_2[$i], $item_1[$i]];
+            }
+
+            foreach ($nilai as $p) {
+                $nilai_sangat_baik[] = $p[0];
+                $nilai_baik[] = $p[1];
+                $nilai_cukup_baik[] = $p[2];
+                $nilai_kurang_baik[] = $p[3];
+            }
+            $sangat_baik = array_sum($nilai_sangat_baik) / count($nilai_sangat_baik);
+            $baik = array_sum($nilai_baik) / count($nilai_baik);
+            $cukup_baik = array_sum($nilai_cukup_baik) / count($nilai_cukup_baik);
+            $kurang_baik = array_sum($nilai_kurang_baik) / count($nilai_kurang_baik);
+
+            $aspek_berbahasa_asing = ['Sangat Baik', 'Baik', 'Cukup Baik', 'Kurang Baik'];
+            $count_aspek_berbahasa_asing = [number_format($sangat_baik, 2), number_format($baik, 2), number_format($cukup_baik, 2), number_format($kurang_baik, 2)];
+            return response()->json(['aspek_berbahasa_asing' => $aspek_berbahasa_asing, 'count_aspek_berbahasa_asing' => $count_aspek_berbahasa_asing]);
+        } elseif ($kategori == 'aspek_penggunaan_teknologi' && $prodi == 'lulusan') {
+            //jangan lupa lihat $hit di atas
+            for ($i = 24; $i < 27; $i++) {
+                $bank = BankLulusan::get('bank' . $i);
+                if (empty($bank->contains('bank' . $i, '4'))) {
+                    $item_4[$i] = 0;
+                } else {
+                    $item_4[$i] = number_format(BankLulusan::where('bank' . $i, 4)->count() / $hit * 100, 2);
+                }
+                if (empty($bank->contains('bank' . $i, '3'))) {
+                    $item_3[$i] = 0;
+                } else {
+                    $item_3[$i] = number_format(BankLulusan::where('bank' . $i, 3)->count() / $hit * 100, 2);
+                }
+                if (empty($bank->contains('bank' . $i, '2'))) {
+                    $item_2[$i] = 0;
+                } else {
+                    $item_2[$i] = number_format(BankLulusan::where('bank' . $i, 2)->count() / $hit * 100, 2);
+                }
+                if (empty($bank->contains('bank' . $i, '1'))) {
+                    $item_1[$i] = 0;
+                } else {
+                    $item_1[$i] = number_format(BankLulusan::where('bank' . $i, 1)->count() / $hit * 100, 2);
+                }
+                $nilai[] = [$item_4[$i], $item_3[$i], $item_2[$i], $item_1[$i]];
+            }
+
+            foreach ($nilai as $p) {
+                $nilai_sangat_baik[] = $p[0];
+                $nilai_baik[] = $p[1];
+                $nilai_cukup_baik[] = $p[2];
+                $nilai_kurang_baik[] = $p[3];
+            }
+            $sangat_baik = array_sum($nilai_sangat_baik) / count($nilai_sangat_baik);
+            $baik = array_sum($nilai_baik) / count($nilai_baik);
+            $cukup_baik = array_sum($nilai_cukup_baik) / count($nilai_cukup_baik);
+            $kurang_baik = array_sum($nilai_kurang_baik) / count($nilai_kurang_baik);
+
+            $aspek_penggunaan_teknologi = ['Sangat Baik', 'Baik', 'Cukup Baik', 'Kurang Baik'];
+            $count_aspek_penggunaan_teknologi = [number_format($sangat_baik, 2), number_format($baik, 2), number_format($cukup_baik, 2), number_format($kurang_baik, 2)];
+            return response()->json(['aspek_penggunaan_teknologi' => $aspek_penggunaan_teknologi, 'count_aspek_penggunaan_teknologi' => $count_aspek_penggunaan_teknologi]);
+        } elseif ($kategori == 'aspek_komunikasi' && $prodi == 'lulusan') {
+            //jangan lupa lihat $hit di atas
+            for ($i = 27; $i < 32; $i++) {
+                $bank = BankLulusan::get('bank' . $i);
+                if (empty($bank->contains('bank' . $i, '4'))) {
+                    $item_4[$i] = 0;
+                } else {
+                    $item_4[$i] = number_format(BankLulusan::where('bank' . $i, 4)->count() / $hit * 100, 2);
+                }
+                if (empty($bank->contains('bank' . $i, '3'))) {
+                    $item_3[$i] = 0;
+                } else {
+                    $item_3[$i] = number_format(BankLulusan::where('bank' . $i, 3)->count() / $hit * 100, 2);
+                }
+                if (empty($bank->contains('bank' . $i, '2'))) {
+                    $item_2[$i] = 0;
+                } else {
+                    $item_2[$i] = number_format(BankLulusan::where('bank' . $i, 2)->count() / $hit * 100, 2);
+                }
+                if (empty($bank->contains('bank' . $i, '1'))) {
+                    $item_1[$i] = 0;
+                } else {
+                    $item_1[$i] = number_format(BankLulusan::where('bank' . $i, 1)->count() / $hit * 100, 2);
+                }
+                $nilai[] = [$item_4[$i], $item_3[$i], $item_2[$i], $item_1[$i]];
+            }
+
+            foreach ($nilai as $p) {
+                $nilai_sangat_baik[] = $p[0];
+                $nilai_baik[] = $p[1];
+                $nilai_cukup_baik[] = $p[2];
+                $nilai_kurang_baik[] = $p[3];
+            }
+            $sangat_baik = array_sum($nilai_sangat_baik) / count($nilai_sangat_baik);
+            $baik = array_sum($nilai_baik) / count($nilai_baik);
+            $cukup_baik = array_sum($nilai_cukup_baik) / count($nilai_cukup_baik);
+            $kurang_baik = array_sum($nilai_kurang_baik) / count($nilai_kurang_baik);
+
+            $aspek_komunikasi = ['Sangat Baik', 'Baik', 'Cukup Baik', 'Kurang Baik'];
+            $count_aspek_komunikasi = [number_format($sangat_baik, 2), number_format($baik, 2), number_format($cukup_baik, 2), number_format($kurang_baik, 2)];
+            return response()->json(['aspek_komunikasi' => $aspek_komunikasi, 'count_aspek_komunikasi' => $count_aspek_komunikasi]);
+        } elseif ($kategori == 'aspek_kerjasama' && $prodi == 'lulusan') {
+            //jangan lupa lihat $hit di atas
+            for ($i = 32; $i < 35; $i++) {
+                $bank = BankLulusan::get('bank' . $i);
+                if (empty($bank->contains('bank' . $i, '4'))) {
+                    $item_4[$i] = 0;
+                } else {
+                    $item_4[$i] = number_format(BankLulusan::where('bank' . $i, 4)->count() / $hit * 100, 2);
+                }
+                if (empty($bank->contains('bank' . $i, '3'))) {
+                    $item_3[$i] = 0;
+                } else {
+                    $item_3[$i] = number_format(BankLulusan::where('bank' . $i, 3)->count() / $hit * 100, 2);
+                }
+                if (empty($bank->contains('bank' . $i, '2'))) {
+                    $item_2[$i] = 0;
+                } else {
+                    $item_2[$i] = number_format(BankLulusan::where('bank' . $i, 2)->count() / $hit * 100, 2);
+                }
+                if (empty($bank->contains('bank' . $i, '1'))) {
+                    $item_1[$i] = 0;
+                } else {
+                    $item_1[$i] = number_format(BankLulusan::where('bank' . $i, 1)->count() / $hit * 100, 2);
+                }
+                $nilai[] = [$item_4[$i], $item_3[$i], $item_2[$i], $item_1[$i]];
+            }
+
+            foreach ($nilai as $p) {
+                $nilai_sangat_baik[] = $p[0];
+                $nilai_baik[] = $p[1];
+                $nilai_cukup_baik[] = $p[2];
+                $nilai_kurang_baik[] = $p[3];
+            }
+            $sangat_baik = array_sum($nilai_sangat_baik) / count($nilai_sangat_baik);
+            $baik = array_sum($nilai_baik) / count($nilai_baik);
+            $cukup_baik = array_sum($nilai_cukup_baik) / count($nilai_cukup_baik);
+            $kurang_baik = array_sum($nilai_kurang_baik) / count($nilai_kurang_baik);
+
+            $aspek_kerjasama = ['Sangat Baik', 'Baik', 'Cukup Baik', 'Kurang Baik'];
+            $count_aspek_kerjasama = [number_format($sangat_baik, 2), number_format($baik, 2), number_format($cukup_baik, 2), number_format($kurang_baik, 2)];
+            return response()->json(['aspek_kerjasama' => $aspek_kerjasama, 'count_aspek_kerjasama' => $count_aspek_kerjasama]);
+        } elseif ($kategori == 'aspek_pengembangan_diri' && $prodi == 'lulusan') {
+            //jangan lupa lihat $hit di atas
+            for ($i = 35; $i < 37; $i++) {
+                $bank = BankLulusan::get('bank' . $i);
+                if (empty($bank->contains('bank' . $i, '4'))) {
+                    $item_4[$i] = 0;
+                } else {
+                    $item_4[$i] = number_format(BankLulusan::where('bank' . $i, 4)->count() / $hit * 100, 2);
+                }
+                if (empty($bank->contains('bank' . $i, '3'))) {
+                    $item_3[$i] = 0;
+                } else {
+                    $item_3[$i] = number_format(BankLulusan::where('bank' . $i, 3)->count() / $hit * 100, 2);
+                }
+                if (empty($bank->contains('bank' . $i, '2'))) {
+                    $item_2[$i] = 0;
+                } else {
+                    $item_2[$i] = number_format(BankLulusan::where('bank' . $i, 2)->count() / $hit * 100, 2);
+                }
+                if (empty($bank->contains('bank' . $i, '1'))) {
+                    $item_1[$i] = 0;
+                } else {
+                    $item_1[$i] = number_format(BankLulusan::where('bank' . $i, 1)->count() / $hit * 100, 2);
+                }
+                $nilai[] = [$item_4[$i], $item_3[$i], $item_2[$i], $item_1[$i]];
+            }
+
+            foreach ($nilai as $p) {
+                $nilai_sangat_baik[] = $p[0];
+                $nilai_baik[] = $p[1];
+                $nilai_cukup_baik[] = $p[2];
+                $nilai_kurang_baik[] = $p[3];
+            }
+            $sangat_baik = array_sum($nilai_sangat_baik) / count($nilai_sangat_baik);
+            $baik = array_sum($nilai_baik) / count($nilai_baik);
+            $cukup_baik = array_sum($nilai_cukup_baik) / count($nilai_cukup_baik);
+            $kurang_baik = array_sum($nilai_kurang_baik) / count($nilai_kurang_baik);
+
+            $aspek_pengembangan_diri = ['Sangat Baik', 'Baik', 'Cukup Baik', 'Kurang Baik'];
+            $count_aspek_pengembangan_diri = [number_format($sangat_baik, 2), number_format($baik, 2), number_format($cukup_baik, 2), number_format($kurang_baik, 2)];
+            return response()->json(['aspek_pengembangan_diri' => $aspek_pengembangan_diri, 'count_aspek_pengembangan_diri' => $count_aspek_pengembangan_diri]);
         }
     }
 }

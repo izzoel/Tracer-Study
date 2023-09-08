@@ -637,37 +637,86 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                     <div class="col-4">
                         <div class="card">
                             <div class="card-header bg-white">
-                                <div class="">Diagram Aspek Profesionalisme</div>
+                                <div>Diagram Aspek Profesionalisme</div>
                             </div>
                             <div class="card-body">
-                                <div class="" style="height:55vh">
+                                <div style="height:55vh">
                                     <canvas id="aspekProfesionalisme"></canvas>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                     <div class="col-4">
                         <div class="card">
                             <div class="card-header bg-white">
-                                <div class="">Aspek Berbahasa Inggris</div>
+                                <div>Diagram Aspek Kemampuan Berbahasa Asing</div>
                             </div>
                             <div class="card-body">
-                                <div class="" style="height:55vh">
-                                    <canvas id="aspekBerbahasaInggris"></canvas>
+                                <div style="height:55vh">
+                                    <canvas id="aspekBerbahasaAsing"></canvas>
                                 </div>
                             </div>
                         </div>
-
-
+                    </div>
+                </div>
+                <div class="row mt-4 pt-5">
+                    <div class="col-4">
+                        <div class="card">
+                            <div class="card-header bg-white">
+                                <div>Diagram Aspek Penggunaan Teknologi</div>
+                            </div>
+                            <div class="card-body">
+                                <div style="height:55vh">
+                                    <canvas id="aspekPenggunaanTeknologi"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card">
+                            <div class="card-header bg-white">
+                                <div>Diagram Aspek Komunikasi</div>
+                            </div>
+                            <div class="card-body">
+                                <div style="height:55vh">
+                                    <canvas id="aspekKomunikasi"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card">
+                            <div class="card-header bg-white">
+                                <div>Diagram Aspek Kerjasama Dan Kepemimpinan</div>
+                            </div>
+                            <div class="card-body">
+                                <div style="height:55vh">
+                                    <canvas id="aspekKerjasama"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4 pt-5 justify-content-center">
+                    <div class="col-4">
+                        <div class="card">
+                            <div class="card-header bg-white">
+                                <div>Diagram Aspek Pengembangan Diri</div>
+                            </div>
+                            <div class="card-body">
+                                <div style="height:55vh">
+                                    <canvas id="aspekPengembanganDiri"></canvas>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 @endsection

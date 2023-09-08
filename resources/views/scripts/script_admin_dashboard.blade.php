@@ -265,6 +265,14 @@
             });
         });
 
+        routeAspekIntegritas = "{{ route('diagram', '') }}" + "/aspek_integritas/lulusan";
+        routeAspekProfesionalisme = "{{ route('diagram', '') }}" + "/aspek_profesionalisme/lulusan";
+        routeAspekBerbahasaAsing = "{{ route('diagram', '') }}" + "/aspek_berbahasa_asing/lulusan";
+        routeAspekPenggunaanTeknologi = "{{ route('diagram', '') }}" + "/aspek_penggunaan_teknologi/lulusan";
+        routeAspekKomunikasi = "{{ route('diagram', '') }}" + "/aspek_komunikasi/lulusan";
+        routeAspekKerjasama = "{{ route('diagram', '') }}" + "/aspek_kerjasama/lulusan";
+        routeAspekPengembanganDiri = "{{ route('diagram', '') }}" + "/aspek_pengembangan_diri/lulusan";
+
         $.get(routeMasaTungguPekerjaan, function(dataMasaTungguDapatPekerjaan) {
             diagMasaTungguDapatPekerjaan(dataMasaTungguDapatPekerjaan);
         });
@@ -273,6 +281,28 @@
         });
         $.get(routeKegiatanYangBelumBekerja, function(dataKegiatanYangBelumBekerja) {
             diagKegiatanYangBelumBekerja(dataKegiatanYangBelumBekerja);
+        });
+
+        $.get(routeAspekIntegritas, function(dataAspekIntegritas) {
+            diagAspekIntegritas(dataAspekIntegritas);
+        });
+        $.get(routeAspekProfesionalisme, function(dataAspekProfesionalisme) {
+            diagAspekProfesionalisme(dataAspekProfesionalisme);
+        });
+        $.get(routeAspekBerbahasaAsing, function(dataAspekBerbahasaAsing) {
+            diagAspekBerbahasaAsing(dataAspekBerbahasaAsing);
+        });
+        $.get(routeAspekPenggunaanTeknologi, function(dataAspekPenggunaanTeknologi) {
+            diagAspekPenggunaanTeknologi(dataAspekPenggunaanTeknologi);
+        });
+        $.get(routeAspekKomunikasi, function(dataAspekKomunikasi) {
+            diagAspekKomunikasi(dataAspekKomunikasi);
+        });
+        $.get(routeAspekKerjasama, function(dataAspekKerjasama) {
+            diagAspekKerjasama(dataAspekKerjasama);
+        });
+        $.get(routeAspekPengembanganDiri, function(dataAspekPengembanganDiri) {
+            diagAspekPengembanganDiri(dataAspekPengembanganDiri);
         });
     }
 
@@ -446,37 +476,201 @@
         });
     }
 
-    // function aspekIntegritas() {
-    new Chart($('#aspekIntegritas'), {
-        type: 'pie',
-        data: {
-            // labels: dataAspekIntegritas.aspekIntegritas,
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-            datasets: [{
-                label: 'Jumlah Responden',
-                // data: dataAspekIntegritas.count_aspekIntegritas,
-
-                data: [12, 19, 3, 5, 2, 3],
-                borderWidth: 1,
-                order: 0
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: {
-                    position: 'top',
-                },
-                title: {
-                    display: true,
-                    text: 'Aspek Integritas'
+    function diagAspekIntegritas(dataAspekIntegritas) {
+        new Chart($('#aspekIntegritas'), {
+            type: 'pie',
+            data: {
+                labels: dataAspekIntegritas.aspek_integritas,
+                datasets: [{
+                    label: 'Jumlah Penilaian',
+                    data: dataAspekIntegritas.count_aspek_integritas,
+                    borderWidth: 1,
+                    order: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Aspek Integritas'
+                    }
                 }
-            }
-        },
-    });
-    // }
+            },
+        });
+    }
 
+    function diagAspekProfesionalisme(dataAspekProfesionalisme) {
+        new Chart($('#aspekProfesionalisme'), {
+            type: 'pie',
+            data: {
+                labels: dataAspekProfesionalisme.aspek_profesionalisme,
+                datasets: [{
+                    label: 'Jumlah Penilaian',
+                    data: dataAspekProfesionalisme.count_aspek_profesionalisme,
+                    borderWidth: 1,
+                    order: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Aspek Profesionalisme'
+                    }
+                }
+            },
+        });
+    }
+
+    function diagAspekBerbahasaAsing(dataAspekBerbahasaAsing) {
+        new Chart($('#aspekBerbahasaAsing'), {
+            type: 'pie',
+            data: {
+                labels: dataAspekBerbahasaAsing.aspek_berbahasa_asing,
+                datasets: [{
+                    label: 'Jumlah Penilaian',
+                    data: dataAspekBerbahasaAsing.count_aspek_berbahasa_asing,
+                    borderWidth: 1,
+                    order: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Aspek Kemampuan Berbahasa Asing'
+                    }
+                }
+            },
+        });
+    }
+
+    function diagAspekPenggunaanTeknologi(dataAspekPenggunaanTeknologi) {
+        new Chart($('#aspekPenggunaanTeknologi'), {
+            type: 'pie',
+            data: {
+                labels: dataAspekPenggunaanTeknologi.aspek_penggunaan_teknologi,
+                datasets: [{
+                    label: 'Jumlah Penilaian',
+                    data: dataAspekPenggunaanTeknologi.count_aspek_penggunaan_teknologi,
+                    borderWidth: 1,
+                    order: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Aspek Penggunaan Teknologi'
+                    }
+                }
+            },
+        });
+    }
+
+    function diagAspekKomunikasi(dataAspekKomunikasi) {
+        new Chart($('#aspekKomunikasi'), {
+            type: 'pie',
+            data: {
+                labels: dataAspekKomunikasi.aspek_komunikasi,
+                datasets: [{
+                    label: 'Jumlah Penilaian',
+                    data: dataAspekKomunikasi.count_aspek_komunikasi,
+                    borderWidth: 1,
+                    order: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Aspek Komunikasi'
+                    }
+                }
+            },
+        });
+    }
+
+    function diagAspekKerjasama(dataAspekKerjasama) {
+        new Chart($('#aspekKerjasama'), {
+            type: 'pie',
+            data: {
+                labels: dataAspekKerjasama.aspek_kerjasama,
+                datasets: [{
+                    label: 'Jumlah Penilaian',
+                    data: dataAspekKerjasama.count_aspek_kerjasama,
+                    borderWidth: 1,
+                    order: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Aspek Kerjasama'
+                    }
+                }
+            },
+        });
+    }
+
+    function diagAspekPengembanganDiri(dataAspekPengembanganDiri) {
+        new Chart($('#aspekPengembanganDiri'), {
+            type: 'pie',
+            data: {
+                labels: dataAspekPengembanganDiri.aspek_pengembangan_diri,
+                datasets: [{
+                    label: 'Jumlah Penilaian',
+                    data: dataAspekPengembanganDiri.count_aspek_pengembangan_diri,
+                    borderWidth: 1,
+                    order: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Aspek Pengembangan Diri'
+                    }
+                }
+            },
+        });
+    }
 
     function download() {
         const imagelLink = document.createElement('a');
