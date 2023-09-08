@@ -716,7 +716,46 @@
                     </div>
                 </div>
             </div>
+
+            <div class="p-3">
+                <div class="card">
+                    <div class="card-header bg-white">
+                        <div class="">Data Responden Pengguna Lulusan Yang Mengisi</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <table class="table table-sm table-striped table-hover table-bordered p-0"
+                                    style="width: 100%" id="tbl_pengguna_lulusan">
+                                    <thead border="1">
+                                        <tr class="p-0">
+                                            <th>Nama Tempat Kerja</th>
+                                            <th>Nama Pimpinan/Atasan</th>
+                                            <th>No Whatsapp</th>
+                                            <th>Email</th>
+                                            <th>Nama Alumni</th>
+                                            <th>Jabatan Alumni</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($data_pengguna_lulusan as $data)
+                                            <tr>
+                                                <td>{{ $data->bank1 }}</td>
+                                                <td>{{ $data->bank3 }}</td>
+                                                <td>{{ $data->bank4 }}</td>
+                                                <td>{{ $data->bank5 }}</td>
+                                                <td>{{ $data->bank6 }}</td>
+                                                <td>{{ $data->bank7 }}</td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+
     </div>
 @endsection

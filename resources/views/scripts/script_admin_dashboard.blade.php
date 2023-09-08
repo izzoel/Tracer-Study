@@ -258,10 +258,6 @@
                     });
                     // diagInformasiLowonganPekerjaan(dataInformasiLowonganPekerjaan);
                 });
-
-
-
-
             });
         });
 
@@ -282,6 +278,8 @@
         $.get(routeKegiatanYangBelumBekerja, function(dataKegiatanYangBelumBekerja) {
             diagKegiatanYangBelumBekerja(dataKegiatanYangBelumBekerja);
         });
+
+
 
         $.get(routeAspekIntegritas, function(dataAspekIntegritas) {
             diagAspekIntegritas(dataAspekIntegritas);
@@ -683,6 +681,10 @@
 
     // ############### Datatables
     $('#tbl_alumni').DataTable({
+        // "lengthChange": false
+        "dom": 'frtp'
+    });
+    $('#tbl_pengguna_lulusan').DataTable({
         // "lengthChange": false
         "dom": 'frtp'
     });

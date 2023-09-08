@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Admin;
 use App\Models\User;
 use App\Models\BankAlumni;
+use App\Models\BankLulusan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -53,9 +54,10 @@ class AdminController extends Controller
     public function show(Admin $admin)
     {
         $data_alumni = BankAlumni::all();
+        $data_pengguna_lulusan = BankLulusan::all();
         $count = $data_alumni->count();
 
-        return view('content.admin')->with(['data_alumni' => $data_alumni, 'title' => 'dashboard', 'count' => $count]);
+        return view('content.admin')->with(['data_alumni' => $data_alumni, 'data_pengguna_lulusan' => $data_pengguna_lulusan, 'title' => 'dashboard', 'count' => $count]);
     }
 
     /**
