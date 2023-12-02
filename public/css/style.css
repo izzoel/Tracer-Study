@@ -407,6 +407,7 @@ legend + * {
 }
 
 [type=search] {
+  outline-color: #FF5733;
   outline-offset: -2px;
   -webkit-appearance: textfield;
 }
@@ -10314,3 +10315,16 @@ p a:hover {
 .warna-elemen{
   background-color:#FF5733;
 }
+
+/* .chosen-select{
+  background-color: white;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  left: -100000px;
+  width: 100%;
+  z-index: 9051; 
+} */
+

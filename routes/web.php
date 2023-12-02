@@ -52,12 +52,21 @@ Route::group(['middleware' => ['guest']], function () {
     })->name('unduhan');
 
 
-    Route::get('/survey', function () {
-        return view(
-            'content.survey',
-            ['title' => 'survey']
-        );
-    })->name('survey');
+    // Route::get('/survey', function () {
+    //     return view(
+    //         'content.survey',
+    //         ['title' => 'survey']
+    //     );
+    // })->name('survey');
+    // Route::get('/survey', function () {
+    //     return view(
+    //         'content.survey',
+    //         ['title' => 'survey']
+    //     );
+    // })->name('survey');
+
+
+    Route::get('/survey', [UserAlumniController::class, 'survey'])->name('survey');
 
 
     Route::get('/survey/verif/{nim?}/{prodi?}', [UserAlumniController::class, 'verif'])->name('verif_alumni');
@@ -68,6 +77,8 @@ Route::group(['middleware' => ['guest']], function () {
     Route::post('/survey/alumni/submit', [BankAlumniController::class, 'store'])->name('alumni_submit');
 
     Route::get('/survey/lulusan', [SurveyLulusanController::class, 'show'])->name('lulusan');
+    Route::get('/survey/lulusan2', [SurveyLulusanController::class, 'dad'])->name('lulusan2');
+    Route::post('/survey/lulusan', [SurveyLulusanController::class, 'show'])->name('lulusan');
     Route::post('/survey/lulusan/submit', [BankLulusanController::class, 'store'])->name('lulusan_submit');
 });
 
@@ -105,6 +116,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/admin/statistik/{prodi}', [StatistikController::class, 'statistikProdi'])->name('statistik_prodi');
     Route::get('/admin/diagram/{kategori}/{prodi?}', [StatistikController::class, 'diagram'])->name('diagram');
     Route::get('/admin/statistik_alumni', [UserAlumniController::class, 'statistikAlumni'])->name('statistik_alumni');
+    Route::get('/admin/statistik_lulusan/{prodi}', [StatistikController::class, 'statistikLulusan'])->name('statistik_lulusan');
 
     Route::post('/admin/user_alumni/store', [UserAlumniController::class, 'store'])->name('add_user_alumni');
     Route::post('/admin/user_alumni/import', [UserAlumniController::class, 'import'])->name('import_user_alumni');

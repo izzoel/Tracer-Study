@@ -33,10 +33,10 @@
         });
     });
 
+    // alert($('.sub-nav.active #tab-title').text());
 
-    if ($('.sub-nav.active #tab-title').text() == "D3 Farmasi") {
+    if ($('.sub-nav.active #tab-title').text() == 'D3 Farmasi') {
         prodi = $('.sub-nav.active #tab-title').text();
-
         routeProdi = "{{ route('statistik_prodi', '') }}" + "/" + prodi;
         routeKategori = "{{ route('diagram', '') }}" + "/kategori/" + prodi;
         routeTempatKerja = "{{ route('diagram', '') }}" + "/tempat_kerja/" + prodi;
@@ -46,8 +46,10 @@
         routeRelevansiPekerjaan = "{{ route('diagram', '') }}" + "/relevansi_pekerjaan/" + prodi;
         routeKegiatanYangBelumBekerja = "{{ route('diagram', '') }}" + "/kegiatan_belum_bekerja/" + prodi;
 
+        // alert(routeRelevansiPekerjaan);
         $.get(routeProdi, function(data) {
             resp_prodi = '#' + prodi.replace(/\s/g, '');
+            canv_prodi = prodi.replace(/\s/g, '');
 
             $(resp_prodi + 'Stat').html("")
             var html = '';
@@ -102,21 +104,72 @@
         });
     }
 
+
+    if ($('.sub-nav.active #L-tab-title').text() == "D3 Farmasi") {
+        prodiLulusan = $('.sub-nav.active #L-tab-title').text();
+
+        routeLulusan = "{{ route('statistik_lulusan', '') }}/" + prodiLulusan;
+        routeAspekIntegritas = "{{ route('diagram', '') }}" + "/aspek_integritas/" + prodiLulusan;
+        routeAspekProfesionalisme = "{{ route('diagram', '') }}" + "/aspek_profesionalisme/" +
+            prodiLulusan;
+        routeAspekBerbahasaAsing = "{{ route('diagram', '') }}" + "/aspek_berbahasa_asing/" + prodiLulusan;
+        routeAspekPenggunaanTeknologi = "{{ route('diagram', '') }}" +
+            "/aspek_penggunaan_teknologi/" + prodiLulusan;
+        routeAspekKomunikasi = "{{ route('diagram', '') }}" + "/aspek_komunikasi/" + prodiLulusan;
+        routeAspekKerjasama = "{{ route('diagram', '') }}" + "/aspek_kerjasama/" + prodiLulusan;
+        routeAspekPengembanganDiri = "{{ route('diagram', '') }}" + "/aspek_pengembangan_diri/" +
+            prodiLulusan;
+
+        $.get(routeLulusan, function(data) {
+            canv_prodi_lulusan = prodiLulusan.replace(/\s/g, '');
+            $.get(routeAspekIntegritas, function(dataAspekIntegritas) {
+
+                diagAspekIntegritas(dataAspekIntegritas, canv_prodi_lulusan)
+            });
+            $.get(routeAspekProfesionalisme, function(dataAspekProfesionalisme) {
+                diagAspekProfesionalisme(dataAspekProfesionalisme, canv_prodi_lulusan);
+            });
+            $.get(routeAspekBerbahasaAsing, function(dataAspekBerbahasaAsing) {
+                diagAspekBerbahasaAsing(dataAspekBerbahasaAsing, canv_prodi_lulusan);
+            });
+            $.get(routeAspekPenggunaanTeknologi, function(dataAspekPenggunaanTeknologi) {
+                diagAspekPenggunaanTeknologi(dataAspekPenggunaanTeknologi,
+                    canv_prodi_lulusan);
+            });
+            $.get(routeAspekKomunikasi, function(dataAspekKomunikasi) {
+                diagAspekKomunikasi(dataAspekKomunikasi, canv_prodi_lulusan);
+            });
+            $.get(routeAspekKerjasama, function(dataAspekKerjasama) {
+                diagAspekKerjasama(dataAspekKerjasama, canv_prodi_lulusan);
+            });
+            $.get(routeAspekPengembanganDiri, function(dataAspekPengembanganDiri) {
+                diagAspekPengembanganDiri(dataAspekPengembanganDiri, canv_prodi_lulusan);
+            });
+        })
+    }
+
+
     if ($('.nav-link.active #tab-title-fakultas').text() == "Fakultas Farmasi") {
         statistikProdi();
+    }
+
+    if ($('.nav-link.active #L-tab-title-fakultas').text() == "Fakultas Farmasi") {
+        lStatistikProdi();
     }
 
     $('.main-nav.nav-link[role="tab"]').on("click", function() {
         $('.sub-nav.nav-link.active').removeClass('active');
         statistikProdi();
+        lStatistikProdi();
     });
+
+
 
     function statistikProdi() {
 
         $('.sub-nav.nav-link[role="tab"]').on("click", function() {
 
             prodi = $('.sub-nav.active #tab-title').text();
-
             routeProdi = "{{ route('statistik_prodi', '') }}/" + prodi;
             routeKategori =
                 "{{ route('diagram', '') }}" + "/kategori/" + prodi;
@@ -131,8 +184,8 @@
                 "/relevansi_pekerjaan";
             routeKegiatanYangBelumBekerja = "{{ route('diagram', '') }}" +
                 "/kegiatan_belum_bekerja";
-
             $.get(routeProdi, function(data) {
+
                 resp_prodi = '#' + prodi.replace(/\s/g, '');
                 canv_prodi = prodi.replace(/\s/g, '');
                 $(resp_prodi + 'Stat').html("")
@@ -171,104 +224,20 @@
                     }
                 });
 
-                $.get(routeKategori, function(dataKategori) {
-                    new Chart($('#kegiatanSetelahLulus' + canv_prodi), {
-                        type: 'pie',
-                        data: {
-                            labels: dataKategori.kategori,
-                            datasets: [{
-                                label: ' Alumni ' + prodi,
-                                data: dataKategori.count_kategori,
-                                borderWidth: 1,
-                                order: 0
-                            }]
-                        },
-                        options: {
-                            responsive: true,
-                            maintainAspectRatio: false,
-                            plugins: {
-                                legend: {
-                                    position: 'top',
-                                },
-                                title: {
-                                    display: false,
-                                    text: 'Kegiatan Setelah Lulus (Kategori?) ALL'
-                                }
-                            }
-                        },
-                    });
-                    // diagKegiatanSetelahLulus(dataKategori, prodi);
-                });
-                $.get(routeTempatKerja, function(dataTempatKerja) {
-                    new Chart($('#tempatKerja' + canv_prodi), {
-                        type: 'pie',
-                        data: {
-                            labels: dataTempatKerja.tempat_kerja,
-                            datasets: [{
-                                label: 'Jumlah Responden',
-                                data: dataTempatKerja.count_tempat_kerja,
-                                borderWidth: 1,
-                                order: 0
-                            }]
-                        },
-                        options: {
-                            responsive: true,
-                            maintainAspectRatio: false,
-                            plugins: {
-                                legend: {
-                                    position: 'top',
-                                },
-                                title: {
-                                    display: true,
-                                    text: 'Tempat Kerja (' + prodi +
-                                        ') (BUMN?Swasta?) kategori SB WH'
-                                }
-                            }
-                        },
-                    });
-                    // diagTempatKerja(dataTempatKerja, prodi);
-                });
-                $.get(routeInformasiLowongan, function(dataInformasiLowonganPekerjaan) {
-                    new Chart($('#informasiLowonganPekerjaan' + canv_prodi), {
-                        type: 'pie',
-                        data: {
-                            labels: dataInformasiLowonganPekerjaan
-                                .informasi_lowongan_pekerjaan,
-                            datasets: [{
-                                label: prodi,
-                                data: dataInformasiLowonganPekerjaan
-                                    .count_informasi_lowongan_pekerjaan,
-                                borderWidth: 1,
-                                order: 0
-                            }]
-                        },
-                        options: {
-                            responsive: true,
-                            maintainAspectRatio: false,
-                            plugins: {
-                                legend: {
-                                    position: 'top',
-                                },
-                                title: {
-                                    display: true,
-                                    text: 'Informasi Lowongan Pekerjaan SB WH'
-                                }
-                            }
-                        },
-                    });
-                    // diagInformasiLowonganPekerjaan(dataInformasiLowonganPekerjaan);
-                });
+
             });
+
         });
 
-        routeAspekIntegritas = "{{ route('diagram', '') }}" + "/aspek_integritas/lulusan";
-        routeAspekProfesionalisme = "{{ route('diagram', '') }}" + "/aspek_profesionalisme/lulusan";
-        routeAspekBerbahasaAsing = "{{ route('diagram', '') }}" + "/aspek_berbahasa_asing/lulusan";
-        routeAspekPenggunaanTeknologi = "{{ route('diagram', '') }}" + "/aspek_penggunaan_teknologi/lulusan";
-        routeAspekKomunikasi = "{{ route('diagram', '') }}" + "/aspek_komunikasi/lulusan";
-        routeAspekKerjasama = "{{ route('diagram', '') }}" + "/aspek_kerjasama/lulusan";
-        routeAspekPengembanganDiri = "{{ route('diagram', '') }}" + "/aspek_pengembangan_diri/lulusan";
-
+        $.get(routeKategori, function(dataKategori) {
+            diagKegiatanSetelahLulus(dataKategori);
+        });
+        $.get(routeTempatKerja, function(dataTempatKerja) {
+            diagTempatKerja(dataTempatKerja);
+        });
+        $.get(routeInformasiLowongan, function(dataInformasiLowonganPekerjaan) {
+            diagInformasiLowonganPekerjaan(dataInformasiLowonganPekerjaan);
+        });
         $.get(routeMasaTungguPekerjaan, function(dataMasaTungguDapatPekerjaan) {
             diagMasaTungguDapatPekerjaan(dataMasaTungguDapatPekerjaan);
         });
@@ -278,35 +247,58 @@
         $.get(routeKegiatanYangBelumBekerja, function(dataKegiatanYangBelumBekerja) {
             diagKegiatanYangBelumBekerja(dataKegiatanYangBelumBekerja);
         });
+    }
 
+    function lStatistikProdi() {
 
+        $('.sub-nav.nav-link[role="tab"]').on("click", function() {
+            prodiLulusan = $('.sub-nav.active #L-tab-title').text();
 
-        $.get(routeAspekIntegritas, function(dataAspekIntegritas) {
-            diagAspekIntegritas(dataAspekIntegritas);
-        });
-        $.get(routeAspekProfesionalisme, function(dataAspekProfesionalisme) {
-            diagAspekProfesionalisme(dataAspekProfesionalisme);
-        });
-        $.get(routeAspekBerbahasaAsing, function(dataAspekBerbahasaAsing) {
-            diagAspekBerbahasaAsing(dataAspekBerbahasaAsing);
-        });
-        $.get(routeAspekPenggunaanTeknologi, function(dataAspekPenggunaanTeknologi) {
-            diagAspekPenggunaanTeknologi(dataAspekPenggunaanTeknologi);
-        });
-        $.get(routeAspekKomunikasi, function(dataAspekKomunikasi) {
-            diagAspekKomunikasi(dataAspekKomunikasi);
-        });
-        $.get(routeAspekKerjasama, function(dataAspekKerjasama) {
-            diagAspekKerjasama(dataAspekKerjasama);
-        });
-        $.get(routeAspekPengembanganDiri, function(dataAspekPengembanganDiri) {
-            diagAspekPengembanganDiri(dataAspekPengembanganDiri);
+            routeLulusan = "{{ route('statistik_lulusan', '') }}/" + prodiLulusan;
+            routeAspekIntegritas = "{{ route('diagram', '') }}" + "/aspek_integritas/" + prodiLulusan;
+            routeAspekProfesionalisme = "{{ route('diagram', '') }}" + "/aspek_profesionalisme/" +
+                prodiLulusan;
+            routeAspekBerbahasaAsing = "{{ route('diagram', '') }}" + "/aspek_berbahasa_asing/" + prodiLulusan;
+            routeAspekPenggunaanTeknologi = "{{ route('diagram', '') }}" +
+                "/aspek_penggunaan_teknologi/" + prodiLulusan;
+            routeAspekKomunikasi = "{{ route('diagram', '') }}" + "/aspek_komunikasi/" + prodiLulusan;
+            routeAspekKerjasama = "{{ route('diagram', '') }}" + "/aspek_kerjasama/" + prodiLulusan;
+            routeAspekPengembanganDiri = "{{ route('diagram', '') }}" + "/aspek_pengembangan_diri/" +
+                prodiLulusan;
+
+            $.get(routeLulusan, function(data) {
+                canv_prodi_lulusan = prodiLulusan.replace(/\s/g, '');
+                $.get(routeAspekIntegritas, function(dataAspekIntegritas) {
+
+                    diagAspekIntegritas(dataAspekIntegritas, canv_prodi_lulusan)
+                });
+                $.get(routeAspekProfesionalisme, function(dataAspekProfesionalisme) {
+                    diagAspekProfesionalisme(dataAspekProfesionalisme, canv_prodi_lulusan);
+                });
+                $.get(routeAspekBerbahasaAsing, function(dataAspekBerbahasaAsing) {
+                    diagAspekBerbahasaAsing(dataAspekBerbahasaAsing, canv_prodi_lulusan);
+                });
+                $.get(routeAspekPenggunaanTeknologi, function(dataAspekPenggunaanTeknologi) {
+                    diagAspekPenggunaanTeknologi(dataAspekPenggunaanTeknologi,
+                        canv_prodi_lulusan);
+                });
+                $.get(routeAspekKomunikasi, function(dataAspekKomunikasi) {
+                    diagAspekKomunikasi(dataAspekKomunikasi, canv_prodi_lulusan);
+                });
+                $.get(routeAspekKerjasama, function(dataAspekKerjasama) {
+                    diagAspekKerjasama(dataAspekKerjasama, canv_prodi_lulusan);
+                });
+                $.get(routeAspekPengembanganDiri, function(dataAspekPengembanganDiri) {
+                    diagAspekPengembanganDiri(dataAspekPengembanganDiri, canv_prodi_lulusan);
+                });
+            })
         });
     }
 
 
-    function diagKegiatanSetelahLulus(dataKategori, prodi) {
-        new Chart($('#kegiatanSetelahLulus'), {
+
+    function diagKegiatanSetelahLulus(dataKategori) {
+        new Chart($('#kegiatanSetelahLulus' + canv_prodi), {
             type: 'pie',
             data: {
                 labels: dataKategori.kategori,
@@ -334,13 +326,13 @@
 
     }
 
-    function diagTempatKerja(dataTempatKerja, prodi) {
-        new Chart($('#tempatKerja'), {
+    function diagTempatKerja(dataTempatKerja) {
+        new Chart($('#tempatKerja' + canv_prodi), {
             type: 'pie',
             data: {
                 labels: dataTempatKerja.tempat_kerja,
                 datasets: [{
-                    label: 'Jumlah Responden',
+                    label: 'Jumlah Responden ' + prodi,
                     data: dataTempatKerja.count_tempat_kerja,
                     borderWidth: 1,
                     order: 0
@@ -363,13 +355,15 @@
     }
 
     function diagInformasiLowonganPekerjaan(dataInformasiLowonganPekerjaan) {
-        new Chart($('#informasiLowonganPekerjaan'), {
+        new Chart($('#informasiLowonganPekerjaan' + canv_prodi), {
             type: 'pie',
             data: {
-                labels: dataInformasiLowonganPekerjaan.informasi_lowongan_pekerjaan,
+                labels: dataInformasiLowonganPekerjaan
+                    .informasi_lowongan_pekerjaan,
                 datasets: [{
-                    label: 'Jumlah Responden',
-                    data: dataInformasiLowonganPekerjaan.count_informasi_lowongan_pekerjaan,
+                    label: prodi,
+                    data: dataInformasiLowonganPekerjaan
+                        .count_informasi_lowongan_pekerjaan,
                     borderWidth: 1,
                     order: 0
                 }]
@@ -474,8 +468,9 @@
         });
     }
 
-    function diagAspekIntegritas(dataAspekIntegritas) {
-        new Chart($('#aspekIntegritas'), {
+    function diagAspekIntegritas(dataAspekIntegritas, lulusan) {
+
+        new Chart($('#aspekIntegritas' + lulusan), {
             type: 'pie',
             data: {
                 labels: dataAspekIntegritas.aspek_integritas,
@@ -500,10 +495,11 @@
                 }
             },
         });
+
     }
 
-    function diagAspekProfesionalisme(dataAspekProfesionalisme) {
-        new Chart($('#aspekProfesionalisme'), {
+    function diagAspekProfesionalisme(dataAspekProfesionalisme, lulusan) {
+        new Chart($('#aspekProfesionalisme' + lulusan), {
             type: 'pie',
             data: {
                 labels: dataAspekProfesionalisme.aspek_profesionalisme,
@@ -530,8 +526,8 @@
         });
     }
 
-    function diagAspekBerbahasaAsing(dataAspekBerbahasaAsing) {
-        new Chart($('#aspekBerbahasaAsing'), {
+    function diagAspekBerbahasaAsing(dataAspekBerbahasaAsing, lulusan) {
+        new Chart($('#aspekBerbahasaAsing' + lulusan), {
             type: 'pie',
             data: {
                 labels: dataAspekBerbahasaAsing.aspek_berbahasa_asing,
@@ -558,8 +554,8 @@
         });
     }
 
-    function diagAspekPenggunaanTeknologi(dataAspekPenggunaanTeknologi) {
-        new Chart($('#aspekPenggunaanTeknologi'), {
+    function diagAspekPenggunaanTeknologi(dataAspekPenggunaanTeknologi, lulusan) {
+        new Chart($('#aspekPenggunaanTeknologi' + lulusan), {
             type: 'pie',
             data: {
                 labels: dataAspekPenggunaanTeknologi.aspek_penggunaan_teknologi,
@@ -586,8 +582,8 @@
         });
     }
 
-    function diagAspekKomunikasi(dataAspekKomunikasi) {
-        new Chart($('#aspekKomunikasi'), {
+    function diagAspekKomunikasi(dataAspekKomunikasi, lulusan) {
+        new Chart($('#aspekKomunikasi' + lulusan), {
             type: 'pie',
             data: {
                 labels: dataAspekKomunikasi.aspek_komunikasi,
@@ -614,8 +610,8 @@
         });
     }
 
-    function diagAspekKerjasama(dataAspekKerjasama) {
-        new Chart($('#aspekKerjasama'), {
+    function diagAspekKerjasama(dataAspekKerjasama, lulusan) {
+        new Chart($('#aspekKerjasama' + lulusan), {
             type: 'pie',
             data: {
                 labels: dataAspekKerjasama.aspek_kerjasama,
@@ -642,8 +638,8 @@
         });
     }
 
-    function diagAspekPengembanganDiri(dataAspekPengembanganDiri) {
-        new Chart($('#aspekPengembanganDiri'), {
+    function diagAspekPengembanganDiri(dataAspekPengembanganDiri, lulusan) {
+        new Chart($('#aspekPengembanganDiri' + lulusan), {
             type: 'pie',
             data: {
                 labels: dataAspekPengembanganDiri.aspek_pengembangan_diri,

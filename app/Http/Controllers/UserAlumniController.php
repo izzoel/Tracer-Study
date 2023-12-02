@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Imports\FirstSheet;
 use App\Models\UserAlumni;
+use App\Models\BankLulusan;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
 
@@ -63,6 +64,16 @@ class UserAlumniController extends Controller
     }
 
 
+    public function survey(UserAlumni $userAlumni)
+    {
+        $data = UserAlumni::all();
+        return view(
+            'content.survey',
+            ['title' => 'survey', 'nama_alumni' => $data->skip(2)]
+        );
+    }
+
+
     public function verif($nim, $prodi)
     {
         $data = UserAlumni::where('nim', $nim)->where('prodi', $prodi)->get();
@@ -103,7 +114,6 @@ class UserAlumniController extends Controller
 
         return response()->json($res);
     }
-
     public function import(Request $request)
     {
         // Excel::selectSheets('sheet1')->load();

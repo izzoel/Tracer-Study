@@ -349,8 +349,8 @@ class ComposerStaticInit0a7414db20f370b2141f42748be97181
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-factory/src',
-            1 => __DIR__ . '/..' . '/psr/http-message/src',
+            0 => __DIR__ . '/..' . '/psr/http-message/src',
+            1 => __DIR__ . '/..' . '/psr/http-factory/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -551,7 +551,7 @@ class ComposerStaticInit0a7414db20f370b2141f42748be97181
         'App\\Http\\Controllers\\BankAlumniController' => __DIR__ . '/../..' . '/app/Http/Controllers/BankAlumniController.php',
         'App\\Http\\Controllers\\BankLulusanController' => __DIR__ . '/../..' . '/app/Http/Controllers/BankLulusanController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
-        'App\\Http\\Controllers\\EmailController' => __DIR__ . '/../..' . '/app/Http/Controllers/EmailController.php',
+        'App\\Http\\Controllers\\ResponEmailController' => __DIR__ . '/../..' . '/app/Http/Controllers/ResponEmailController.php',
         'App\\Http\\Controllers\\StatistikController' => __DIR__ . '/../..' . '/app/Http/Controllers/StatistikController.php',
         'App\\Http\\Controllers\\SurveyAlumniController' => __DIR__ . '/../..' . '/app/Http/Controllers/SurveyAlumniController.php',
         'App\\Http\\Controllers\\SurveyLulusanController' => __DIR__ . '/../..' . '/app/Http/Controllers/SurveyLulusanController.php',

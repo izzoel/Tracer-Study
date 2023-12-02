@@ -1,4 +1,38 @@
 <script>
+    // $(document).ready(function() {
+    // $('#state').select2({
+    //     placeholder: 'Select an option'
+    // });
+    // // });
+
+    // $('#state').select2({
+    //     // theme: 'bootstrap-5'
+    // });
+
+    // dselect(document.querySelector('#dselect-example'), {
+    //     search: true
+    // });
+
+    // $(document).ready(function() {
+    // $('#state').selectpicker();
+    // });
+
+
+    $('#nama_alumni').select2({
+        dropdownParent: $("#lulusanModal"),
+        placeholder: "-- Cari Alumni --"
+        // allowClear: true
+    });
+    //     $("#select2insidemodal").select2({
+    //     dropdownParent: $("#myModal")
+    //   });
+
+    $('div#modal').on('show.bs.modal', function(event) {
+        var button = $(event.relatedTarget);
+        var modal = $(this);
+        modal.find('select').selectpicker();
+    });
+
     $('#nama').keyup(function() {
         $(this).val($(this).val().toUpperCase());
     });
@@ -215,6 +249,40 @@
     </script>
 @elseif (Request::segment(2) == 'lulusan')
     <script>
+        // routeLulusan = "{{ route('lulusan2') }}";
+        // $.get(routeLulusan, function(data) {
+        //     alert(data);
+        //     //     // var nama = data.nama_pengguna_lulusan;
+        //     //     // $('[name=bank1]').val(nama);
+        //     //     // console.log(data.datauser);
+        //     //     // console.log(data.datauser);
+
+        // });
+
+        var d_nama_pengguna_lulusan = $('#d_nama_pengguna_lulusan').val();
+        var d_jabatan_pengguna_lulusan = $('#d_jabatan_pengguna_lulusan').val();
+        var d_instansi = $('#d_instansi').val();
+        var d_nama_alumni = $('#d_nama_alumni').val();
+        // var t_nama_alumni = d_nama_alumni.indexOf('-');
+
+        // var w_nama_alumni = d_nama_alumni.toLowerCase().split(
+        //     ' ');
+
+        // for (var i = 0; i < w_nama_alumni.length; i++) {
+        //     w_nama_alumni[i] = w_nama_alumni[i].charAt(0).toUpperCase() + w_nama_alumni[i].substring(1);
+        // }
+
+        // var d_nama_alumni = w_nama_alumni.join(' ');
+
+        $('[name=bank1]').val(d_instansi);
+        $('[name=bank3]').val(d_nama_pengguna_lulusan);
+        $('[name=bank6]').val(d_nama_alumni);
+        // $('[name=bank6]').val(d_nama_alumni.substring(t_nama_alumni + 1));
+
+
+
+
+
         $('#lulusan-submit').submit(function(e) {
             e.preventDefault()
 

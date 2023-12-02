@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\BankAlumni;
 use App\Models\UserAlumni;
-use App\Http\Controllers\Controller;
 use App\Models\BankLulusan;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use function PHPUnit\Framework\isEmpty;
@@ -25,6 +25,12 @@ class StatistikController extends Controller
             $angkatan_mengisi[$key] = BankAlumni::where('prodi', $prodi)->where('angkatan', $key)->count();
         }
         return response()->json(['angkatan' => $angkatan, 'angkatan_mengisi' => $angkatan_mengisi]);
+    }
+    public function statistikLulusan(BankLulusan $bankLulusan, $prodi)
+    {
+        $lulusan = BankLulusan::where('bank38', $prodi)->get('bank38');
+
+        return response()->json($lulusan);
     }
     public function diagram(BankAlumni $BankAlumni, $kategori, $prodi)
     {
@@ -60,7 +66,7 @@ class StatistikController extends Controller
             }
             return response()->json(['masa_tunggu_pekerjaan' => $bb, 'count_masa_tunggu_pekerjaan' => $count_bb]);
         } elseif ($kategori == 'relevansi_pekerjaan') {
-            foreach (BankAlumni::where('kategori', 'Sudah Bekerja')->orWhere('kategori', 'Berwirausaha')->get(['sudah_bekerja12', 'berwirausaha12'])->unique('berwirausaha12', 'sudah_bekerja12') as $r) {
+            foreach (BankAlumni::where('kategori', 'Sudah Bekerja')->orWhere('kategori', 'Berwirausaha')->get(['sudah_bekerja12', 'berwirausaha8'])->unique('berwirausaha8', 'sudah_bekerja12') as $r) {
                 if (!empty($r->sudah_bekerja12)) {
                     if ($r->sudah_bekerja12 == 'Ya') {
                         $sb[] = $r->sudah_bekerja12;
@@ -69,13 +75,13 @@ class StatistikController extends Controller
                         $sb[] = $r->sudah_bekerja12;
                         $count_t[] = BankAlumni::where('sudah_bekerja12', 'Tidak')->count();
                     }
-                } elseif (!empty($r->berwirausaha12)) {
-                    if ($r->berwirausaha12 == 'Ya') {
-                        $bw[] = $r->berwirausaha12;
-                        $count_y[] = BankAlumni::where('berwirausaha12', 'Ya')->count();
-                    } elseif (($r->berwirausaha12 == 'Tidak')) {
-                        $bw[] = $r->berwirausaha12;
-                        $count_t[] = BankAlumni::where('berwirausaha12', 'Tidak')->count();
+                } elseif (!empty($r->berwirausaha8)) {
+                    if ($r->berwirausaha8 == 'Ya') {
+                        $bw[] = $r->berwirausaha8;
+                        $count_y[] = BankAlumni::where('berwirausaha8', 'Ya')->count();
+                    } elseif (($r->berwirausaha8 == 'Tidak')) {
+                        $bw[] = $r->berwirausaha8;
+                        $count_t[] = BankAlumni::where('berwirausaha8', 'Tidak')->count();
                     }
                 }
             }
@@ -93,29 +99,30 @@ class StatistikController extends Controller
                 }
             }
             return response()->json(['kegiatan_belum_bekerja' => $bb, 'count_kegiatan_belum_bekerja' => $count_kegiatan_belum_bekerja]);
-        } elseif ($kategori == 'aspek_integritas' && $prodi == 'lulusan') {
+        } elseif ($kategori == 'aspek_integritas') {
+            // } elseif ($kategori == 'aspek_integritas' && $prodi == 'lulusan') {
             //jangan lupa lihat $hit di atas
             for ($i = 9; $i < 16; $i++) {
                 $bank = BankLulusan::get('bank' . $i);
                 if (empty($bank->contains('bank' . $i, '4'))) {
                     $item_4[$i] = 0;
                 } else {
-                    $item_4[$i] = number_format(BankLulusan::where('bank' . $i, 4)->count() / $hit * 100, 2);
+                    $item_4[$i] = number_format(BankLulusan::where('bank38', $prodi)->where('bank' . $i, 4)->count() / $hit * 100, 2);
                 }
                 if (empty($bank->contains('bank' . $i, '3'))) {
                     $item_3[$i] = 0;
                 } else {
-                    $item_3[$i] = number_format(BankLulusan::where('bank' . $i, 3)->count() / $hit * 100, 2);
+                    $item_3[$i] = number_format(BankLulusan::where('bank38', $prodi)->where('bank' . $i, 3)->count() / $hit * 100, 2);
                 }
                 if (empty($bank->contains('bank' . $i, '2'))) {
                     $item_2[$i] = 0;
                 } else {
-                    $item_2[$i] = number_format(BankLulusan::where('bank' . $i, 2)->count() / $hit * 100, 2);
+                    $item_2[$i] = number_format(BankLulusan::where('bank38', $prodi)->where('bank' . $i, 2)->count() / $hit * 100, 2);
                 }
                 if (empty($bank->contains('bank' . $i, '1'))) {
                     $item_1[$i] = 0;
                 } else {
-                    $item_1[$i] = number_format(BankLulusan::where('bank' . $i, 1)->count() / $hit * 100, 2);
+                    $item_1[$i] = number_format(BankLulusan::where('bank38', $prodi)->where('bank' . $i, 1)->count() / $hit * 100, 2);
                 }
                 $nilai[] = [$item_4[$i], $item_3[$i], $item_2[$i], $item_1[$i]];
             }
@@ -134,29 +141,29 @@ class StatistikController extends Controller
             $aspek_integritas = ['Sangat Baik', 'Baik', 'Cukup Baik', 'Kurang Baik'];
             $count_aspek_integritas = [number_format($sangat_baik, 2), number_format($baik, 2), number_format($cukup_baik, 2), number_format($kurang_baik, 2)];
             return response()->json(['aspek_integritas' => $aspek_integritas, 'count_aspek_integritas' => $count_aspek_integritas]);
-        } elseif ($kategori == 'aspek_profesionalisme' && $prodi == 'lulusan') {
+        } elseif ($kategori == 'aspek_profesionalisme') {
             //jangan lupa lihat $hit di atas
             for ($i = 16; $i < 21; $i++) {
                 $bank = BankLulusan::get('bank' . $i);
                 if (empty($bank->contains('bank' . $i, '4'))) {
                     $item_4[$i] = 0;
                 } else {
-                    $item_4[$i] = number_format(BankLulusan::where('bank' . $i, 4)->count() / $hit * 100, 2);
+                    $item_4[$i] = number_format(BankLulusan::where('bank38', $prodi)->where('bank' . $i, 4)->count() / $hit * 100, 2);
                 }
                 if (empty($bank->contains('bank' . $i, '3'))) {
                     $item_3[$i] = 0;
                 } else {
-                    $item_3[$i] = number_format(BankLulusan::where('bank' . $i, 3)->count() / $hit * 100, 2);
+                    $item_3[$i] = number_format(BankLulusan::where('bank38', $prodi)->where('bank' . $i, 3)->count() / $hit * 100, 2);
                 }
                 if (empty($bank->contains('bank' . $i, '2'))) {
                     $item_2[$i] = 0;
                 } else {
-                    $item_2[$i] = number_format(BankLulusan::where('bank' . $i, 2)->count() / $hit * 100, 2);
+                    $item_2[$i] = number_format(BankLulusan::where('bank38', $prodi)->where('bank' . $i, 2)->count() / $hit * 100, 2);
                 }
                 if (empty($bank->contains('bank' . $i, '1'))) {
                     $item_1[$i] = 0;
                 } else {
-                    $item_1[$i] = number_format(BankLulusan::where('bank' . $i, 1)->count() / $hit * 100, 2);
+                    $item_1[$i] = number_format(BankLulusan::where('bank38', $prodi)->where('bank' . $i, 1)->count() / $hit * 100, 2);
                 }
                 $nilai[] = [$item_4[$i], $item_3[$i], $item_2[$i], $item_1[$i]];
             }
@@ -175,7 +182,7 @@ class StatistikController extends Controller
             $aspek_profesionalisme = ['Sangat Baik', 'Baik', 'Cukup Baik', 'Kurang Baik'];
             $count_aspek_profesionalisme = [number_format($sangat_baik, 2), number_format($baik, 2), number_format($cukup_baik, 2), number_format($kurang_baik, 2)];
             return response()->json(['aspek_profesionalisme' => $aspek_profesionalisme, 'count_aspek_profesionalisme' => $count_aspek_profesionalisme]);
-        } elseif ($kategori == 'aspek_berbahasa_asing' && $prodi == 'lulusan') {
+        } elseif ($kategori == 'aspek_berbahasa_asing') {
             //jangan lupa lihat $hit di atas
             for ($i = 21; $i < 24; $i++) {
                 $bank = BankLulusan::get('bank' . $i);
@@ -216,7 +223,7 @@ class StatistikController extends Controller
             $aspek_berbahasa_asing = ['Sangat Baik', 'Baik', 'Cukup Baik', 'Kurang Baik'];
             $count_aspek_berbahasa_asing = [number_format($sangat_baik, 2), number_format($baik, 2), number_format($cukup_baik, 2), number_format($kurang_baik, 2)];
             return response()->json(['aspek_berbahasa_asing' => $aspek_berbahasa_asing, 'count_aspek_berbahasa_asing' => $count_aspek_berbahasa_asing]);
-        } elseif ($kategori == 'aspek_penggunaan_teknologi' && $prodi == 'lulusan') {
+        } elseif ($kategori == 'aspek_penggunaan_teknologi') {
             //jangan lupa lihat $hit di atas
             for ($i = 24; $i < 27; $i++) {
                 $bank = BankLulusan::get('bank' . $i);
@@ -257,7 +264,7 @@ class StatistikController extends Controller
             $aspek_penggunaan_teknologi = ['Sangat Baik', 'Baik', 'Cukup Baik', 'Kurang Baik'];
             $count_aspek_penggunaan_teknologi = [number_format($sangat_baik, 2), number_format($baik, 2), number_format($cukup_baik, 2), number_format($kurang_baik, 2)];
             return response()->json(['aspek_penggunaan_teknologi' => $aspek_penggunaan_teknologi, 'count_aspek_penggunaan_teknologi' => $count_aspek_penggunaan_teknologi]);
-        } elseif ($kategori == 'aspek_komunikasi' && $prodi == 'lulusan') {
+        } elseif ($kategori == 'aspek_komunikasi') {
             //jangan lupa lihat $hit di atas
             for ($i = 27; $i < 32; $i++) {
                 $bank = BankLulusan::get('bank' . $i);
@@ -298,7 +305,7 @@ class StatistikController extends Controller
             $aspek_komunikasi = ['Sangat Baik', 'Baik', 'Cukup Baik', 'Kurang Baik'];
             $count_aspek_komunikasi = [number_format($sangat_baik, 2), number_format($baik, 2), number_format($cukup_baik, 2), number_format($kurang_baik, 2)];
             return response()->json(['aspek_komunikasi' => $aspek_komunikasi, 'count_aspek_komunikasi' => $count_aspek_komunikasi]);
-        } elseif ($kategori == 'aspek_kerjasama' && $prodi == 'lulusan') {
+        } elseif ($kategori == 'aspek_kerjasama') {
             //jangan lupa lihat $hit di atas
             for ($i = 32; $i < 35; $i++) {
                 $bank = BankLulusan::get('bank' . $i);
@@ -339,7 +346,7 @@ class StatistikController extends Controller
             $aspek_kerjasama = ['Sangat Baik', 'Baik', 'Cukup Baik', 'Kurang Baik'];
             $count_aspek_kerjasama = [number_format($sangat_baik, 2), number_format($baik, 2), number_format($cukup_baik, 2), number_format($kurang_baik, 2)];
             return response()->json(['aspek_kerjasama' => $aspek_kerjasama, 'count_aspek_kerjasama' => $count_aspek_kerjasama]);
-        } elseif ($kategori == 'aspek_pengembangan_diri' && $prodi == 'lulusan') {
+        } elseif ($kategori == 'aspek_pengembangan_diri') {
             //jangan lupa lihat $hit di atas
             for ($i = 35; $i < 37; $i++) {
                 $bank = BankLulusan::get('bank' . $i);

@@ -277,7 +277,7 @@ ALTER TABLE `survey_alumni_wirausaha`
 --
 -- AUTO_INCREMENT for table `survey_alumni_belum_bekerja`
 --
-ALTER TABLE `survey_alumni_belum_bekerja`
+ALTER TABLE `survey_alumni_belum_bekerja`survey_alumnis
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
@@ -292,7 +292,7 @@ ALTER TABLE `survey_alumni_lanjut_pendidikan`
 ALTER TABLE `survey_alumni_sudah_bekerja`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
---
+--tracer
 -- AUTO_INCREMENT for table `survey_alumni_wirausaha`
 --
 ALTER TABLE `survey_alumni_wirausaha`
@@ -302,3 +302,4 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+bank_alumnisisper

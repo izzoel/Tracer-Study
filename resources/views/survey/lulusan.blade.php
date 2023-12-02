@@ -5,10 +5,26 @@
             <div class="card-header" style="background-color: rgb(255, 255, 255)">
                 <h4 class="card-title text-dark m-2">Form Survey Tracer Study Pengguna Lulusan</h4>
                 <p class="card-category m-2">Formulir pengisisan untuk Pengguna Lulusan</p>
+                {{-- {{ $data_user }} --}}
+
+                <div>
+                    {{-- @foreach ($data_user as $i) --}}
+                    <input type="hidden" id="d_nama_pengguna_lulusan" value="{{ $data_user['nama_pengguna_lulusan'] }}">
+                    {{-- <input type="hidden" id="d_jabatan_pengguna_lulusan"
+                        value="{{ $data_user['jabatan_pengguna_lulusan'] }}"> --}}
+                    <input type="hidden" id="d_instansi" value="{{ $data_user['instansi'] }}">
+                    <input type="hidden" id="d_nama_alumni" value="{{ $data_user['nama_alumni'] }}">
+
+
+                    {{-- @endforeach --}}
+                </div>
+
+
             </div>
             <div class="card-body">
                 <form id="lulusan-submit" action="{{ route('lulusan_submit') }}" method="POST">
                     @csrf
+                    <input type="hidden" id="d_prodi" name="bank38" value="{{ $data_user['prodi'] }}">
                     <div id="survey">
                         @foreach ($form_lulusan as $data)
                             @php

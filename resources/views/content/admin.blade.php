@@ -69,7 +69,7 @@
                                                 </div>
                                                 <div class="card-body">
                                                     <div class="" style="height:55vh">
-                                                        <canvas id="kegiatanSetelahLulus"></canvas>
+                                                        <canvas id="kegiatanSetelahLulusD3Farmasi"></canvas>
                                                     </div>
                                                 </div>
                                             </div>
@@ -82,7 +82,7 @@
                                                 </div>
                                                 <div class="card-body">
                                                     <div class="" style="height:55vh">
-                                                        <canvas id="tempatKerja"></canvas>
+                                                        <canvas id="tempatKerjaD3Farmasi"></canvas>
                                                     </div>
                                                 </div>
                                             </div>
@@ -95,7 +95,7 @@
                                                 </div>
                                                 <div class="card-body">
                                                     <div class="" style="height:55vh">
-                                                        <canvas id="informasiLowonganPekerjaan"></canvas>
+                                                        <canvas id="informasiLowonganPekerjaanD3Farmasi"></canvas>
                                                     </div>
                                                 </div>
                                             </div>
@@ -122,7 +122,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-
                                         </div>
                                         <div class="col-4">
                                             <div class="card">
@@ -625,96 +624,935 @@
             </div>
 
             <div class="card-body">
-                <div class="row d-flex justify-content-center"">
-                    <div class="col-4">
-                        <div class="card">
-                            <div class="card-header bg-white">
-                                <div class="">Diagram Aspek Integritas</div>
-                            </div>
-                            <div class="card-body">
-                                <div class="" style="height:55vh">
-                                    <canvas id="aspekIntegritas"></canvas>
+                <nav>
+                    <div class="nav nav-tabs" role="tablist">
+                        <a class="main-nav nav-link active" id="L-FF" data-bs-toggle="tab"
+                            data-bs-target="#L-info-FF" type="button" role="tab">
+                            <span id="L-tab-title-fakultas">Fakultas Farmasi</span>
+                        </a>
+                        <a class="main-nav nav-link" id="L-FIKST" data-bs-toggle="tab" data-bs-target="#L-info-FIKST"
+                            type="button" role="tab">
+                            <span id="L-tab-title-fakultas">Fakultas Ilmu Kesehatan Dan Sains Teknologi</span>
+                        </a>
+                        <a class="main-nav nav-link" id="L-FISH" data-bs-toggle="tab" data-bs-target="#L-info-FISH"
+                            type="button" role="tab">
+                            <span id="L-tab-title-fakultas">Fakultas Ilmu Sosial Dan Humaniora</span>
+                        </a>
+                    </div>
+                </nav>
+
+
+                <div class="tab-content" id="L-nav-tabContent">
+                    <div class="tab-pane fade show active" id="L-info-FF" role="tabpanel">
+                        <div class="row mt-4">
+                            <nav>
+                                <div class="nav nav-tabs" role="tablist">
+                                    <a class="sub-nav nav-link active" id="L-d3-farmasi" data-bs-toggle="tab"
+                                        data-bs-target="#L-statistik-d3-farmasi" type="button" role="tab"
+                                        value="L-D3 Farmasi">
+                                        <span id="L-tab-title">D3 Farmasi</span>
+                                    </a>
+                                    <a class="sub-nav nav-link" id="L-s1-farmasi" data-bs-toggle="tab"
+                                        data-bs-target="#L-statistik-s1-farmasi" type="button" role="tab"
+                                        value="L-S1 Farmasi">
+                                        <span id="L-tab-title">S1 Farmasi</span>
+                                    </a>
+                                    <a class="sub-nav nav-link" id="L-profesi-apoteker" data-bs-toggle="tab"
+                                        data-bs-target="#L-statistik-profesi-apoteker" type="button" role="tab"
+                                        value="L-Profesi Apoteker">
+                                        <span id="L-tab-title">Profesi Apoteker</span>
+                                    </a>
+                                </div>
+                            </nav>
+                            <div class="tab-content" id="nav-tabContent">
+                                <div class="tab-pane fade show active" id="L-statistik-d3-farmasi" role="tabpanel">
+                                    <div class="row mt-4 mb-5">
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div class="">Diagram Aspek Integritas</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="" style="height:55vh">
+                                                        <canvas id="aspekIntegritasD3Farmasi"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div>Diagram Aspek Profesionalisme</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div style="height:55vh">
+                                                        <canvas id="aspekProfesionalismeD3Farmasi"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div>Diagram Aspek Kemampuan Berbahasa Asing</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div style="height:55vh">
+                                                        <canvas id="aspekBerbahasaAsingD3Farmasi"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-4 pt-5">
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div>Diagram Aspek Penggunaan Teknologi</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div style="height:55vh">
+                                                        <canvas id="aspekPenggunaanTeknologiD3Farmasi"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div>Diagram Aspek Komunikasi</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div style="height:55vh">
+                                                        <canvas id="aspekKomunikasiD3Farmasi"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div>Diagram Aspek Kerjasama Dan Kepemimpinan</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div style="height:55vh">
+                                                        <canvas id="aspekKerjasamaD3Farmasi"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-4 pt-5 justify-content-center">
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div>Diagram Aspek Pengembangan Diri</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div style="height:55vh">
+                                                        <canvas id="aspekPengembanganDiriD3Farmasi"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="L-statistik-s1-farmasi" role="tabpanel">
+                                    <div class="row mt-4 mb-5">
+                                        <div class="row mt-4 mb-5">
+                                            <div class="col-4">
+                                                <div class="card">
+                                                    <div class="card-header bg-white">
+                                                        <div class="">Diagram Aspek Integritas</div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="" style="height:55vh">
+                                                            <canvas id="aspekIntegritasS1Farmasi"></canvas>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="card">
+                                                    <div class="card-header bg-white">
+                                                        <div>Diagram Aspek Profesionalisme</div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div style="height:55vh">
+                                                            <canvas id="aspekProfesionalismeS1Farmasi"></canvas>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="card">
+                                                    <div class="card-header bg-white">
+                                                        <div>Diagram Aspek Kemampuan Berbahasa Asing</div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div style="height:55vh">
+                                                            <canvas id="aspekBerbahasaAsingS1Farmasi"></canvas>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-4 pt-5">
+                                            <div class="col-4">
+                                                <div class="card">
+                                                    <div class="card-header bg-white">
+                                                        <div>Diagram Aspek Penggunaan Teknologi</div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div style="height:55vh">
+                                                            <canvas id="aspekPenggunaanTeknologiS1Farmasi"></canvas>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="card">
+                                                    <div class="card-header bg-white">
+                                                        <div>Diagram Aspek Komunikasi</div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div style="height:55vh">
+                                                            <canvas id="aspekKomunikasiS1Farmasi"></canvas>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="card">
+                                                    <div class="card-header bg-white">
+                                                        <div>Diagram Aspek Kerjasama Dan Kepemimpinan</div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div style="height:55vh">
+                                                            <canvas id="aspekKerjasamaS1Farmasi"></canvas>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-4 pt-5 justify-content-center">
+                                            <div class="col-4">
+                                                <div class="card">
+                                                    <div class="card-header bg-white">
+                                                        <div>Diagram Aspek Pengembangan Diri</div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div style="height:55vh">
+                                                            <canvas id="aspekPengembanganDiriS1Farmasi"></canvas>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="L-statistik-profesi-apoteker" role="tabpanel">
+                                    <div class="row mt-4 mb-5">
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div class="">Diagram Aspek Integritas</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="" style="height:55vh">
+                                                        <canvas id="aspekIntegritasProfesiApoteker"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div>Diagram Aspek Profesionalisme</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div style="height:55vh">
+                                                        <canvas id="aspekProfesionalismeProfesiApoteker"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div>Diagram Aspek Kemampuan Berbahasa Asing</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div style="height:55vh">
+                                                        <canvas id="aspekBerbahasaAsingProfesiApoteker"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-4 pt-5">
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div>Diagram Aspek Penggunaan Teknologi</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div style="height:55vh">
+                                                        <canvas id="aspekPenggunaanTeknologiProfesiApoteker"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div>Diagram Aspek Komunikasi</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div style="height:55vh">
+                                                        <canvas id="aspekKomunikasiProfesiApoteker"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div>Diagram Aspek Kerjasama Dan Kepemimpinan</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div style="height:55vh">
+                                                        <canvas id="aspekKerjasamaProfesiApoteker"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-4 pt-5 justify-content-center">
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div>Diagram Aspek Pengembangan Diri</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div style="height:55vh">
+                                                        <canvas id="aspekPengembanganDiriProfesiApoteker"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-4">
-                        <div class="card">
-                            <div class="card-header bg-white">
-                                <div>Diagram Aspek Profesionalisme</div>
-                            </div>
-                            <div class="card-body">
-                                <div style="height:55vh">
-                                    <canvas id="aspekProfesionalisme"></canvas>
+
+                    <div class="tab-pane fade " id="L-info-FIKST" role="tabpanel">
+                        <div class="row mt-4">
+                            <nav>
+                                <div class="nav nav-tabs" role="tablist">
+                                    <a class="sub-nav nav-link" id="L-d3-tlm" data-bs-toggle="tab"
+                                        data-bs-target="#L-statistik-d3-tlm" type="button" role="tab"
+                                        value="L-D3 TLM">
+                                        <span id="L-tab-title">D3 TLM</span>
+                                    </a>
+                                    <a class="sub-nav nav-link" id="L-s1-tlm" data-bs-toggle="tab"
+                                        data-bs-target="#L-statistik-s1-ars" type="button" role="tab"
+                                        value="L-S1 ARS">
+                                        <span id="L-tab-title">S1 ARS</span>
+                                    </a>
+                                    <a class="sub-nav nav-link" id="L-s1-gizi" data-bs-toggle="tab"
+                                        data-bs-target="#L-statistik-s1-gizi" type="button" role="tab"
+                                        value="L-S1 Gizi">
+                                        <span id="L-tab-title">S1 Gizi</span>
+                                    </a>
+                                </div>
+                            </nav>
+                            <div class="tab-content" id="nav-tabContent">
+                                <div class="tab-pane fade" id="L-statistik-d3-tlm" role="tabpanel">
+                                    <div class="row mt-4 mb-5">
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div class="">Diagram Aspek Integritas</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="" style="height:55vh">
+                                                        <canvas id="aspekIntegritasD3TLM"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div>Diagram Aspek Profesionalisme</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div style="height:55vh">
+                                                        <canvas id="aspekProfesionalismeD3TLM"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div>Diagram Aspek Kemampuan Berbahasa Asing</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div style="height:55vh">
+                                                        <canvas id="aspekBerbahasaAsingD3TLM"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-4 pt-5">
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div>Diagram Aspek Penggunaan Teknologi</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div style="height:55vh">
+                                                        <canvas id="aspekPenggunaanTeknologiD3TLM"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div>Diagram Aspek Komunikasi</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div style="height:55vh">
+                                                        <canvas id="aspekKomunikasiD3TLM"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div>Diagram Aspek Kerjasama Dan Kepemimpinan</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div style="height:55vh">
+                                                        <canvas id="aspekKerjasamaD3TLM"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-4 pt-5 justify-content-center">
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div>Diagram Aspek Pengembangan Diri</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div style="height:55vh">
+                                                        <canvas id="aspekPengembanganDiriD3TLM"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="L-statistik-s1-ars" role="tabpanel">
+                                    <div class="row mt-4 mb-5">
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div class="">Diagram Aspek Integritas</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="" style="height:55vh">
+                                                        <canvas id="aspekIntegritasS1ARS"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div>Diagram Aspek Profesionalisme</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div style="height:55vh">
+                                                        <canvas id="aspekProfesionalismeS1ARS"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div>Diagram Aspek Kemampuan Berbahasa Asing</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div style="height:55vh">
+                                                        <canvas id="aspekBerbahasaAsingS1ARS"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-4 pt-5">
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div>Diagram Aspek Penggunaan Teknologi</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div style="height:55vh">
+                                                        <canvas id="aspekPenggunaanTeknologiS1ARS"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div>Diagram Aspek Komunikasi</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div style="height:55vh">
+                                                        <canvas id="aspekKomunikasiS1ARS"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div>Diagram Aspek Kerjasama Dan Kepemimpinan</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div style="height:55vh">
+                                                        <canvas id="aspekKerjasamaS1ARS"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-4 pt-5 justify-content-center">
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div>Diagram Aspek Pengembangan Diri</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div style="height:55vh">
+                                                        <canvas id="aspekPengembanganDiriS1ARS"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="L-statistik-s1-gizi" role="tabpanel">
+                                    <div class="row mt-4 mb-5">
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div class="">Diagram Aspek Integritas</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="" style="height:55vh">
+                                                        <canvas id="aspekIntegritasS1Gizi"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div>Diagram Aspek Profesionalisme</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div style="height:55vh">
+                                                        <canvas id="aspekProfesionalismeS1Gizi"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div>Diagram Aspek Kemampuan Berbahasa Asing</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div style="height:55vh">
+                                                        <canvas id="aspekBerbahasaAsingS1Gizi"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-4 pt-5">
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div>Diagram Aspek Penggunaan Teknologi</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div style="height:55vh">
+                                                        <canvas id="aspekPenggunaanTeknologiS1Gizi"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div>Diagram Aspek Komunikasi</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div style="height:55vh">
+                                                        <canvas id="aspekKomunikasiS1Gizi"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div>Diagram Aspek Kerjasama Dan Kepemimpinan</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div style="height:55vh">
+                                                        <canvas id="aspekKerjasamaS1Gizi"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-4 pt-5 justify-content-center">
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div>Diagram Aspek Pengembangan Diri</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div style="height:55vh">
+                                                        <canvas id="aspekPengembanganDiriS1Gizi"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-4">
-                        <div class="card">
-                            <div class="card-header bg-white">
-                                <div>Diagram Aspek Kemampuan Berbahasa Asing</div>
-                            </div>
-                            <div class="card-body">
-                                <div style="height:55vh">
-                                    <canvas id="aspekBerbahasaAsing"></canvas>
+
+                    <div class="tab-pane fade" id="L-info-FISH" role="tabpanel">
+                        <div class="row mt-4">
+                            <nav>
+                                <div class="nav nav-tabs" role="tablist">
+                                    <a class="sub-nav nav-link" id="L-s1-hukum" data-bs-toggle="tab"
+                                        data-bs-target="#L-statistik-s1-hukum" type="button" role="tab"
+                                        value="L-S1 Hukum">
+                                        <span id="L-tab-title">S1 Hukum</span>
+                                    </a>
+                                    <a class="sub-nav nav-link" id="L-s1-manajemen" data-bs-toggle="tab"
+                                        data-bs-target="#L-statistik-s1-manajemen" type="button" role="tab"
+                                        value="L-S1 Manajemen">
+                                        <span id="L-tab-title">S1 Manajemen</span>
+                                    </a>
+                                    <a class="sub-nav nav-link" id="L-s1-pgsd" data-bs-toggle="tab"
+                                        data-bs-target="#L-statistik-s1-pgsd" type="button" role="tab"
+                                        value="L-S1 PGSD">
+                                        <span id="L-tab-title">S1 PGSD</span>
+                                    </a>
+                                </div>
+                            </nav>
+                            <div class="tab-content" id="nav-tabContent">
+                                <div class="tab-pane fade" id="L-statistik-s1-hukum" role="tabpanel">
+                                    <div class="row mt-4 mb-5">
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div class="">Diagram Aspek Integritas</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="" style="height:55vh">
+                                                        <canvas id="aspekIntegritasS1Hukum"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div>Diagram Aspek Profesionalisme</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div style="height:55vh">
+                                                        <canvas id="aspekProfesionalismeS1Hukum"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div>Diagram Aspek Kemampuan Berbahasa Asing</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div style="height:55vh">
+                                                        <canvas id="aspekBerbahasaAsingS1Hukum"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-4 pt-5">
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div>Diagram Aspek Penggunaan Teknologi</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div style="height:55vh">
+                                                        <canvas id="aspekPenggunaanTeknologiS1Hukum"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div>Diagram Aspek Komunikasi</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div style="height:55vh">
+                                                        <canvas id="aspekKomunikasiS1Hukum"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div>Diagram Aspek Kerjasama Dan Kepemimpinan</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div style="height:55vh">
+                                                        <canvas id="aspekKerjasamaS1Hukum"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-4 pt-5 justify-content-center">
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div>Diagram Aspek Pengembangan Diri</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div style="height:55vh">
+                                                        <canvas id="aspekPengembanganDiriS1Hukum"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="L-statistik-s1-manajemen" role="tabpanel">
+                                    <div class="row mt-4 mb-5">
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div class="">Diagram Aspek Integritas</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="" style="height:55vh">
+                                                        <canvas id="aspekIntegritasS1Manajemen"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div>Diagram Aspek Profesionalisme</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div style="height:55vh">
+                                                        <canvas id="aspekProfesionalismeS1Manajemen"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div>Diagram Aspek Kemampuan Berbahasa Asing</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div style="height:55vh">
+                                                        <canvas id="aspekBerbahasaAsingS1Manajemen"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-4 pt-5">
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div>Diagram Aspek Penggunaan Teknologi</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div style="height:55vh">
+                                                        <canvas id="aspekPenggunaanTeknologiS1Manajemen"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div>Diagram Aspek Komunikasi</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div style="height:55vh">
+                                                        <canvas id="aspekKomunikasiS1Manajemen"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div>Diagram Aspek Kerjasama Dan Kepemimpinan</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div style="height:55vh">
+                                                        <canvas id="aspekKerjasamaS1Manajemen"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-4 pt-5 justify-content-center">
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div>Diagram Aspek Pengembangan Diri</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div style="height:55vh">
+                                                        <canvas id="aspekPengembanganDiriS1Manajemen"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="L-statistik-s1-pgsd" role="tabpanel">
+                                    <div class="row mt-4 mb-5">
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div class="">Diagram Aspek Integritas</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="" style="height:55vh">
+                                                        <canvas id="aspekIntegritasS1PGSD"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div>Diagram Aspek Profesionalisme</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div style="height:55vh">
+                                                        <canvas id="aspekProfesionalismeS1PGSD"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div>Diagram Aspek Kemampuan Berbahasa Asing</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div style="height:55vh">
+                                                        <canvas id="aspekBerbahasaAsingS1PGSD"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-4 pt-5">
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div>Diagram Aspek Penggunaan Teknologi</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div style="height:55vh">
+                                                        <canvas id="aspekPenggunaanTeknologiS1PGSD"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div>Diagram Aspek Komunikasi</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div style="height:55vh">
+                                                        <canvas id="aspekKomunikasiS1PGSD"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div>Diagram Aspek Kerjasama Dan Kepemimpinan</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div style="height:55vh">
+                                                        <canvas id="aspekKerjasamaS1PGSD"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-4 pt-5 justify-content-center">
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-header bg-white">
+                                                    <div>Diagram Aspek Pengembangan Diri</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div style="height:55vh">
+                                                        <canvas id="aspekPengembanganDiriS1PGSD"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
-                <div class="row mt-4 pt-5">
-                    <div class="col-4">
-                        <div class="card">
-                            <div class="card-header bg-white">
-                                <div>Diagram Aspek Penggunaan Teknologi</div>
-                            </div>
-                            <div class="card-body">
-                                <div style="height:55vh">
-                                    <canvas id="aspekPenggunaanTeknologi"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="card">
-                            <div class="card-header bg-white">
-                                <div>Diagram Aspek Komunikasi</div>
-                            </div>
-                            <div class="card-body">
-                                <div style="height:55vh">
-                                    <canvas id="aspekKomunikasi"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="card">
-                            <div class="card-header bg-white">
-                                <div>Diagram Aspek Kerjasama Dan Kepemimpinan</div>
-                            </div>
-                            <div class="card-body">
-                                <div style="height:55vh">
-                                    <canvas id="aspekKerjasama"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mt-4 pt-5 justify-content-center">
-                    <div class="col-4">
-                        <div class="card">
-                            <div class="card-header bg-white">
-                                <div>Diagram Aspek Pengembangan Diri</div>
-                            </div>
-                            <div class="card-body">
-                                <div style="height:55vh">
-                                    <canvas id="aspekPengembanganDiri"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
             </div>
 
             <div class="p-3">

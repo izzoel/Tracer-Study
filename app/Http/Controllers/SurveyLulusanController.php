@@ -22,7 +22,7 @@ class SurveyLulusanController extends Controller
      */
     public function index()
     {
-        dd('qweqw');
+        // dd('qweqw');
     }
 
     public function formLulusan()
@@ -164,12 +164,86 @@ class SurveyLulusanController extends Controller
         $aspek_kerjasama_tim = SurveyLulusanAspekKerjasamaTim::all();
         $aspek_pengembangan_diri = SurveyLulusanAspekPengembanganDiri::all();
 
+
+
+
+        // $string = "DF19001 - FEFY NORWALIDAINI - D3 Farmasi";
+
+        // // Find the position of the hyphen ('-')
+        // $hyphenPos = strpos($string, '-');
+
+        // if ($hyphenPos !== false) {
+        //     // Extract the substring after the hyphen and trim any extra spaces
+        //     $substring = trim(substr($string, $hyphenPos + 1));
+
+        //     // Extract the word 'D3 Farmasi' from the extracted substring
+        //     $words = explode(' ', $substring);
+        //     foreach ($words as $word) {
+        //         if (strpos($word, 'D3') !== false && strpos($word, 'Farmasi') !== false) {
+        //             $result = $word;
+        //             break;
+        //         }
+        //     }
+
+        //     if (isset($result)) {
+        //         dd($result); // Output the extracted word 'D3 Farmasi'
+        //     } else {
+        //         dd("Word 'D3 Farmasi' not found");
+        //     }
+        // } else {
+        //     dd("Hyphen not found in the string");
+        // }
+
+
+        $string = $request->input('nama_alumni');
+
+
+        // $string = $request->input('nama_alumni');
+
+        $startPosN = strpos($string, '-'); // Find the position of the first hyphen
+        $endPosN = strrpos($string, '('); // Find the position of the last hyphen
+
+        // if ($startPosn !== false && $endPosn !== false && $startPos !== $endPos) {
+        $nama = trim(substr($string, $startPosN + 1, $endPosN - $startPosN - 1));
+        // dd((ucwords(strtolower($nama)))); // Output the extracted string
+        // }
+
+
+
+        $startPos = strpos($string, '('); // Find the position of '('
+        $endPos = strpos($string, ')', $startPos); // Find the position of ')' after '('
+        $prodi = substr($string, $startPos + 1, $endPos - $startPos - 1);
+
+
+        $data_user = [
+            'nama_pengguna_lulusan' => $request->input('nama_pengguna_lulusan'),
+            // 'jabatan_pengguna_lulusan' => $request->input('jabatan_pengguna_lulusan'),
+            'instansi' => $request->input('instansi'),
+            'nama_alumni' => ucwords(strtolower($nama)),
+            'prodi' => $prodi
+        ];
+
+
+
+
+        // $tes = "asd";
+        // $this->dad($tes);
+
+        // return with([
+        // 'title' => 'form',
+        // 'nama' => $request->input('nama'),
+        // 'data_user' => $data_user,
+        // 'form_lulusan' => $profil_pengguna_lulusan->take(8)->concat($aspek_integritas->concat($aspek_profesionalisme->concat($aspek_kemampuan_berbahasa_asing->concat($aspek_penggunaan_teknologi)->concat($aspek_komunikasi->concat($aspek_kerjasama_tim->concat($aspek_pengembangan_diri->concat($profil_pengguna_lulusan->skip(8))))))))
+        // ]);
+
         return view('survey.lulusan', ['title' => 'form_lulusan'])->with([
             'title' => 'form',
             'nama' => $request->input('nama'),
+            'data_user' => $data_user,
             'form_lulusan' => $profil_pengguna_lulusan->take(8)->concat($aspek_integritas->concat($aspek_profesionalisme->concat($aspek_kemampuan_berbahasa_asing->concat($aspek_penggunaan_teknologi)->concat($aspek_komunikasi->concat($aspek_kerjasama_tim->concat($aspek_pengembangan_diri->concat($profil_pengguna_lulusan->skip(8))))))))
         ]);
     }
+
 
     /**
      * Show the form for editing the specified resource.

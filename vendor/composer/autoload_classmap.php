@@ -12,7 +12,7 @@ return array(
     'App\\Http\\Controllers\\BankAlumniController' => $baseDir . '/app/Http/Controllers/BankAlumniController.php',
     'App\\Http\\Controllers\\BankLulusanController' => $baseDir . '/app/Http/Controllers/BankLulusanController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
-    'App\\Http\\Controllers\\EmailController' => $baseDir . '/app/Http/Controllers/EmailController.php',
+    'App\\Http\\Controllers\\ResponEmailController' => $baseDir . '/app/Http/Controllers/ResponEmailController.php',
     'App\\Http\\Controllers\\StatistikController' => $baseDir . '/app/Http/Controllers/StatistikController.php',
     'App\\Http\\Controllers\\SurveyAlumniController' => $baseDir . '/app/Http/Controllers/SurveyAlumniController.php',
     'App\\Http\\Controllers\\SurveyLulusanController' => $baseDir . '/app/Http/Controllers/SurveyLulusanController.php',

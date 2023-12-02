@@ -34,10 +34,23 @@
     <link rel="stylesheet" href="../css/tooltipster-sideTip-light.min.css">
     <link rel="stylesheet" href="../css/tooltipster-sideTip-shadow.min.css">
 
+    {{-- <link rel="stylesheet" href="../docsupport/styles.css">
+    <link rel="stylesheet" href="../docsupport/prism.css">
+    <link rel="stylesheet" href="../css/chosen.css"> --}}
+
+    <link rel="stylesheet" href="../select2.css">
+
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker3.min.css"
         integrity="sha512-rxThY3LYIfYsVCWPCW9dB0k+e3RZB39f23ylUYTEuZMDrN/vRqLdaCBo/FbvVT6uC2r0ObfPzotsfKF9Qc5W5g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://unpkg.com/@jarstone/dselect/dist/css/dselect.css">
+
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta2/dist/css/bootstrap-select.min.css">
 
 </head>
 
@@ -219,7 +232,24 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"
         integrity="sha512-T/tUfKSV1bihCnd+MxKD0Hm1uBBroVYBOYSk1knyvQ9VyZJpc/ALb4P0r6ubwVPSGB2GvjeoMAJJImBG12TiaQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://unpkg.com/@jarstone/dselect/dist/js/dselect.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta2/dist/js/bootstrap-select.min.js"></script>
+    <!-- (Optional) Latest compiled and minified JavaScript translation files -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta2/dist/js/i18n/defaults-*.min.js"></script>
+
+    {{-- <script src="../docsupport/jquery-3.2.1.min.js" type="text/javascript"></script>
+    <script src="../js/chosen.jquery.js" type="text/javascript"></script>
+    <script src="../docsupport/prism.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../docsupport/init.js" type="text/javascript" charset="utf-8"></script> --}}
+
+    <script src="../select2.js"></script>
+
 </body>
+
+
 
 
 @include('scripts.script_admin_data')
@@ -256,5 +286,10 @@
 
     });
 </script>
+
+<script>
+    $('.e').select2();
+</script>
+
 
 </html>
