@@ -189,22 +189,22 @@ class StatistikController extends Controller
                 if (empty($bank->contains('bank' . $i, '4'))) {
                     $item_4[$i] = 0;
                 } else {
-                    $item_4[$i] = number_format(BankLulusan::where('bank' . $i, 4)->count() / $hit * 100, 2);
+                    $item_4[$i] = number_format(BankLulusan::where('bank38', $prodi)->where('bank' . $i, 4)->count() / $hit * 100, 2);
                 }
                 if (empty($bank->contains('bank' . $i, '3'))) {
                     $item_3[$i] = 0;
                 } else {
-                    $item_3[$i] = number_format(BankLulusan::where('bank' . $i, 3)->count() / $hit * 100, 2);
+                    $item_3[$i] = number_format(BankLulusan::where('bank38', $prodi)->where('bank' . $i, 3)->count() / $hit * 100, 2);
                 }
                 if (empty($bank->contains('bank' . $i, '2'))) {
                     $item_2[$i] = 0;
                 } else {
-                    $item_2[$i] = number_format(BankLulusan::where('bank' . $i, 2)->count() / $hit * 100, 2);
+                    $item_2[$i] = number_format(BankLulusan::where('bank38', $prodi)->where('bank' . $i, 2)->count() / $hit * 100, 2);
                 }
                 if (empty($bank->contains('bank' . $i, '1'))) {
                     $item_1[$i] = 0;
                 } else {
-                    $item_1[$i] = number_format(BankLulusan::where('bank' . $i, 1)->count() / $hit * 100, 2);
+                    $item_1[$i] = number_format(BankLulusan::where('bank38', $prodi)->where('bank' . $i, 1)->count() / $hit * 100, 2);
                 }
                 $nilai[] = [$item_4[$i], $item_3[$i], $item_2[$i], $item_1[$i]];
             }
@@ -230,22 +230,22 @@ class StatistikController extends Controller
                 if (empty($bank->contains('bank' . $i, '4'))) {
                     $item_4[$i] = 0;
                 } else {
-                    $item_4[$i] = number_format(BankLulusan::where('bank' . $i, 4)->count() / $hit * 100, 2);
+                    $item_4[$i] = number_format(BankLulusan::where('bank38', $prodi)->where('bank' . $i, 4)->count() / $hit * 100, 2);
                 }
                 if (empty($bank->contains('bank' . $i, '3'))) {
                     $item_3[$i] = 0;
                 } else {
-                    $item_3[$i] = number_format(BankLulusan::where('bank' . $i, 3)->count() / $hit * 100, 2);
+                    $item_3[$i] = number_format(BankLulusan::where('bank38', $prodi)->where('bank' . $i, 3)->count() / $hit * 100, 2);
                 }
                 if (empty($bank->contains('bank' . $i, '2'))) {
                     $item_2[$i] = 0;
                 } else {
-                    $item_2[$i] = number_format(BankLulusan::where('bank' . $i, 2)->count() / $hit * 100, 2);
+                    $item_2[$i] = number_format(BankLulusan::where('bank38', $prodi)->where('bank' . $i, 2)->count() / $hit * 100, 2);
                 }
                 if (empty($bank->contains('bank' . $i, '1'))) {
                     $item_1[$i] = 0;
                 } else {
-                    $item_1[$i] = number_format(BankLulusan::where('bank' . $i, 1)->count() / $hit * 100, 2);
+                    $item_1[$i] = number_format(BankLulusan::where('bank38', $prodi)->where('bank' . $i, 1)->count() / $hit * 100, 2);
                 }
                 $nilai[] = [$item_4[$i], $item_3[$i], $item_2[$i], $item_1[$i]];
             }
@@ -271,22 +271,22 @@ class StatistikController extends Controller
                 if (empty($bank->contains('bank' . $i, '4'))) {
                     $item_4[$i] = 0;
                 } else {
-                    $item_4[$i] = number_format(BankLulusan::where('bank' . $i, 4)->count() / $hit * 100, 2);
+                    $item_4[$i] = number_format(BankLulusan::where('bank38', $prodi)->where('bank' . $i, 4)->count() / $hit * 100, 2);
                 }
                 if (empty($bank->contains('bank' . $i, '3'))) {
                     $item_3[$i] = 0;
                 } else {
-                    $item_3[$i] = number_format(BankLulusan::where('bank' . $i, 3)->count() / $hit * 100, 2);
+                    $item_3[$i] = number_format(BankLulusan::where('bank38', $prodi)->where('bank' . $i, 3)->count() / $hit * 100, 2);
                 }
                 if (empty($bank->contains('bank' . $i, '2'))) {
                     $item_2[$i] = 0;
                 } else {
-                    $item_2[$i] = number_format(BankLulusan::where('bank' . $i, 2)->count() / $hit * 100, 2);
+                    $item_2[$i] = number_format(BankLulusan::where('bank38', $prodi)->where('bank' . $i, 2)->count() / $hit * 100, 2);
                 }
                 if (empty($bank->contains('bank' . $i, '1'))) {
                     $item_1[$i] = 0;
                 } else {
-                    $item_1[$i] = number_format(BankLulusan::where('bank' . $i, 1)->count() / $hit * 100, 2);
+                    $item_1[$i] = number_format(BankLulusan::where('bank38', $prodi)->where('bank' . $i, 1)->count() / $hit * 100, 2);
                 }
                 $nilai[] = [$item_4[$i], $item_3[$i], $item_2[$i], $item_1[$i]];
             }
@@ -312,22 +312,22 @@ class StatistikController extends Controller
                 if (empty($bank->contains('bank' . $i, '4'))) {
                     $item_4[$i] = 0;
                 } else {
-                    $item_4[$i] = number_format(BankLulusan::where('bank' . $i, 4)->count() / $hit * 100, 2);
+                    $item_4[$i] = number_format(BankLulusan::where('bank38', $prodi)->where('bank' . $i, 4)->count() / $hit * 100, 2);
                 }
                 if (empty($bank->contains('bank' . $i, '3'))) {
                     $item_3[$i] = 0;
                 } else {
-                    $item_3[$i] = number_format(BankLulusan::where('bank' . $i, 3)->count() / $hit * 100, 2);
+                    $item_3[$i] = number_format(BankLulusan::where('bank38', $prodi)->where('bank' . $i, 3)->count() / $hit * 100, 2);
                 }
                 if (empty($bank->contains('bank' . $i, '2'))) {
                     $item_2[$i] = 0;
                 } else {
-                    $item_2[$i] = number_format(BankLulusan::where('bank' . $i, 2)->count() / $hit * 100, 2);
+                    $item_2[$i] = number_format(BankLulusan::where('bank38', $prodi)->where('bank' . $i, 2)->count() / $hit * 100, 2);
                 }
                 if (empty($bank->contains('bank' . $i, '1'))) {
                     $item_1[$i] = 0;
                 } else {
-                    $item_1[$i] = number_format(BankLulusan::where('bank' . $i, 1)->count() / $hit * 100, 2);
+                    $item_1[$i] = number_format(BankLulusan::where('bank38', $prodi)->where('bank' . $i, 1)->count() / $hit * 100, 2);
                 }
                 $nilai[] = [$item_4[$i], $item_3[$i], $item_2[$i], $item_1[$i]];
             }
@@ -353,22 +353,22 @@ class StatistikController extends Controller
                 if (empty($bank->contains('bank' . $i, '4'))) {
                     $item_4[$i] = 0;
                 } else {
-                    $item_4[$i] = number_format(BankLulusan::where('bank' . $i, 4)->count() / $hit * 100, 2);
+                    $item_4[$i] = number_format(BankLulusan::where('bank38', $prodi)->where('bank' . $i, 4)->count() / $hit * 100, 2);
                 }
                 if (empty($bank->contains('bank' . $i, '3'))) {
                     $item_3[$i] = 0;
                 } else {
-                    $item_3[$i] = number_format(BankLulusan::where('bank' . $i, 3)->count() / $hit * 100, 2);
+                    $item_3[$i] = number_format(BankLulusan::where('bank38', $prodi)->where('bank' . $i, 3)->count() / $hit * 100, 2);
                 }
                 if (empty($bank->contains('bank' . $i, '2'))) {
                     $item_2[$i] = 0;
                 } else {
-                    $item_2[$i] = number_format(BankLulusan::where('bank' . $i, 2)->count() / $hit * 100, 2);
+                    $item_2[$i] = number_format(BankLulusan::where('bank38', $prodi)->where('bank' . $i, 2)->count() / $hit * 100, 2);
                 }
                 if (empty($bank->contains('bank' . $i, '1'))) {
                     $item_1[$i] = 0;
                 } else {
-                    $item_1[$i] = number_format(BankLulusan::where('bank' . $i, 1)->count() / $hit * 100, 2);
+                    $item_1[$i] = number_format(BankLulusan::where('bank38', $prodi)->where('bank' . $i, 1)->count() / $hit * 100, 2);
                 }
                 $nilai[] = [$item_4[$i], $item_3[$i], $item_2[$i], $item_1[$i]];
             }

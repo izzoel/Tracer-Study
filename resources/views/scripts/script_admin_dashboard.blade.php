@@ -120,6 +120,8 @@
         routeAspekPengembanganDiri = "{{ route('diagram', '') }}" + "/aspek_pengembangan_diri/" +
             prodiLulusan;
 
+
+
         $.get(routeLulusan, function(data) {
             canv_prodi_lulusan = prodiLulusan.replace(/\s/g, '');
             $.get(routeAspekIntegritas, function(dataAspekIntegritas) {
@@ -155,6 +157,7 @@
 
     if ($('.nav-link.active #L-tab-title-fakultas').text() == "Fakultas Farmasi") {
         lStatistikProdi();
+
     }
 
     $('.main-nav.nav-link[role="tab"]').on("click", function() {
@@ -265,7 +268,7 @@
             routeAspekKerjasama = "{{ route('diagram', '') }}" + "/aspek_kerjasama/" + prodiLulusan;
             routeAspekPengembanganDiri = "{{ route('diagram', '') }}" + "/aspek_pengembangan_diri/" +
                 prodiLulusan;
-
+            // alert(routeAspekBerbahasaAsing);
             $.get(routeLulusan, function(data) {
                 canv_prodi_lulusan = prodiLulusan.replace(/\s/g, '');
                 $.get(routeAspekIntegritas, function(dataAspekIntegritas) {
