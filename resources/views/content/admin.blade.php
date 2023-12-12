@@ -1572,6 +1572,7 @@
                                             <th>No Whatsapp</th>
                                             <th>Email</th>
                                             <th>Nama Alumni</th>
+                                            <th>Prodi Alumni</th>
                                             <th>Jabatan Alumni</th>
                                         </tr>
                                     </thead>
@@ -1583,6 +1584,7 @@
                                                 <td>{{ $data->bank4 }}</td>
                                                 <td>{{ $data->bank5 }}</td>
                                                 <td>{{ $data->bank6 }}</td>
+                                                <td>{{ $data->bank38 }}</td>
                                                 <td>{{ $data->bank7 }}</td>
                                             </tr>
                                         @endforeach
