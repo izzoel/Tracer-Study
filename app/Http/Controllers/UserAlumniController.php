@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Imports\FirstSheet;
 use App\Models\UserAlumni;
+use App\Models\BankAlumni;
 use App\Models\BankLulusan;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
@@ -103,16 +104,32 @@ class UserAlumniController extends Controller
     }
     public function statistikAlumni(UserAlumni $userAlumni)
     {
-
+        // $angkatan_mengisi[$key] = BankAlumni::where('prodi', $prodi)->where('angkatan', $key)->count();
         foreach (UserAlumni::get('angkatan')->unique('angkatan')->sortBy('angkatan') as $d) {
             $angkatan[] = $d->angkatan;
         }
 
-        foreach ($angkatan as $key) {
-            $res[$key] = UserAlumni::where('angkatan', $key)->count();
-        }
+        // foreach ($angkatan as $key) {
+        //     $res[$key] = BankAlumni::count();
+        //     $res1[$key] = BankAlumni::count();
+        //     // $res[$key] = BankAlumni::where('angkatan', $key)->count();
+        // }
 
-        return response()->json($res);
+
+        // foreach (UserAlumni::get('angkatan')->unique('angkatan') as $d) {
+        //             $tahun[] = $d->angkatan;
+        //         }
+
+        foreach ($angkatan as $key) {
+            $alumni[$key] = BankAlumni::where('angkatan', $key)->count();
+            // $angkatan[$key] = UserAlumni::where('prodi', $prodi)->where('angkatan', $key)->count();
+            $lulusan[$key] = BankLulusan::where('bank8', $key)->count();
+            // $angkatan_mengisi[$key] = BankAlumni::where('prodi', $prodi)->where('angkatan', $key)->count();
+        }
+        return (response()->json(['responden_alumni' => $alumni, 'responden_lulusan' => $lulusan]));
+
+        // return (response()->json(['reponden_alumni' => $res]));
+        // return response()->json($res);
     }
     public function import(Request $request)
     {

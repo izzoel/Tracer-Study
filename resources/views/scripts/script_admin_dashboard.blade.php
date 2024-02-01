@@ -2,17 +2,18 @@
     routeAlumni = "{{ route('statistik_alumni') }}";
 
     $.get(routeAlumni, function(data) {
+        // console.log(data);
         new Chart(document.getElementById('dashboardChart'), {
             type: 'bar',
             data: {
                 datasets: [{
                     label: 'Jumlah Responden Alumni',
-                    data: data,
+                    data: data.responden_alumni,
                     borderWidth: 1,
                     order: 0
                 }, {
                     label: 'Jumlah Responden Pengguna Lulusan',
-                    data: [0],
+                    data: data.responden_lulusan,
                     borderWidth: 1,
                     order: 0
                 }]
