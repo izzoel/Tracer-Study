@@ -13,7 +13,8 @@
                 html += '<th>Nama</th>';
                 html += '<th>NIM</th>';
                 html += '<th>Prodi</th>';
-                html += '<th>Angkatan</th>';
+                html += '<th>Tahun Lulus</th>';
+                html += '<th>Tahun Akademik</th>';
                 html += '<th>Aksi</th>';
                 html += '</tr></thead>';
                 html += '<tbody>';
@@ -25,12 +26,14 @@
                     nim = data[key].nim;
                     prodi = data[key].prodi;
                     angkatan = data[key].angkatan;
+                    akademik = data[key].tahun_akademik;
 
                     html += '<tr>';
                     html += '<td>' + nama + '</td>';
                     html += '<td>' + nim + '</td>';
                     html += '<td>' + prodi + '</td>';
                     html += '<td>' + angkatan + '</td>';
+                    html += '<td>' + akademik + '</td>';
                     html += '<td>';
 
                     html +=
