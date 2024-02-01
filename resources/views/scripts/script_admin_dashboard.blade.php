@@ -67,11 +67,11 @@
                 type: 'line',
                 data: {
                     datasets: [{
-                        label: '# Alumni ' + prodi,
+                        label: '# Genap',
                         data: data.angkatan,
                         borderWidth: 1
                     }, {
-                        label: '# Alumni ' + prodi + ' Yang Mengisi',
+                        label: '# Ganjil',
                         data: data.angkatan_mengisi,
                         borderWidth: 1
                     }]
@@ -207,11 +207,11 @@
                     type: 'line',
                     data: {
                         datasets: [{
-                            label: '# Alumni ' + prodi,
+                            label: '# Genap',
                             data: data.angkatan,
                             borderWidth: 1
                         }, {
-                            label: '# Alumni ' + prodi + ' Yang Mengisi',
+                            label: '# Ganjil',
                             data: data.angkatan_mengisi,
                             borderWidth: 1
                         }]

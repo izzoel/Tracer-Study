@@ -12,6 +12,7 @@ class UserAlumni extends Model
         'nama',
         'nim',
         'prodi',
-        'angkatan'
+        'angkatan',
+        'tahun_akademik'
     ];
 }

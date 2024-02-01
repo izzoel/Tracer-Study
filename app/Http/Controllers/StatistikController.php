@@ -21,10 +21,12 @@ class StatistikController extends Controller
         }
 
         foreach ($tahun as $key) {
-            $angkatan[$key] = UserAlumni::where('prodi', $prodi)->where('angkatan', $key)->count();
-            $angkatan_mengisi[$key] = BankAlumni::where('prodi', $prodi)->where('angkatan', $key)->count();
+            $angkatan[$key] = UserAlumni::where('prodi', $prodi)->where('angkatan', $key)->where('tahun_akademik', 'Genap')->count();
+            // $angkatan[$key] = UserAlumni::where('prodi', $prodi)->where('angkatan', $key)->count();
+            $angkatan_mengisi[$key] = UserAlumni::where('prodi', $prodi)->where('angkatan', $key)->where('tahun_akademik', 'Ganjil')->count();
+            // $angkatan_mengisi[$key] = BankAlumni::where('prodi', $prodi)->where('angkatan', $key)->count();
         }
-        return response()->json(['angkatan' => $angkatan, 'angkatan_mengisi' => $angkatan_mengisi]);
+        return (response()->json(['angkatan' => $angkatan, 'angkatan_mengisi' => $angkatan_mengisi]));
     }
     public function statistikLulusan(BankLulusan $bankLulusan, $prodi)
     {
