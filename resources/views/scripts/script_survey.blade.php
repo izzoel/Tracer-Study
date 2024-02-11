@@ -196,12 +196,13 @@
 
                         });
                         if (other == 1) {
+
                             html += '<div class="row input-other">';
 
                             html += '<div class="col-auto form-check ms-2 ps-1 me-0 pe-0">';
                             html += '<input class="form-check-input otherOpsiName' + no +
                                 ' gandaOpsi' + no + '" type="' + type + '" id="other' + k + '" ' +
-                                'name="' + name + array + '">';
+                                'name="' + name + array + '" >';
                             html += '</div>';
 
                             html +=
@@ -211,6 +212,8 @@
                             html += '</div></div>';
 
                             html += '</div>';
+
+
                         }
                         html += '</td>';
                     }
@@ -219,15 +222,81 @@
                     html += '</tr>';
                     html += '</tbody>';
                     html += '</table">';
+
+
+
                     $('#survey').append(html);
                     i++;
                 });
             }
         });
 
+        // percobaan
+        // $("#alumni-submit").submit(function() {
+        // var inputValue = $('#otherOpsi' + no).val();
+        // var selectedOption = $('input.otherOpsiName' + no + ':checked').val(inputValue);
+
+        // oke pakai for
+        // for (var i = 18; i <= 20; i++) {
+
+        //     var inputValue = $('#otherOpsi' + i).val();
+        //     var selectedOption = $('input.otherOpsiName' + i + ':checked').val(inputValue);
+        //     if (selectedOption) {
+        //         alert("Value of otherOpsiName" + i + ": " + selectedOption);
+        //     }
+        // }
+
+        // var i = 19;
+
+        // while (i <= 41) {
+        //     switch (i) {
+        //         case 19:
+        //             $('input.otherOpsiName' + i + ':checked').val($('#otherOpsi' + i).val());
+        //             break;
+        //         case 20:
+        //             $('input.otherOpsiName' + i + ':checked').val($('#otherOpsi' + i).val());
+        //             break;
+        //         case 24:
+        //             $('input.otherOpsiName' + i + ':checked').val($('#otherOpsi' + i).val());
+        //             break;
+        //         case 31:
+        //             $('input.otherOpsiName' + i + ':checked').val($('#otherOpsi' + i).val());
+        //             break;
+        //         case 35:
+        //             $('input.otherOpsiName' + i + ':checked').val($('#otherOpsi' + i).val());
+        //             break;
+        //         case 36:
+        //             $('input.otherOpsiName' + i + ':checked').val($('#otherOpsi' + i).val());
+        //             break;
+        //         default:
+        //             // Default case if none of the cases match
+        //             break;
+        //     }
+        //     i++;
+        // }
+        // // oke
+        // var totalCount = $('[class*="otherOpsiName"]').length;
+        // alert("Total number of elements with class starting with otherOpsiName: " + totalCount);
+
+        // $("#alumni-submit").submit(function() {
+        //     var count = $("[class*='otherOpsiName']").length;
+        //     alert("Total number of elements with class containing otherOpsiName: " + count);
+        // });
+
+
+        // yang simple
+        //     for (var i = 19; i <= 41; i++) {
+        //         if (i === 19 || i === 20 || i === 24 || i === 31 || i === 35 || i === 36) {
+        //             $('input.otherOpsiName' + i + ':checked').val($('#otherOpsi' + i).val());
+        //         }
+        //     }
+
+
+
+
+        // });
         $('#alumni-submit').submit(function(e) {
             e.preventDefault()
-
             Swal.fire({
                 title: 'Kirim Survey?',
                 text: "tidak dapat merubah kembali",
@@ -238,6 +307,12 @@
                 denyButtonText: `Batal`,
             }).then((result) => {
                 if (result.isConfirmed) {
+                    for (var i = 19; i <= 41; i++) {
+                        if (i === 19 || i === 20 || i === 24 || i === 31 || i === 35 || i === 36) {
+                            $('input.otherOpsiName' + i + ':checked').val($('#otherOpsi' + i).val());
+                        }
+                    }
+
                     $("#alumni-submit").unbind('submit');
                     $("#alumni-submit").submit();
                     Swal.fire('Sukses', '', 'success')

@@ -170,10 +170,10 @@
 
 
     function statistikProdi() {
-
         $('.sub-nav.nav-link[role="tab"]').on("click", function() {
 
             prodi = $('.sub-nav.active #tab-title').text();
+
             routeProdi = "{{ route('statistik_prodi', '') }}/" + prodi;
             routeKategori =
                 "{{ route('diagram', '') }}" + "/kategori/" + prodi;
@@ -192,6 +192,7 @@
 
                 resp_prodi = '#' + prodi.replace(/\s/g, '');
                 canv_prodi = prodi.replace(/\s/g, '');
+
                 $(resp_prodi + 'Stat').html("")
                 var html = '';
 
@@ -229,19 +230,20 @@
                 });
 
 
+                $.get(routeKategori, function(dataKategori) {
+                    diagKegiatanSetelahLulus(dataKategori);
+                });
+                $.get(routeTempatKerja, function(dataTempatKerja) {
+                    diagTempatKerja(dataTempatKerja);
+                });
+                $.get(routeInformasiLowongan, function(dataInformasiLowonganPekerjaan) {
+                    diagInformasiLowonganPekerjaan(dataInformasiLowonganPekerjaan);
+                });
             });
-
         });
 
-        $.get(routeKategori, function(dataKategori) {
-            diagKegiatanSetelahLulus(dataKategori);
-        });
-        $.get(routeTempatKerja, function(dataTempatKerja) {
-            diagTempatKerja(dataTempatKerja);
-        });
-        $.get(routeInformasiLowongan, function(dataInformasiLowonganPekerjaan) {
-            diagInformasiLowonganPekerjaan(dataInformasiLowonganPekerjaan);
-        });
+
+
         $.get(routeMasaTungguPekerjaan, function(dataMasaTungguDapatPekerjaan) {
             diagMasaTungguDapatPekerjaan(dataMasaTungguDapatPekerjaan);
         });
@@ -302,6 +304,7 @@
 
 
     function diagKegiatanSetelahLulus(dataKategori) {
+
         new Chart($('#kegiatanSetelahLulus' + canv_prodi), {
             type: 'pie',
             data: {
@@ -321,8 +324,8 @@
                         position: 'top',
                     },
                     title: {
-                        display: false,
-                        text: 'Kegiatan Setelah Lulus (Kategori?) ALL'
+                        display: true,
+                        text: 'Kegiatan Setelah Lulus (' + prodi + ')'
                     }
                 }
             },
@@ -336,7 +339,7 @@
             data: {
                 labels: dataTempatKerja.tempat_kerja,
                 datasets: [{
-                    label: 'Jumlah Responden ' + prodi,
+                    label: ' Alumni ' + prodi,
                     data: dataTempatKerja.count_tempat_kerja,
                     borderWidth: 1,
                     order: 0
@@ -351,7 +354,7 @@
                     },
                     title: {
                         display: true,
-                        text: 'Tempat Kerja (' + prodi + ') (BUMN?Swasta?) kategori SB WH'
+                        text: 'Tempat Kerja (' + prodi + ')'
                     }
                 }
             },

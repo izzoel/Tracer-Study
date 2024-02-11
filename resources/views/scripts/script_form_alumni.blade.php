@@ -136,7 +136,9 @@
                                 html += '<div class="col-auto form-check ms-2 ps-1 me-0 pe-0">';
                                 html += '<input class="form-check-input otherOpsiName' + no +
                                     ' gandaOpsi' + no + '" type="' + type + '" id="other' + k + '" ' +
-                                    'name="bank' + no + array + '">';
+                                    'name="bank' + no + array + '" value="' + $('#otherOpsi' + no)
+                                .val() +
+                                    '">';
                                 html += '</div>';
 
                                 html +=

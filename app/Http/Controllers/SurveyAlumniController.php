@@ -99,6 +99,7 @@ class SurveyAlumniController extends Controller
         if ($kategori == "belum_bekerja") {
             return response()->json(SurveyAlumniBelumBekerja::all());
         } elseif ($kategori == "sudah_bekerja") {
+            // return response()->json(SurveyAlumniSudahBekerja::skip(18)->take(2)->get());
             return response()->json(SurveyAlumniSudahBekerja::all());
         } elseif ($kategori == "berwirausaha") {
             return response()->json(SurveyAlumniWirausaha::all());

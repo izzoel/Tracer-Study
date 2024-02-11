@@ -82,9 +82,6 @@ Route::group(['middleware' => ['guest']], function () {
     Route::post('/survey/lulusan/submit', [BankLulusanController::class, 'store'])->name('lulusan_submit');
 });
 
-
-
-
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/admin/dashboard', [AdminController::class, 'show'])->name('admin_dashboard');
 

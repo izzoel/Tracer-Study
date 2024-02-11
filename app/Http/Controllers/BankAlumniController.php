@@ -41,6 +41,7 @@ class BankAlumniController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function store(Request $request, BankAlumni $bankAlumni, SurveyAlumniBelumBekerja $SurveyAlumniBelumBekerja, ResponEmail $ResponEmail)
     {
         $data = $request->except('_token');

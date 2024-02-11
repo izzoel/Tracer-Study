@@ -65,7 +65,7 @@
                                         <div class="col-4">
                                             <div class="card">
                                                 <div class="card-header bg-white">
-                                                    <div class="">Kegiatan Setelah Lulus (Kategori?) ALL</div>
+                                                    <div class="">Kegiatan Setelah Lulus</div>
                                                 </div>
                                                 <div class="card-body">
                                                     <div class="" style="height:55vh">
@@ -601,6 +601,7 @@
                                                 <td>{{ $data->alumni3 }}</td>
                                                 <td>{{ $data->alumni4 }}</td>
                                                 <td>{{ $data->alumni5 }}</td>
+                                                {{-- <td>{{ $data->angkatan }}</td> --}}
                                             </tr>
                                         @endforeach
                                     </tbody>
