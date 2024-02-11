@@ -384,7 +384,7 @@
                     },
                     title: {
                         display: true,
-                        text: 'Informasi Lowongan Pekerjaan SB WH'
+                        text: 'Informasi Lowongan Pekerjaan'
                     }
                 }
             },

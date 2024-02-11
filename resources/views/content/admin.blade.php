@@ -114,7 +114,7 @@
                                         <div class="col-4">
                                             <div class="card">
                                                 <div class="card-header bg-white">
-                                                    <div class="">Kegiatan Setelah Lulus (Kategori?) ALL</div>
+                                                    <div class="">Kegiatan Setelah Lulus</div>
                                                 </div>
                                                 <div class="card-body">
                                                     <div class="" style="height:55vh">
@@ -160,7 +160,7 @@
                                         <div class="col-4">
                                             <div class="card">
                                                 <div class="card-header bg-white">
-                                                    <div class="">Kegiatan Setelah Lulus (Kategori?) ALL</div>
+                                                    <div class="">Kegiatan Setelah Lulus</div>
                                                 </div>
                                                 <div class="card-body">
                                                     <div class="" style="height:55vh">
@@ -230,7 +230,7 @@
                                         <div class="col-4">
                                             <div class="card">
                                                 <div class="card-header bg-white">
-                                                    <div class="">Kegiatan Setelah Lulus (Kategori?) ALL</div>
+                                                    <div class="">Kegiatan Setelah Lulus</div>
                                                 </div>
                                                 <div class="card-body">
                                                     <div class="" style="height:55vh">
@@ -276,7 +276,7 @@
                                         <div class="col-4">
                                             <div class="card">
                                                 <div class="card-header bg-white">
-                                                    <div class="">Kegiatan Setelah Lulus (Kategori?) ALL</div>
+                                                    <div class="">Kegiatan Setelah Lulus</div>
                                                 </div>
                                                 <div class="card-body">
                                                     <div class="" style="height:55vh">
@@ -322,7 +322,7 @@
                                         <div class="col-4">
                                             <div class="card">
                                                 <div class="card-header bg-white">
-                                                    <div class="">Kegiatan Setelah Lulus (Kategori?) ALL</div>
+                                                    <div class="">Kegiatan Setelah Lulus</div>
                                                 </div>
                                                 <div class="card-body">
                                                     <div class="" style="height:55vh">
@@ -393,7 +393,7 @@
                                         <div class="col-4">
                                             <div class="card">
                                                 <div class="card-header bg-white">
-                                                    <div class="">Kegiatan Setelah Lulus (Kategori?) ALL</div>
+                                                    <div class="">Kegiatan Setelah Lulus</div>
                                                 </div>
                                                 <div class="card-body">
                                                     <div class="" style="height:55vh">
@@ -440,7 +440,7 @@
                                         <div class="col-4">
                                             <div class="card">
                                                 <div class="card-header bg-white">
-                                                    <div class="">Kegiatan Setelah Lulus (Kategori?) ALL</div>
+                                                    <div class="">Kegiatan Setelah Lulus</div>
                                                 </div>
                                                 <div class="card-body">
                                                     <div class="" style="height:55vh">
@@ -487,7 +487,7 @@
                                         <div class="col-4">
                                             <div class="card">
                                                 <div class="card-header bg-white">
-                                                    <div class="">Kegiatan Setelah Lulus (Kategori?) ALL</div>
+                                                    <div class="">Kegiatan Setelah Lulus</div>
                                                 </div>
                                                 <div class="card-body">
                                                     <div class="" style="height:55vh">
