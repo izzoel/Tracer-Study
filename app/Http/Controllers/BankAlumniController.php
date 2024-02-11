@@ -42,10 +42,16 @@ class BankAlumniController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+    public function tes()
+    {
+        return view('test');
+    }
+
+
     public function store(Request $request, BankAlumni $bankAlumni, SurveyAlumniBelumBekerja $SurveyAlumniBelumBekerja, ResponEmail $ResponEmail)
     {
         $data = $request->except('_token');
-
+        // dd($data);
         foreach ($data as $key => $value) {
             $data[$key] = is_array($value) ? implode(",", $value) : $value;
         }

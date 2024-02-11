@@ -201,19 +201,17 @@
 
                             html += '<div class="col-auto form-check ms-2 ps-1 me-0 pe-0">';
                             html += '<input class="form-check-input otherOpsiName' + no +
-                                ' gandaOpsi' + no + '" type="' + type + '" id="other' + k + '" ' +
+                                ' gandaOpsi' + no + '" type="' + type + '" id="other' + no + '" ' +
                                 'name="' + name + array + '" >';
                             html += '</div>';
 
                             html +=
                                 '<div class="col ms-0 ps-0"><div class="input-group input-group-sm mb-1" style="min-width: 100%;width: 3rem">';
                             html += '<input type="text" class="form-control" data-other="other' +
-                                k + '" id="otherOpsi' + no + '" for="other1">';
+                                no + '" id="otherOpsi' + no + '" for="other' + no + '">';
                             html += '</div></div>';
 
                             html += '</div>';
-
-
                         }
                         html += '</td>';
                     }
@@ -223,80 +221,19 @@
                     html += '</tbody>';
                     html += '</table">';
 
-
-
                     $('#survey').append(html);
                     i++;
+                });
+                $('.input-group input[type="text"]').focus(function() {
+                    var no = this.id.match(/\d+/)[0];
+                    $('#other' + no).prop('checked', true).change();
                 });
             }
         });
 
-        // percobaan
-        // $("#alumni-submit").submit(function() {
-        // var inputValue = $('#otherOpsi' + no).val();
-        // var selectedOption = $('input.otherOpsiName' + no + ':checked').val(inputValue);
-
-        // oke pakai for
-        // for (var i = 18; i <= 20; i++) {
-
-        //     var inputValue = $('#otherOpsi' + i).val();
-        //     var selectedOption = $('input.otherOpsiName' + i + ':checked').val(inputValue);
-        //     if (selectedOption) {
-        //         alert("Value of otherOpsiName" + i + ": " + selectedOption);
-        //     }
-        // }
-
-        // var i = 19;
-
-        // while (i <= 41) {
-        //     switch (i) {
-        //         case 19:
-        //             $('input.otherOpsiName' + i + ':checked').val($('#otherOpsi' + i).val());
-        //             break;
-        //         case 20:
-        //             $('input.otherOpsiName' + i + ':checked').val($('#otherOpsi' + i).val());
-        //             break;
-        //         case 24:
-        //             $('input.otherOpsiName' + i + ':checked').val($('#otherOpsi' + i).val());
-        //             break;
-        //         case 31:
-        //             $('input.otherOpsiName' + i + ':checked').val($('#otherOpsi' + i).val());
-        //             break;
-        //         case 35:
-        //             $('input.otherOpsiName' + i + ':checked').val($('#otherOpsi' + i).val());
-        //             break;
-        //         case 36:
-        //             $('input.otherOpsiName' + i + ':checked').val($('#otherOpsi' + i).val());
-        //             break;
-        //         default:
-        //             // Default case if none of the cases match
-        //             break;
-        //     }
-        //     i++;
-        // }
-        // // oke
-        // var totalCount = $('[class*="otherOpsiName"]').length;
-        // alert("Total number of elements with class starting with otherOpsiName: " + totalCount);
-
-        // $("#alumni-submit").submit(function() {
-        //     var count = $("[class*='otherOpsiName']").length;
-        //     alert("Total number of elements with class containing otherOpsiName: " + count);
-        // });
-
-
-        // yang simple
-        //     for (var i = 19; i <= 41; i++) {
-        //         if (i === 19 || i === 20 || i === 24 || i === 31 || i === 35 || i === 36) {
-        //             $('input.otherOpsiName' + i + ':checked').val($('#otherOpsi' + i).val());
-        //         }
-        //     }
-
-
-
-
-        // });
         $('#alumni-submit').submit(function(e) {
             e.preventDefault()
+
             Swal.fire({
                 title: 'Kirim Survey?',
                 text: "tidak dapat merubah kembali",
@@ -307,11 +244,24 @@
                 denyButtonText: `Batal`,
             }).then((result) => {
                 if (result.isConfirmed) {
-                    for (var i = 19; i <= 41; i++) {
-                        if (i === 19 || i === 20 || i === 24 || i === 31 || i === 35 || i === 36) {
-                            $('input.otherOpsiName' + i + ':checked').val($('#otherOpsi' + i).val());
-                        }
-                    }
+
+                    var elements = $("[class*='otherOpsiName']");
+                    var kelasOtherOpsiName = [];
+
+                    elements.each(function() {
+                        var classes = $(this).attr('class').split(' ');
+                        classes.forEach(function(className) {
+                            if (className.includes('otherOpsiName')) {
+                                kelasOtherOpsiName.push(className);
+                            }
+                        });
+                    });
+
+                    kelasOtherOpsiName.forEach(function(className) {
+                        $('input.' + className + ':checked').val($('#' + className.replace(
+                            'otherOpsiName',
+                            'otherOpsi')).val());
+                    });
 
                     $("#alumni-submit").unbind('submit');
                     $("#alumni-submit").submit();

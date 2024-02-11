@@ -68,6 +68,11 @@ Route::group(['middleware' => ['guest']], function () {
 
     Route::get('/survey', [UserAlumniController::class, 'survey'])->name('survey');
 
+    Route::get('/tes', [BankAlumniController::class, 'tes'])->name('tes');
+    // Route::get('/tes', function () {
+    //     return view('test');
+    // });
+
 
     Route::get('/survey/verif/{nim?}/{prodi?}', [UserAlumniController::class, 'verif'])->name('verif_alumni');
 
