@@ -57,7 +57,33 @@ class AdminController extends Controller
         $data_pengguna_lulusan = BankLulusan::all();
         $count = $data_alumni->count();
 
-        return view('content.admin')->with(['data_alumni' => $data_alumni, 'data_pengguna_lulusan' => $data_pengguna_lulusan, 'title' => 'dashboard', 'count' => $count]);
+        $count_D3Farmasi = BankAlumni::where('prodi', 'D3 Farmasi')->count();
+        $count_D3TLM = BankAlumni::where('prodi', 'D3 TLM')->count();
+
+        $count_S1Farmasi = BankAlumni::where('prodi', 'S1 Farmasi')->count();
+        $count_S1ARS = BankAlumni::where('prodi', 'S1 ARS')->count();
+        $count_S1Manajemen = BankAlumni::where('prodi', 'S1 Manajemen')->count();
+        $count_S1Gizi = BankAlumni::where('prodi', 'S1 Gizi')->count();
+        $count_S1Hukum = BankAlumni::where('prodi', 'S1 Hukum')->count();
+        $count_S1PGSD = BankAlumni::where('prodi', 'S1 PGSD')->count();
+
+        $count_ProfesiApoteker = BankAlumni::where('prodi', 'Profesi Apoteker')->count();
+
+        return view('content.admin', [
+            'data_alumni' => $data_alumni,
+            'data_pengguna_lulusan' => $data_pengguna_lulusan,
+            'title' => 'dashboard',
+            'count' => $count,
+            'count_D3Farmasi' => $count_D3Farmasi,
+            'count_D3TLM' => $count_D3TLM,
+            'count_S1Farmasi' => $count_S1Farmasi,
+            'count_S1ARS' => $count_S1ARS,
+            'count_S1Manajemen' => $count_S1Manajemen,
+            'count_S1Gizi' => $count_S1Gizi,
+            'count_S1Hukum' => $count_S1Hukum,
+            'count_S1PGSD' => $count_S1PGSD,
+            'count_ProfesiApoteker' => $count_ProfesiApoteker
+        ]);
     }
 
     /**

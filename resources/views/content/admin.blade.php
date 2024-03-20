@@ -606,6 +606,61 @@
                                         @endforeach
                                     </tbody>
                                 </table>
+
+
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col">
+
+
+
+                                <span class="btn-sm btn-primary disabled"
+                                    style="pointer-events: none; background-color: #00ff59;border-color: #00ff59;margin-right:10px;"
+                                    onmouseover="event.target.style.cursor='default'"
+                                    onmouseout="event.target.style.cursor='default'">D3 Farmasi :
+                                    {{ $count_D3Farmasi }}</span>
+                                <span class="btn-sm btn-primary disabled"
+                                    style="pointer-events: none; background-color: #024138;border-color: #024138;margin-right:10px;"
+                                    onmouseover="event.target.style.cursor='default'"
+                                    onmouseout="event.target.style.cursor='default'">D3 TLM : {{ $count_D3TLM }}</span>
+                                <span class="btn-sm btn-primary disabled"
+                                    style="pointer-events: none; background-color: #198754;border-color: #198754;margin-right:10px;"
+                                    onmouseover="event.target.style.cursor='default'"
+                                    onmouseout="event.target.style.cursor='default'">S1 Farmasi :
+                                    {{ $count_S1Farmasi }}</span>
+                                <span class="btn-sm btn-primary disabled"
+                                    style="pointer-events: none; background-color: #104e8b;border-color: #104e8b;margin-right:10px;"
+                                    onmouseover="event.target.style.cursor='default'"
+                                    onmouseout="event.target.style.cursor='default'">S1 ARS :
+                                    {{ $count_S1ARS }}</span>
+                                <span class="btn-sm btn-primary disabled"
+                                    style="pointer-events: none; background-color: #8b107d;border-color: #8b107d;margin-right:10px;"
+                                    onmouseover="event.target.style.cursor='default'"
+                                    onmouseout="event.target.style.cursor='default'">S1 Manajemen :
+                                    {{ $count_S1Manajemen }}</span>
+                                <span class="btn-sm btn-primary disabled"
+                                    style="pointer-events: none; background-color: #4a93ff;border-color: #4a93ff;margin-right:10px;"
+                                    onmouseover="event.target.style.cursor='default'"
+                                    onmouseout="event.target.style.cursor='default'">S1 Gizi : {{ $count_S1Gizi }}</span>
+                                <span class="btn-sm btn-primary disabled"
+                                    style="pointer-events: none; background-color: #8a0909;border-color: #8a0909;margin-right:10px;"
+                                    onmouseover="event.target.style.cursor='default'"
+                                    onmouseout="event.target.style.cursor='default'">S1 Hukum :
+                                    {{ $count_S1Hukum }}</span>
+                                <span class="btn-sm btn-primary disabled"
+                                    style="pointer-events: none; background-color: #422901;border-color: #422901;margin-right:10px;"
+                                    onmouseover="event.target.style.cursor='default'"
+                                    onmouseout="event.target.style.cursor='default'">S1 PGSD : {{ $count_S1PGSD }}</span>
+                                <span class="btn-sm btn-primary disabled"
+                                    style="pointer-events: none; background-color: #7a7a7a;border-color: #7a7a7a;margin-right:10px;"
+                                    onmouseover="event.target.style.cursor='default'"
+                                    onmouseout="event.target.style.cursor='default'">Profesi Apoteker :
+                                    {{ $count_ProfesiApoteker }}</span>
+
                             </div>
                         </div>
                     </div>
