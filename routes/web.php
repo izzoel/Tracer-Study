@@ -14,7 +14,7 @@ use App\Http\Controllers\BankAlumniController;
 use App\Http\Controllers\BankLulusanController;
 
 use App\Http\Controllers\EmailController;
-
+use App\Http\Controllers\EksporController;
 
 /*
 |--------------------------------------------------------------------------
@@ -122,4 +122,6 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::post('/admin/user_alumni/store', [UserAlumniController::class, 'store'])->name('add_user_alumni');
     Route::post('/admin/user_alumni/import', [UserAlumniController::class, 'import'])->name('import_user_alumni');
+
+    Route::get('/admin/export/alumni', [EksporController::class, 'export'])->name('export_alumni');
 });
