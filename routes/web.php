@@ -48,8 +48,14 @@ Route::group(['middleware' => ['guest']], function () {
 
 
     Route::get('/unduhan', function () {
-        return redirect(route('landing') . '#unduhan')->with(['title' => 'unduhan']);
+        return view(
+            'content.unduhan',
+            ['title' => 'unduhan']
+        );
     })->name('unduhan');
+    // Route::get('/unduhan', function () {
+    //     return redirect(route('landing') . '#unduhan')->with(['title' => 'unduhan']);
+    // })->name('unduhan');
 
 
     // Route::get('/survey', function () {

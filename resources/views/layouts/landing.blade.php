@@ -85,7 +85,9 @@
                                 <a class="nav-link home {{ $title === 'home' ? 'active' : '' }}" href="/">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link unduhan" href="{{ route('unduhan') }}">Unduhan</a>
+                                {{-- <a class="nav-link unduhan" href="{{ route('unduhan') }}">Unduhan</a> --}}
+                                <a class="nav-link {{ $title == 'unduhan' ? 'active' : '' }}"
+                                    href="{{ route('unduhan') }}">Unduhan</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link {{ $title == 'survey' ? 'active' : '' }}"
@@ -131,6 +133,7 @@
     </header>
 
     @yield('content')
+    @yield('unduhan')
 
 
     <footer>
