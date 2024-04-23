@@ -575,7 +575,8 @@
             <div class="p-3">
                 <div class="card">
                     <div class="card-header bg-white">
-                        <div class="">Data Responden Alumni Yang Mengisi</div>
+                        <div class="">Data Responden Alumni Yang Mengisi <a class="btn-sm btn-primary" href="{{ route('export_alumni') }}">Export</a>
+                        </div>
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -663,6 +664,7 @@
 
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>

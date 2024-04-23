@@ -51,7 +51,6 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta2/dist/css/bootstrap-select.min.css">
-
 </head>
 
 <body>
@@ -243,10 +242,6 @@
     <!-- (Optional) Latest compiled and minified JavaScript translation files -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta2/dist/js/i18n/defaults-*.min.js"></script>
 
-    {{-- <script src="../docsupport/jquery-3.2.1.min.js" type="text/javascript"></script>
-    <script src="../js/chosen.jquery.js" type="text/javascript"></script>
-    <script src="../docsupport/prism.js" type="text/javascript" charset="utf-8"></script>
-    <script src="../docsupport/init.js" type="text/javascript" charset="utf-8"></script> --}}
 
     <script src="../select2.js"></script>
 

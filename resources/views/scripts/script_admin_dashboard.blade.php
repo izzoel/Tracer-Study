@@ -685,7 +685,7 @@
     // ############### Datatables
     $('#tbl_alumni').DataTable({
         // "lengthChange": false
-        "dom": 'frtp'
+        dom: 'frtp'
     });
     $('#tbl_pengguna_lulusan').DataTable({
         // "lengthChange": false
@@ -701,8 +701,4 @@
         'padding': '0',
         'margin-bottom': '0'
     });
-    // $('.p-1').css({
-    //     "font-size",
-    //     "1px"
-    // });
 </script>
