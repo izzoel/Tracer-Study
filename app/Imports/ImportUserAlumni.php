@@ -39,6 +39,7 @@ class ImportUserAlumni implements ToModel
                     'nim' => strtoupper($row[1]),
                     'prodi' => $prodi,
                     'angkatan' => (int)$row[3],
+                    'tahun_akademik' => $row[4]
                 ])
             ];
     }
