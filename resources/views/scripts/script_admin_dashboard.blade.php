@@ -690,7 +690,7 @@
 
     var tableAlumni = $('#tbl_alumni').DataTable({
         responsive: true,
-        dom: 'B<"row "<"col-sm-12 col-md-6"><"col-sm-12 col-md-6 d-flex flex-row-reverse"f>><"row"t><"row "<"col-sm-12 col-md-6"i><"col-sm-12 col-md-6 d-flex flex-row-reverse"p>>',
+        dom: 'B<"row "<"col-sm-12 col-md-6"><"col-sm-12 col-md-6 d-flex flex-row-reverse"f>>t<"row "<"col-sm-12 col-md-6"i><"col-sm-12 col-md-6 d-flex flex-row-reverse"p>>',
         language: {
             info: "Showing _START_ to _END_ of _TOTAL_ entries",
             infoEmpty: "Tidak ada data",
@@ -727,7 +727,7 @@
 
     var tableLulusan = $('#tbl_pengguna_lulusan').DataTable({
         responsive: true,
-        dom: 'B<"row "<"col-sm-12 col-md-6"><"col-sm-12 col-md-6 d-flex flex-row-reverse"f>><"row"t><"row "<"col-sm-12 col-md-6"i><"col-sm-12 col-md-6 d-flex flex-row-reverse"p>>',
+        dom: 'B<"row "<"col-sm-12 col-md-6"><"col-sm-12 col-md-6 d-flex flex-row-reverse"f>>t<"row "<"col-sm-12 col-md-6"i><"col-sm-12 col-md-6 d-flex flex-row-reverse"p>>',
         language: {
             info: "Showing _START_ to _END_ of _TOTAL_ entries",
             infoEmpty: "Tidak ada data",
