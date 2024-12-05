@@ -21,12 +21,13 @@
     <link rel="stylesheet" href="../plugins/aos/aos.css">
 
     <!-- Main Stylesheet -->
+    {{-- <link rel="stylesheet" href='{{ asset('vendors/bootstrap/dist/css/bootstrap.min.css') }}'> --}}
     <link rel="stylesheet" href="../css/style.css">
     <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
 
     <!-- Datatables -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/css/dataTables.bootstrap5.min.css">
+    {{-- <link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/css/dataTables.bootstrap5.min.css"> --}}
 
     <link rel="stylesheet" href="../css/chart.css">
 
@@ -40,17 +41,37 @@
 
     <link rel="stylesheet" href="../select2.css">
 
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker3.min.css"
-        integrity="sha512-rxThY3LYIfYsVCWPCW9dB0k+e3RZB39f23ylUYTEuZMDrN/vRqLdaCBo/FbvVT6uC2r0ObfPzotsfKF9Qc5W5g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker3.min.css"
+        integrity="sha512-rxThY3LYIfYsVCWPCW9dB0k+e3RZB39f23ylUYTEuZMDrN/vRqLdaCBo/FbvVT6uC2r0ObfPzotsfKF9Qc5W5g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet" href="https://unpkg.com/@jarstone/dselect/dist/css/dselect.css">
 
 
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta2/dist/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta2/dist/css/bootstrap-select.min.css">
+
+
+    <!-- datatables -->
+    <link rel="stylesheet" href='{{ asset('css/xdatatables.css') }}'>
+    {{-- <link rel="stylesheet" href='{{ asset('css/buttons.datatables.css') }}'> --}}
+    {{-- <link rel="stylesheet" href='{{ asset('css/custom.css') }}'> --}}
+    {{-- <link rel="stylesheet" href='{{ asset('vendors/datatables.net-bs/css/dataTables.bootstrap.min.css') }}'> --}}
+    {{-- <link rel="stylesheet" href='{{ asset('vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css') }}'> --}}
+    {{-- <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.dataTables.min.css"> --}}
+
+    {{-- <link href='{{ asset('vendors/bootstrap/dist/css/bootstrap.min.css') }}' rel="stylesheet"> --}}
+    <!-- Datepicker -->
+    {{-- <link href='{{ asset('css/bootstrap-datepicker.min.css') }}' rel="stylesheet"> --}}
+    <!-- Font Awesome -->
+    {{-- <link href='{{ asset('vendors/font-awesome/css/font-awesome.min.css') }}' rel="stylesheet"> --}}
+    <!-- DataTables -->
+    {{-- Custom CSS --}}
+    {{-- <link href='{{ asset('css/custom.css') }}' rel="stylesheet"> --}}
+    <link href='{{ asset('css/datatables.css') }}' rel="stylesheet">
+
+    <link rel="stylesheet" href='{{ asset('vendors/datatables.net-bs/css/dataTables.bootstrap.css') }}'>
+    <link rel="stylesheet" href='{{ asset('vendors/datatables.net-responsive-bs/css/responsive.bootstrap.css') }}'>
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.dataTables.css">
 </head>
 
 <body>
@@ -72,8 +93,7 @@
                     <b style="color: chocolate">TRACER STUDY</b> <br>
                     Universitas Borneo Lestari
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fas fa-bars"></i>
                 </button>
@@ -85,19 +105,16 @@
                             </li>
                             <li class="nav-item">
                                 {{-- <a class="nav-link unduhan" href="{{ route('unduhan') }}">Unduhan</a> --}}
-                                <a class="nav-link {{ $title == 'unduhan' ? 'active' : '' }}"
-                                    href="{{ route('unduhan') }}">Unduhan</a>
+                                <a class="nav-link {{ $title == 'unduhan' ? 'active' : '' }}" href="{{ route('unduhan') }}">Unduhan</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link {{ $title == 'survey' ? 'active' : '' }}"
-                                    href="{{ route('survey') }}">Survey</a>
+                                <a class="nav-link {{ $title == 'survey' ? 'active' : '' }}" href="{{ route('survey') }}">Survey</a>
                             </li>
                         @endguest
 
                         @auth
                             <li class="nav-item">
-                                <a class="nav-link {{ $title == 'dashboard' ? 'active' : '' }}"
-                                    href="{{ route('admin_dashboard') }}">
+                                <a class="nav-link {{ $title == 'dashboard' ? 'active' : '' }}" href="{{ route('admin_dashboard') }}">
                                     Dashboard
                                 </a>
                             </li>
@@ -108,8 +125,8 @@
                             </li>
 
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle {{ $title == 'form' ? 'active' : '' }}" href="#"
-                                    id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle {{ $title == 'form' ? 'active' : '' }}" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
                                     Formulir
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -166,12 +183,12 @@
                     @csrf
                     <div class="modal-body">
                         <div class="input-group">
-                            <input type="text" name="name" class="form-control ms-4 me-4"
-                                placeholder="Username" aria-label="Username" style="margin-bottom: 20px" required>
+                            <input type="text" name="name" class="form-control ms-4 me-4" placeholder="Username" aria-label="Username" style="margin-bottom: 20px"
+                                required>
                         </div>
                         <div class="input-group">
-                            <input type="password" name="password" class="form-control ms-4 me-4"
-                                placeholder="Password" aria-label="Password" style="margin-bottom: 0px" required>
+                            <input type="password" name="password" class="form-control ms-4 me-4" placeholder="Password" aria-label="Password" style="margin-bottom: 0px"
+                                required>
                         </div>
 
                         @if (session()->has('admin'))
@@ -207,19 +224,16 @@
     <script src="../js/script.js"></script>
 
     <!-- Datatables Script -->
-    <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.2/js/dataTables.bootstrap5.min.js"></script>
+    {{-- <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script> --}}
+    {{-- <script src="https://cdn.datatables.net/1.13.2/js/dataTables.bootstrap5.min.js"></script> --}}
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.1/chart.js"
-        integrity="sha512-Cv3WnEz5uGwmTnA48999hgbYV1ImGjsDWyYQakowKw+skDXEYYSU+rlm9tTflyXc8DbbKamcLFF80Cf89f+vOQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        integrity="sha512-Cv3WnEz5uGwmTnA48999hgbYV1ImGjsDWyYQakowKw+skDXEYYSU+rlm9tTflyXc8DbbKamcLFF80Cf89f+vOQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.1/chart.umd.js"
-        integrity="sha512-vCUbejtS+HcWYtDHRF2T5B0BKwVG/CLeuew5uT2AiX4SJ2Wff52+kfgONvtdATqkqQMC9Ye5K+Td0OTaz+P7cw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        integrity="sha512-vCUbejtS+HcWYtDHRF2T5B0BKwVG/CLeuew5uT2AiX4SJ2Wff52+kfgONvtdATqkqQMC9Ye5K+Td0OTaz+P7cw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.1/helpers.js"
-        integrity="sha512-Kkt+9BdRfSBFaKgC+9xNLDVzBX3nAlj2EE95amI6F/XV2LKxED93uUigInw7w9JABWGVnuD1WZU3SKy+J+aDPw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        integrity="sha512-Kkt+9BdRfSBFaKgC+9xNLDVzBX3nAlj2EE95amI6F/XV2LKxED93uUigInw7w9JABWGVnuD1WZU3SKy+J+aDPw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/smartwizard@6/dist/js/jquery.smartWizard.js" type="text/javascript"></script>
 
@@ -232,8 +246,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.3/jquery.scrollTo.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"
-        integrity="sha512-T/tUfKSV1bihCnd+MxKD0Hm1uBBroVYBOYSk1knyvQ9VyZJpc/ALb4P0r6ubwVPSGB2GvjeoMAJJImBG12TiaQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        integrity="sha512-T/tUfKSV1bihCnd+MxKD0Hm1uBBroVYBOYSk1knyvQ9VyZJpc/ALb4P0r6ubwVPSGB2GvjeoMAJJImBG12TiaQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script src="https://unpkg.com/@jarstone/dselect/dist/js/dselect.js"></script>
 
@@ -244,6 +257,17 @@
 
 
     <script src="../select2.js"></script>
+
+
+    <!-- DataTables -->
+    <script src='{{ asset('js/datatables.js') }}'></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.flash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.3/js/buttons.colVis.min.js"></script>
 
 </body>
 

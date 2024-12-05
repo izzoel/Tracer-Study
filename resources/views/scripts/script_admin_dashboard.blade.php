@@ -683,13 +683,66 @@
 
 
     // ############### Datatables
-    $('#tbl_alumni').DataTable({
-        // "lengthChange": false
-        dom: 'frtp'
+    $('#angkatanFilter').on('change', function() {
+        var val = $.fn.dataTable.util.escapeRegex($(this).val());
+        tableAlumni.column(2).search(val ? '^' + val + '$' : '', true, false).draw();
     });
-    $('#tbl_pengguna_lulusan').DataTable({
-        // "lengthChange": false
-        "dom": 'frtp'
+
+    var tableAlumni = $('#tbl_alumni').DataTable({
+        responsive: true,
+        dom: 'B<"row "<"col-sm-12 col-md-6"><"col-sm-12 col-md-6 d-flex flex-row-reverse"f>><"row "<"col-sm-12"t>><"row "<"col-sm-12 col-md-6"i><"col-sm-12 col-md-6 d-flex flex-row-reverse"p>>',
+        language: {
+            info: "Showing _START_ to _END_ of _TOTAL_ entries",
+            infoEmpty: "Tidak ada data",
+            infoFiltered: "(filtered from _MAX_ total entries)",
+            lengthMenu: "Show _MENU_ entries",
+            search: "Cari:",
+            zeroRecords: "Data tidak ditemukan",
+        },
+        buttons: [{
+            extend: 'pdfHtml5',
+            text: 'PDF',
+        }, {
+            extend: 'excelHtml5',
+            text: 'Excel',
+        }, 'colvis'],
+        initComplete: function() {
+            var columnAngkatan = this.api().column(2);
+            columnAngkatan.data().unique().sort().each(function(d, j) {
+                $('#angkatanFilter').append('<option value="' + d + '">' + d + '</option>');
+            });
+
+            $('#angkatanFilter').on('change', function() {
+                var selectedValue = $(this).val();
+
+                if (selectedValue === "all") {
+                    columnAngkatan.search('').draw();
+                } else {
+                    columnAngkatan.search('^' + selectedValue + '$', true, false).draw();
+                }
+            });
+        },
+    });
+
+
+    var tableLulusan = $('#tbl_pengguna_lulusan').DataTable({
+        responsive: true,
+        dom: 'B<"row "<"col-sm-12 col-md-6"><"col-sm-12 col-md-6 d-flex flex-row-reverse"f>><"row "<"col-sm-12"t>><"row "<"col-sm-12 col-md-6"i><"col-sm-12 col-md-6 d-flex flex-row-reverse"p>>',
+        language: {
+            info: "Showing _START_ to _END_ of _TOTAL_ entries",
+            infoEmpty: "Tidak ada data",
+            infoFiltered: "(filtered from _MAX_ total entries)",
+            lengthMenu: "Show _MENU_ entries",
+            search: "Cari:",
+            zeroRecords: "Data tidak ditemukan",
+        },
+        buttons: [{
+            extend: 'pdfHtml5',
+            text: 'PDF',
+        }, {
+            extend: 'excelHtml5',
+            text: 'Excel',
+        }, 'colvis'],
     });
     $('#tbl_alumni2').DataTable({});
 

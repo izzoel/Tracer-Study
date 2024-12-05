@@ -18,16 +18,13 @@
             <div class="card-body">
                 <nav>
                     <div class="nav nav-tabs" role="tablist">
-                        <a class="main-nav nav-link active" id="FF" data-bs-toggle="tab" data-bs-target="#info-FF"
-                            type="button" role="tab">
+                        <a class="main-nav nav-link active" id="FF" data-bs-toggle="tab" data-bs-target="#info-FF" type="button" role="tab">
                             <span id="tab-title-fakultas">Fakultas Farmasi</span>
                         </a>
-                        <a class="main-nav nav-link" id="FIKST" data-bs-toggle="tab" data-bs-target="#info-FIKST"
-                            type="button" role="tab">
+                        <a class="main-nav nav-link" id="FIKST" data-bs-toggle="tab" data-bs-target="#info-FIKST" type="button" role="tab">
                             <span id="tab-title-fakultas">Fakultas Ilmu Kesehatan Dan Sains Teknologi</span>
                         </a>
-                        <a class="main-nav nav-link" id="FISH" data-bs-toggle="tab" data-bs-target="#info-FISH"
-                            type="button" role="tab">
+                        <a class="main-nav nav-link" id="FISH" data-bs-toggle="tab" data-bs-target="#info-FISH" type="button" role="tab">
                             <span id="tab-title-fakultas">Fakultas Ilmu Sosial Dan Humaniora</span>
                         </a>
                     </div>
@@ -37,18 +34,15 @@
                         <div class="row mt-4">
                             <nav>
                                 <div class="nav nav-tabs" role="tablist">
-                                    <a class="sub-nav nav-link active" id="d3-farmasi" data-bs-toggle="tab"
-                                        data-bs-target="#statistik-d3-farmasi" type="button" role="tab"
+                                    <a class="sub-nav nav-link active" id="d3-farmasi" data-bs-toggle="tab" data-bs-target="#statistik-d3-farmasi" type="button" role="tab"
                                         value="D3 Farmasi">
                                         <span id="tab-title">D3 Farmasi</span>
                                     </a>
-                                    <a class="sub-nav nav-link" id="s1-farmasi" data-bs-toggle="tab"
-                                        data-bs-target="#statistik-s1-farmasi" type="button" role="tab"
+                                    <a class="sub-nav nav-link" id="s1-farmasi" data-bs-toggle="tab" data-bs-target="#statistik-s1-farmasi" type="button" role="tab"
                                         value="S1 Farmasi">
                                         <span id="tab-title">S1 Farmasi</span>
                                     </a>
-                                    <a class="sub-nav nav-link" id="profesi-apoteker" data-bs-toggle="tab"
-                                        data-bs-target="#statistik-profesi-apoteker" type="button" role="tab"
+                                    <a class="sub-nav nav-link" id="profesi-apoteker" data-bs-toggle="tab" data-bs-target="#statistik-profesi-apoteker" type="button" role="tab"
                                         value="Profesi Apoteker">
                                         <span id="tab-title">Profesi Apoteker</span>
                                     </a>
@@ -204,16 +198,15 @@
                         <div class="row mt-4">
                             <nav>
                                 <div class="nav nav-tabs" role="tablist">
-                                    <a class="sub-nav nav-link" id="d3-tlm" data-bs-toggle="tab"
-                                        data-bs-target="#statistik-d3-tlm" type="button" role="tab" value="D3 TLM">
+                                    <a class="sub-nav nav-link" id="d3-tlm" data-bs-toggle="tab" data-bs-target="#statistik-d3-tlm" type="button" role="tab"
+                                        value="D3 TLM">
                                         <span id="tab-title">D3 TLM</span>
                                     </a>
-                                    <a class="sub-nav nav-link" id="s1-tlm" data-bs-toggle="tab"
-                                        data-bs-target="#statistik-s1-ars" type="button" role="tab" value="S1 ARS">
+                                    <a class="sub-nav nav-link" id="s1-tlm" data-bs-toggle="tab" data-bs-target="#statistik-s1-ars" type="button" role="tab"
+                                        value="S1 ARS">
                                         <span id="tab-title">S1 ARS</span>
                                     </a>
-                                    <a class="sub-nav nav-link" id="s1-gizi" data-bs-toggle="tab"
-                                        data-bs-target="#statistik-s1-gizi" type="button" role="tab"
+                                    <a class="sub-nav nav-link" id="s1-gizi" data-bs-toggle="tab" data-bs-target="#statistik-s1-gizi" type="button" role="tab"
                                         value="S1 Gizi">
                                         <span id="tab-title">S1 Gizi</span>
                                     </a>
@@ -365,18 +358,15 @@
                         <div class="row mt-4">
                             <nav>
                                 <div class="nav nav-tabs" role="tablist">
-                                    <a class="sub-nav nav-link" id="s1-hukum" data-bs-toggle="tab"
-                                        data-bs-target="#statistik-s1-hukum" type="button" role="tab"
+                                    <a class="sub-nav nav-link" id="s1-hukum" data-bs-toggle="tab" data-bs-target="#statistik-s1-hukum" type="button" role="tab"
                                         value="S1 Hukum">
                                         <span id="tab-title">S1 Hukum</span>
                                     </a>
-                                    <a class="sub-nav nav-link" id="s1-manajemen" data-bs-toggle="tab"
-                                        data-bs-target="#statistik-s1-manajemen" type="button" role="tab"
+                                    <a class="sub-nav nav-link" id="s1-manajemen" data-bs-toggle="tab" data-bs-target="#statistik-s1-manajemen" type="button" role="tab"
                                         value="S1 Manajemen">
                                         <span id="tab-title">S1 Manajemen</span>
                                     </a>
-                                    <a class="sub-nav nav-link" id="s1-pgsd" data-bs-toggle="tab"
-                                        data-bs-target="#statistik-s1-pgsd" type="button" role="tab"
+                                    <a class="sub-nav nav-link" id="s1-pgsd" data-bs-toggle="tab" data-bs-target="#statistik-s1-pgsd" type="button" role="tab"
                                         value="S1 PGSD">
                                         <span id="tab-title">S1 PGSD</span>
                                     </a>
@@ -581,12 +571,30 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col">
-                                <table class="table table-sm table-striped table-hover table-bordered p-0"
-                                    style="width: 100%" id="tbl_alumni">
+                                {{-- <div class="form-floating"> --}}
+                                <select class="form-select mb-3" id="angkatanFilter" style="width:max-content;">
+                                    <option value="all">-- Semua Angkatan --</option>
+                                </select>
+                                {{-- <label for="angkatanFilter">Works with selects</label> --}}
+                                {{-- </div> --}}
+                            </div>
+                        </div>
+                        <div class="row">
+
+
+                            {{-- <div class=""> --}}
+
+                            {{-- <label for="floatingSelect">Works with selects</label> --}}
+                            {{-- </div> --}}
+
+                            <div class="col">
+
+                                <table class="table table-sm table-striped table-hover table-bordered p-0" style="width: 100%" id="tbl_alumni">
                                     <thead border="1">
                                         <tr class="p-0">
                                             <th>Nama</th>
                                             <th>Prodi</th>
+                                            <th>Angkatan</th>
                                             <th>Kategori</th>
                                             <th>Jenis Kelamin</th>
                                             <th>Kontak</th>
@@ -598,6 +606,7 @@
                                             <tr>
                                                 <td>{{ $data->nama }}</td>
                                                 <td>{{ $data->prodi }}</td>
+                                                <td>{{ $data->angkatan }}</td>
                                                 <td>{{ $data->kategori }}</td>
                                                 <td>{{ $data->alumni3 }}</td>
                                                 <td>{{ $data->alumni4 }}</td>
@@ -616,50 +625,29 @@
                         <div class="row">
 
                             <div class="col">
-
-
-
-                                <span class="btn-sm btn-primary disabled"
-                                    style="pointer-events: none; background-color: #00ff59;border-color: #00ff59;margin-right:10px;"
-                                    onmouseover="event.target.style.cursor='default'"
-                                    onmouseout="event.target.style.cursor='default'">D3 Farmasi :
+                                <span class="btn-sm btn-primary disabled" style="pointer-events: none; background-color: #00ff59;border-color: #00ff59;margin-right:10px;"
+                                    onmouseover="event.target.style.cursor='default'" onmouseout="event.target.style.cursor='default'">D3 Farmasi :
                                     {{ $count_D3Farmasi }}</span>
-                                <span class="btn-sm btn-primary disabled"
-                                    style="pointer-events: none; background-color: #024138;border-color: #024138;margin-right:10px;"
-                                    onmouseover="event.target.style.cursor='default'"
-                                    onmouseout="event.target.style.cursor='default'">D3 TLM : {{ $count_D3TLM }}</span>
-                                <span class="btn-sm btn-primary disabled"
-                                    style="pointer-events: none; background-color: #198754;border-color: #198754;margin-right:10px;"
-                                    onmouseover="event.target.style.cursor='default'"
-                                    onmouseout="event.target.style.cursor='default'">S1 Farmasi :
+                                <span class="btn-sm btn-primary disabled" style="pointer-events: none; background-color: #024138;border-color: #024138;margin-right:10px;"
+                                    onmouseover="event.target.style.cursor='default'" onmouseout="event.target.style.cursor='default'">D3 TLM : {{ $count_D3TLM }}</span>
+                                <span class="btn-sm btn-primary disabled" style="pointer-events: none; background-color: #198754;border-color: #198754;margin-right:10px;"
+                                    onmouseover="event.target.style.cursor='default'" onmouseout="event.target.style.cursor='default'">S1 Farmasi :
                                     {{ $count_S1Farmasi }}</span>
-                                <span class="btn-sm btn-primary disabled"
-                                    style="pointer-events: none; background-color: #104e8b;border-color: #104e8b;margin-right:10px;"
-                                    onmouseover="event.target.style.cursor='default'"
-                                    onmouseout="event.target.style.cursor='default'">S1 ARS :
+                                <span class="btn-sm btn-primary disabled" style="pointer-events: none; background-color: #104e8b;border-color: #104e8b;margin-right:10px;"
+                                    onmouseover="event.target.style.cursor='default'" onmouseout="event.target.style.cursor='default'">S1 ARS :
                                     {{ $count_S1ARS }}</span>
-                                <span class="btn-sm btn-primary disabled"
-                                    style="pointer-events: none; background-color: #8b107d;border-color: #8b107d;margin-right:10px;"
-                                    onmouseover="event.target.style.cursor='default'"
-                                    onmouseout="event.target.style.cursor='default'">S1 Manajemen :
+                                <span class="btn-sm btn-primary disabled" style="pointer-events: none; background-color: #8b107d;border-color: #8b107d;margin-right:10px;"
+                                    onmouseover="event.target.style.cursor='default'" onmouseout="event.target.style.cursor='default'">S1 Manajemen :
                                     {{ $count_S1Manajemen }}</span>
-                                <span class="btn-sm btn-primary disabled"
-                                    style="pointer-events: none; background-color: #4a93ff;border-color: #4a93ff;margin-right:10px;"
-                                    onmouseover="event.target.style.cursor='default'"
-                                    onmouseout="event.target.style.cursor='default'">S1 Gizi : {{ $count_S1Gizi }}</span>
-                                <span class="btn-sm btn-primary disabled"
-                                    style="pointer-events: none; background-color: #8a0909;border-color: #8a0909;margin-right:10px;"
-                                    onmouseover="event.target.style.cursor='default'"
-                                    onmouseout="event.target.style.cursor='default'">S1 Hukum :
+                                <span class="btn-sm btn-primary disabled" style="pointer-events: none; background-color: #4a93ff;border-color: #4a93ff;margin-right:10px;"
+                                    onmouseover="event.target.style.cursor='default'" onmouseout="event.target.style.cursor='default'">S1 Gizi : {{ $count_S1Gizi }}</span>
+                                <span class="btn-sm btn-primary disabled" style="pointer-events: none; background-color: #8a0909;border-color: #8a0909;margin-right:10px;"
+                                    onmouseover="event.target.style.cursor='default'" onmouseout="event.target.style.cursor='default'">S1 Hukum :
                                     {{ $count_S1Hukum }}</span>
-                                <span class="btn-sm btn-primary disabled"
-                                    style="pointer-events: none; background-color: #422901;border-color: #422901;margin-right:10px;"
-                                    onmouseover="event.target.style.cursor='default'"
-                                    onmouseout="event.target.style.cursor='default'">S1 PGSD : {{ $count_S1PGSD }}</span>
-                                <span class="btn-sm btn-primary disabled"
-                                    style="pointer-events: none; background-color: #7a7a7a;border-color: #7a7a7a;margin-right:10px;"
-                                    onmouseover="event.target.style.cursor='default'"
-                                    onmouseout="event.target.style.cursor='default'">Profesi Apoteker :
+                                <span class="btn-sm btn-primary disabled" style="pointer-events: none; background-color: #422901;border-color: #422901;margin-right:10px;"
+                                    onmouseover="event.target.style.cursor='default'" onmouseout="event.target.style.cursor='default'">S1 PGSD : {{ $count_S1PGSD }}</span>
+                                <span class="btn-sm btn-primary disabled" style="pointer-events: none; background-color: #7a7a7a;border-color: #7a7a7a;margin-right:10px;"
+                                    onmouseover="event.target.style.cursor='default'" onmouseout="event.target.style.cursor='default'">Profesi Apoteker :
                                     {{ $count_ProfesiApoteker }}</span>
 
                             </div>
@@ -684,16 +672,13 @@
             <div class="card-body">
                 <nav>
                     <div class="nav nav-tabs" role="tablist">
-                        <a class="main-nav nav-link active" id="L-FF" data-bs-toggle="tab"
-                            data-bs-target="#L-info-FF" type="button" role="tab">
+                        <a class="main-nav nav-link active" id="L-FF" data-bs-toggle="tab" data-bs-target="#L-info-FF" type="button" role="tab">
                             <span id="L-tab-title-fakultas">Fakultas Farmasi</span>
                         </a>
-                        <a class="main-nav nav-link" id="L-FIKST" data-bs-toggle="tab" data-bs-target="#L-info-FIKST"
-                            type="button" role="tab">
+                        <a class="main-nav nav-link" id="L-FIKST" data-bs-toggle="tab" data-bs-target="#L-info-FIKST" type="button" role="tab">
                             <span id="L-tab-title-fakultas">Fakultas Ilmu Kesehatan Dan Sains Teknologi</span>
                         </a>
-                        <a class="main-nav nav-link" id="L-FISH" data-bs-toggle="tab" data-bs-target="#L-info-FISH"
-                            type="button" role="tab">
+                        <a class="main-nav nav-link" id="L-FISH" data-bs-toggle="tab" data-bs-target="#L-info-FISH" type="button" role="tab">
                             <span id="L-tab-title-fakultas">Fakultas Ilmu Sosial Dan Humaniora</span>
                         </a>
                     </div>
@@ -705,19 +690,16 @@
                         <div class="row mt-4">
                             <nav>
                                 <div class="nav nav-tabs" role="tablist">
-                                    <a class="sub-nav nav-link active" id="L-d3-farmasi" data-bs-toggle="tab"
-                                        data-bs-target="#L-statistik-d3-farmasi" type="button" role="tab"
-                                        value="L-D3 Farmasi">
+                                    <a class="sub-nav nav-link active" id="L-d3-farmasi" data-bs-toggle="tab" data-bs-target="#L-statistik-d3-farmasi" type="button"
+                                        role="tab" value="L-D3 Farmasi">
                                         <span id="L-tab-title">D3 Farmasi</span>
                                     </a>
-                                    <a class="sub-nav nav-link" id="L-s1-farmasi" data-bs-toggle="tab"
-                                        data-bs-target="#L-statistik-s1-farmasi" type="button" role="tab"
+                                    <a class="sub-nav nav-link" id="L-s1-farmasi" data-bs-toggle="tab" data-bs-target="#L-statistik-s1-farmasi" type="button" role="tab"
                                         value="L-S1 Farmasi">
                                         <span id="L-tab-title">S1 Farmasi</span>
                                     </a>
-                                    <a class="sub-nav nav-link" id="L-profesi-apoteker" data-bs-toggle="tab"
-                                        data-bs-target="#L-statistik-profesi-apoteker" type="button" role="tab"
-                                        value="L-Profesi Apoteker">
+                                    <a class="sub-nav nav-link" id="L-profesi-apoteker" data-bs-toggle="tab" data-bs-target="#L-statistik-profesi-apoteker" type="button"
+                                        role="tab" value="L-Profesi Apoteker">
                                         <span id="L-tab-title">Profesi Apoteker</span>
                                     </a>
                                 </div>
@@ -1009,18 +991,15 @@
                         <div class="row mt-4">
                             <nav>
                                 <div class="nav nav-tabs" role="tablist">
-                                    <a class="sub-nav nav-link" id="L-d3-tlm" data-bs-toggle="tab"
-                                        data-bs-target="#L-statistik-d3-tlm" type="button" role="tab"
+                                    <a class="sub-nav nav-link" id="L-d3-tlm" data-bs-toggle="tab" data-bs-target="#L-statistik-d3-tlm" type="button" role="tab"
                                         value="L-D3 TLM">
                                         <span id="L-tab-title">D3 TLM</span>
                                     </a>
-                                    <a class="sub-nav nav-link" id="L-s1-tlm" data-bs-toggle="tab"
-                                        data-bs-target="#L-statistik-s1-ars" type="button" role="tab"
+                                    <a class="sub-nav nav-link" id="L-s1-tlm" data-bs-toggle="tab" data-bs-target="#L-statistik-s1-ars" type="button" role="tab"
                                         value="L-S1 ARS">
                                         <span id="L-tab-title">S1 ARS</span>
                                     </a>
-                                    <a class="sub-nav nav-link" id="L-s1-gizi" data-bs-toggle="tab"
-                                        data-bs-target="#L-statistik-s1-gizi" type="button" role="tab"
+                                    <a class="sub-nav nav-link" id="L-s1-gizi" data-bs-toggle="tab" data-bs-target="#L-statistik-s1-gizi" type="button" role="tab"
                                         value="L-S1 Gizi">
                                         <span id="L-tab-title">S1 Gizi</span>
                                     </a>
@@ -1311,18 +1290,15 @@
                         <div class="row mt-4">
                             <nav>
                                 <div class="nav nav-tabs" role="tablist">
-                                    <a class="sub-nav nav-link" id="L-s1-hukum" data-bs-toggle="tab"
-                                        data-bs-target="#L-statistik-s1-hukum" type="button" role="tab"
+                                    <a class="sub-nav nav-link" id="L-s1-hukum" data-bs-toggle="tab" data-bs-target="#L-statistik-s1-hukum" type="button" role="tab"
                                         value="L-S1 Hukum">
                                         <span id="L-tab-title">S1 Hukum</span>
                                     </a>
-                                    <a class="sub-nav nav-link" id="L-s1-manajemen" data-bs-toggle="tab"
-                                        data-bs-target="#L-statistik-s1-manajemen" type="button" role="tab"
+                                    <a class="sub-nav nav-link" id="L-s1-manajemen" data-bs-toggle="tab" data-bs-target="#L-statistik-s1-manajemen" type="button" role="tab"
                                         value="L-S1 Manajemen">
                                         <span id="L-tab-title">S1 Manajemen</span>
                                     </a>
-                                    <a class="sub-nav nav-link" id="L-s1-pgsd" data-bs-toggle="tab"
-                                        data-bs-target="#L-statistik-s1-pgsd" type="button" role="tab"
+                                    <a class="sub-nav nav-link" id="L-s1-pgsd" data-bs-toggle="tab" data-bs-target="#L-statistik-s1-pgsd" type="button" role="tab"
                                         value="L-S1 PGSD">
                                         <span id="L-tab-title">S1 PGSD</span>
                                     </a>
@@ -1621,8 +1597,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col">
-                                <table class="table table-sm table-striped table-hover table-bordered p-0"
-                                    style="width: 100%" id="tbl_pengguna_lulusan">
+                                <table class="table table-sm table-striped table-hover table-bordered p-0" style="width: 100%" id="tbl_pengguna_lulusan">
                                     <thead border="1">
                                         <tr class="p-0">
                                             <th>Nama Tempat Kerja</th>
