@@ -571,24 +571,13 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col">
-                                {{-- <div class="form-floating"> --}}
                                 <select class="form-select mb-3" id="angkatanFilter" style="width:max-content;">
                                     <option value="all">-- Semua Angkatan --</option>
                                 </select>
-                                {{-- <label for="angkatanFilter">Works with selects</label> --}}
-                                {{-- </div> --}}
                             </div>
                         </div>
                         <div class="row">
-
-
-                            {{-- <div class=""> --}}
-
-                            {{-- <label for="floatingSelect">Works with selects</label> --}}
-                            {{-- </div> --}}
-
                             <div class="col">
-
                                 <table class="table table-sm table-striped table-hover table-bordered p-0" style="width: 100%" id="tbl_alumni">
                                     <thead border="1">
                                         <tr class="p-0">
@@ -611,19 +600,14 @@
                                                 <td>{{ $data->alumni3 }}</td>
                                                 <td>{{ $data->alumni4 }}</td>
                                                 <td>{{ $data->alumni5 }}</td>
-                                                {{-- <td>{{ $data->angkatan }}</td> --}}
                                             </tr>
                                         @endforeach
                                     </tbody>
                                 </table>
-
-
                             </div>
-
                         </div>
 
                         <div class="row">
-
                             <div class="col">
                                 <span class="btn-sm btn-primary disabled" style="pointer-events: none; background-color: #00ff59;border-color: #00ff59;margin-right:10px;"
                                     onmouseover="event.target.style.cursor='default'" onmouseout="event.target.style.cursor='default'">D3 Farmasi :
