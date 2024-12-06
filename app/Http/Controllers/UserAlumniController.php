@@ -29,9 +29,7 @@ class UserAlumniController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
-    {
-    }
+    public function create(Request $request) {}
 
     /**
      * Store a newly created resource in storage.
@@ -45,7 +43,9 @@ class UserAlumniController extends Controller
             'nama' => $request->nama,
             'nim' => $request->nim,
             'prodi' => $request->prodi,
-            'angkatan' => $request->angkatan
+            'angkatan' => $request->angkatan,
+            'periode' => $request->periode,
+            'tahun_akademik' => $request->tahun_akademik
         ];
 
         UserAlumni::create(
@@ -104,36 +104,18 @@ class UserAlumniController extends Controller
     }
     public function statistikAlumni(UserAlumni $userAlumni)
     {
-        // $angkatan_mengisi[$key] = BankAlumni::where('prodi', $prodi)->where('angkatan', $key)->count();
         foreach (UserAlumni::get('angkatan')->unique('angkatan')->sortBy('angkatan') as $d) {
             $angkatan[] = $d->angkatan;
         }
 
-        // foreach ($angkatan as $key) {
-        //     $res[$key] = BankAlumni::count();
-        //     $res1[$key] = BankAlumni::count();
-        //     // $res[$key] = BankAlumni::where('angkatan', $key)->count();
-        // }
-
-
-        // foreach (UserAlumni::get('angkatan')->unique('angkatan') as $d) {
-        //             $tahun[] = $d->angkatan;
-        //         }
-
         foreach ($angkatan as $key) {
             $alumni[$key] = BankAlumni::where('angkatan', $key)->count();
-            // $angkatan[$key] = UserAlumni::where('prodi', $prodi)->where('angkatan', $key)->count();
             $lulusan[$key] = BankLulusan::where('bank8', $key)->count();
-            // $angkatan_mengisi[$key] = BankAlumni::where('prodi', $prodi)->where('angkatan', $key)->count();
         }
         return (response()->json(['responden_alumni' => $alumni, 'responden_lulusan' => $lulusan]));
-
-        // return (response()->json(['reponden_alumni' => $res]));
-        // return response()->json($res);
     }
     public function import(Request $request)
     {
-        // Excel::selectSheets('sheet1')->load();
         Excel::import(new FirstSheet, $request->file('formFile'));
 
         return back();
@@ -165,7 +147,8 @@ class UserAlumniController extends Controller
             'nama' => $request->nama,
             'nim' => $request->nim,
             'prodi' => $request->prodi,
-            'angkatan' => $request->angkatan
+            'angkatan' => $request->angkatan,
+            'periode' => $request->periode,
         ];
 
         UserAlumni::find($id)->update($model);

@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\SendMail;
 use App\Models\BankAlumni;
+use App\Models\ResponEmail;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
+use App\Models\SurveyAlumniWirausaha;
+
 use App\Models\SurveyAlumniBelumBekerja;
 use App\Models\SurveyAlumniSudahBekerja;
-use App\Models\SurveyAlumniWirausaha;
 use App\Models\SurveyAlumniLanjutPendidikan;
-use App\Models\ResponEmail;
-use App\Mail\SendMail;
-
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
 
 class BankAlumniController extends Controller
 {
@@ -44,7 +45,15 @@ class BankAlumniController extends Controller
 
     public function tes()
     {
-        return view('test');
+        $userAlumnis = DB::table('user_alumnis')->select('nim', 'periode', 'tahun_akademik')->get();
+
+        foreach ($userAlumnis as $userAlumni) {
+            DB::table('bank_alumni')
+                ->where('nim', $userAlumni->nim)
+                ->update(['periode' =>  $userAlumni->periode . " " . $userAlumni->tahun_akademik]);
+        }
+
+        return response()->json(['message' => 'Data updated successfully!']);
     }
 
 

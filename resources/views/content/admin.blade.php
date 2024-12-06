@@ -571,8 +571,8 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col">
-                                <select class="form-select mb-3" id="angkatanFilter" style="width:max-content;">
-                                    <option value="all">-- Semua Angkatan --</option>
+                                <select class="form-select mb-3" id="periodeFilter" style="width:max-content;">
+                                    <option value="all">-- Semua Periode --</option>
                                 </select>
                             </div>
                         </div>
@@ -582,8 +582,10 @@
                                     <thead border="1">
                                         <tr class="p-0">
                                             <th>Nama</th>
+                                            <th>NIM</th>
                                             <th>Prodi</th>
                                             <th>Angkatan</th>
+                                            <th class="text-center" style="text-align: center !important;">Periode</th>
                                             <th>Kategori</th>
                                             <th>Jenis Kelamin</th>
                                             <th>Kontak</th>
@@ -594,8 +596,10 @@
                                         @foreach ($data_alumni as $data)
                                             <tr>
                                                 <td>{{ $data->nama }}</td>
+                                                <td>{{ $data->nim }}</td>
                                                 <td>{{ $data->prodi }}</td>
-                                                <td>{{ $data->angkatan }}</td>
+                                                <td class="text-center" style="text-align: center !important;">{{ $data->angkatan }}</td>
+                                                <td class="text-center" style="text-align: center !important;">{{ $data->periode }}</td>
                                                 <td>{{ $data->kategori }}</td>
                                                 <td>{{ $data->alumni3 }}</td>
                                                 <td>{{ $data->alumni4 }}</td>

@@ -25,8 +25,7 @@
                     <div class="row">
                         <div class="col ">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="input_data_user_alumni"
-                                    id="input_data_user_alumni" value="input" checked>
+                                <input class="form-check-input" type="radio" name="input_data_user_alumni" id="input_data_user_alumni" value="input" checked>
                                 <label class="form-check-label text-dark" for="input_data_user_alumni">
                                     Input Data User
                                 </label>
@@ -34,30 +33,32 @@
                         </div>
                         <div class="col">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="input_data_user_alumni"
-                                    id="import_data_user_alumni">
+                                <input class="form-check-input" type="radio" name="input_data_user_alumni" id="import_data_user_alumni">
                                 <label class="form-check-label text-dark" for="import_data_user_alumni">
                                     Import Excel
                                 </label>
                             </div>
+
+
                         </div>
                     </div>
 
-                    <form id="userTambah" action="{{ route('import_user_alumni') }}" method="post"
-                        enctype="multipart/form-data">
+                    <form id="userTambah" action="{{ route('import_user_alumni') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="col">
                                 <div class="form-group dataUserAlumni"></div>
                             </div>
+                            <a id="template" class="link-primary fs-6" href="{{ asset('template/Template Import User Alumni.xlsx') }}" download="Template Import User Alumni.xlsx">
+                                <i class="fa fa-download"></i> Template Import User Alumni.xlsx
+                            </a>
                         </div>
                     </form>
 
                 </div>
                 <div class="modal-footer">
                     <button type="submit" id="save" onclick="ajaxTambah()" class="btn btn-primary me-4">Save</button>
-                    <button type="submit" id="import" onclick="submitFile()"
-                        class="btn btn-primary me-4">Import</button>
+                    <button type="submit" id="import" onclick="submitFile()" class="btn btn-primary me-4">Import</button>
                 </div>
 
             </div>
@@ -85,8 +86,7 @@
 
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" id="save" onclick="ajaxUpdate()"
-                            class="btn btn-primary me-4">Save</button>
+                        <button type="submit" id="save" onclick="ajaxUpdate()" class="btn btn-primary me-4">Save</button>
                     </div>
                 </form>
 

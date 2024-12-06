@@ -683,9 +683,9 @@
 
 
     // ############### Datatables
-    $('#angkatanFilter').on('change', function() {
+    $('#periodeFilter').on('change', function() {
         var val = $.fn.dataTable.util.escapeRegex($(this).val());
-        tableAlumni.column(2).search(val ? '^' + val + '$' : '', true, false).draw();
+        tableAlumni.column(4).search(val ? '^' + val + '$' : '', true, false).draw();
     });
 
     var tableAlumni = $('#tbl_alumni').DataTable({
@@ -707,18 +707,18 @@
             text: 'Excel',
         }, 'colvis'],
         initComplete: function() {
-            var columnAngkatan = this.api().column(2);
-            columnAngkatan.data().unique().sort().each(function(d, j) {
-                $('#angkatanFilter').append('<option value="' + d + '">' + d + '</option>');
+            var columnPeriode = this.api().column(4);
+            columnPeriode.data().unique().sort().each(function(d, j) {
+                $('#periodeFilter').append('<option value="' + d + '">' + d + '</option>');
             });
 
-            $('#angkatanFilter').on('change', function() {
+            $('#periodeFilter').on('change', function() {
                 var selectedValue = $(this).val();
 
                 if (selectedValue === "all") {
-                    columnAngkatan.search('').draw();
+                    columnPeriode.search('').draw();
                 } else {
-                    columnAngkatan.search('^' + selectedValue + '$', true, false).draw();
+                    columnPeriode.search('^' + selectedValue + '$', true, false).draw();
                 }
             });
         },
