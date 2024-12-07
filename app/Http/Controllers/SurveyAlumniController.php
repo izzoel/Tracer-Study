@@ -119,6 +119,8 @@ class SurveyAlumniController extends Controller
             'prodi' => $request->input('prodi'),
             'kategori' => ucwords(str_replace('_', ' ', $karir)),
             'angkatan' => UserAlumni::where('nim',  $request->input('nim'))->pluck('angkatan')->first(),
+            'periode' => UserAlumni::where('nim',  $request->input('nim'))->pluck('periode')->first(),
+            'tahun_akademik' => UserAlumni::where('nim', $request->input('nim'))->pluck('tahun_akademik')->first(),
             'karir' => $karir
         ];
 

@@ -15,6 +15,7 @@
                     <input type="hidden" name="prodi" value="{{ $prodi }}">
                     <input type="hidden" name="kategori" value="{{ $kategori }}">
                     <input type="hidden" name="angkatan" value="{{ $angkatan }}">
+                    <input type="hidden" name="periode" value="{{ $periode . ' ' . $tahun_akademik }}">
 
                     <div class="row">
                         <div class="col-2">Nama</div>
@@ -35,9 +36,15 @@
                         <div class="col-auto"></div>
                     </div>
                     <div class="row">
-                        <div class="col-2">angkatan</div>
+                        <div class="col-2">Angkatan</div>
                         <div class="col-auto">:</div>
                         <div class="col" style="color:#FF5733">{{ $angkatan }}</div>
+                        <div class="col-auto"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-2">Periode</div>
+                        <div class="col-auto">:</div>
+                        <div class="col" style="color:#FF5733">{{ $periode . ' ' . $tahun_akademik }}</div>
                         <div class="col-auto"></div>
                     </div>
                     <br>
