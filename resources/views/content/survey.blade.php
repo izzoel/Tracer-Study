@@ -11,10 +11,8 @@
                     <p class="card-text">Form pengisian survey untuk <b style="color: #FF5733;">Alumni</b> yang terdaftar di
                         Universitas Borneo Lestari.
                     </p>
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-end" data-bs-toggle="modal"
-                        data-bs-target="#alumniModal">
-                        <a class="btn btn-primary d-md-flex justify-content-md-end text-center rounded-pill"
-                            role="button">Isi Survey</a>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end" data-bs-toggle="modal" data-bs-target="#alumniModal">
+                        <a class="btn btn-primary d-md-flex justify-content-md-end text-center rounded-pill" role="button">Isi Survey</a>
                     </div>
                 </div>
             </div>
@@ -30,51 +28,12 @@
                     <p class="card-text">Form pengisian survey untuk <b style="color: #FF5733;">Pengguna Lulusan</b> Alumni
                         Universitas Borneo Lestari.
                     </p>
-                    {{-- <div class="d-grid gap-2 d-md-flex justify-content-md-end"> --}}
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-end" data-bs-toggle="modal"
-                        data-bs-target="#lulusanModal">
-                        {{-- <a href="{{ route('lulusan') }}"
-                            class="btn btn-primary d-md-flex justify-content-md-end text-center rounded-pill">Isi
-                            Survey </a> --}}
-                        <a class="btn btn-primary d-md-flex justify-content-md-end text-center rounded-pill"
-                            role="button">Isi Survey</a>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end" data-bs-toggle="modal" data-bs-target="#lulusanModal">
+                        <a class="btn btn-primary d-md-flex justify-content-md-end text-center rounded-pill" role="button">Isi Survey</a>
                     </div>
                 </div>
             </div>
         </div>
-
-
-
-
-        {{-- 
-        <div class="container mt-5 text-center">
-            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal">Show modal</button>
-        </div>
-
-        <div id="modal" class="modal fade" tabindex="" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Verifikasi Alumni</h5>
-                        <a href="" data-bs-dismiss="modal" style="color: #FF5733;">
-                            <span>&times;</span>
-                        </a>
-                    </div>
-                    <div class="modal-body">
-
-                        <select class="chosen-select">
-                            <option value=""></option>
-                            <option value="United States">United States</option>
-                            <option value="United Kingdom">United Kingdom</option>
-                            <option value="Afghanistan">Afghanistan</option>
-                            <option value="Aland Islands">Aland Islands</option>
-
-                        </select>
-                    </div>
-
-                </div>
-            </div>
-        </div> --}}
 
     </div>
 
@@ -169,16 +128,8 @@
                                 <label for="nama_pengguna_lulusan" class="form-label">
                                     Nama Anda<span class="ms-0 ps-0 me-0 pe-0 text-danger">*</span>
                                 </label>
-                                <input type="nama_pengguna_lulusan" class="form-control" name="nama_pengguna_lulusan"
-                                    id="nama_pengguna_lulusan" required>
+                                <input type="nama_pengguna_lulusan" class="form-control" name="nama_pengguna_lulusan" id="nama_pengguna_lulusan" required>
                             </div>
-                            {{-- <div class="mb-3">
-                                <label for="jabatan_pengguna_lulusan" class="form-label">
-                                    Jabatan Anda<span class="ms-0 ps-0 me-0 pe-0 text-danger">*</span>
-                                </label>
-                                <input type="jabatan_pengguna_lulusan" class="form-control"
-                                    name="jabatan_pengguna_lulusan" id="jabatan_pengguna_lulusan" required>
-                            </div> --}}
                             <div class="mb-3">
                                 <label for="instansi" class="form-label">
                                     Nama Instansi<span class="ms-0 ps-0 me-0 pe-0 text-danger">*</span>
@@ -192,11 +143,9 @@
 
                                 <div class="">
                                     <select id="nama_alumni" name="nama_alumni" style="height: 28px;">
-                                        {{-- <option value="-" disabled>--cari alumni--</option> --}}
                                         <option value=""></option>
                                         @foreach ($nama_alumni as $d)
-                                            <option
-                                                value="{{ $d->nim }} - {{ $d->nama }} ({{ $d->prodi }})">
+                                            <option value="{{ $d->nim }} - {{ $d->nama }} ({{ $d->prodi }})">
                                                 {{ $d->nama }}
                                                 ({{ $d->prodi }})
                                             </option>
