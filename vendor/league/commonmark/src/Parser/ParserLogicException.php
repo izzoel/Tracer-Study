@@ -11,8 +11,10 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace League\CommonMark\Exception;
+namespace League\CommonMark\Parser;
 
-final class UnexpectedEncodingException extends \RuntimeException implements CommonMarkException
+use League\CommonMark\Exception\CommonMarkException;
+
+class ParserLogicException extends \LogicException implements CommonMarkException
 {
 }
