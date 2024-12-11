@@ -4,6 +4,8 @@
 /public/hot
 /storage/*.key
 .env
+.env hostinger
+.env.example
 .env.backup
 .env.production
 .phpunit.result.cache
