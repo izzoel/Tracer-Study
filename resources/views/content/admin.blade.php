@@ -1585,6 +1585,13 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col">
+                                <select class="form-select mb-3" id="periodePenggunaLulusanFilter" style="width:max-content;">
+                                    <option value="all">-- Semua Periode --</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
                                 <table class="table table-sm table-striped table-hover table-bordered p-0" style="width: 100%" id="tbl_pengguna_lulusan">
                                     <thead border="1">
                                         <tr class="p-0">
@@ -1594,6 +1601,7 @@
                                             <th>Email</th>
                                             <th>Nama Alumni</th>
                                             <th>Prodi Alumni</th>
+                                            <th>Periode</th>
                                             <th>Jabatan Alumni</th>
                                         </tr>
                                     </thead>
@@ -1606,6 +1614,7 @@
                                                 <td>{{ $data->bank5 }}</td>
                                                 <td>{{ $data->bank6 }}</td>
                                                 <td>{{ $data->bank38 }}</td>
+                                                <td>{{ $data->periode }}</td>
                                                 <td>{{ $data->bank7 }}</td>
                                             </tr>
                                         @endforeach

@@ -687,6 +687,10 @@
         var val = $.fn.dataTable.util.escapeRegex($(this).val());
         tableAlumni.column(4).search(val ? '^' + val + '$' : '', true, false).draw();
     });
+    $('#periodePenggunaLulusanFilter').on('change', function() {
+        var val = $.fn.dataTable.util.escapeRegex($(this).val());
+        tableAlumni.column(4).search(val ? '^' + val + '$' : '', true, false).draw();
+    });
 
     var tableAlumni = $('#tbl_alumni').DataTable({
         responsive: true,
@@ -743,6 +747,22 @@
             extend: 'excelHtml5',
             text: 'Excel',
         }, 'colvis'],
+        initComplete: function() {
+            var columnPeriode = this.api().column(6);
+            columnPeriode.data().unique().sort().each(function(d, j) {
+                $('#periodePenggunaLulusanFilter').append('<option value="' + d + '">' + d + '</option>');
+            });
+
+            $('#periodePenggunaLulusanFilter').on('change', function() {
+                var selectedValue = $(this).val();
+
+                if (selectedValue === "all") {
+                    columnPeriode.search('').draw();
+                } else {
+                    columnPeriode.search('^' + selectedValue + '$', true, false).draw();
+                }
+            });
+        },
     });
     $('#tbl_alumni2').DataTable({});
 
