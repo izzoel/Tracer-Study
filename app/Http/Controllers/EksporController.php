@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Ekspor;
-use App\Exports\NamaEkspor;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Ekspor;
+use App\Exports\EksporAlumni;
+use App\Exports\EksporLulusan;
+use App\Http\Controllers\Controller;
 use Maatwebsite\Excel\Facades\Excel;
 
 class EksporController extends Controller
@@ -21,17 +22,11 @@ class EksporController extends Controller
     }
     public function export()
     {
-
-        // $export = new Ekspor;
-
-        // // Retrieve the collection from the export
-        // $collection = $export->collection();
-
-        // dd($collection);
-
-        return Excel::download(new NamaEkspor, 'data_respon_alumni.xlsx');
-        // dd(Excel::download(new NamaEkspor, 'data_respon_alumni.xlsx'));
-        // return
+        return Excel::download(new EksporAlumni, '[TRACER] Responden Alumni -- ' . \Carbon\Carbon::now()->locale('id')->isoFormat('D MMMM Y') . '.xlsx');
+    }
+    public function lulusan()
+    {
+        return Excel::download(new EksporLulusan, '[TRACER] Responden Pengguna Lulusan -- ' . \Carbon\Carbon::now()->locale('id')->isoFormat('D MMMM Y') . '.xlsx');
     }
     /**
      * Show the form for creating a new resource.

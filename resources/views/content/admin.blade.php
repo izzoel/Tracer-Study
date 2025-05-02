@@ -1580,7 +1580,7 @@
             <div class="p-3">
                 <div class="card">
                     <div class="card-header bg-white">
-                        <div class="">Data Responden Pengguna Lulusan Yang Mengisi</div>
+                        <div class="">Data Responden Pengguna Lulusan Yang Mengisi <a class="btn-sm btn-primary" href="{{ route('export_lulusan') }}">Export</a></div>
                     </div>
                     <div class="card-body">
                         <div class="row">

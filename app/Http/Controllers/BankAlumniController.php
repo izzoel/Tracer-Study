@@ -50,7 +50,7 @@ class BankAlumniController extends Controller
         foreach ($userAlumnis as $userAlumni) {
             DB::table('bank_alumni')
                 ->where('nim', $userAlumni->nim)
-                ->update(['periode' =>  $userAlumni->periode . " " . $userAlumni->tahun_akademik]);
+                ->update(['periode' =>  $userAlumni->periode]);
         }
 
         return response()->json(['message' => 'Data updated successfully!']);

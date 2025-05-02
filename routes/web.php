@@ -106,4 +106,5 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/admin/user_alumni/import', [UserAlumniController::class, 'import'])->name('import_user_alumni');
 
     Route::get('/admin/export/alumni', [EksporController::class, 'export'])->name('export_alumni');
+    Route::get('/admin/export/lulusan', [EksporController::class, 'lulusan'])->name('export_lulusan');
 });
