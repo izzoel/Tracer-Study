@@ -22,11 +22,11 @@ class EksporController extends Controller
     }
     public function export()
     {
-        return Excel::download(new EksporAlumni, '[TRACER] Responden Alumni -- ' . \Carbon\Carbon::now()->locale('id')->isoFormat('D MMMM Y') . '.xlsx');
+        return Excel::download(new EksporAlumni, 'TRACER Responden Alumni -- ' . \Carbon\Carbon::now()->locale('id')->isoFormat('D MMMM Y') . '.xlsx');
     }
     public function lulusan()
     {
-        return Excel::download(new EksporLulusan, '[TRACER] Responden Pengguna Lulusan -- ' . \Carbon\Carbon::now()->locale('id')->isoFormat('D MMMM Y') . '.xlsx');
+        return Excel::download(new EksporLulusan, 'TRACER Responden Pengguna Lulusan -- ' . \Carbon\Carbon::now()->locale('id')->isoFormat('D MMMM Y') . '.xlsx');
     }
     /**
      * Show the form for creating a new resource.
