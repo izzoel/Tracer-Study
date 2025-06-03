@@ -26,7 +26,7 @@
                 <form id="lulusan-submit" action="{{ route('lulusan_submit') }}" method="POST">
                     @csrf
                     <input type="hidden" id="d_prodi" name="bank38" value="{{ $data_user['prodi'] }}">
-                    <input type="text" id="d_periode" name="periode" value="{{ $data_user['periode'] }}">
+                    <input type="hidden" id="d_periode" name="periode" value="{{ $data_user['periode'] }}">
                     <div id="survey">
                         @foreach ($form_lulusan as $data)
                             @php
