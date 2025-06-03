@@ -14,6 +14,7 @@
                         value="{{ $data_user['jabatan_pengguna_lulusan'] }}"> --}}
                     <input type="hidden" id="d_instansi" value="{{ $data_user['instansi'] }}">
                     <input type="hidden" id="d_nama_alumni" value="{{ $data_user['nama_alumni'] }}">
+                    <input type="hidden" value="{{ $data_user['periode'] }}">
 
 
                     {{-- @endforeach --}}
@@ -25,6 +26,7 @@
                 <form id="lulusan-submit" action="{{ route('lulusan_submit') }}" method="POST">
                     @csrf
                     <input type="hidden" id="d_prodi" name="bank38" value="{{ $data_user['prodi'] }}">
+                    <input type="text" id="d_periode" name="periode" value="{{ $data_user['periode'] }}">
                     <div id="survey">
                         @foreach ($form_lulusan as $data)
                             @php
@@ -59,22 +61,17 @@
                                             @endif
 
                                             @if ($data->pilihan == '')
-                                                <input type="text" class="form-control mb-1"
-                                                    name="bank{{ $i }}"
-                                                    {{ $data->wajib == 1 ? 'required' : '' }}>
+                                                <input type="text" class="form-control mb-1" name="bank{{ $i }}" {{ $data->wajib == 1 ? 'required' : '' }}>
                                             @else
                                                 @foreach (explode(';', $data->pilihan) as $info)
                                                     <div class="form-check mb-0">
-                                                        <input class="form-check-input gandaOpsi{{ $i }}"
-                                                            type="{{ $type }}"
+                                                        <input class="form-check-input gandaOpsi{{ $i }}" type="{{ $type }}"
                                                             id="{{ $i . '-' . $loop->iteration }}"
                                                             @if ($data->wajib == 1 && $data->ganda != 1) {{ 'required' }} 
                                                         @elseif($data->wajib == 1 && $data->ganda == 1)
                                                          {{ '' }} @endif
-                                                            name="bank{{ $i }}{{ $array }}"
-                                                            value="{{ $info }}">
-                                                        <label class="form-check-label text-dark"
-                                                            for="{{ $i . '-' . $loop->iteration }}">
+                                                            name="bank{{ $i }}{{ $array }}" value="{{ $info }}">
+                                                        <label class="form-check-label text-dark" for="{{ $i . '-' . $loop->iteration }}">
                                                             {{ $info }}
                                                         </label>
                                                     </div>
@@ -83,17 +80,13 @@
                                                 @if ($data->other)
                                                     <div class="row input-other">
                                                         <div class="col-auto form-check ms-2 ps-1 me-0 pe-0">
-                                                            <input
-                                                                class="form-check-input otherOpsiName{{ $loop->iteration }} gandaOpsi{{ $loop->iteration }}"
-                                                                type="{{ $type }}"
-                                                                id="other{{ $loop->iteration }}"
-                                                                name="bank{{ $loop->iteration }}{{ $array }}">
+                                                            <input class="form-check-input otherOpsiName{{ $loop->iteration }} gandaOpsi{{ $loop->iteration }}"
+                                                                type="{{ $type }}" id="other{{ $loop->iteration }}" name="bank{{ $loop->iteration }}{{ $array }}">
                                                         </div>
 
                                                         <div class="col ms-0 ps-0">
                                                             <div class="input-group input-group-sm mb-1">
-                                                                <input type="text" class="form-control"
-                                                                    data-other="other{{ $loop->iteration }}"
+                                                                <input type="text" class="form-control" data-other="other{{ $loop->iteration }}"
                                                                     id="otherOpsi{{ $loop->iteration }}">
                                                             </div>
                                                         </div>

@@ -42,6 +42,8 @@ class BankLulusanController extends Controller
             $data[$key] = is_array($value) ? implode(",", $value) : $value;
         }
 
+        // dd($data);
+
         DB::table('bank_lulusans')->insert([
             $data
         ]);

@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\UserAlumni;
+use Illuminate\Http\Request;
 use App\Models\SurveyLulusan;
 use App\Models\SurveyLulusanAspekIntegritas;
-use App\Models\SurveyLulusanAspekKemampuanBerbahasaAsing;
-use App\Models\SurveyLulusanAspekKerjasamaTim;
 use App\Models\SurveyLulusanAspekKomunikasi;
-use App\Models\SurveyLulusanAspekPengembanganDiri;
-use App\Models\SurveyLulusanAspekPenggunaanTeknologi;
+use App\Models\SurveyLulusanAspekKerjasamaTim;
 use App\Models\SurveyLulusanAspekProfesionalisme;
+use App\Models\SurveyLulusanAspekPengembanganDiri;
 use App\Models\SurveyLulusanProfilPenggunaLulusan;
-use Illuminate\Http\Request;
+use App\Models\SurveyLulusanAspekPenggunaanTeknologi;
+use App\Models\SurveyLulusanAspekKemampuanBerbahasaAsing;
 
 class SurveyLulusanController extends Controller
 {
@@ -32,9 +33,7 @@ class SurveyLulusanController extends Controller
         ]);
     }
 
-    public function tes()
-    {
-    }
+    public function tes() {}
 
 
     /**
@@ -196,7 +195,7 @@ class SurveyLulusanController extends Controller
 
 
         $string = $request->input('nama_alumni');
-
+        $nim  = explode(' -', $string)[0];
 
         // $string = $request->input('nama_alumni');
 
@@ -218,6 +217,8 @@ class SurveyLulusanController extends Controller
         $data_user = [
             'nama_pengguna_lulusan' => $request->input('nama_pengguna_lulusan'),
             // 'jabatan_pengguna_lulusan' => $request->input('jabatan_pengguna_lulusan'),
+            // 'periode' => $nim,
+            'periode' => UserAlumni::where('nim',  $nim)->pluck('periode')->first(),
             'instansi' => $request->input('instansi'),
             'nama_alumni' => ucwords(strtolower($nama)),
             'prodi' => $prodi
