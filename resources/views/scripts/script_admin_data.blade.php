@@ -10,6 +10,7 @@
                     '<table class="table table-sm table-striped table-hover table-bordered p-0" style="width: 100%" ';
                 html += 'id="tbl_data_alumni">';
                 html += '<thead border="1"><tr class="p-0">';
+                html += '<th>NIK</th>';
                 html += '<th>Nama</th>';
                 html += '<th>NIM</th>';
                 html += '<th>Prodi</th>';
@@ -23,6 +24,7 @@
 
                 $.each(data, function(key) {
                     id = data[key].id
+                    nik = data[key].nik;
                     nama = data[key].nama;
                     nim = data[key].nim;
                     prodi = data[key].prodi;
@@ -31,6 +33,7 @@
                     akademik = data[key].tahun_akademik;
 
                     html += '<tr>';
+                    html += '<td>' + nik + '</td>';
                     html += '<td>' + nama + '</td>';
                     html += '<td>' + nim + '</td>';
                     html += '<td>' + prodi + '</td>';
@@ -72,6 +75,11 @@
             var html = '';
 
             myModal.show();
+
+            html +=
+                '<label for="nik" style="font-size:0.933rem">NIK<span class="ms-0 ps-0 me-0 pe-0 text-danger">*</label>';
+            html +=
+                '<input type="text" class="form-control mb-1" name="nik" id="nik" placeholder="Nomor Induk Kependudukan" required>';
 
             html +=
                 '<label for="nama" style="font-size:0.933rem">Nama Lengkap<span class="ms-0 ps-0 me-0 pe-0 text-danger">*</label>';
@@ -136,10 +144,16 @@
             $('#input_data_user_alumni').on("click", function() {
                 $('.dataUserAlumni').html("");
                 var html = '';
+
+                html +=
+                    '<label for="nik" style="font-size:0.933rem">NIK<span class="ms-0 ps-0 me-0 pe-0 text-danger">*</label>';
+                html +=
+                    '<input type="text" class="form-control mb-1" name="nik" id="nik" placeholder="Nomor Induk Kependudukan" required>';
+
                 html +=
                     '<label for="nama" style="font-size:0.933rem">Nama Lengkap<span class="ms-0 ps-0 me-0 pe-0 text-danger">*</label>';
                 html +=
-                    '<input type="text" class="form-control mb-1" name="nama" id="nama" placeholder="nama lengkap mahasiswa" required>';
+                    '<input type="text" class="form-control mb-1" name="nama" id="nama" placeholder="Nama Lengkap Mahasiswa" required>';
 
 
                 html +=
@@ -229,11 +243,19 @@
             $.get(route, function(data) {
                 var html = '';
                 let id = data.id;
+                let nik = data.nik;
                 let nama = data.nama;
                 let nim = data.nim;
                 let prodi = data.prodi;
                 let angkatan = data.angkatan;
                 let periode = data.periode;
+                let tahun_akademik = data.tahun_akademik;
+
+                html +=
+                    '<label for="nik" style="font-size:0.933rem">NIK<span class="ms-0 ps-0 me-0 pe-0 text-danger">*</label>';
+                html +=
+                    '<input type="text" class="form-control mb-1" name="nik" id="nik" placeholder="Nomor Induk Kependudukan" value="' +
+                    nik + '" required>';
 
                 html +=
                     '<label for="nama" style="font-size:0.933rem">Nama Lengkap<span class="ms-0 ps-0 me-0 pe-0 text-danger">*</label>';
@@ -269,6 +291,20 @@
                     '<input class="datepicker2 form-control rounded" name="angkatan" id="angkatan" placeholder="tahun angkatan" value="' +
                     angkatan + '" required />';
 
+
+                html +=
+                    '<label for="periode" style="font-size:0.933rem">periode Lengkap<span class="ms-0 ps-0 me-0 pe-0 text-danger">*</label>';
+                html +=
+                    '<input type="text" class="form-control mb-1" name="periode" id="periode" placeholder="2023/2024 Genap" required value="' +
+                    periode + '">';
+
+                html +=
+                    '<label for="tahun_akademik" style="font-size:0.933rem" class="form-label mb-0">Tahun Akademik<span class="ms-0 ps-0 me-0 pe-0 text-danger">*</span></label>';
+                html += '<select name="tahun_akademik" id="tahun_akademik" class="form-select mb-1">';
+                html +=
+                    '<option value="Genap">Genap</option><option value="Ganjil">Ganjil</option>';
+                html += '</select>';
+
                 html +=
                     '<input type="hidden"  name="id" id="id" value="' +
                     id + '">'
@@ -281,6 +317,7 @@
                     minViewMode: 'years'
                 });
                 $('#prodi').val(prodi).change();
+                $('#tahun_akademik').val(tahun_akademik).change();
 
             });
         }
@@ -297,6 +334,7 @@
             });
 
             let token = $("meta[name='_token']").attr("content");
+            let nik = $("#nik").val();
             let nama = $("#nama").val();
             let nim = $("#nim").val();
             let prodi = $('select[name=prodi] option').filter(':selected').val()
@@ -307,6 +345,7 @@
 
             data = {
                 _token: token,
+                nik: nik,
                 nama: nama,
                 nim: nim,
                 prodi: prodi,
@@ -341,20 +380,24 @@
 
             let token = $("meta[name='_token']").attr("content");
             let id = $("#id").val();
+            let nik = $("#nik").val();
             let nama = $("#nama").val();
             let nim = $("#nim").val();
             let prodi = $('select[name=prodi] option').filter(':selected').val()
             let angkatan = $("#angkatan").val();
             let periode = $("#periode").val();
+            let tahun_akademik = $("#tahun_akademik").val();
             let route = "{{ route('update_user_alumni', '') }}" + "/" + id;
 
             data = {
                 _token: token,
+                nik: nik,
                 nama: nama,
                 nim: nim,
                 prodi: prodi,
                 angkatan: angkatan,
-                periode: periode
+                periode: periode,
+                tahun_akademik: tahun_akademik
             };
 
             $.post(route, data, function(data) {

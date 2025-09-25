@@ -14,34 +14,23 @@ class ImportUserAlumni implements ToModel
      */
     public function model(array $row)
     {
-        $prodi_list = [
-            'D3 Farmasi',
-            'D3 TLM',
-            'S1 ARS',
-            'S1 Farmasi',
-            'S1 Ilmu Giz',
-            'S1 Ilmu Hukum',
-            'S1 Manajemen',
-            'S1 PGSD',
-            'Profesi Apoteker'
-
-        ];
-        if (in_array($row[2], $prodi_list)) {
-            $prodi = $row[2];
+        $prodi_list = ['D3 Farmasi', 'D3 TLM', 'S1 ARS', 'S1 Farmasi', 'S1 Ilmu Giz', 'S1 Ilmu Hukum', 'S1 Manajemen', 'S1 PGSD', 'Profesi Apoteker'];
+        if (in_array($row[3], $prodi_list)) {
+            $prodi = $row[3];
         } else {
             $prodi = 'tidak ditemukan';
         }
 
-        return
-            [
-                0 => new UserAlumni([
-                    'nama' => strtoupper($row[0]),
-                    'nim' => strtoupper($row[1]),
-                    'prodi' => $prodi,
-                    'angkatan' => (int)$row[3],
-                    'periode' => $row[4],
-                    'tahun_akademik' => $row[5]
-                ])
-            ];
+        return [
+            0 => new UserAlumni([
+                'nik' => $row[0],
+                'nama' => strtoupper($row[1]),
+                'nim' => strtoupper($row[2]),
+                'prodi' => $prodi,
+                'angkatan' => (int) $row[4],
+                'periode' => $row[5],
+                'tahun_akademik' => $row[6],
+            ]),
+        ];
     }
 }

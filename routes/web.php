@@ -27,36 +27,26 @@ use App\Http\Controllers\EksporController;
 |
 */
 
-
-
 Route::get('/admin', [AdminController::class, 'admin_popup'])->name('login');
 Route::post('/admin', [AdminController::class, 'admin_login'])->name('login');
 
 Route::get('/logout', [AdminController::class, 'admin_logout'])->name('logout');
 
 Route::group(['middleware' => ['guest']], function () {
-
     Route::get('/', function () {
-        return view(
-            'content.main',
-            [
-                'title' => 'home',
-                'data_alumni' => ' ',
-            ]
-        );
+        return view('content.main', [
+            'title' => 'home',
+            'data_alumni' => ' ',
+        ]);
     })->name('landing');
 
-
     Route::get('/unduhan', function () {
-        return view(
-            'content.unduhan',
-            ['title' => 'unduhan']
-        );
+        return view('content.unduhan', ['title' => 'unduhan']);
     })->name('unduhan');
     Route::get('/survey', [UserAlumniController::class, 'survey'])->name('survey');
     Route::get('/tes', [BankAlumniController::class, 'tes'])->name('tes');
 
-    Route::get('/survey/verif/{nim?}/{prodi?}', [UserAlumniController::class, 'verif'])->name('verif_alumni');
+    Route::get('/survey/verif/{nim}', [UserAlumniController::class, 'verif'])->name('verif_alumni');
 
     Route::get('/survey/alumni', [SurveyAlumniController::class, 'show'])->name('alumni');
     Route::get('/survey/alumni/{kategori}', [SurveyAlumniController::class, 'showFormAlumni'])->name('survey_alumni');
@@ -72,7 +62,6 @@ Route::group(['middleware' => ['guest']], function () {
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/admin/dashboard', [AdminController::class, 'show'])->name('admin_dashboard');
 
-
     Route::get('/admin/data', [SurveyAlumniController::class, 'dataAlumni'])->name('admin_data');
 
     Route::get('/admin/form_alumni', [SurveyAlumniController::class, 'formAlumni'])->name('form_alumni');
@@ -82,7 +71,6 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::post('/admin/form_alumni/store/{kategori}', [SurveyAlumniController::class, 'store'])->name('add_form_alumni');
     Route::post('/admin/form_alumni/update/{kategori}/{id?}', [SurveyAlumniController::class, 'update'])->name('edit_form_alumni');
-
 
     Route::get('/admin/form_lulusan', [SurveyLulusanController::class, 'formLulusan'])->name('form_lulusan');
     Route::get('/admin/form_lulusan/{kategori}', [SurveyLulusanController::class, 'showFormLulusan'])->name('get_form_lulusan');

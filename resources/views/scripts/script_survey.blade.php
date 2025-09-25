@@ -42,14 +42,21 @@
 
     $('#alumni-survey').on('submit', function(e) {
         e.preventDefault();
-        routeAlumni = "{{ route('verif_alumni', '') }}" + "/" + $('#nim').val() + "/" + $('#prodi').find(
-            ":selected").val();
+        routeAlumni = "{{ route('verif_alumni', '') }}" + "/" + $('#nim').val();
 
 
         $.get(routeAlumni, function(data) {
-            if (data.nim == $('#nim').val() && data.nama == $('#nama').val()) {
-                $("#alumni-survey").unbind('submit');
-                $("#alumni-survey").submit();
+            if (data.nim) {
+                if (data.nim == $('#nim').val()) {
+                    $("#alumni-survey").unbind('submit');
+                    $("#alumni-survey").submit();
+                } else {
+                    Swal.fire({
+                        title: 'Data Tidak Ditemukan',
+                        text: "NIM/Nama tidak ditemukan",
+                        icon: 'error',
+                    })
+                }
             } else {
                 Swal.fire({
                     title: 'Data Tidak Ditemukan',
@@ -62,6 +69,7 @@
 
     });
 </script>
+
 @if (Request::segment(2) == 'alumni')
     <script>
         route = "{{ route('survey_alumni', '') }}" + "/" + "{{ $karir }}";

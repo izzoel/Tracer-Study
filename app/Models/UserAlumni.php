@@ -8,12 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class UserAlumni extends Model
 {
     use HasFactory;
-    protected $fillable = [
-        'nama',
-        'nim',
-        'prodi',
-        'angkatan',
-        'periode',
-        'tahun_akademik'
-    ];
+    protected $fillable = ['nik', 'nama', 'nim', 'prodi', 'angkatan', 'periode', 'tahun_akademik'];
 }

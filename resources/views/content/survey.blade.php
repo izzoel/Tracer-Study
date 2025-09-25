@@ -54,19 +54,19 @@
                     </div>
                     <div class="modal-body">
                         <div class="m-5 mt-1 mb-1">
-                            <div class="mb-3">
+                            {{-- <div class="mb-3">
                                 <label for="nama" class="form-label">
                                     Nama Lengkap<span class="ms-0 ps-0 me-0 pe-0 text-danger">*</span>
                                 </label>
                                 <input type="nama" class="form-control" name="nama" id="nama" required>
-                            </div>
-                            <div class="mb-3">
+                            </div> --}}
+                            <div>
                                 <label for="nim" class="form-label">
                                     NIM<span class="ms-0 ps-0 me-0 pe-0 text-danger">*</span>
                                 </label>
-                                <input type="nim" class="form-control" name="nim" id="nim" required>
+                                <input type="nim" class="form-control mb-3" name="nim" id="nim" required>
                             </div>
-                            <div class="mb-3">
+                            {{-- <div class="mb-3 mt-0">
                                 <label for="prodi" class="form-label">
                                     Program Studi<span class="ms-0 ps-0 me-0 pe-0 text-danger">*</span>
                                 </label>
@@ -86,7 +86,7 @@
                                     <option value="S1 Manajemen">S1 Manajemen</option>
                                     <option value="S1 PGSD">S1 PGSD</option>
                                 </select>
-                            </div>
+                            </div> --}}
                             <div class="mb-3">
                                 <label for="karir" class="form-label">
                                     Profil Karir Alumni<span class="ms-0 ps-0 me-0 pe-0 text-danger">*</span>

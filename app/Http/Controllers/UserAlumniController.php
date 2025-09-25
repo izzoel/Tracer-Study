@@ -8,6 +8,7 @@ use App\Models\BankAlumni;
 use App\Models\BankLulusan;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class UserAlumniController extends Controller
 {
@@ -20,9 +21,6 @@ class UserAlumniController extends Controller
     {
         //
     }
-
-
-
 
     /**
      * Show the form for creating a new resource.
@@ -40,17 +38,16 @@ class UserAlumniController extends Controller
     public function store(Request $request)
     {
         $model = [
+            'nik' => $request->nik,
             'nama' => $request->nama,
             'nim' => $request->nim,
             'prodi' => $request->prodi,
             'angkatan' => $request->angkatan,
             'periode' => $request->periode,
-            'tahun_akademik' => $request->tahun_akademik
+            'tahun_akademik' => $request->tahun_akademik,
         ];
 
-        UserAlumni::create(
-            $model
-        );
+        UserAlumni::create($model);
     }
 
     /**
@@ -64,20 +61,15 @@ class UserAlumniController extends Controller
         return response()->json(UserAlumni::all());
     }
 
-
     public function survey(UserAlumni $userAlumni)
     {
         $data = UserAlumni::all();
-        return view(
-            'content.survey',
-            ['title' => 'survey', 'nama_alumni' => $data->skip(2)]
-        );
+        return view('content.survey', ['title' => 'survey', 'nama_alumni' => $data->skip(2)]);
     }
 
-
-    public function verif($nim, $prodi)
+    public function verif($nim)
     {
-        $data = UserAlumni::where('nim', $nim)->where('prodi', $prodi)->get();
+        $data = UserAlumni::where('nim', $nim)->get();
         $d_nim = $data->value('nim');
         $d_nama = $data->value('nama');
         $d_prodi = $data->value('prodi');
@@ -112,16 +104,14 @@ class UserAlumniController extends Controller
             $alumni[$key] = BankAlumni::where('angkatan', $key)->count();
             $lulusan[$key] = BankLulusan::where('bank8', $key)->count();
         }
-        return (response()->json(['responden_alumni' => $alumni, 'responden_lulusan' => $lulusan]));
+        return response()->json(['responden_alumni' => $alumni, 'responden_lulusan' => $lulusan]);
     }
     public function import(Request $request)
     {
-        Excel::import(new FirstSheet, $request->file('formFile'));
+        Excel::import(new FirstSheet(), $request->file('formFile'));
 
         return back();
     }
-
-
 
     /**
      * Show the form for editing the specified resource.
@@ -144,14 +134,39 @@ class UserAlumniController extends Controller
     public function update(Request $request, $id)
     {
         $model = [
+            'nik' => $request->nik,
             'nama' => $request->nama,
             'nim' => $request->nim,
             'prodi' => $request->prodi,
             'angkatan' => $request->angkatan,
             'periode' => $request->periode,
+            'tahun_akademik' => $request->tahun_akademik,
         ];
 
-        UserAlumni::find($id)->update($model);
+        try {
+            $user = UserAlumni::find($id);
+
+            if (!$user) {
+                // Log jika ID tidak ditemukan
+                Log::error("Update UserAlumni gagal: ID {$id} tidak ditemukan", [
+                    'data' => $model,
+                ]);
+                return response()->json(['message' => 'Data tidak ditemukan'], 404);
+            }
+
+            $user->update($model);
+
+            return response()->json(['message' => 'Data berhasil diupdate'], 200);
+        } catch (\Exception $e) {
+            // Log jika terjadi error lain
+            Log::error("Update UserAlumni gagal: {$e->getMessage()}", [
+                'id' => $id,
+                'data' => $model,
+                'trace' => $e->getTraceAsString(),
+            ]);
+
+            return response()->json(['message' => 'Terjadi kesalahan saat update'], 500);
+        }
     }
 
     /**
